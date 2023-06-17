@@ -1,0 +1,18 @@
+{
+    "name": "hp/dt-apps-scrapper",
+    "description": "DT Apps Scrapper Plugin",
+    "type": "project",
+    "license": "GPT",
+    "authors": [
+        {
+            "name": "DT"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "7.5.x-dev"
+    },
+    "autoload": {
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}

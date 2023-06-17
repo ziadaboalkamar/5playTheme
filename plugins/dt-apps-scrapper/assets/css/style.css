@@ -1,0 +1,474 @@
+.dt-lg-12 {
+    width: 100%;
+}
+
+.dt-lg-8{
+    width: 80%;
+}
+
+.dt_container {
+    /* border: 1px solid #8080802b; */
+    /* border-radius: 9px; */
+    padding: 18px 10px;
+    padding-bottom: 16px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+.dt-lg-6{
+    width: 60%;
+}
+.dt-col-auto{
+flex:0 0 auto;width:auto
+}
+.dt-lg-3.table_dt_list {
+    width: 25%;
+}
+.dt-row-scrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-tabs{
+float:left;
+width:100%;
+margin:0;
+list-style-type:none;
+border-bottom:1px solid transparent}
+.nav-tabs>li{
+    float:left;
+    margin-bottom:-1px}
+ .nav-tabs>li>a{
+    margin-right:2px;
+    line-height:1.5;
+    padding:10px;
+    border:1px solid transparent;
+    border-radius:4px 4px 0 0;
+    float:left;
+    text-decoration:none}
+    .nav-tabs>li>a:hover{border-color:#eee #eee #ddd}
+    .nav-tabs>li.active>a,.nav-tabs>li.active>a:hover,.nav-tabs>li.active>a:focus{
+        color:#555;
+        cursor:default;
+        background-color:#fff;
+        border-color:transparent}.tab-content>.tab-pane{float:left;width:100%;display:none}
+    .tab-content>.tab-pane.active{display:block;
+        padding:10px;
+        background-color:#fff;
+        -webkit-box-shadow:0 5px 4px -2px rgba(0,0,0,0.15);
+        box-shadow:0 5px 4px -2px rgba(0,0,0,0.15)}
+
+
+        button.submit_button {
+            color: #fff;
+            background-color: #2271b1;
+            padding: 7px;
+            font-size: larger;
+            margin: 29px;
+        }
+
+.tab-content>.tab-pane.active.form {
+    width: 100%;/*195px;*/
+    padding-left: 55px;
+    padding-right: 84px;
+    margin-left: 38px;
+}
+h2.tab-pane.active {
+    margin-inline: -30px;
+    border-bottom: solid 1px rgba(0,0,0,.1);
+    padding-bottom: 10px;
+}
+h1.tab {
+    font-weight: bold;
+    padding-left: 45px;
+}
+#appsTable select {
+    width: 264px !important;
+}
+.app_name{
+    text-decoration: none;
+    color: black;
+
+}
+
+
+
+
+
+/*# sourceMappingURL=mystyle.css.map */
+
+body{
+    margin-top:20px;
+    /*background:#FAFAFA;*/
+}
+.order-card {
+    color: #fff;
+}
+
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+
+.bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+    padding: 25px;
+}
+
+.order-card i {
+    font-size: 33px;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+.dashboard .card-block span{
+    float: right;
+}
+
+.dashboard .card-block h6{
+    font-size: 21px;
+    font-weight: bold;
+}
+.dashboard .card-block .date{
+    font-size: 17px;
+}
+
+
+.card:hover{
+    background: white !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+    border: none !important;
+    border-left: 10px solid var(--dt_hover_line_primary_color) !important;
+}
+.card:hover .card-block h6,.card:hover i , .card:hover {
+    color: #00000091;
+}
+
+li#toplevel_page_dt-apps-Scrapper>ul>li:nth-child(8)>a{
+    display: none;
+}
+#project{
+    width: 100%;
+    height: 36px;
+    border-color: #80808070;
+    border-radius: 5px;
+}
+
+
+/*start loader in app*/
+
+.smiley {
+    width: 8em;
+    height: 8em;
+}
+.smiley__eye1,
+.smiley__eye2,
+.smiley__mouth1,
+.smiley__mouth2 {
+    animation: eye1 3s ease-in-out infinite;
+}
+.smiley__eye1,
+.smiley__eye2 {
+    transform-origin: 64px 64px;
+}
+.smiley__eye2 {
+    animation-name: eye2;
+}
+.smiley__mouth1 {
+    animation-name: mouth1;
+}
+.smiley__mouth2 {
+    animation-name: mouth2;
+    visibility: hidden;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue),90%,10%);
+        --fg: hsl(var(--hue),90%,90%);
+    }
+}
+
+/* Animations */
+@keyframes eye1 {
+    from {
+        transform: rotate(-260deg) translate(0,-56px);
+    }
+    50%,
+    60% {
+        animation-timing-function: cubic-bezier(0.17,0,0.58,1);
+        transform: rotate(-40deg) translate(0,-56px) scale(1);
+    }
+    to {
+        transform: rotate(225deg) translate(0,-56px) scale(0.35);
+    }
+}
+@keyframes eye2 {
+    from {
+        transform: rotate(-260deg) translate(0,-56px);
+    }
+    50% {
+        transform: rotate(40deg) translate(0,-56px) rotate(-40deg) scale(1);
+    }
+    52.5% {
+        transform: rotate(40deg) translate(0,-56px) rotate(-40deg) scale(1,0);
+    }
+    55%,
+    70% {
+        animation-timing-function: cubic-bezier(0,0,0.28,1);
+        transform: rotate(40deg) translate(0,-56px) rotate(-40deg) scale(1);
+    }
+    to {
+        transform: rotate(150deg) translate(0,-56px) scale(0.4);
+    }
+}
+@keyframes eyeBlink {
+    from,
+    25%,
+    75%,
+    to {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+}
+@keyframes mouth1 {
+    from {
+        animation-timing-function: ease-in;
+        stroke-dasharray: 0 351.86;
+        stroke-dashoffset: 0;
+    }
+    25% {
+        animation-timing-function: ease-out;
+        stroke-dasharray: 175.93 351.86;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        animation-timing-function: steps(1,start);
+        stroke-dasharray: 175.93 351.86;
+        stroke-dashoffset: -175.93;
+        visibility: visible;
+    }
+    75%,
+    to {
+        visibility: hidden;
+    }
+}
+@keyframes mouth2 {
+    from {
+        animation-timing-function: steps(1,end);
+        visibility: hidden;
+    }
+    50% {
+        animation-timing-function: ease-in-out;
+        visibility: visible;
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: -351.86;
+    }
+}
+.loader{
+    width: 100%;
+    z-index: 9999999999;
+    background: #0000001c;
+    position: absolute;
+    height: 100%;
+    display: none;
+}
+.loader svg{
+    position: absolute;
+    z-index: 99999999999;
+    right: 50%;
+    top: 20%;
+}
+
+
+
+/* Wobble To Bottom Right */
+@-webkit-keyframes hvr-wobble-to-bottom-right {
+    16.65% {
+        -webkit-transform: translate(8px, 8px);
+        transform: translate(8px, 8px);
+    }
+    33.3% {
+        -webkit-transform: translate(-6px, -6px);
+        transform: translate(-6px, -6px);
+    }
+    49.95% {
+        -webkit-transform: translate(4px, 4px);
+        transform: translate(4px, 4px);
+    }
+    66.6% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+    83.25% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+@keyframes hvr-wobble-to-bottom-right {
+    16.65% {
+        -webkit-transform: translate(8px, 8px);
+        transform: translate(8px, 8px);
+    }
+    33.3% {
+        -webkit-transform: translate(-6px, -6px);
+        transform: translate(-6px, -6px);
+    }
+    49.95% {
+        -webkit-transform: translate(4px, 4px);
+        transform: translate(4px, 4px);
+    }
+    66.6% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+    83.25% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+/*.hvr-wobble-to-bottom-right {*/
+/*    display: inline-block;*/
+/*    vertical-align: middle;*/
+/*    -webkit-transform: perspective(1px) translateZ(0);*/
+/*    transform: perspective(1px) translateZ(0);*/
+/*    box-shadow: 0 0 1px rgba(0, 0, 0, 0);*/
+/*}*/
+/*.hvr-wobble-to-bottom-right:hover, .hvr-wobble-to-bottom-right:focus, .hvr-wobble-to-bottom-right:active {*/
+/*    -webkit-animation-name: hvr-wobble-to-bottom-right;*/
+/*    animation-name: hvr-wobble-to-bottom-right;*/
+/*    -webkit-animation-duration: 1s;*/
+/*    animation-duration: 1s;*/
+/*    -webkit-animation-timing-function: ease-in-out;*/
+/*    animation-timing-function: ease-in-out;*/
+/*    -webkit-animation-iteration-count: 1;*/
+/*    animation-iteration-count: 1;*/
+/*}*/
+.old_version_table th{
+    background: var(--dt_table_primary_color) !important;
+    padding: 7px 17px;
+    color: white !important;
+    text-align: center;
+}
+.old_version_table tr td{
+    vertical-align: middle;
+}
+.not_hover:hover{
+    background: white !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+    border: none !important;
+    border-left: unset !important;
+}
+/*.btn-three {*/
+/*    color: #FFF;*/
+/*    transition: all 0.5s;*/
+/*    position: relative;*/
+/*}*/
+/*.btn-three::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 1;*/
+/*    background-color: rgba(255,255,255,0.1);*/
+/*    transition: all 0.3s;*/
+/*}*/
+/*.btn-three:hover::before {*/
+/*    opacity: 0 ;*/
+/*    transform: scale(0.5,0.5);*/
+/*}*/
+/*.btn-three::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 1;*/
+/*    opacity: 0;*/
+/*    transition: all 0.3s;*/
+/*    border: 1px solid rgba(255,255,255,0.5);*/
+/*    transform: scale(1.2,1.2);*/
+/*}*/
+/*.btn-three:hover::after {*/
+/*    opacity: 1;*/
+/*    transform: scale(1,1);*/
+/*}*/
+.old_version_table{
+    width: 100%;
+}
+a.android_button.btn.btn-primary:hover,a.dlink.btn.btn-three:hover{
+    background-color: white !important;
+    color: var(--dt_dw_button_primary_color) !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 2px solid var(--dt_dw_button_primary_color);
+
+}
+.btn-three:hover span{
+    animation: updown 1s ease .1s;
+
+}
+
+
+@keyframes updown {
+    0% {
+        transform: translateY(-20%);
+    }
+
+    50% {
+        transform: translateY(20%);
+    }
+
+    100% {
+        transform: translateY(-20%);
+    }
+}
+
+@media (max-width: 576px){
+    .dt-row-scrapper>* {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
