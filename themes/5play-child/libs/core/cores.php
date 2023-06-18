@@ -12,7 +12,7 @@
 /*  Of The DEVELOPERS
 /*  @EXTHEM.ES
 /*-----------------------------------------------------------------------------------*/ 
-function ex_themes_head_on_sections_() { 
+function ex_themes_head_on_sections_() {
 global $opt_themes;
 $blogname				= get_option("blogname");
 $siteurls				= get_option("siteurl");
@@ -22,7 +22,7 @@ $sitelangs				= get_bloginfo("language");
 echo '<!-- Theme Designer -->'.PHP_EOL;
 echo '<meta name="designer" content="'.EXTHEMES_AUTHOR.'" />'.PHP_EOL;
 echo '<meta name="themes" content="'.THEMES_NAMES.'" />'.PHP_EOL;
-echo '<meta name="version" content="'.VERSION.'" />'.PHP_EOL; 
+echo '<meta name="version" content="'.VERSION.'" />'.PHP_EOL;
 ?>
 <!-- Chrome, Firefox OS and Opera -->
 <meta content='<?php echo $opt_themes['color_svg'];?>' name='theme-color'/>
@@ -32,15 +32,15 @@ echo '<meta name="version" content="'.VERSION.'" />'.PHP_EOL;
 <!-- Styles for <?php echo EX_THEMES_NAMES_; ?> v<?php echo EXTHEMES_VERSION; ?> by <?php echo EXTHEMES_AUTHOR; ?> -->
 <?php get_template_part( '/assets/css/root.styles' ); ?>
 <?php get_template_part( '/assets/css/custom.styles' ); ?>
-<?php get_template_part( '/assets/css/main.style' ); ?> 
-<?php get_template_part( '/assets/css/mobile' ); ?> 
-<?php get_template_part( '/assets/css/top.styles' ); ?> 
-<?php get_template_part( '/assets/css/version.styles' ); ?> 
+<?php get_template_part( '/assets/css/main.style' ); ?>
+<?php get_template_part( '/assets/css/mobile' ); ?>
+<?php get_template_part( '/assets/css/top.styles' ); ?>
+<?php get_template_part( '/assets/css/version.styles' ); ?>
 <!-- Styles for <?php echo EX_THEMES_NAMES_; ?> v<?php echo EXTHEMES_VERSION; ?> by <?php echo EXTHEMES_AUTHOR; ?> -->
 <link rel="shortcut icon" href="<?php if($opt_themes['aktif_favicon']) { ?><?php echo $opt_themes['favicon']['url']; ?><?php } else { ?><?php echo EX_THEMES_URI; ?>/assets/img/logo_footer.png<?php } ?>" type="image/x-icon" />
 <style>label.c-muted { color: currentColor ; }</style>
-<?php 
-if ( is_user_logged_in() ) {  
+<?php
+if ( is_user_logged_in() ) {
 } else {
    echo '<style>#wpadminbars {display: none;}</style>';
 }
@@ -76,22 +76,22 @@ if ( is_user_logged_in() ) {
 </style>
 
 <!--<link href="<?php echo EX_THEMES_URI; ?>/assets/css/short.styles.css" type="text/css" rel="stylesheet" />-->
-<?php } 
+<?php }
 echo '<!-- '.PHP_EOL.'- '.$siteurls.' using '.THEMES_NAMES.' '.SPACES_THEMES.''.VERSION.' '.PHP_EOL.'- Buy now on '.EXTHEMES_ITEMS_URL.' '.PHP_EOL.'- Designer and Developer by '.DEVS.' '.PHP_EOL.'- More Premium Themes Visit Now On '.EXTHEMES_API_URL.' '.PHP_EOL.'-->'.PHP_EOL; }
 add_shortcode('ex_themes_head_on_sections_', 'ex_themes_head_on_sections_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function ex_themes_logo_headers_() { 
+function ex_themes_logo_headers_() {
 global $opt_themes;
 if($opt_themes['ex_themes_logo_headers_active_']) { ?>
 <img src="<?php echo $opt_themes['header_logo']['url']; ?>" alt="<?php echo get_option("blogname") ?>" width="104" height="36" />
 <?php } else { ?>
 <img src='<?php echo EX_THEMES_URI; ?>/assets/img/logos.png' alt="<?php echo get_option("blogname") ?>" width="104" height="36" />
-<?php } 
+<?php }
 }
 add_shortcode('ex_themes_logo_headers_', 'ex_themes_logo_headers_');
-// ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\  
+// ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_footer_on_sections_() {
-if ( is_user_logged_in() ) {    
+if ( is_user_logged_in() ) {
 } else {
 ex_themes_login_form_();
 }
@@ -100,32 +100,32 @@ ex_themes_background_st_1_();
 if (is_single()) {
 ex_themes_background_st_2_();
 }
-?> 
+?>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>		
+    <defs>
         <symbol id="i__icons_facebook" width="40" height="40" viewBox="0 0 40 40">
             <path fill="var(--color_sosmed_icon)" d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"></path>
-        </symbol>		
+        </symbol>
         <symbol id="i__icons_twitter" width="40" height="40"  viewBox="0 0 40 40">
             <path fill="var(--color_sosmed_icon)" d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path>
-        </symbol>		
+        </symbol>
         <symbol id="i__icons_instagram" width="40" height="40"  viewBox="0 0 40 40">
             <path fill="var(--color_sosmed_icon)" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path>
-        </symbol>		
+        </symbol>
         <symbol id="i__icons_youtube" width="40" height="40"  viewBox="0 0 40 40">
             <path fill="var(--color_sosmed_icon)" d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"></path>
-        </symbol>		
+        </symbol>
         <symbol id="i__icons_telegram" width="40" height="40"  viewBox="0 0 40 40">
             <path fill="var(--color_sosmed_icon)" d="M23.91 3.79L20.3 20.84c-.25 1.21-.98 1.5-2 .94l-5.5-4.07-2.66 2.57c-.3.3-.55.56-1.1.56-.72 0-.6-.27-.84-.95L6.3 13.7l-5.45-1.7c-1.18-.35-1.19-1.16.26-1.75l21.26-8.2c.97-.43 1.9.24 1.53 1.73z"></path>
         </symbol>
-        
+
     </defs>
 </svg>
 <?php }
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_copyright_() {
 global $opt_themes;
-if($opt_themes['ex_themes_footers_copyrights_active_']) { 
+if($opt_themes['ex_themes_footers_copyrights_active_']) {
     echo $opt_themes['ex_themes_footers_copyrights_code_'];
 } else { ?>
 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_option("blogname") ?></a> - <a href="<?php echo EXTHEMES_ITEMS_URL; ?>" title="Using Themes <?php echo THEMES_NAMES; ?>.v<?php echo VERSION; ?> Premium by <?php echo DEVS; ?>"><?php echo THEMES_NAMES; ?>.v<?php echo VERSION; ?></a> © <script type="text/javascript">var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> All rights reserved - Developer by <a href="<?php echo EXTHEMES_API_URL; ?>" title="Premium Wordpress Themes - <?php echo DEVS; ?>"><?php echo DEVS; ?></a>
@@ -134,13 +134,13 @@ if($opt_themes['ex_themes_footers_copyrights_active_']) {
 add_shortcode('ex_themes_footer_on_sections_', 'ex_themes_footer_on_sections_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_footers_social_media_() {
-global $opt_themes; 
-$linkXhost          = get_bloginfo('url'); 
-$parse              = parse_url($linkXhost); 
-$sites              = $parse['host']; 
-?> 
+global $opt_themes;
+$linkXhost          = get_bloginfo('url');
+$parse              = parse_url($linkXhost);
+$sites              = $parse['host'];
+?>
         <?php if($opt_themes['facebook_url']) { ?><a href="<?php echo $opt_themes['facebook_url']; ?>" rel="nofollow noreferrer" target="_blank" title="Follow <?php echo $sites; ?> on Facebook" aria-label="Facebook" ><svg width="30" height="30"><use xlink:href="#i__icons_facebook"></use></svg></a>
-        <?php } 
+        <?php }
         if($opt_themes['twitter_url']) { ?><a href="<?php echo $opt_themes['twitter_url']; ?>" rel="nofollow noreferrer" target="_blank" title="Follow <?php echo $sites; ?> on Twitter" aria-label="Twitter"><svg width="30" height="30"><use xlink:href="#i__icons_twitter"></use></svg></a>
         <?php }
         if($opt_themes['instagram_url']) { ?><a href="<?php echo $opt_themes['instagram_url']; ?>" rel="nofollow noreferrer" target="_blank" title="Follow <?php echo $sites; ?> on Instagram" aria-label="Instagram"><svg width="30" height="30"><use xlink:href="#i__icons_instagram"></use></svg></a>
@@ -149,20 +149,20 @@ $sites              = $parse['host'];
         <?php }
         if($opt_themes['telegram_url']) { ?><a href="<?php echo $opt_themes['telegram_url']; ?>" rel="nofollow noreferrer" target="_blank" title="Follow <?php echo $sites; ?> on Telegram" aria-label="Telegram"><svg width="30" height="30"><use xlink:href="#i__icons_telegram"></use></svg></a>
         <?php } ?>
-  
-<?php } 
+
+<?php }
 add_shortcode('ex_themes_footers_social_media_', 'ex_themes_footers_social_media_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function ex_themes_related_posts_() { 
+function ex_themes_related_posts_() {
 	global $opt_themes, $wpdb, $post, $wp_query;
     $activate           = $opt_themes['ex_themes_related_posts_active_'];
     $numbers            = $opt_themes['ex_themes_related_posts_numbers_'];
     $titles             = $opt_themes['ex_themes_related_posts_title_'];
 	$developer_terms    = get_the_terms( $post->ID , 'developer', 'string');
 	$term_ids           = wp_list_pluck($developer_terms,'term_id');
-	$developer_terms    = get_the_terms( $post->ID , 'developer', 'string'); 
+	$developer_terms    = get_the_terms( $post->ID , 'developer', 'string');
 	$term_ids           = wp_list_pluck($developer_terms,'term_id');
-	$paged_categorie_apps = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+	$paged_categorie_apps = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$developer_query = new WP_Query( array(
 		'post_type' => 'post',
 		'tax_query' => array(
@@ -177,7 +177,7 @@ function ex_themes_related_posts_() {
 			'ignore_sticky_posts' => 1,
 			'orderby' => 'rand',
 			'post__not_in'=>array($post->ID)
-		) ); 
+		) );
 	if($developer_query->have_posts()){ ?>
 	<section class="wrp section section-related">
             <div class="section-head">
@@ -193,15 +193,15 @@ function ex_themes_related_posts_() {
                    }
                    echo join( ', ', $output );	}
                 ?>
-            </div> 
-	<div class="entry-list list-c6"> 		
-	<?php while($developer_query->have_posts() ) : $developer_query->the_post();  ?>	
-	<?php get_template_part('template/loop/loop.item.home'); ?>	
+            </div>
+	<div class="entry-list list-c6">
+	<?php while($developer_query->have_posts() ) : $developer_query->the_post();  ?>
+	<?php get_template_part('template/loop/loop.item.home'); ?>
 	<?php endwhile; wp_reset_query(); }  ?>
 	</div>
 	</section>
-    <?php //if (($activate == '1'))    
-    if($activate) { 
+    <?php //if (($activate == '1'))
+    if($activate) {
 	$categories = get_the_category($post->ID);
 	if ($categories) {
 	$category_ids = array();
@@ -212,9 +212,9 @@ function ex_themes_related_posts_() {
 			'post__not_in' => array($post->ID),
 			'posts_per_page'=> $numbers, // Number of related posts that will be shown.
 			'caller_get_posts'=> 1
-			);			
+			);
 	$my_query = new WP_Query( $args );
-	if( $my_query->have_posts() ) {				
+	if( $my_query->have_posts() ) {
 	?>
         <section class="wrp section section-related">
             <div class="section-head">
@@ -223,7 +223,7 @@ function ex_themes_related_posts_() {
                 $category = get_the_category();
                 echo '<a class="btn s-green btn-all" href="'.get_category_link($category[0]->cat_ID).'"><span>All ' . $category[0]->cat_name . '</span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>';
 				?>
-                 
+
             </div>
             <div class="entry-list list-c6">
                 <?php
@@ -231,65 +231,38 @@ function ex_themes_related_posts_() {
 				while ($my_query->have_posts()) : $my_query->the_post();
 				get_template_part('template/loop/loop.item.home');
 				endwhile; } wp_reset_query();
-                } 
+                }
 				?>
             </div>
         </section>
     <?php } } else { ?>
     <?php } ?>
-<?php } 
+<?php }
 add_shortcode('ex_themes_related_posts_', 'ex_themes_related_posts_');
 
 function ex_themes_version_() {
-global $opt_themes, $wpdb, $post, $wp_query;
-$latest_version_on			= $opt_themes['activated_latest_version'];  
-$search						= get_post_meta( $post->ID, 'wp_title_GP', true );
-$search						= preg_replace('/[^A-Za-z0-9\-]/', ' ', $search);
-$wp_gp_id					= get_post_meta( $post->ID, 'wp_GP_ID', true );
-$DT_package                 = get_package($post->ID);
-if ($DT_package && $DT_package!= ""){
-    $wp_gp_id = $DT_package;
-}
-
+    global $opt_themes, $wpdb, $post, $wp_query;
+    $latest_version_on			= $opt_themes['activated_latest_version'];
+    $search						= get_post_meta( $post->ID, 'wp_title_GP', true );
+    $search						= preg_replace('/[^A-Za-z0-9\-]/', ' ', $search);
+    $wp_gp_id					= get_post_meta( $post->ID, 'wp_GP_ID', true );
 //$search					= str_replace(array(':','-'), '', $search);
-$version_gp					= get_post_meta( $post->ID, 'wp_version_GP', true );
-$version_sc					= get_post_meta( get_the_ID(), 'wp_version', true );				
+    $version_gp					= get_post_meta( $post->ID, 'wp_version_GP', true );
+    $version_sc					= get_post_meta( get_the_ID(), 'wp_version', true );
 //if ( $version_gp === FALSE or $version_gp == '' ) $version_gp = $version_sc;
-$appname_on					= $opt_themes['title_app_name_active_'];
-$title						= get_post_meta( $post->ID, 'wp_title_GP', true );
-$title_alt					= get_the_title(); 
-if ($latest_version_on) { if($wp_gp_id){ 
-?>
-<div class="block ">
-<div class="box_download box_shadow">  
-<div class="b-head">
-<h3 class="section-title fbold"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i> <?php echo $opt_themes['title_latest_version']; ?></h3>
-</div>
-<div class="version_history">
-<?php
-$files = get_old_version_file($post->ID);
-if(isset($files["files"]) && count($files["files"]) > 0){
-foreach ($files["files"] as $file){
-    if ($file["version"] != null){
-        $version = $file["version"];
-    }else{
-        $version ="";
-    }
-    $link = $files["api_url"].'/'.$file["file"];
-    ?>
-    <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $link ?>&names=<?php echo $file["file_name"];  ?> (<?php echo $version;?>)" class="download-line s-button" target="_blank">
-        <div class="download-line-title">
-            <i><svg width="24" height="24"><use xlink:href="#i__getapp"/></svg></i>
-            <span><?php echo $file["file_name"]; ?>(<?php echo $version;?>)</span>
-        </div>
-        <span class="download-line-size">
-	<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?>
-        <?php  echo $opt_themes['exthemes_apk_info_Download']; ?>
-    <?php } ?> - <?php echo $file["size"];  ?>
-	</span>
-    </a>
-<?php }}else{
-$arg_version = array(
+    $appname_on					= $opt_themes['title_app_name_active_'];
+    $title						= get_post_meta( $post->ID, 'wp_title_GP', true );
+    $title_alt					= get_the_title();
+    if ($latest_version_on) { if($wp_gp_id){
+        ?>
+        <div class="block ">
+            <div class="box_download box_shadow">
+                <div class="b-head">
+                    <h3 class="section-title fbold"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i> <?php echo $opt_themes['title_latest_version']; ?></h3>
+                </div>
+                <div class="version_history">
+                    <?php
+                    $arg_version = array(
                         'post_type'			=> 'post',
                         'posts_per_page'	=> -1,
                         'meta_key'			=> 'wp_GP_ID',
@@ -301,79 +274,77 @@ $arg_version = array(
                     while($post_version->have_posts() ) : $post_version->the_post();
                         ?>
 
-    <?php
-    $image_id_alt					= get_post_thumbnail_id($post->ID);
-    $image_idx						= get_post_thumbnail_id();
-    $fullx							= 'post_thumb_version';
-    $image_urlx						= wp_get_attachment_image_src($image_idx, $fullx, true);
-    $imagex							= $image_urlx[0];
-    $version_gp			    		= get_post_meta( $post->ID, 'wp_version_GP', true );
-    $version_sc		    			= get_post_meta( get_the_ID(), 'wp_version', true );
-    //if ( $version_gp === FALSE or $version_gp == '' ) $version_gp = $version_sc;
-    $mods							= get_post_meta( get_the_ID(), 'wp_mods', true );
-    $updates						= get_the_modified_time('F j, Y');
-    $search							= get_post_meta( $post->ID, 'wp_title_GP', true );
-    $sizes							= get_post_meta( $post->ID, 'wp_sizes', true );
-    $sizes_alt						= get_post_meta( $post->ID, 'wp_sizes_GP', true );
-    if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizes_alt;
-    $appname_on				    	= $opt_themes['title_app_name_active_'];
-    $title					    	= get_post_meta( $post->ID, 'wp_title_GP', true );
-    $title_alt				    	= get_the_title();
-    $poster_gp						= get_post_meta( $post->ID, 'wp_poster_GP', true );
+                        <?php
+                        $image_id_alt					= get_post_thumbnail_id($post->ID);
+                        $image_idx						= get_post_thumbnail_id();
+                        $fullx							= 'post_thumb_version';
+                        $image_urlx						= wp_get_attachment_image_src($image_idx, $fullx, true);
+                        $imagex							= $image_urlx[0];
+                        $version_gp			    		= get_post_meta( $post->ID, 'wp_version_GP', true );
+                        $version_sc		    			= get_post_meta( get_the_ID(), 'wp_version', true );
+                        //if ( $version_gp === FALSE or $version_gp == '' ) $version_gp = $version_sc;
+                        $mods							= get_post_meta( get_the_ID(), 'wp_mods', true );
+                        $updates						= get_the_modified_time('F j, Y');
+                        $search							= get_post_meta( $post->ID, 'wp_title_GP', true );
+                        $sizes							= get_post_meta( $post->ID, 'wp_sizes', true );
+                        $sizes_alt						= get_post_meta( $post->ID, 'wp_sizes_GP', true );
+                        if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizes_alt;
+                        $appname_on				    	= $opt_themes['title_app_name_active_'];
+                        $title					    	= get_post_meta( $post->ID, 'wp_title_GP', true );
+                        $title_alt				    	= get_the_title();
+                        $poster_gp						= get_post_meta( $post->ID, 'wp_poster_GP', true );
 
-    ?>
-    <div class="list">
-        <div class="package_info open_info">
-            <img src="<?php if($poster_gp){ echo $poster_gp; } else { echo $imagex; } ?>" class="icon " alt="<?php if ($title) { if($opt_themes['title_app_name_active_']) { echo ucwords($title); } else { echo $title_alt; } } else { echo $title_alt; } ?>" width="50" height="50">
-            <div class="title">
-                <span class="name"><?php if ($title) { echo ucwords($title); } ?></span>
-                <span class="version"><?php echo $version_gp; ?></span>
-                <span class="<?php if($mods){ ?>mod<?php } else { ?>apk<?php } ?>"><?php if($mods){ ?><?php echo $opt_themes['title_version_mod']; ?><?php } else { ?><?php echo $opt_themes['title_version_apk']; ?><?php } ?></span>
-            </div>
-            <div class="text">
-                <span><?php echo the_modified_time('F j, Y '); ?></span>
-                <?php if($sizes){ ?><span><?php echo $sizes; ?></span><?php } ?>
-            </div>
-        </div>
-        <?php if($mods){ ?>
-            <div class="info-fix">
-                <div class="info_box">
-                    <p><strong><?php echo $opt_themes['exthemes_content_Mod_info']; ?></strong></p>
-                    <div class="whats_new"><?php echo $mods; ?></div>
+                        ?>
+                        <div class="list">
+                            <div class="package_info open_info">
+                                <img src="<?php if($poster_gp){ echo $poster_gp; } else { echo $imagex; } ?>" class="icon " alt="<?php if ($title) { if($opt_themes['title_app_name_active_']) { echo ucwords($title); } else { echo $title_alt; } } else { echo $title_alt; } ?>" width="50" height="50">
+                                <div class="title">
+                                    <span class="name"><?php if ($title) { echo ucwords($title); } ?></span>
+                                    <span class="version"><?php echo $version_gp; ?></span>
+                                    <span class="<?php if($mods){ ?>mod<?php } else { ?>apk<?php } ?>"><?php if($mods){ ?><?php echo $opt_themes['title_version_mod']; ?><?php } else { ?><?php echo $opt_themes['title_version_apk']; ?><?php } ?></span>
+                                </div>
+                                <div class="text">
+                                    <span><?php echo the_modified_time('F j, Y '); ?></span>
+                                    <?php if($sizes){ ?><span><?php echo $sizes; ?></span><?php } ?>
+                                </div>
+                            </div>
+                            <?php if($mods){ ?>
+                                <div class="info-fix">
+                                    <div class="info_box">
+                                        <p><strong><?php echo $opt_themes['exthemes_content_Mod_info']; ?></strong></p>
+                                        <div class="whats_new"><?php echo $mods; ?></div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                            <div class="v_h_button button_down ">
+                                <a class="down" href="<?php the_permalink() ?>"><span><?php echo $opt_themes['exthemes_apk_info_Download'] ?></span></a>
+                            </div>
+                        </div>
+                    <?php endwhile; wp_reset_query(); ?>
                 </div>
             </div>
-        <?php } ?>
-        <div class="v_h_button button_down ">
-            <a class="down" href="<?php the_permalink() ?>"><span><?php echo $opt_themes['exthemes_apk_info_Download'] ?></span></a>
         </div>
-    </div>
-    <?php endwhile; wp_reset_query(); ?>
-<?php } ?>
 
-</div> 
-</div> 
-</div>
 
- 
 
-<script id="rendered-js" >
-$(function() {
-  $(".open_info").on("click", function(e) {
-    e.preventDefault();
-    $('.info_box').removeClass('show');
-    $(this).parent().addClass('show');
-    var content = $(this).closest("div").next().find(".info_box");
-    $(".info_box").not(content).slideUp();
-    content.slideToggle();
-  });
-});
-</script>
-<?php }   }}
+        <script id="rendered-js" >
+            $(function() {
+                $(".open_info").on("click", function(e) {
+                    e.preventDefault();
+                    $('.info_box').removeClass('show');
+                    $(this).parent().addClass('show');
+                    var content = $(this).closest("div").next().find(".info_box");
+                    $(".info_box").not(content).slideUp();
+                    content.slideToggle();
+                });
+            });
+        </script>
+    <?php }   }}
 add_shortcode('ex_themes_version_', 'ex_themes_version_');
 
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function ex_themes_gallery_images_gpstore_() { 
-global $wpdb, $post, $opt_themes; 
+function ex_themes_gallery_images_gpstore_() {
+global $wpdb, $post, $opt_themes;
 $gallery            = get_post_meta( $post->ID, 'gallery_data', true );
 $images_GP          = get_post_meta(get_the_ID(), 'wp_images_GP', true);
 if ( $gallery === FALSE or $gallery == '' ) $gallery = $images_GP;
@@ -387,7 +358,7 @@ if ($gallery) {
         <div class="b-cont">
             <div class="screenshots">
                 <?php
-                global $wpdb, $post, $opt_themes; 
+                global $wpdb, $post, $opt_themes;
                 $gallery_data       = get_post_meta( $post->ID, 'gallery_data', true );
                 if ($gallery_data) { ?>
                     <?php
@@ -421,7 +392,7 @@ if ($gallery) {
             </div>
         </div>
     </div>
-<?php }} 
+<?php }}
 add_shortcode('ex_themes_gallery_images_gpstore_', 'ex_themes_gallery_images_gpstore_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_homes_search_() { ?>
@@ -438,7 +409,7 @@ function ex_themes_homes_search_() { ?>
 <?php }
 add_shortcode('ex_themes_homes_search_', 'ex_themes_homes_search_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function ex_themes_homes_titles_() { 
+function ex_themes_homes_titles_() {
 global $opt_themes;
     if($opt_themes['ex_themes_homes_titles_']) { ?>
         <h1 class="atitle has-text-centered"><?php echo $opt_themes['ex_themes_homes_titles_']; ?></h1>
@@ -449,10 +420,10 @@ global $opt_themes;
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 add_shortcode('ex_themes_homes_titles_', 'ex_themes_homes_titles_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function ex_themes_background_st_1_() { 
-    $linkXhost          = get_bloginfo('url'); 
-    $parse              = parse_url($linkXhost); 
-    $watermark1         = $parse['host']; 
+function ex_themes_background_st_1_() {
+    $linkXhost          = get_bloginfo('url');
+    $parse              = parse_url($linkXhost);
+    $watermark1         = $parse['host'];
     ?>
     <div class="background bg-style-1">
     <i class="bg-circle-purple"></i>
@@ -541,13 +512,13 @@ function ex_themes_background_st_1_() {
 <script>
 $(document).ready((function(){$("html").removeClass("load")})),$((function(){$(".dropdown-form").click((function(o){o.stopPropagation()})),$(".social-links a").on("click",(function(){var o=$(this).attr("href"),t=(screen.width-820)/2,n=(screen.height-420)/2-100;return auth_window=window.open(o,"auth_window","width=820,height=420,top="+n+",left="+t+"menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no"),!1})),$(".q-search-call").on("click",(function(){return $(".q-search").toggleClass("open"),setTimeout((function(){$(".header").toggleClass("qs")}),50),!1})),$(".scrollup").click((function(){return $("html, body").animate({scrollTop:0},"fast"),!1}));var o=$("html, body");$("a.anchor").click((function(){var t=$.attr(this,"href");return o.animate({scrollTop:$(t).offset().top},500),!1})),$(".menu-toggle").on("click",(function(){return $("#mobilemenu").toggleClass("open"),setTimeout((function(){$("html").toggleClass("mm")}),50),!1}))}));
 </script>
-<?php } 
+<?php }
 add_shortcode('ex_themes_background_st_1_', 'ex_themes_background_st_1_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_background_st_2_() { ?>
-    <?php 
-    $linkXhost = get_bloginfo('url'); 
-    $parse = parse_url($linkXhost); 
+    <?php
+    $linkXhost = get_bloginfo('url');
+    $parse = parse_url($linkXhost);
     $watermark1 = $parse['host'];
     ?>
     <div class="background bg-style-2">
@@ -672,13 +643,13 @@ function ex_themes_background_st_2_() { ?>
         jQuery(function($){hs.graphicsDir='<?php echo EX_THEMES_URI; ?>/assets/highslide/graphics/';hs.wrapperClassName='rounded-white';hs.outlineType='rounded-white';hs.numberOfImagesToPreload=0;hs.captionEval='this.thumb.alt';hs.showCredits=false;hs.align='center';hs.transitions=['expand','crossfade'];hs.dimmingOpacity=0.60;hs.lang={loadingText:'Loading...',playTitle:'Watch slideshow (space) ',pauseTitle:'Pause',previousTitle:'Previous image',nextTitle:'Next Image',moveTitle:'Move',closeTitle:'Close (Esc)',fullExpandTitle:'Enlarge to full size',restoreTitle:'Click to close image. Click and hold to move.',focusTitle:'Focus',loadingTitle:'Click to cancel'};hs.slideshowGroup='fullnews';hs.addSlideshow({slideshowGroup:'fullnews',interval:4000,repeat:false,useControls:true,fixedControls:'fit',overlayOptions:{opacity:.75,position:'bottom center',hideOnMouseOut:true}});});
         //-->
     </script>
- <?php }  
+ <?php }
 add_shortcode('ex_themes_background_st_2_', 'ex_themes_background_st_2_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_login_form_() { ?>
-    <?php 
-    $linkXhost          = get_bloginfo('url'); 
-    $parse              = parse_url($linkXhost); 
+    <?php
+    $linkXhost          = get_bloginfo('url');
+    $parse              = parse_url($linkXhost);
     $watermark1         = $parse['host'];
     ?>
     </div>
@@ -729,7 +700,7 @@ if ($maintenances_on) {
 ?>
 
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-  
+
 <style>
 <!-- :root{--background: rgba(255,255,255, 0.9);--background_versi: firebrick;--background_developers: black;--box_shadow: rgba(0,0,0,.28);}--> div.fix-notif a{text-transform:capitalize;color:currentColor}div.fix-notif a:hover,a.close-fixed:hover{color:var(--color_button)}.fix-notif{background:var(--background);position:fixed;bottom:90px;right:35px;z-index:99;border-radius:7px;padding:15px;box-shadow:0 1px 6px var(--box_shadow);font-size:14px;font-weight:bold;animation-name:fromleft;animation-duration:4s}.fix-notif b{background:var(--background_versi);font-size:13px;padding:5px 8px;border-radius:5px;color:#fff;margin-right:5px}.fix-notif.developers{bottom:35px;animation-duration:6s}.fix-notif.developers b{background:var(--background_developers)}.close-fixed{position:fixed;z-index:99;background:var(--background);padding:3px 7px;border-radius:100%;box-shadow:0 1px 6px rgba(32,33,36,.28);right:5px;bottom:75px;animation-name:closeleft;animation-duration:5s}.fix-notif.hidden,.close-fixed.hidden{display:none}@keyframes fromleft{0%{right:-300px}100%{right:35px}}@keyframes closeleft{0%{right:-300px}100%{right:5px}}
 </style>
@@ -741,7 +712,7 @@ if ($maintenances_on) {
   <a href='<?php echo EXTHEMES_API_URL; ?>' title='<?php echo DEVS; ?>' target='_blank'><b><?php echo DEVS; ?></b> Themes Premium Wordpress </a>
 </div>
 <a class='close-fixed' href='javascript:void' aria-label="close"><i class='fa fa-close'></i></a>
-  
+
 <script id="rendered-js" >
 $(document).ready(function () {$(".close-fixed").click(function () {$(".fix-notif,.close-fixed").toggleClass("hidden");});});
 </script>

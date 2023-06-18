@@ -105,7 +105,6 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 				if ($terms) {
 				$output = array();
 				foreach ($terms as $term) {
-                    print_r($term["name"]);
                 $output[] = '<span class="spec-cont"><a href="" title="Developer by  ' .$term->name .'">' .$term->name .'</a></span>';
 				}
 				echo join( ', ', $output );	}
