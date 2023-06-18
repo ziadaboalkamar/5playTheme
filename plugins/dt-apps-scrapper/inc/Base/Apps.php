@@ -501,6 +501,24 @@ class Apps extends BaseController {
                                             }catch (\Exception $exception) {
                                                 my_plugin_log('Error' . $exception->getMessage());
                                             }
+                                        }elseif (trim($key) == "screenshots"){
+                                            try {
+
+                                                $screenshot = self::redesign_the_screenshot($value);
+                                                if ($screenshot){
+                                                    $wpdb->update($table_meta_app, array(
+                                                        'value' => json_encode($screenshot)
+                                                    ), array(
+                                                        'app_id' => $app_data_id,
+                                                        'key' => $key
+                                                    ));
+                                                }
+
+
+
+                                            }catch (\Exception $exception) {
+                                                my_plugin_log('Error' . $exception->getMessage());
+                                            }
                                         }else{
 
                                             $wpdb->update($table_meta_app, array(
@@ -565,6 +583,26 @@ class Apps extends BaseController {
                                                         'app_id' => $app_data_id,
                                                         'key' => $key,
                                                         'value' => $value
+                                                    ));
+                                                }
+
+
+
+                                            }catch (\Exception $exception) {
+                                                my_plugin_log('Error' . $exception->getMessage());
+                                            }
+                                        }elseif (trim($key) == "screenshots"){
+                                            try {
+
+                                                $screenshot = Apps::redesign_the_screenshot($value);
+                                                my_plugin_log('Error' .  $value);
+
+                                                if ($screenshot){
+
+                                                    $wpdb->insert($table_meta_app, array(
+                                                        'app_id' => $app_data_id,
+                                                        'key' => $key,
+                                                        'value' => json_encode($screenshot)
                                                     ));
                                                 }
 
@@ -923,7 +961,24 @@ class Apps extends BaseController {
         wp_update_post($post);
 
     }
+    public static function redesign_the_screenshot($value){
 
+        $htmlCode = $value; // Replace with the HTML code you want to extract the links from
+
+// Regular expression pattern to match the image URLs
+        $pattern = '/<img[^>]+src="([^">]+)"/';
+
+// Perform the regular expression match
+        preg_match_all($pattern, $htmlCode, $matches);
+
+// Extract the matched URLs from the regex matches and store them in an array
+        $imageURLs = $matches[1];
+
+// Print the extracted image URLs
+     return $imageURLs ;
+
+
+    }
 
 
 }
