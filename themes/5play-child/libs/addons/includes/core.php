@@ -163,14 +163,7 @@ function ex_themes_apk_details_() {
     $namedownloadlink2			= get_post_meta( $post->ID, 'wp_namedownloadlink2', true );
     if ( $namedownloadlink === FALSE or $namedownloadlink == '' ) $namedownloadlink = $namedownloadlink2;
     $judul						= get_post_meta( $post->ID, 'wp_title_GP',  true );
-//    if(!$judul) $judul			= ' ';
-    $judul_dt				  = get_key_option( $post->ID, 'name');
-    if ($judul_dt && $judul_dt != ""){
-        $judul = $judul_dt;
-    }else{
-        if ( $judul === FALSE or $judul == '' ) $judul = $judul;
-    }
-
+    if(!$judul) $judul			= ' ';
     $titleID					= get_post_meta( $post->ID, 'wp_GP_ID', true );
     if(!$titleID) $titleID		= ' ';
     $titleID2					= get_post_meta( $post->ID, 'wp_GP_ID', true );
@@ -178,18 +171,11 @@ function ex_themes_apk_details_() {
     $developer					= get_post_meta( $post->ID, 'wp_developers_GP', true );
     $developerX					= get_post_meta( $post->ID, 'wp_developers2_GP', true );
     if ( $developer === FALSE or $developer == '' ) $developer = $developerX;
-
 	
 	
     $version_web				= get_post_meta( $post->ID, 'wp_version', true );
     $version					= get_post_meta( $post->ID, 'wp_version_GP', true );	
-//    if ( $version_web === FALSE or $version_web == '' ) $version_web = $version;
-    $version_dt					    = get_key_option( $post->ID, 'version');
-    if ($version_dt && $version_dt != ""){
-        $version = $version_dt;
-    }else{
-        if ( $version === FALSE or $version == '' ) $version = $version;
-    }
+    if ( $version_web === FALSE or $version_web == '' ) $version_web = $version;
 	
     $installs					= get_post_meta( $post->ID, 'wp_installs_GP', true );
     $installsX					= get_post_meta( $post->ID, 'wp_installsapgk', true );
@@ -199,13 +185,7 @@ function ex_themes_apk_details_() {
     if ( $requires === FALSE or $requires == '' ) $requires = $requiresX;
     $updates					= get_post_meta( $post->ID, 'wp_updates_GP', true );
     $updatesX					= get_post_meta( $post->ID, 'wp_updateapgk', true );
-    $update_dt					    = get_key_option( $post->ID, 'last_update');
-    if ($update_dt && $update_dt != ""){
-        $updates = $update_dt;
-    }else{
-        if ( $updates === FALSE or $updates == '' ) $updates = $updatesX;
-    }
-//    if ( $updates === FALSE or $updates == '' ) $updates = $updatesX;
+    if ( $updates === FALSE or $updates == '' ) $updates = $updatesX;
     $contentrated				= get_post_meta( $post->ID, 'wp_contentrated_GP', true );
     $contentratedX				= get_post_meta( $post->ID, 'wp_contentratingapgk', true );
     if ( $contentrated === FALSE or $contentrated == '' ) $contentrated = $contentratedX;
@@ -225,25 +205,12 @@ function ex_themes_apk_details_() {
     if ( $youtube === FALSE or $youtube == '' ) $youtube = $youtubeX;
     $sizes						= get_post_meta( $post->ID, 'wp_sizes', true );
     $sizesX						= get_post_meta( $post->ID, 'wp_sizes_GP', true );
-    $size_dt					= get_key_option( $post->ID, 'size');
-    if ($size_dt && $size_dt != ""){
-        $sizes = $size_dt;
-    }else{
-        if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizesX;
-    }
-//    if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizesX;
+    if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizesX;
     $desck						= get_post_meta( $post->ID, 'wp_desck_GP', true );
     $desckX						= get_post_meta( $post->ID, 'wp_desck_GP', true );
     if ( $desck === FALSE or $desck == '' ) $desck = $desckX;
     $modfeatures				= get_post_meta( $post->ID, 'wp_mods', true ); 
     $postergp					= get_post_meta( $post->ID, 'wp_poster_GP', true );
-    $developer_dt				= get_key_option( $post->ID, 'author');
-    if ($developer_dt && $developer_dt != ""){
-        $postergp = $developer_dt;
-    }else{
-        $postergp = wp_get_post_terms($post->ID, $postergp);
-    }
-
     $gambarX21					= get_post_meta( $post->ID, 'wp_images_GP', true );
     $gambarX212					= get_post_meta( $post->ID, 'wp_images_GP1', true );
     if ( $gambarX21 === FALSE or $gambarX21 == '' ) $gambarX21 = $gambarX212;
@@ -265,7 +232,7 @@ function ex_themes_apk_details_() {
 	
 	
 <table class="responsive-table">
-    <caption>Add Your Details App Informations </caption>
+    <caption>Add Your Details App Informations</caption>
      
     <tbody>
 	

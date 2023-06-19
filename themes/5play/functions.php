@@ -6,7 +6,7 @@
 /*  STOP DON'T TRY EDIT
 /*  IF YOU DON'T KNOW PHP
 /*  AS ERRORS IN YOUR THEMES ARE NOT THE RESPONSIBILITY OF THE DEVELOPERS
-/*
+/*$judul
 /*
 /*  @EXTHEM.ES
 /*  Follow Social Media Exthem.es
