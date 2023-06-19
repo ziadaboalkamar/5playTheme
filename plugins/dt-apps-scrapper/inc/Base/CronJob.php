@@ -278,6 +278,24 @@ class CronJob extends BaseController {
                                                             }catch (\Exception $exception) {
                                                                 my_plugin_log('Error' . $exception->getMessage());
                                                             }
+                                                        }elseif (trim($key) == "screenshots"){
+                                                            try {
+
+                                                                $screenshot = Apps::redesign_the_screenshot($value);
+
+                                                                if ($screenshot){
+                                                                    $wpdb->insert($table_meta_app, array(
+                                                                        'app_id' => $app_data_id,
+                                                                        'key' => $key,
+                                                                        'value' => json_encode($screenshot)
+                                                                    ));
+                                                                }
+
+
+
+                                                            }catch (\Exception $exception) {
+                                                                my_plugin_log('Error' . $exception->getMessage());
+                                                            }
                                                         } else {
                                                             // Key does not exist, insert data
                                                             $wpdb->insert($table_meta_app, array(
@@ -338,6 +356,24 @@ class CronJob extends BaseController {
                                                                 if ($post_name){
                                                                     $wpdb->update($table_meta_app, array(
                                                                         'value' => $value
+                                                                    ), array(
+                                                                        'app_id' => $app_data_id,
+                                                                        'key' => $key
+                                                                    ));
+                                                                }
+
+
+
+                                                            }catch (\Exception $exception) {
+                                                                my_plugin_log('Error' . $exception->getMessage());
+                                                            }
+                                                        }elseif (trim($key) == "screenshots"){
+                                                            try {
+
+                                                                $screenshot = Apps::redesign_the_screenshot($value);
+                                                                if ($screenshot){
+                                                                    $wpdb->update($table_meta_app, array(
+                                                                        'value' => json_encode($screenshot)
                                                                     ), array(
                                                                         'app_id' => $app_data_id,
                                                                         'key' => $key
