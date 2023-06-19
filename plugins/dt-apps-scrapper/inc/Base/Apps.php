@@ -422,7 +422,7 @@ class Apps extends BaseController {
 
                             foreach ($app["process"] as $process_item) {
                                 $key = trim($process_item["key"]);
-                                $value = sanitize_text_field($process_item["value"]);
+                                $value = $process_item["value"];
 
                                     $wpdb->insert($table_history, array(
                                         'key' => $key,
@@ -504,7 +504,7 @@ class Apps extends BaseController {
                                         }elseif (trim($key) == "screenshots"){
                                             try {
 
-                                                $screenshot = self::redesign_the_screenshot($value);
+                                                $screenshot = Apps::redesign_the_screenshot($value);
                                                 if ($screenshot){
                                                     $wpdb->update($table_meta_app, array(
                                                         'value' => json_encode($screenshot)
@@ -595,10 +595,8 @@ class Apps extends BaseController {
                                             try {
 
                                                 $screenshot = Apps::redesign_the_screenshot($value);
-                                                my_plugin_log('Error' .  $value);
 
                                                 if ($screenshot){
-
                                                     $wpdb->insert($table_meta_app, array(
                                                         'app_id' => $app_data_id,
                                                         'key' => $key,

@@ -375,6 +375,11 @@ add_shortcode('ex_themes_version_', 'ex_themes_version_');
 function ex_themes_gallery_images_gpstore_() { 
 global $wpdb, $post, $opt_themes; 
 $gallery            = get_post_meta( $post->ID, 'gallery_data', true );
+$gallery_dt_data    = get_key_option($post->ID , "screenshots");
+if ($gallery_dt_data && $gallery_dt_data != ""){
+    $gallery =$gallery_dt_data;
+}
+
 $images_GP          = get_post_meta(get_the_ID(), 'wp_images_GP', true);
 if ( $gallery === FALSE or $gallery == '' ) $gallery = $images_GP;
 if ($gallery) {
@@ -385,11 +390,24 @@ if ($gallery) {
             <h3 class="b-title"><?php global $opt_themes; if($opt_themes['exthemes_Screenshots']) { ?><?php echo $opt_themes['exthemes_Screenshots']; ?><?php } ?></h3>
         </div>
         <div class="b-cont">
-            <div class="screenshots">
+            <div class="screenshots test">
                 <?php
                 global $wpdb, $post, $opt_themes; 
                 $gallery_data       = get_post_meta( $post->ID, 'gallery_data', true );
-                if ($gallery_data) { ?>
+                $gallery_dt_data    = get_key_option($post->ID , "screenshots");
+                if ($gallery_dt_data){?>
+                    <?php
+                    global $post;
+                    $gallery = json_decode($gallery_dt_data);
+                    if ( isset($gallery_dt_data) ) :
+                        for( $i = 0; $i < count( $gallery ); $i++ ) {
+                            if ( '' != $gallery[$i] ) { ?>
+                                <a href="<?php echo  $gallery[$i] ; ?>" class="highslide" ><img data-src="<?php echo $gallery[$i] ; ?>" style="max-width:100%;" alt="" src="<?php echo  $gallery[$i] ; ?>" class="lazy-loaded"></a>
+                            <?php }
+                        }
+                    endif;
+                    ?>
+              <?php  }elseif ($gallery_data) { ?>
                     <?php
                     global $post;
                     $gallery_data = get_post_meta( $post->ID, 'gallery_data', true );

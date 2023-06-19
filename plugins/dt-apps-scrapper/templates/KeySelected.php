@@ -6,7 +6,7 @@
         </div>
         <div class="card mt-5  p-0">
             <div class="card-body">
-            <table class="table">
+            <table class="table key_selected">
   <thead>
     
     <tr>
