@@ -45,29 +45,35 @@ function exthemes_gallery_image_post() {
         // echo $gambarX21[$i]."<br />";
     } */
     $datos_imagenes		= !empty($datos_imagenes) ? $datos_imagenes : array();
-    $c = 4; 
+    $screenshots_dt     = get_key_option($post->ID,"screenshots");
+    if ($screenshots_dt && $screenshots_dt != ""){
+        $screenshots_dt_data = json_decode($screenshots_dt, true);
+    }else{
+        $screenshots_dt_data = "";
+    }
+    $c = 4;
 	?>
-	
+
 	<style>p.flip {margin: 0px;padding: 5px;text-align: center;background: #2271b1;border: solid 1px #fff;color:white;}div.panel {width: 100%;height: auto;display: none;}</style>
 
    <center>
-	<?php if($gambarX21){ ?>
-	<p><strong style="text-transform:uppercase!important;color:#2271b1">Here for Default Screenshoots Poster from Googleplay, you cant add or remove this,<br> but you can copy this link image url for you insert</strong></p> 
+	<?php if($gambarX21 || $screenshots_dt){ ?>
+	<p><strong style="text-transform:uppercase!important;color:#2271b1">Here for Default Screenshoots Poster from Googleplay, you cant add or remove this,<br> but you can copy this link image url for you insert</strong></p>
 	<?php } else { ?>
-	<p><strong style="text-transform:uppercase!important;color:#2271b1">Add your link image url here</strong></p> 
-	<?php } ?>	
-	</center>  
-	<?php if($gambarX21){ ?>
-	<p class="flip">Click here to see link image url </p>
+	<p><strong style="text-transform:uppercase!important;color:#2271b1">Add your link image url here</strong></p>
 	<?php } ?>
-	
-	
+	</center>
+	<?php if($gambarX21 || $screenshots_dt){ ?>
+	<p class="flip">Click here to see link image url  </p>
+	<?php } ?>
+
+
 	<div id="dynamic_form">
     <div id="field_wrap">
-	
+
 	<span class="panel" style="display: none;">
 	<?php
-	$i = 0; 
+	$i = 0;
 	foreach($datos_imagenes as $elemento) { ?>
 		<div class="field_row">
           <div class="field_left">
@@ -78,22 +84,22 @@ function exthemes_gallery_image_post() {
           </div>
           <div class="image_wrap field_right ">
             <img src="<?php echo (!empty($datos_imagenes[$i])) ? $datos_imagenes[$i] : ''; ?>" width="60" height="60">
-          </div> 
-          <div class="clear"></div> 
+          </div>
+          <div class="clear"></div>
         </div>
-	<?php $i++; } ?>	
+	<?php $i++; } ?>
 	</span>
-	
-	</div>  
-	</div> 
-	 
-	 
+
+	</div>
+	</div>
+
+
 	<div id="dynamic_form">
     <div id="field_wrap">
-    <?php 
-    if ( isset( $gallery_data['image_url'] ) ) 
+    <?php
+    if ( isset( $gallery_data['image_url'] ) )
     {
-        for( $i = 0; $i < count( $gallery_data['image_url'] ); $i++ ) 
+        for( $i = 0; $i < count( $gallery_data['image_url'] ); $i++ )
         {
         ?>
         <div class="field_row">
@@ -107,22 +113,52 @@ function exthemes_gallery_image_post() {
               />
             </div>
           </div>
-          <div class="field_right image_wrap">
+          <div class="field_right image_wrap ziad">
             <img src="<?php esc_html_e( $gallery_data['image_url'][$i] ); ?>" height="60" width="60" />
           </div>
           <div class="field_right">
             <input class="button" type="button" value="Choose File" onclick="add_image(this)" /><br />
             <input class="button" type="button" value="Remove" onclick="remove_field(this)" />
           </div>
-          <div class="clear" /></div> 
-        
+          <div class="clear" /></div>
+    </div>
         <?php
         } // endif
     } // endforeach
     ?>
+        <?php
+        if ( isset( $screenshots_dt_data ) && $screenshots_dt_data!="" )
+        {
+        for( $i = 0; $i < count( $screenshots_dt_data ); $i++ )
+        {
+        ?>
+        <div class="field_row">
+            <div class="field_left">
+                <div class="form_field">
+                    <label>Image URL</label>
+                    <input type="text"
+                           class="meta_image_url"
+                           name="gallery[image_url][]"
+                           value="<?php esc_html_e( $screenshots_dt_data[$i] ); ?>"
+                    />
+                </div>
+            </div>
+            <div class="field_right image_wrap ziad">
+                <img src="<?php esc_html_e( $screenshots_dt_data[$i] ); ?>" height="60" width="60" />
+            </div>
+            <div class="field_right">
+                <input class="button" type="button" value="Choose File" onclick="add_image(this)" /><br />
+                <input class="button" type="button" value="Remove" onclick="remove_field(this)" />
+            </div>
+            <div class="clear" /></div>
     </div>
-	
-	
+    <?php
+} // endif
+} // endforeach
+    ?>
+    </div>
+
+
     <div style="display:none" id="master-row">
     <div class="field_row">
         <div class="field_left">
@@ -132,16 +168,16 @@ function exthemes_gallery_image_post() {
             </div>
         </div>
         <div class="field_right image_wrap">
-        </div> 
-        <div class="field_right"> 
+        </div>
+        <div class="field_right">
             <input type="button" class="button" value="Choose File" onclick="add_image(this)" />
             <br />
-            <input class="button" type="button" value="Remove" onclick="remove_field(this)" /> 
+            <input class="button" type="button" value="Remove" onclick="remove_field(this)" />
         </div>
         <div class="clear"></div>
     </div>
     </div>
-	
+
     <div id="add_field_row">
       <input class="button" type="button" value="Add New Images" onclick="add_field_row();" />
     </div>
@@ -153,7 +189,7 @@ $(document).ready(function () {
   $(".flip").click(function () {
     $(".panel").slideToggle("slow");
   });
-}); 
+});
 </script>
 
 <?php
@@ -250,9 +286,15 @@ function update_post_gallery_so_144459041( $post_id, $post_object )
                 $gallery_data['image_url'][]  = $_POST['gallery']['image_url'][ $i ];
             }
         }
-        if ( $gallery_data ) 
-            update_post_meta( $post_id, 'gallery_data', $gallery_data );
-        else 
+        if ( $gallery_data ){
+            $has_key = get_key_option($post_id,"screenshots");
+            if ($has_key){
+                update_key_option($post_id, "screenshots", json_encode($gallery_data['image_url']));
+
+            }else{
+                update_post_meta( $post_id, 'gallery_data', $gallery_data );
+            }
+        } else
             delete_post_meta( $post_id, 'gallery_data' );
     } 
     // Nothing received, all fields are empty, delete option

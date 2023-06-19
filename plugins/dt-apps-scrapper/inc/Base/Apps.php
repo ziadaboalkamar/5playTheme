@@ -469,14 +469,13 @@ class Apps extends BaseController {
                                             try {
 
                                                 $post_name = Apps::add_post_title($app_data_id,$value);
-                                                if ($post_name){
                                                     $wpdb->update($table_meta_app, array(
                                                         'value' => $value
                                                     ), array(
                                                         'app_id' => $app_data_id,
                                                         'key' => $key
                                                     ));
-                                                }
+
 
 
 
@@ -561,13 +560,13 @@ class Apps extends BaseController {
                                             try {
 
                                                 $post_name = Apps::add_post_title($app_data_id,$value);
-                                                if ($post_name){
+
                                                     $wpdb->insert($table_meta_app, array(
                                                         'app_id' => $app_data_id,
                                                         'key' => $key,
                                                         'value' => $value
                                                     ));
-                                                }
+
 
 
 
