@@ -45,7 +45,7 @@ class Activate extends BaseController {
         $sql_history = "CREATE TABLE IF NOT EXISTS $this->table_history (
             id int(11) NOT NULL AUTO_INCREMENT,
             `key` varchar(255) NOT NULL,
-            `value` varchar(255) NOT NULL,
+            `value` text NOT NULL,
             app_id int(11) NOT NULL,
             created_at timestamp NOT NULL,
             FOREIGN KEY (app_id) REFERENCES $this->table_app_info (id),
@@ -56,7 +56,7 @@ class Activate extends BaseController {
                             id int(11) NOT NULL AUTO_INCREMENT,
                             app_id int(11) NOT NULL,
                             `key` varchar(255) NOT NULL,
-                            `value` varchar(255) NOT NULL,
+                            `value` text NOT NULL,
                             `status` tinyint(4) NOT NULL DEFAULT 1 ,
                             PRIMARY KEY (id)
                         )$charset_collate;";

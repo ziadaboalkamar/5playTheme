@@ -10,12 +10,17 @@ function get_key_option($post_id , $key){
     $table_dt_meta = $base->table_dt_meta;
     $table_meta_app_post = $base->table_app_post;
     $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $post_id ) );
+    if ($results_of_post){
     $app_id = $results_of_post->app_id;
     $results = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_dt_meta} WHERE status = 1 AND `key` = '{$key}' AND app_id = %d", $app_id ) );
     if ($results){
         $value = $results->value;
     }else{
         $value = "";
+    }
+    }else{
+        $value = "";
+
     }
     return $value;
 
@@ -105,6 +110,23 @@ function get_old_version_file($post_id){
 
 
 
+
+}
+function update_key_option($post_id , $key,$value){
+    global $wpdb;
+    $base= new \Inc\Base\BaseController();
+    $table_dt_meta = $base->table_dt_meta;
+    $table_meta_app_post = $base->table_app_post;
+    $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $post_id ) );
+    if ($results_of_post) {
+        $app_id = $results_of_post->app_id;
+        $wpdb->update($table_dt_meta, array(
+            'value' => $value,
+        ), array(
+            'key' => $key, 'app_id' => $app_id
+        ));
+    }
+    return true;
 
 }
 
