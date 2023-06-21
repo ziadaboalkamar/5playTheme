@@ -18,8 +18,9 @@ if ($version_dt && $version_dt != ""){
     if ( $version === FALSE or $version == '' ) $version = $version_alt;
 }
 
-$developer						= get_option('wp_developers_GP', 'developer');
+$developer						 = get_option('wp_developers_GP', 'developer');
 $developer_dt					 = get_key_option( $post->ID, 'author');
+$developer_dt_link				 = get_key_option( $post->ID, 'author_link');
 
 if ($developer_dt && $developer_dt != ""){
     $developer = $developer_dt;
@@ -101,11 +102,17 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__android"></use></svg></i>
                 <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_developer']) { ?><?php echo $opt_themes['exthemes_apk_info_developer']; ?><?php } ?> </span>
 				 
-				<?php 
+				<?php
 				if ($terms) {
 				$output = array();
 				foreach ($terms as $term) {
-                $output[] = '<span class="spec-cont"><a href="" title="Developer by  ' .$term->name .'">' .$term->name .'</a></span>';
+                    $term = (object) $term;
+                    if ($developer_dt_link && $developer_dt_link != ""){
+                        $link = $developer_dt_link;
+                    }else{
+                        $link = get_term_link( $term->slug, $developer);
+                    }
+                    $output[] = '<span class="spec-cont"><a href="' .$link .'" title="Developer by  ' .$term->name .'">' .$term->name .'</a></span>';
 				}
 				echo join( ', ', $output );	}
                 ?>
