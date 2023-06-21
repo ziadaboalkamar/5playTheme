@@ -89,6 +89,14 @@ $image_idx						= get_post_thumbnail_id();
 $fullx							= 'thumbnails-post-icon'; 
 $image_urlx						= wp_get_attachment_image_src($image_idx, $fullx, true); 
 $imagex							= $image_urlx[0];
+
+$title_dt                          =get_dt_title($post->ID);
+if ($title_dt && $title_dt != ""){
+    $title= $title_dt;
+}else{
+    $title= get_the_title();
+
+}
 ?>			
 					
 <div class="block b-download">
@@ -148,7 +156,7 @@ $imagex							= $image_urlx[0];
         <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $download_DT ?>&names=<?php echo get_the_title(); ?>" class="download-line s-button" target="_blank">
             <div class="download-line-title">
                 <i><svg width="24" height="24"><use xlink:href="#i__getapp"/></svg></i>
-                <span><?php echo get_the_title(); ?></span>
+                <span><?php echo $title; ?></span>
             </div>
             <span class="download-line-size">
 	<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?>

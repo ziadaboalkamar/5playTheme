@@ -13,7 +13,7 @@ $countvisit			= ex_themes_get_post_view_2();
             <div class="view-app-head dark-head dark-section">
                 <div class="wrp-min">
                     <?php $title = get_dt_title(get_the_ID()); if($title && $title != ""){
-                        $title = get_dt_title(get_the_ID());
+                        $title = get_key_option(get_the_ID(),"app_name");
                     }else{
                         $title =get_the_title();
 

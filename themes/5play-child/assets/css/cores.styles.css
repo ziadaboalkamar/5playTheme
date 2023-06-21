@@ -119,13 +119,13 @@ a, .btn-link { color: var(--lcolor); text-decoration: none; }
 html.darktheme .sel-dark-toggle { color: #172B3D !important; background-color: rgba(255,255,255,.75); }
 html.darktheme .sel-dark-toggle > .i__sun { display: block !important; }
 html.darktheme .sel-dark-toggle > .i__moon { display: none !important; }
-.sel-dark-toggle, .sel-lang > button { width: 2.5rem; height: 2.5rem; padding: .5rem; border: 0 none; }
+.sel-dark-toggle, .sel-lang > button , .sel-lang button { width: 2.5rem; height: 2.5rem; padding: .5rem; border: 0 none; }
 
 .sel-lang { display: flex; }
-.sel-lang > button { background: none; }
-.sel-lang > button img { border-radius: 50%; }
-.sel-lang > button.active { cursor: default; }
-.sel-lang > button.active img { background-color: var(--sel-lang-active); box-shadow: 0 0 0 .125rem var(--sel-lang-active), 0 0 0 .25rem var(--colorsvg); }
+.sel-lang > button ,.sel-lang button { background: none; }
+.sel-lang > button img ,.sel-lang button img { border-radius: 50%; }
+.sel-lang > button.active,.sel-lang button.active { cursor: default; }
+.sel-lang > button.active img,.sel-lang button.active img { background-color: var(--sel-lang-active); box-shadow: 0 0 0 .125rem var(--sel-lang-active), 0 0 0 .25rem var(--colorsvg); }
 
 @media (max-width: 1259px) {
   .toolbar { left: 0; bottom: 0; position: fixed; margin-top: 0; }
@@ -134,12 +134,12 @@ html.darktheme .sel-dark-toggle > .i__moon { display: none !important; }
 }
 @media (min-width: 1260px) {
   .toolbar { top: 0; }
-  .sel-lang > button { margin-left: .25rem; }
+  .sel-lang > button,.sel-lang button { margin-left: .25rem; }
 }
 @media (min-width: 992px) {
-  .sel-dark-toggle, .sel-lang > button { transition: transform .2s ease; }
-  .sel-lang > button img { transition: box-shadow .2s ease; }
-  .sel-dark-toggle:hover, .sel-lang > button:not(.active):hover { transform: scale(1.1); }
+  .sel-dark-toggle, .sel-lang > button ,.sel-lang button{ transition: transform .2s ease; }
+  .sel-lang > button img ,.sel-lang button img{ transition: box-shadow .2s ease; }
+  .sel-dark-toggle:hover, .sel-lang > button:not(.active):hover ,.sel-lang button:not(.active):hover{ transform: scale(1.1); }
 }
 
 /* COVER */
@@ -394,7 +394,7 @@ html.ovb { overflow: hidden; width: 100%; height: 100%; }
 html.ovb .videobox.open { opacity: 1; }
 
 .videobox {
-  opacity: 0; transition: opacity 0.15s linear; overflow-y: auto; background-color: rgba(0,0,0,.3);
+  opacity: 0; transition: opacity 0.15s linear; overflow-y: auto; background-color: rgba(0,0,0,.3); 
 }
 .videobox.open { display: block !important; }
 
@@ -639,7 +639,7 @@ img.fr-dii.fr-fil { float: left; margin: 5px 24px 25px 0; max-width: calc(100% -
 
 /*--- Цитаты, Спойлеры, Код  ---*/
 .title_quote {
-  font-size: .9rem; color: rgba(0,0,0,0.5); font-weight: bold; font-style: italic;
+  font-size: .9rem; color: rgba(0,0,0,0.5); font-weight: bold; font-style: italic; 
   border: 0 none;
 }
 .quote, blockquote {
@@ -709,7 +709,7 @@ img.fr-dii.fr-fil { float: left; margin: 5px 24px 25px 0; max-width: calc(100% -
 .hide { background-color: #f0f0f0; padding: 5px; color: #f97330; margin: 0 0 1em 0 }
 .hide a { text-decoration: underline; }
 .hide a:hover { text-decoration: none }
-
+  
 /*--- Таблица Персональных сообщений и лучших пользователей ---*/
 table.userstop { font-size: 80%; }
 .userstop td, .pm td.pm_list, .pm td.pm_head { border-bottom: 1px solid var(--line); padding: 12px 2px; }
@@ -718,7 +718,7 @@ table.pm select { width: 150px; }
 .userstop thead td, .pm td.pm_head { border-bottom: 1px solid var(--line); font-weight: bold; }
 table.pm .navigation { border-top-width: 0; margin: 0; }
 
-.table_wide {
+.table_wide { 
   overflow-y: hidden; overflow-x: auto; width: 100%; padding: .5rem 0; margin: -.5rem 0; word-break: break-all;
   -webkit-overflow-scrolling: touch;
 }
@@ -729,7 +729,7 @@ table.pm .navigation { border-top-width: 0; margin: 0; }
 /*---показ оригинальной картинки загруженной на сайт из уменьшенной копии---*/
 .highslide-wrapper, .highslide-outline { background: #fff }
 .highslide-image { border: 2px solid #fff }
-.highslide-active-anchor { visibility: hidden }
+.highslide-active-anchor { visibility: hidden } 
 .highslide-active-anchor img { visibility: hidden }
 .highslide-dimming { background-color: black }
 .highslide-html { background-color: white }
@@ -744,7 +744,7 @@ a.highslide-full-expand { background: url(/assets/img/fullexpand.gif) no-repeat;
 .highslide-controls a { background: url(/assets/img/controlbar-black-border.gif); display: block; float: left; height: 30px; width: 30px; outline: none }
 .highslide-controls a.disabled { cursor: default }
 .highslide-controls a span { display: none }
-
+ 
 /*---The CSS sprites for the controlbar---*/
 .highslide-controls .highslide-previous a { background-position: 0 0 }
 .highslide-controls .highslide-previous a:hover { background-position: 0 -30px }

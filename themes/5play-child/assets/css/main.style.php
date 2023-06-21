@@ -37,6 +37,6 @@ get_template_part( '/assets/css.rtl/root.styles' ); ?>
 <?php } ?>
 <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/manrope-v3-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/manrope-v3-cyrillic-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/css/cores.styles.css" as="style">
+<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/css/cores.styles.css?v=67" as="style">
 <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css" as="style">
 <?php } 
