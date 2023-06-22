@@ -198,9 +198,6 @@ function ex_themes_apk_details_() {
         $version_web = $version_dt;
         $version =  $version_dt;
     }
-
-
-
     if ( $version_web === FALSE or $version_web == '' ) $version_web = $version;
 
     $installs					= get_post_meta( $post->ID, 'wp_installs_GP', true );
@@ -831,7 +828,6 @@ function download_link_box() {
                 </thead>
                 <tbody>
 
-
                 <?php if ($link_download_apksupport) { ?>
                     <tr>
                         <td name="type_download_apksupport" style='display:none' ><input type="text" class="widefat " name="type_download_apksupport" value="<?php echo $type_download_apksupport; ?>" /></td>
@@ -1093,8 +1089,6 @@ function download_link_box() {
     <script>
         $("#sortable").sortable({stop:function(){$("#sortable").find("input").bind('mousedown.ui-disableSelection selectstart.ui-disableSelection',function(e){e.stopImmediatePropagation();});}}).disableSelection();$("#sortable").find("input").bind('mousedown.ui-disableSelection selectstart.ui-disableSelection',function(e){e.stopImmediatePropagation();});
     </script>
-
-
 
 <?php }
 add_action('save_post', 'repeatable_meta_box_save');
