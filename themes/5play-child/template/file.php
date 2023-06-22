@@ -85,21 +85,11 @@ $urls							= $_GET['urls'];
 $urlsx							= str_replace($permalink.'/file/?urls=', '', $urls);
 $namesapks						= $_GET['names'];
 $sizeapks						= $_GET['sizes'];
-//$urlapks						= $_GET['url'];
-if (isset($_GET['url'])) {
-    $urlapks = $_GET['url'];
-} else {
-    $urlapks = ''; // or any default value you want
-}
+$urlapks						= $_GET['url'];
 $link_decode					= mask_link($file_path); 
 $link_encode					= mask_link($file_path, 'd');
 $names							= $_GET['names'];
 $size							= $_GET['sizes'];
-if (isset($_GET['sizes'])) {
-    $size = $_GET['sizes'];
-} else {
-    $size = '';
-}
 $url							= $_GET['urls'];
 $wp_mods						= get_post_meta( $post->ID, 'wp_mods1', true );
 $wp_mods1						= get_post_meta( $post->ID, 'wp_mods', true );

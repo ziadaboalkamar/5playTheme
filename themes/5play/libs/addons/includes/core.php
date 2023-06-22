@@ -53,7 +53,10 @@ function callback_versions($post) {
     $version_gp					= get_post_meta( $post->ID, 'wp_version_GP', true );
     $version_sc					= get_post_meta( get_the_ID(), 'wp_version', true );
 //if ( $version_gp === FALSE or $version_gp == '' ) $version_gp = $version_sc;
-    $appname_on					= $opt_themes['ex_themes_title_appname'];
+//    $appname_on					= $opt_themes['ex_themes_title_appname'];
+    if (isset($opt_themes['ex_themes_title_appname'])) {
+        $appname_on = $opt_themes['ex_themes_title_appname'];
+    }
     $title						= get_post_meta( $post->ID, 'wp_title_GP', true );
     $title_alt					= get_the_title();
     if($wp_GP_ID){
@@ -91,7 +94,9 @@ function callback_versions($post) {
                 $imagex							= $image_urlx[0];
                 $version_gp			    		= get_post_meta( $post->ID, 'wp_version_GP', true );
                 $version_sc		    			= get_post_meta( get_the_ID(), 'wp_version', true );
+                $versionX1 = '';
                 if ( $versionX1 === FALSE or $versionX1 == '' ) $versionX1 = $version_sc;
+
                 $mods							= get_post_meta( get_the_ID(), 'wp_mods', true );
                 $updates						= get_the_modified_time('F j, Y');
                 $updates_app					= get_post_meta( $post->ID, 'wp_updates_GP', true );
