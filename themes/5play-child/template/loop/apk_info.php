@@ -109,8 +109,10 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
                     $term = (object) $term;
                     if ($developer_dt_link && $developer_dt_link != ""){
                         $link = $developer_dt_link;
-                    }else{
+                    }elseif (isset($term->slug)){
                         $link = get_term_link( $term->slug, $developer);
+                    }else{
+                        $link = "#";
                     }
                     $output[] = '<span class="spec-cont"><a href="' .$link .'" title="Developer by  ' .$term->name .'">' .$term->name .'</a></span>';
 				}
