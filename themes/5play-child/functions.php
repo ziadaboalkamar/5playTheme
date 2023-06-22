@@ -7,6 +7,7 @@ require_once WP_PLUGIN_DIR . '/dt-apps-scrapper/inc/Base/BaseController.php';
 function get_key_option($post_id , $key){
     global $wpdb;
     $base= new \Inc\Base\BaseController();
+    $value = "";
     $table_dt_meta = $base->table_dt_meta;
     $table_meta_app_post = $base->table_app_post;
     $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $post_id ) );
@@ -42,6 +43,9 @@ function get_key_option($post_id , $key){
                 $element_ids
             );
             $matching_posts = $wpdb->get_col($query);
+            if (isset($matching_posts[0]) ){
+
+
             $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $matching_posts[0] ) );
             if ($results_of_post){
                 $app_id = $results_of_post->app_id;
@@ -49,6 +53,9 @@ function get_key_option($post_id , $key){
                 if ($results) {
                     $value = $results->value;
                 }
+            }
+            }else{
+                $value = "";
             }
         }else{
             $value = "";
@@ -62,6 +69,7 @@ function get_key_option($post_id , $key){
 
 function get_package($post_id){
     global $wpdb;
+    $value = "";
     $base= new \Inc\Base\BaseController();
     $table_app = $base->table_app_info;
     $table_meta_app_post = $base->table_app_post;
@@ -99,6 +107,9 @@ function get_package($post_id){
                  $element_ids
              );
              $matching_posts = $wpdb->get_col($query);
+             if (isset($matching_posts[0])){
+
+
              $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $matching_posts[0] ) );
              if ($results_of_post){
                  $app_id = $results_of_post->app_id;
@@ -106,6 +117,9 @@ function get_package($post_id){
                  if ($results) {
                      $value = $results->package_name;
                  }
+             }
+             }else{
+                 $value = "";
              }
          }else{
              $value = "";
@@ -118,6 +132,8 @@ function get_package($post_id){
 
 function get_dt_title($post_id){
     global $wpdb;
+    $value = "";
+
     $base= new \Inc\Base\BaseController();
     $value = "";
     $table_dt_meta = $base->table_dt_meta;
@@ -155,14 +171,17 @@ function get_dt_title($post_id){
                 $element_ids
             );
             $matching_posts = $wpdb->get_col($query);
-            $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $matching_posts[0] ) );
-            if ($results_of_post){
-                $app_id = $results_of_post->app_id;
-                $results = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_dt_meta} WHERE status = 1 AND `key` = 'app_name' AND app_id = %d", $app_id ) );
-                if ($results) {
-                    $value = $results->value;
+            if (isset($matching_posts[0])){
+                $results_of_post = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_meta_app_post} WHERE post_id = %d", $matching_posts[0] ) );
+                if ($results_of_post){
+                    $app_id = $results_of_post->app_id;
+                    $results = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_dt_meta} WHERE status = 1 AND `key` = 'app_name' AND app_id = %d", $app_id ) );
+                    if ($results) {
+                        $value = $results->value;
+                    }
                 }
             }
+
         }else{
             $value = "";
 

@@ -193,8 +193,10 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
         <a class="btn btn-lg btn-icon s-button anchor" href="#download-block"><svg width="24" height="24"><use xlink:href="#i__getapp"></use></svg><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo $opt_themes['exthemes_apk_info_Download']; ?><?php } ?></a>
 		<?php global $opt_themes; if($opt_themes['report_active']) { ?>		
 		<button class="btn btn-lg btn-border needreg-btn"><span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Request_update']) { ?><?php echo $opt_themes['exthemes_apk_info_Request_update']; ?><?php } ?></span></button>
-		<div id="needreg" title="Information" style="display:none;">Guests cannot request for updates!</div> 		 
-		<script>
+		<div id="needreg" title="Information" style="display:none;">Guests cannot request for updates!</div>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+            <script>
 		$('.needreg-btn').click(function () {
 			$('#needreg').dialog({
 				show: 'fade',
