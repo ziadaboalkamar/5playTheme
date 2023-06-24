@@ -168,7 +168,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 		<span<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="reviewCount" content=<?php if( $votes ) { ?>"<?php echo $votes; ?>"<?php } else { ?>"1"<?php } }?>></span>
 		</span>
 		</center>
-		<?php } echo edit_post_link( __( 'edit post', CHILD_THEME ), ' ', ' ' ); ?>
+		<?php } echo edit_post_link( __('edit post',CHILD_THEME ), ' ', ' ' ); ?>
         <ul class="rate-nums muted">
             <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Votes'],CHILD_THEME); ?><?php } ?>
 			<span id="vote-num-id" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums($allvotes); ?><?php } else { ?><?php echo $allvotes ?><?php } ?></span>
@@ -190,7 +190,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
     </div>
     
     <div class="btn-group">
-        <a class="btn btn-lg btn-icon s-button anchor" href="#download-block"><svg width="24" height="24"><use xlink:href="#i__getapp"></use></svg><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo $opt_themes['exthemes_apk_info_Download']; ?><?php } ?></a>
+        <a class="btn btn-lg btn-icon s-button anchor" href="#download-block"><svg width="24" height="24"><use xlink:href="#i__getapp"></use></svg><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo _e( $opt_themes['exthemes_apk_info_Download'],CHILD_THEME) ; ?><?php } ?></a>
 		<?php global $opt_themes; if($opt_themes['report_active']) { ?>		
 		<button class="btn btn-lg btn-border needreg-btn"><span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Request_update']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Request_update'],CHILD_THEME) ; ?><?php } ?></span></button>
 		<div id="needreg" title="Information" style="display:none;">Guests cannot request for updates!</div>

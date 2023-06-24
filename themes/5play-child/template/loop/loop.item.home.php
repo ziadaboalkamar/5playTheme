@@ -20,7 +20,7 @@ $labelx							= strtolower(esc_html( get_post_meta( $post->ID, 'wp_newupdates', 
 	<span class="label label-<?php echo $labelx; ?>"><?php echo $labels; ?></span><?php } else { ?><?php } ?>
 		<figure class="img">
 		<img src="<?php echo $imagesx; ?>" alt="<?php the_title(); ?>" >
-		<?php if (get_post_meta( $post->ID, 'wp_mods', true )) { ?><span class="post__modpaid"><?php global $opt_themes; if($opt_themes['exthemes_mods_info']) { ?><?php echo $opt_themes['exthemes_mods_info']; ?><?php } ?></span>  <?php } else { ?><?php } ?>
+		<?php if (get_post_meta( $post->ID, 'wp_mods', true )) { ?><span class="post__modpaid"><?php global $opt_themes; if($opt_themes['exthemes_mods_info']) { ?><?php echo _e($opt_themes['exthemes_mods_info'],CHILD_THEME) ; ?><?php } ?></span>  <?php } else { ?><?php } ?>
         <?php if ( is_user_logged_in() ) { ?>
         <span class="post__edit"><a href="<?php echo get_edit_post_link(); ?>" title="Edit this post" aria-label="Edit this post" ><span class="dashicons dashicons-edit"></span></a></span>
         <?php } ?>         
