@@ -263,7 +263,7 @@ if ($latest_version_on) { if($wp_gp_id){
 <div class="block ">
 <div class="box_download box_shadow">  
 <div class="b-head">
-<h3 class="section-title fbold"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i> <?php echo $opt_themes['title_latest_version']; ?></h3>
+<h3 class="section-title fbold"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i>  <?php echo _e($opt_themes['title_latest_version'],CHILD_THEME); ?></h3>
 </div>
 <div class="version_history">
 <?php
@@ -387,7 +387,7 @@ if ($gallery) {
     <div class="block b-screens">
         <div class="b-icon-title">
             <i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__cam"></use></svg></i>
-            <h3 class="b-title"><?php global $opt_themes; if($opt_themes['exthemes_Screenshots']) { ?><?php echo $opt_themes['exthemes_Screenshots']; ?><?php } ?></h3>
+            <h3 class="b-title"><?php global $opt_themes; if($opt_themes['exthemes_Screenshots']) { ?><?php echo _e($opt_themes['exthemes_Screenshots'],CHILD_THEME) ?><?php } ?></h3>
         </div>
         <div class="b-cont">
             <div class="screenshots test">
