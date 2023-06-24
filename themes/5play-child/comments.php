@@ -178,7 +178,7 @@ if ( $user ) : ?>
 <div class="block b-comments">
 		 
 		<div class="b-head">
-        <h3 class="section-title"><i class="s-purple c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php if(get_comments_number( )) { ?><?php comments_number('0', '1', '%'); ?><?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?> <?php echo $opt_themes['exthemes_comment_Comments']; ?><?php } ?><?php } else { ?>'. esc_html__('No', 'CHILD_THEME') .'<?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?>  <?php echo _e($opt_themes['exthemes_comment_Comments'],CHILD_THEME); ?><?php } ?><?php } ?> </h3>
+        <h3 class="section-title"><i class="s-purple c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php if(get_comments_number( )) { ?><?php comments_number('0', '1', '%'); ?><?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?> <?php echo esc_html__($opt_themes['exthemes_comment_Comments'], CHILD_THEME) ; ?><?php } ?><?php } else { echo esc_html__('No', CHILD_THEME);?>  <?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?>  <?php echo _e($opt_themes['exthemes_comment_Comments'],CHILD_THEME); ?><?php } ?><?php } ?> </h3>
         <a href="#addcom-block" class="btn s-green btn-all anchor"><span><?php global $opt_themes; if($opt_themes['exthemes_comment_Comment_on']) { ?> <?php echo _e($opt_themes['exthemes_comment_Comment_on'],CHILD_THEME); ?><?php } ?></span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>
 		</div>
 	 

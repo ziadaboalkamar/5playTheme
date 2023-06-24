@@ -74,10 +74,10 @@ ex_themes_head_on_sections_();
                     </nav>
                     <form class="q-search" style="display: none;" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="GET">
                         <div class="q-search-box">
-                            <label class="q-search-label" for="story"><?php if($text_search) { ?><?php echo $text_search; ?><?php } ?></label>
-                            <input class="q-search-text" id="story" name="s" placeholder="<?php if($text_search_2) { ?><?php echo $text_search_2; ?><?php } ?>" type="search" autocomplete="off">
-                            <button class="q-search-btn" type="submit" title="<?php if($text_find) { ?><?php echo $text_find; ?><?php } ?>">
-                                <span class="sr-only"><?php if($text_find) { ?><?php echo $text_find; ?><?php } ?></span>
+                            <label class="q-search-label" for="story"><?php if($text_search) { ?><?php echo esc_html__($text_search, CHILD_THEME) ; ?><?php } ?></label>
+                            <input class="q-search-text" id="story" name="s" placeholder="<?php if($text_search_2) { ?><?php echo  esc_html__($text_search_2, CHILD_THEME)  ; ?><?php } ?>" type="search" autocomplete="off">
+                            <button class="q-search-btn" type="submit" title="<?php if($text_find) { ?><?php echo esc_html__($text_find, CHILD_THEME)  ; ?><?php } ?>">
+                                <span class="sr-only"><?php if($text_find) { ?><?php echo  esc_html__($text_find, CHILD_THEME)  ; ?><?php } ?></span>
                                 <svg width="24" height="24"><use xlink:href="#i__search"></use></svg>
                             </button>
                         </div>
@@ -98,19 +98,19 @@ ex_themes_head_on_sections_();
                                 <div class="title"><a href="<?php echo $author_link; ?>"  > <?php  global $current_user; get_currentuserinfo(); echo $current_user->display_name ; ?></div>
                             </div>
                             <ul class="login-pane__menu">
-								<li><a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php if($text_new_post) { ?><?php echo $text_new_post; ?><?php } ?></li> 
-                                <li><a href="<?php echo wp_logout_url(); ?>"><?php if($text_logout) { ?><?php echo $text_logout; ?><?php } ?></a></li>
+								<li><a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php if($text_new_post) { ?><?php echo  esc_html__($text_new_post, CHILD_THEME)  ; ?><?php } ?></li>
+                                <li><a href="<?php echo wp_logout_url(); ?>"><?php if($text_logout) { ?><?php echo  esc_html__($text_logout, CHILD_THEME)  ; ?><?php } ?></a></li>
                             </ul>
                         </div>
                     </div>
                 <?php } else { ?>
                     <button data-toggle="modal" data-target="#login" class="log-in" aria-label="login">
-                        <span class="sr-only"><?php if($text_auth) { ?><?php echo $text_auth; ?><?php } ?></span>
+                        <span class="sr-only"><?php if($text_auth) { ?><?php echo  esc_html__($text_auth, CHILD_THEME)  ; ?><?php } ?></span>
                         <svg width="24" height="24"><use xlink:href="#i__user"></use></svg>
                     </button>
                 <?php }}?>
                 <button style="display: none;" class="q-search-call" aria-label="Find">
-                    <span class="sr-only"><?php if($text_find) { ?><?php echo $text_find; ?><?php } ?></span>
+                    <span class="sr-only"><?php if($text_find) { ?><?php echo esc_html__($text_find,CHILD_THEME) ; ?><?php } ?></span>
                     <svg class="qs-1" width="24" height="24"><use xlink:href="#i__search"></use></svg>
                     <svg class="qs-2" width="24" height="24"><use xlink:href="#i__close"></use></svg>
                 </button>

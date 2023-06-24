@@ -10,3 +10,1040 @@
 [2023-06-24 11:53:58] 1.10- check project update number [PUN]if not found
 [2023-06-24 11:53:58] 2.1- [update PUN] check if [PUN] changed :  to update it
 [2023-06-24 11:53:58] 3.9- Finish cron_job Function
+[2023-06-24 11:54:58] 1.1- Start cron_job Function
+[2023-06-24 11:54:58] 1.2-request Api_url $api_url
+[2023-06-24 11:54:59] 1.3-store events of the jop periodically during process 
+[2023-06-24 11:54:59] 1.4- fetch data from Api
+[2023-06-24 11:54:59] 1.5- View data that returned from API
+[2023-06-24 11:54:59] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 11:54:59] 1.7- get data of each project to select 
+[2023-06-24 11:54:59] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 11:54:59] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 11:54:59] 1.10- check project update number [PUN]if not found
+[2023-06-24 11:54:59] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 11:54:59] 3.9- Finish cron_job Function
+[2023-06-24 11:55:58] 1.1- Start cron_job Function
+[2023-06-24 11:55:58] 1.2-request Api_url $api_url
+[2023-06-24 11:55:58] 1.3-store events of the jop periodically during process 
+[2023-06-24 11:55:58] 1.4- fetch data from Api
+[2023-06-24 11:55:58] 1.5- View data that returned from API
+[2023-06-24 11:55:58] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 11:55:58] 1.7- get data of each project to select 
+[2023-06-24 11:55:58] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 11:55:58] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 11:55:58] 1.10- check project update number [PUN]if not found
+[2023-06-24 11:55:58] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 11:55:58] 3.9- Finish cron_job Function
+[2023-06-24 11:57:58] 1.1- Start cron_job Function
+[2023-06-24 11:57:58] 1.2-request Api_url $api_url
+[2023-06-24 11:57:58] 1.3-store events of the jop periodically during process 
+[2023-06-24 11:57:58] 1.4- fetch data from Api
+[2023-06-24 11:57:58] 1.5- View data that returned from API
+[2023-06-24 11:57:58] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 11:57:58] 1.7- get data of each project to select 
+[2023-06-24 11:57:58] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 11:57:58] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 11:57:58] 1.10- check project update number [PUN]if not found
+[2023-06-24 11:57:58] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 11:57:58] 3.9- Finish cron_job Function
+[2023-06-24 12:03:35] 1.1- Start cron_job Function
+[2023-06-24 12:03:35] 1.2-request Api_url $api_url
+[2023-06-24 12:03:35] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:03:35] 1.4- fetch data from Api
+[2023-06-24 12:03:35] 1.5- View data that returned from API
+[2023-06-24 12:03:35] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:03:35] 1.7- get data of each project to select 
+[2023-06-24 12:03:35] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:03:35] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:03:35] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:03:35] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:03:35] 3.9- Finish cron_job Function
+[2023-06-24 12:04:22] 1.1- Start cron_job Function
+[2023-06-24 12:04:22] 1.2-request Api_url $api_url
+[2023-06-24 12:04:22] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:04:22] 1.4- fetch data from Api
+[2023-06-24 12:04:22] 1.5- View data that returned from API
+[2023-06-24 12:04:22] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:04:22] 1.7- get data of each project to select 
+[2023-06-24 12:04:22] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:04:22] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:04:22] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:04:22] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:04:22] 3.9- Finish cron_job Function
+[2023-06-24 12:06:46] 1.1- Start cron_job Function
+[2023-06-24 12:06:46] 1.2-request Api_url $api_url
+[2023-06-24 12:06:47] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:06:47] 1.4- fetch data from Api
+[2023-06-24 12:06:47] 1.5- View data that returned from API
+[2023-06-24 12:06:47] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:06:47] 1.7- get data of each project to select 
+[2023-06-24 12:06:47] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:06:47] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:06:47] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:06:47] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:06:47] 3.9- Finish cron_job Function
+[2023-06-24 12:07:20] 1.1- Start cron_job Function
+[2023-06-24 12:07:20] 1.2-request Api_url $api_url
+[2023-06-24 12:07:21] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:07:21] 1.4- fetch data from Api
+[2023-06-24 12:07:21] 1.5- View data that returned from API
+[2023-06-24 12:07:21] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:07:21] 1.7- get data of each project to select 
+[2023-06-24 12:07:21] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:07:21] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:07:21] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:07:21] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:07:21] 3.9- Finish cron_job Function
+[2023-06-24 12:08:24] 1.1- Start cron_job Function
+[2023-06-24 12:08:24] 1.2-request Api_url $api_url
+[2023-06-24 12:08:24] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:08:24] 1.4- fetch data from Api
+[2023-06-24 12:08:24] 1.5- View data that returned from API
+[2023-06-24 12:08:24] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:08:24] 1.7- get data of each project to select 
+[2023-06-24 12:08:24] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:08:24] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:08:24] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:08:24] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:08:24] 3.9- Finish cron_job Function
+[2023-06-24 12:09:11] 1.1- Start cron_job Function
+[2023-06-24 12:09:11] 1.2-request Api_url $api_url
+[2023-06-24 12:09:12] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:09:12] 1.4- fetch data from Api
+[2023-06-24 12:09:12] 1.5- View data that returned from API
+[2023-06-24 12:09:12] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:09:12] 1.7- get data of each project to select 
+[2023-06-24 12:09:12] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:09:12] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:09:12] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:09:12] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:09:12] 3.9- Finish cron_job Function
+[2023-06-24 12:13:36] 1.1- Start cron_job Function
+[2023-06-24 12:13:36] 1.2-request Api_url $api_url
+[2023-06-24 12:13:36] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:13:36] 1.4- fetch data from Api
+[2023-06-24 12:13:36] 1.5- View data that returned from API
+[2023-06-24 12:13:36] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:13:36] 1.7- get data of each project to select 
+[2023-06-24 12:13:36] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:13:36] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:13:36] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:13:36] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:13:36] 3.9- Finish cron_job Function
+[2023-06-24 12:14:30] 1.1- Start cron_job Function
+[2023-06-24 12:14:30] 1.2-request Api_url $api_url
+[2023-06-24 12:14:31] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:14:31] 1.4- fetch data from Api
+[2023-06-24 12:14:31] 1.5- View data that returned from API
+[2023-06-24 12:14:31] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:14:31] 1.7- get data of each project to select 
+[2023-06-24 12:14:31] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:14:31] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:14:31] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:14:31] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:14:31] 3.9- Finish cron_job Function
+[2023-06-24 12:15:34] 1.1- Start cron_job Function
+[2023-06-24 12:15:34] 1.2-request Api_url $api_url
+[2023-06-24 12:15:34] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:15:34] 1.4- fetch data from Api
+[2023-06-24 12:15:34] 1.5- View data that returned from API
+[2023-06-24 12:15:34] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:15:34] 1.7- get data of each project to select 
+[2023-06-24 12:15:34] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:15:34] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:15:34] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:15:34] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:15:34] 3.9- Finish cron_job Function
+[2023-06-24 12:16:47] 1.1- Start cron_job Function
+[2023-06-24 12:16:47] 1.2-request Api_url $api_url
+[2023-06-24 12:16:48] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:16:48] 1.4- fetch data from Api
+[2023-06-24 12:16:48] 1.5- View data that returned from API
+[2023-06-24 12:16:48] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:16:48] 1.7- get data of each project to select 
+[2023-06-24 12:16:48] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:16:48] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:16:48] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:16:48] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:16:48] 3.9- Finish cron_job Function
+[2023-06-24 12:17:13] 1.1- Start cron_job Function
+[2023-06-24 12:17:13] 1.2-request Api_url $api_url
+[2023-06-24 12:17:14] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:17:14] 1.4- fetch data from Api
+[2023-06-24 12:17:14] 1.5- View data that returned from API
+[2023-06-24 12:17:14] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:17:14] 1.7- get data of each project to select 
+[2023-06-24 12:17:14] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:17:14] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:17:14] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:17:14] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:17:14] 3.9- Finish cron_job Function
+[2023-06-24 12:18:17] 1.1- Start cron_job Function
+[2023-06-24 12:18:17] 1.2-request Api_url $api_url
+[2023-06-24 12:18:18] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:18:18] 1.4- fetch data from Api
+[2023-06-24 12:18:18] 1.5- View data that returned from API
+[2023-06-24 12:18:18] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:18:18] 1.7- get data of each project to select 
+[2023-06-24 12:18:18] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:18:18] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:18:18] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:18:18] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:18:18] 3.9- Finish cron_job Function
+[2023-06-24 12:20:48] 1.1- Start cron_job Function
+[2023-06-24 12:20:48] 1.2-request Api_url $api_url
+[2023-06-24 12:20:48] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:20:48] 1.4- fetch data from Api
+[2023-06-24 12:20:48] 1.5- View data that returned from API
+[2023-06-24 12:20:48] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:20:48] 1.7- get data of each project to select 
+[2023-06-24 12:20:48] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:20:48] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:20:48] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:20:48] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:20:48] 3.9- Finish cron_job Function
+[2023-06-24 12:22:49] 1.1- Start cron_job Function
+[2023-06-24 12:22:49] 1.2-request Api_url $api_url
+[2023-06-24 12:22:49] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:22:49] 1.4- fetch data from Api
+[2023-06-24 12:22:49] 1.5- View data that returned from API
+[2023-06-24 12:22:49] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:22:49] 1.7- get data of each project to select 
+[2023-06-24 12:22:49] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:22:49] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:22:49] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:22:49] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:22:49] 3.9- Finish cron_job Function
+[2023-06-24 12:23:59] 1.1- Start cron_job Function
+[2023-06-24 12:23:59] 1.2-request Api_url $api_url
+[2023-06-24 12:23:59] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:23:59] 1.4- fetch data from Api
+[2023-06-24 12:23:59] 1.5- View data that returned from API
+[2023-06-24 12:23:59] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:23:59] 1.7- get data of each project to select 
+[2023-06-24 12:23:59] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:23:59] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:23:59] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:23:59] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:23:59] 3.9- Finish cron_job Function
+[2023-06-24 12:24:50] 1.1- Start cron_job Function
+[2023-06-24 12:24:50] 1.2-request Api_url $api_url
+[2023-06-24 12:24:50] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:24:50] 1.4- fetch data from Api
+[2023-06-24 12:24:50] 1.5- View data that returned from API
+[2023-06-24 12:24:50] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:24:50] 1.7- get data of each project to select 
+[2023-06-24 12:24:50] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:24:50] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:24:50] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:24:50] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:24:50] 3.9- Finish cron_job Function
+[2023-06-24 12:31:09] 1.1- Start cron_job Function
+[2023-06-24 12:31:09] 1.2-request Api_url $api_url
+[2023-06-24 12:31:09] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:31:09] 1.4- fetch data from Api
+[2023-06-24 12:31:09] 1.5- View data that returned from API
+[2023-06-24 12:31:09] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:31:09] 1.7- get data of each project to select 
+[2023-06-24 12:31:09] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:31:09] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:31:09] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:31:09] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:31:09] 3.9- Finish cron_job Function
+[2023-06-24 12:32:40] 1.1- Start cron_job Function
+[2023-06-24 12:32:40] 1.2-request Api_url $api_url
+[2023-06-24 12:32:41] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:32:41] 1.4- fetch data from Api
+[2023-06-24 12:32:41] 1.5- View data that returned from API
+[2023-06-24 12:32:41] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:32:41] 1.7- get data of each project to select 
+[2023-06-24 12:32:41] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:32:41] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:32:41] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:32:41] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:32:41] 3.9- Finish cron_job Function
+[2023-06-24 12:33:10] 1.1- Start cron_job Function
+[2023-06-24 12:33:10] 1.2-request Api_url $api_url
+[2023-06-24 12:33:11] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:33:11] 1.4- fetch data from Api
+[2023-06-24 12:33:11] 1.5- View data that returned from API
+[2023-06-24 12:33:11] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:33:11] 1.7- get data of each project to select 
+[2023-06-24 12:33:11] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:33:11] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:33:11] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:33:11] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:33:11] 3.9- Finish cron_job Function
+[2023-06-24 12:35:08] 1.1- Start cron_job Function
+[2023-06-24 12:35:08] 1.2-request Api_url $api_url
+[2023-06-24 12:35:09] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:35:09] 1.4- fetch data from Api
+[2023-06-24 12:35:09] 1.5- View data that returned from API
+[2023-06-24 12:35:09] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:35:09] 1.7- get data of each project to select 
+[2023-06-24 12:35:09] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:35:09] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:35:09] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:35:09] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:35:09] 3.9- Finish cron_job Function
+[2023-06-24 12:35:12] 1.1- Start cron_job Function
+[2023-06-24 12:35:12] 1.2-request Api_url $api_url
+[2023-06-24 12:35:12] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:35:12] 1.4- fetch data from Api
+[2023-06-24 12:35:12] 1.5- View data that returned from API
+[2023-06-24 12:35:12] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:35:12] 1.7- get data of each project to select 
+[2023-06-24 12:35:12] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:35:12] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:35:12] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:35:12] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:35:12] 3.9- Finish cron_job Function
+[2023-06-24 12:36:41] 1.1- Start cron_job Function
+[2023-06-24 12:36:41] 1.2-request Api_url $api_url
+[2023-06-24 12:36:42] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:36:42] 1.4- fetch data from Api
+[2023-06-24 12:36:42] 1.5- View data that returned from API
+[2023-06-24 12:36:42] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:36:42] 1.7- get data of each project to select 
+[2023-06-24 12:36:42] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:36:42] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:36:42] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:36:42] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:36:42] 3.9- Finish cron_job Function
+[2023-06-24 12:37:10] 1.1- Start cron_job Function
+[2023-06-24 12:37:10] 1.2-request Api_url $api_url
+[2023-06-24 12:37:11] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:37:11] 1.4- fetch data from Api
+[2023-06-24 12:37:11] 1.5- View data that returned from API
+[2023-06-24 12:37:11] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:37:11] 1.7- get data of each project to select 
+[2023-06-24 12:37:11] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:37:11] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:37:11] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:37:11] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:37:11] 3.9- Finish cron_job Function
+[2023-06-24 12:38:10] 1.1- Start cron_job Function
+[2023-06-24 12:38:10] 1.2-request Api_url $api_url
+[2023-06-24 12:38:10] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:38:10] 1.4- fetch data from Api
+[2023-06-24 12:38:10] 1.5- View data that returned from API
+[2023-06-24 12:38:10] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:38:10] 1.7- get data of each project to select 
+[2023-06-24 12:38:10] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:38:10] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:38:10] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:38:10] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:38:10] 3.9- Finish cron_job Function
+[2023-06-24 12:39:12] 1.1- Start cron_job Function
+[2023-06-24 12:39:12] 1.2-request Api_url $api_url
+[2023-06-24 12:39:12] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:39:12] 1.4- fetch data from Api
+[2023-06-24 12:39:12] 1.5- View data that returned from API
+[2023-06-24 12:39:12] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:39:12] 1.7- get data of each project to select 
+[2023-06-24 12:39:12] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:39:12] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:39:12] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:39:12] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:39:12] 3.9- Finish cron_job Function
+[2023-06-24 12:40:58] 1.1- Start cron_job Function
+[2023-06-24 12:40:58] 1.2-request Api_url $api_url
+[2023-06-24 12:40:59] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:40:59] 1.4- fetch data from Api
+[2023-06-24 12:40:59] 1.5- View data that returned from API
+[2023-06-24 12:40:59] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:40:59] 1.7- get data of each project to select 
+[2023-06-24 12:40:59] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:40:59] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:40:59] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:40:59] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:40:59] 2.2- check if project update number[pun > 0]
+[2023-06-24 12:40:59] 2.3- store data into history table
+[2023-06-24 12:40:59] 2.4- get all project name: 7 & all tag : 0 from table
+[2023-06-24 12:41:01] 2.7-changed the new pun 221 
+[2023-06-24 12:41:01] 2.8- register updated_app in event table
+[2023-06-24 12:41:01] 2.9- set status {'updated'}
+[2023-06-24 12:41:01] 3.1- start_process
+[2023-06-24 12:41:01] 3.2- get last aun and last meta_app_post for app [1]
+[2023-06-24 12:41:01] 3.3- if aun status > 0 
+[2023-06-24 12:41:01] 3.5 check  the app have key '.rating.' if not found 
+[2023-06-24 12:41:01] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:01] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:01] 3.5 check  the app have key '.version.' if not found 
+[2023-06-24 12:41:01] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:01] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:01] 3.5 check  the app have key '..' if not found 
+[2023-06-24 12:41:01] 3.6- Insert  all keys 
+[2023-06-24 12:41:01] 3.5 check  the app have key '.app_name.' if not found 
+[2023-06-24 12:41:01] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:01] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:01] 3.5 check  the app have key '.logo.' if not found 
+[2023-06-24 12:41:01] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.5 check  the app have key '.link.' if not found 
+[2023-06-24 12:41:02] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.5 check  the app have key '.author.' if not found 
+[2023-06-24 12:41:02] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.5 check  the app have key '.author_link.' if not found 
+[2023-06-24 12:41:02] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.5 check  the app have key '.screenshots.' if not found 
+[2023-06-24 12:41:02] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.5 check  the app have key '.votes.' if not found 
+[2023-06-24 12:41:02] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.5 check  the app have key '.file.' if not found 
+[2023-06-24 12:41:02] 3.7 check if the keys exists, update data
+[2023-06-24 12:41:02] 3.8- update all keys & logo & thumbnail 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [2]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [3]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [4]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [5]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [6]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [7]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [8]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [9]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:02] 3.1- start_process
+[2023-06-24 12:41:02] 3.2- get last aun and last meta_app_post for app [10]
+[2023-06-24 12:41:02] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [11]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [12]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [13]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [14]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [15]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [16]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [17]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [18]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [19]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:03] 3.1- start_process
+[2023-06-24 12:41:03] 3.2- get last aun and last meta_app_post for app [20]
+[2023-06-24 12:41:03] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [21]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [22]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [23]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [24]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [25]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [26]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [27]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [28]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [29]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [30]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [31]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [32]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [33]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [34]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [35]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [36]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [37]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [38]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [39]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:04] 3.1- start_process
+[2023-06-24 12:41:04] 3.2- get last aun and last meta_app_post for app [40]
+[2023-06-24 12:41:04] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [41]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [42]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [43]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [44]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [45]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [46]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [47]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [48]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [49]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:05] 3.1- start_process
+[2023-06-24 12:41:05] 3.2- get last aun and last meta_app_post for app [50]
+[2023-06-24 12:41:05] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [51]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [52]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [53]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [54]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [55]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [56]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [57]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [58]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [59]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:06] 3.1- start_process
+[2023-06-24 12:41:06] 3.2- get last aun and last meta_app_post for app [60]
+[2023-06-24 12:41:06] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [61]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [62]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [63]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [64]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [65]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [66]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [67]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [68]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [69]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:07] 3.1- start_process
+[2023-06-24 12:41:07] 3.2- get last aun and last meta_app_post for app [70]
+[2023-06-24 12:41:07] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [71]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [72]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [73]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [74]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [75]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [76]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [77]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [78]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [79]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:08] 3.1- start_process
+[2023-06-24 12:41:08] 3.2- get last aun and last meta_app_post for app [80]
+[2023-06-24 12:41:08] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [81]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [82]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [83]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [84]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [85]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [86]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [87]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [88]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [89]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.1- start_process
+[2023-06-24 12:41:09] 3.2- get last aun and last meta_app_post for app [90]
+[2023-06-24 12:41:09] 3.3- if aun status > 0 
+[2023-06-24 12:41:09] 3.9- Finish cron_job Function
+[2023-06-24 12:41:11] 1.1- Start cron_job Function
+[2023-06-24 12:41:11] 1.2-request Api_url $api_url
+[2023-06-24 12:41:12] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:41:12] 1.4- fetch data from Api
+[2023-06-24 12:41:12] 1.5- View data that returned from API
+[2023-06-24 12:41:12] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:41:12] 1.7- get data of each project to select 
+[2023-06-24 12:41:12] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:41:12] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:41:12] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:41:12] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:41:12] 3.9- Finish cron_job Function
+[2023-06-24 12:42:48] 1.1- Start cron_job Function
+[2023-06-24 12:42:48] 1.2-request Api_url $api_url
+[2023-06-24 12:42:49] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:42:49] 1.4- fetch data from Api
+[2023-06-24 12:42:49] 1.5- View data that returned from API
+[2023-06-24 12:42:49] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:42:49] 1.7- get data of each project to select 
+[2023-06-24 12:42:49] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:42:49] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:42:49] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:42:49] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:42:49] 3.9- Finish cron_job Function
+[2023-06-24 12:43:43] 1.1- Start cron_job Function
+[2023-06-24 12:43:43] 1.2-request Api_url $api_url
+[2023-06-24 12:43:44] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:43:44] 1.4- fetch data from Api
+[2023-06-24 12:43:44] 1.5- View data that returned from API
+[2023-06-24 12:43:44] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:43:44] 1.7- get data of each project to select 
+[2023-06-24 12:43:44] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:43:44] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:43:44] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:43:44] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:43:44] 3.9- Finish cron_job Function
+[2023-06-24 12:44:09] 1.1- Start cron_job Function
+[2023-06-24 12:44:09] 1.2-request Api_url $api_url
+[2023-06-24 12:44:10] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:44:10] 1.4- fetch data from Api
+[2023-06-24 12:44:10] 1.5- View data that returned from API
+[2023-06-24 12:44:10] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:44:10] 1.7- get data of each project to select 
+[2023-06-24 12:44:10] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:44:10] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:44:10] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:44:10] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:44:10] 3.9- Finish cron_job Function
+[2023-06-24 12:45:19] 1.1- Start cron_job Function
+[2023-06-24 12:45:19] 1.2-request Api_url $api_url
+[2023-06-24 12:45:20] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:45:20] 1.4- fetch data from Api
+[2023-06-24 12:45:20] 1.5- View data that returned from API
+[2023-06-24 12:45:20] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:45:20] 1.7- get data of each project to select 
+[2023-06-24 12:45:20] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:45:20] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:45:20] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:45:20] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:45:20] 3.9- Finish cron_job Function
+[2023-06-24 12:47:15] 1.1- Start cron_job Function
+[2023-06-24 12:47:15] 1.2-request Api_url $api_url
+[2023-06-24 12:47:15] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:47:15] 1.4- fetch data from Api
+[2023-06-24 12:47:15] 1.5- View data that returned from API
+[2023-06-24 12:47:15] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:47:15] 1.7- get data of each project to select 
+[2023-06-24 12:47:15] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:47:15] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:47:15] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:47:15] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:47:15] 3.9- Finish cron_job Function
+[2023-06-24 12:50:07] 1.1- Start cron_job Function
+[2023-06-24 12:50:07] 1.2-request Api_url $api_url
+[2023-06-24 12:50:07] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:50:07] 1.4- fetch data from Api
+[2023-06-24 12:50:07] 1.5- View data that returned from API
+[2023-06-24 12:50:07] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:50:07] 1.7- get data of each project to select 
+[2023-06-24 12:50:07] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:50:07] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:50:07] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:50:07] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:50:07] 3.9- Finish cron_job Function
+[2023-06-24 12:51:14] 1.1- Start cron_job Function
+[2023-06-24 12:51:14] 1.2-request Api_url $api_url
+[2023-06-24 12:51:15] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:51:15] 1.4- fetch data from Api
+[2023-06-24 12:51:15] 1.5- View data that returned from API
+[2023-06-24 12:51:15] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:51:15] 1.7- get data of each project to select 
+[2023-06-24 12:51:15] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:51:15] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:51:15] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:51:15] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:51:15] 2.2- check if project update number[pun > 0]
+[2023-06-24 12:51:15] 2.3- store data into history table
+[2023-06-24 12:51:15] 2.4- get all project name: 7 & all tag : 0 from table
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [1]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [2]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [3]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [4]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [5]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [6]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [7]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [8]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [9]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:17] 3.1- start_process
+[2023-06-24 12:51:17] 3.2- get last aun and last meta_app_post for app [10]
+[2023-06-24 12:51:17] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [11]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [12]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [13]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [14]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [15]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [16]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [17]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [18]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [19]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:18] 3.1- start_process
+[2023-06-24 12:51:18] 3.2- get last aun and last meta_app_post for app [20]
+[2023-06-24 12:51:18] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [21]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [22]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [23]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [24]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [25]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [26]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [27]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [28]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [29]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:19] 3.1- start_process
+[2023-06-24 12:51:19] 3.2- get last aun and last meta_app_post for app [30]
+[2023-06-24 12:51:19] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [31]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [32]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [33]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [34]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [35]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [36]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [37]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [38]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [39]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:20] 3.1- start_process
+[2023-06-24 12:51:20] 3.2- get last aun and last meta_app_post for app [40]
+[2023-06-24 12:51:20] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [41]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [42]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [43]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [44]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [45]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [46]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [47]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [48]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [49]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:21] 3.1- start_process
+[2023-06-24 12:51:21] 3.2- get last aun and last meta_app_post for app [50]
+[2023-06-24 12:51:21] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [51]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [52]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [53]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [54]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [55]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [56]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [57]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [58]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [59]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:22] 3.1- start_process
+[2023-06-24 12:51:22] 3.2- get last aun and last meta_app_post for app [60]
+[2023-06-24 12:51:22] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [61]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [62]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [63]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [64]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [65]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [66]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [67]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [68]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [69]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:23] 3.1- start_process
+[2023-06-24 12:51:23] 3.2- get last aun and last meta_app_post for app [70]
+[2023-06-24 12:51:23] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [71]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [72]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [73]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [74]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [75]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [76]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [77]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [78]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [79]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [80]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [81]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [82]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [83]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [84]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [85]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [86]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [87]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [88]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [89]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.1- start_process
+[2023-06-24 12:51:24] 3.2- get last aun and last meta_app_post for app [90]
+[2023-06-24 12:51:24] 3.3- if aun status > 0 
+[2023-06-24 12:51:24] 3.9- Finish cron_job Function
+[2023-06-24 12:52:12] 1.1- Start cron_job Function
+[2023-06-24 12:52:12] 1.2-request Api_url $api_url
+[2023-06-24 12:52:13] 1.3-store events of the jop periodically during process 
+[2023-06-24 12:52:13] 1.4- fetch data from Api
+[2023-06-24 12:52:13] 1.5- View data that returned from API
+[2023-06-24 12:52:13] 1.6- get and View projects & tags that returned from  API
+[2023-06-24 12:52:13] 1.7- get data of each project to select 
+[2023-06-24 12:52:13] 1.8- The selected project Name:my android. id: 7
+[2023-06-24 12:52:13] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-06-24 12:52:13] 1.10- check project update number [PUN]if not found
+[2023-06-24 12:52:13] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-06-24 12:52:13] 3.9- Finish cron_job Function

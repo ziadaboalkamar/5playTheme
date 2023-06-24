@@ -155,7 +155,7 @@ add_shortcode('ex_themes_footers_social_media_', 'ex_themes_footers_social_media
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_related_posts_() { 
 	global $opt_themes, $wpdb, $post, $wp_query;
-    $activate           = $opt_themes['ex_themes_related_posts_active_'];
+    $activate           =  $opt_themes['ex_themes_related_posts_active_'];
     $numbers            = $opt_themes['ex_themes_related_posts_numbers_'];
     $titles             = $opt_themes['ex_themes_related_posts_title_'];
 	$developer_terms    = get_the_terms( $post->ID , 'developer', 'string');
@@ -181,7 +181,7 @@ function ex_themes_related_posts_() {
 	if($developer_query->have_posts()){ ?>
 	<section class="wrp section section-related">
             <div class="section-head">
-                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php global $opt_themes; if($opt_themes['exthemes_more_by_developers']) { ?><?php echo $opt_themes['exthemes_more_by_developers']; ?><?php } ?> </h3>
+                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php global $opt_themes; if($opt_themes['exthemes_more_by_developers']) { ?><?php echo _e($opt_themes['exthemes_more_by_developers'],CHILD_THEME) ; ?><?php } ?> </h3>
 				<?php
                 global $post;
                 $developer = get_option('wp_developers_GP', 'developer');
@@ -218,10 +218,10 @@ function ex_themes_related_posts_() {
 	?>
         <section class="wrp section section-related">
             <div class="section-head">
-                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php echo $titles; ?></h3>
+                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php echo _e($titles,CHILD_THEME) ; ?></h3>
 				<?php
                 $category = get_the_category();
-                echo '<a class="btn s-green btn-all" href="'.get_category_link($category[0]->cat_ID).'"><span>All ' . $category[0]->cat_name . '</span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>';
+                echo '<a class="btn s-green btn-all" href="'.get_category_link($category[0]->cat_ID).'"><span>'.esc_html("All",CHILD_THEME).' ' .$category[0]->cat_name . '</span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>';
 				?>
                  
             </div>
@@ -707,7 +707,7 @@ function ex_themes_login_form_() { ?>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg width="24" height="24"><use xlink:href="#i__close"></use></svg>
                     </button>
-                    <h3 class="modal-title" ><?php global $opt_themes; if($opt_themes['exthemes_Login_to']) { ?><?php echo $opt_themes['exthemes_Login_to']; ?><?php } ?> <?php echo $watermark1; ?></h3>
+                    <h3 class="modal-title" ><?php global $opt_themes; if($opt_themes['exthemes_Login_to']) { ?><?php echo esc_html__($opt_themes['exthemes_Login_to'], CHILD_THEME) ; ?><?php } ?> <?php echo  esc_html__($watermark1, CHILD_THEME)  ; ?></h3>
                         <?php
                         if ( shortcode_exists( 'apsl-login' ) ): ?>
                             <?php echo do_shortcode( '[apsl-login]' ); ?>
@@ -717,18 +717,18 @@ function ex_themes_login_form_() { ?>
                 <div class="modal-body">
                     <form name="loginform" id="loginform"  class="login_form" method="post" action="<?php echo site_url( '/wp-login.php' ); ?>">
                         <label class="form-group">
-                            <span class="c-muted"><?php global $opt_themes; if($opt_themes['exthemes_Logins']) { ?><?php echo $opt_themes['exthemes_Logins']; ?><?php } ?></span>
+                            <span class="c-muted"><?php global $opt_themes; if($opt_themes['exthemes_Logins']) { ?><?php echo esc_html__($opt_themes['exthemes_Logins'], CHILD_THEME) ; ?><?php } ?></span>
                             <input class="form-control" type="text" name="log" id="user_login" required>
                         </label>
                         <label class="form-group">
-                            <a class="f-right" href="<?php echo wp_lostpassword_url( ); ?>"><?php global $opt_themes; if($opt_themes['exthemes_Forgot_your_password']) { ?><?php echo $opt_themes['exthemes_Forgot_your_password']; ?><?php } ?></a>
-                            <span class="c-muted"><?php global $opt_themes; if($opt_themes['exthemes_Password']) { ?><?php echo $opt_themes['exthemes_Password']; ?><?php } ?></span>
+                            <a class="f-right" href="<?php echo wp_lostpassword_url( ); ?>"><?php global $opt_themes; if($opt_themes['exthemes_Forgot_your_password']) { ?><?php echo esc_html__($opt_themes['exthemes_Forgot_your_password'], CHILD_THEME) ; ?><?php } ?></a>
+                            <span class="c-muted"><?php global $opt_themes; if($opt_themes['exthemes_Password']) { ?><?php echo esc_html__($opt_themes['exthemes_Password'], CHILD_THEME) ; ?><?php } ?></span>
                             <input class="form-control" type="password" name="pwd" id="user_pass" required>
                         </label>
                         <input name="login" type="hidden" name="wp-submit" id="wp-submit" value="submit">
                         <div class="form-submit btn-group">
-                            <button class="btn btn-block s-green" onclick="submit();" name="wp-submit" id="wp-submit" type="submit"><?php global $opt_themes; if($opt_themes['exthemes_Logins']) { ?><?php echo $opt_themes['exthemes_Logins']; ?><?php } ?></button>
-                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>register/" class="btn btn-block s-yellow"><?php global $opt_themes; if($opt_themes['exthemes_Registration']) { ?><?php echo $opt_themes['exthemes_Registration']; ?><?php } ?></a>
+                            <button class="btn btn-block s-green" onclick="submit();" name="wp-submit" id="wp-submit" type="submit"><?php global $opt_themes; if($opt_themes['exthemes_Logins']) { ?><?php echo esc_html__($opt_themes['exthemes_Logins'], CHILD_THEME) ; ?><?php } ?></button>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>register/" class="btn btn-block s-yellow"><?php global $opt_themes; if($opt_themes['exthemes_Registration']) { ?><?php echo esc_html__($opt_themes['exthemes_Registration'], CHILD_THEME) ; ?><?php } ?></a>
                         </div>
                     </form>
                 </div>
