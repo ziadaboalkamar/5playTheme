@@ -16,7 +16,7 @@ function dt_setup() {
         return;
 
     $locale = apply_filters( 'theme_locale', get_locale(), '5play-child' );
-    echo ( "Could not find $path/$locale.mo." );
+//    echo ( "Could not find $path/$locale.mo." );
 }
 function get_key_option($post_id , $key){
     global $wpdb;

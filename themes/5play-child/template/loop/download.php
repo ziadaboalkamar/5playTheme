@@ -113,7 +113,7 @@ if ($title_dt && $title_dt != ""){
 			<?php } ?> 
 		</div>
 		<div class="b-nobugs-text">
-		<span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo $opt_themes['exthemes_apk_info_Download']; ?><?php } ?>&nbsp;<?php echo get_the_title(); ?>&nbsp;</span>
+		<span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Download'],CHILD_THEME) ; ?><?php } ?>&nbsp;<?php echo get_the_title(); ?>&nbsp;</span>
 		</div>
 	</div>
 	<div class="b-cont">
@@ -125,7 +125,7 @@ if ($title_dt && $title_dt != ""){
 	<?php if ($wp_mods_alt_2) { ?>
 	<div class="showH">
 	<details class="ac">
-		<summary><?php global $opt_themes; if($opt_themes['exthemes_content_Mod_info']) { echo $opt_themes['exthemes_content_Mod_info']; } ?></summary>
+		<summary><?php global $opt_themes; if($opt_themes['exthemes_content_Mod_info']) { echo _e($opt_themes['exthemes_content_Mod_info'],CHILD_THEME) ; } ?></summary>
 		<div class="aC">
 		<p><?php echo $wp_mods_alt_2 ?></p>
 		</div>
@@ -143,7 +143,7 @@ if ($title_dt && $title_dt != ""){
 	<img id="image-sp_info" src="<?php echo get_template_directory_uri(); ?>/assets/img/spoiler-plus.png" alt="" width="24" height="24">
 	<span class="sr-only">Show/Hide</span>
 	</a>
-	<?php global $opt_themes; if($opt_themes['exthemes_content_Mod_info']) { echo $opt_themes['exthemes_content_Mod_info']; } ?>
+	<?php global $opt_themes; if($opt_themes['exthemes_content_Mod_info']) { echo _e($opt_themes['exthemes_content_Mod_info'],CHILD_THEME) ; } ?>
 	</div>
 	<div id="sp_info" class="text_spoiler" >
 	<?php echo $wp_mods_alt_2 ?>
