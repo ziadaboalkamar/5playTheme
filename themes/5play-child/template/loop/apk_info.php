@@ -82,25 +82,25 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
         <ul>
             <li class="specs-item">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__update"></use></svg></i>
-                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Updated']) { ?><?php echo $opt_themes['exthemes_apk_info_Updated']; ?><?php } ?> </span>
+                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Updated']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Updated'],CHILD_THEME);  ?><?php } ?> </span>
                 <time class="spec-cont"<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="datePublished"<?php } ?> datetime="<?php echo $updates; ?>"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums($updates); ?><?php } else { ?><?php echo $updates; ?><?php } ?></time> 
             </li>
 			<?php if($version){?>
             <li class="specs-item">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i>
-                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Version']) { ?><?php echo $opt_themes['exthemes_apk_info_Version']; ?><?php } ?></span>
+                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Version']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Version'],CHILD_THEME); ?><?php } ?></span>
                 <span class="spec-cont"<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="softwareVersion"<?php } ?>><?php echo $version; ?></span>
             </li>
 			<?php } if($requires){ ?>
             <li class="specs-item">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__android"></use></svg></i>
-                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Requirements']) { ?><?php echo $opt_themes['exthemes_apk_info_Requirements']; ?><?php } ?></span>
+                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Requirements']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Requirements'],CHILD_THEME); ?><?php } ?></span>
                 <span class="spec-cont"<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="operatingSystem"<?php } ?>><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Android']) { ?><?php echo $opt_themes['exthemes_apk_info_Android']; ?><?php } ?> <?php echo $requires; ?></span>
             </li>
 			<?php } if ($terms) { ?>
             <li class="specs-item">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__android"></use></svg></i>
-                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_developer']) { ?><?php echo $opt_themes['exthemes_apk_info_developer']; ?><?php } ?> </span>
+                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_developer']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_developer'],CHILD_THEME); ?><?php } ?> </span>
 				 
 				<?php
 				if ($terms) {
@@ -122,7 +122,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 			<?php } if(get_the_category()){ ?>
             <li class="specs-item">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__cat"></use></svg></i>
-                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Genre']) { ?><?php echo $opt_themes['exthemes_apk_info_Genre']; ?><?php } ?></span>
+                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Genre']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Genre'],CHILD_THEME) ; ?><?php } ?></span>
                 <span class="spec-cont"<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="applicationCategory"<?php } ?>>
 				<?php 
 				$i = 0;
@@ -136,7 +136,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 			<?php $package_id = get_package($post->ID); if ($package_id && $package_id !=  "" && str_contains($package_id, '.com')){  ?>
                 <li class="specs-item">
                     <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__play"></use></svg></i>
-                    <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Google_Play']) { ?><?php echo $opt_themes['exthemes_apk_info_Google_Play']; ?><?php } ?></span>
+                    <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Google_Play']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Google_Play'],CHILD_THEME) ; ?><?php } ?></span>
                     <div class="spec-cont fw-b" >
                         <span<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="url" content="<?php the_permalink() ?>"<?php } ?>></span>
                         <a href="https://play.google.com/store/apps/details?id=<?php echo $package_id;  ?>" rel="nofollow noopener" target="_blank"<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemscope="" itemprop="offers" itemtype="http://schema.org/Offer"<?php } ?>><meta<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="price" content="0"<?php } ?>><meta<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="priceCurrency" content="USD"<?php } ?>>Open <svg class="c-green" width="24" height="24"><use xlink:href="#i__linkopen"></use></svg></a>
@@ -147,7 +147,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
             <?php  if(get_post_meta( $post->ID, 'wp_GP_ID', true )){ ?>
             <li class="specs-item">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__play"></use></svg></i>
-                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Google_Play']) { ?><?php echo $opt_themes['exthemes_apk_info_Google_Play']; ?><?php } ?></span>
+                <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Google_Play']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Google_Play'],CHILD_THEME) ; ?><?php } ?></span>
                 <div class="spec-cont fw-b" >
                     <span<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="url" content="<?php the_permalink() ?>"<?php } ?>></span>
                     <a href="https://play.google.com/store/apps/details?id=<?php echo esc_html( get_post_meta( $post->ID, 'wp_GP_ID', true ) ); ?>" rel="nofollow noopener" target="_blank"<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemscope="" itemprop="offers" itemtype="http://schema.org/Offer"<?php } ?>><meta<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="price" content="0"<?php } ?>><meta<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="priceCurrency" content="USD"<?php } ?>>Open <svg class="c-green" width="24" height="24"><use xlink:href="#i__linkopen"></use></svg></a>
@@ -168,31 +168,31 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 		<span<?php global $opt_themes; if($opt_themes['ex_themes_scheme_seo_activate_']) { ?> itemprop="reviewCount" content=<?php if( $votes ) { ?>"<?php echo $votes; ?>"<?php } else { ?>"1"<?php } }?>></span>
 		</span>
 		</center>
-		<?php } echo edit_post_link( __( 'edit post', THEMES_NAMES ), ' ', ' ' ); ?>
+		<?php } echo edit_post_link( __( 'edit post', CHILD_THEME ), ' ', ' ' ); ?>
         <ul class="rate-nums muted">
-            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo $opt_themes['exthemes_apk_info_Votes']; ?><?php } ?> 
+            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Votes'],CHILD_THEME); ?><?php } ?>
 			<span id="vote-num-id" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums($allvotes); ?><?php } else { ?><?php echo $allvotes ?><?php } ?></span>
 			</li>
-            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Comments']) { ?><?php echo $opt_themes['exthemes_apk_info_Comments']; ?><?php } ?> <?php comments_number('0', '1', '%'); ?></li> 
+            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Comments']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Comments'],CHILD_THEME) ; ?><?php } ?> <?php comments_number('0', '1', '%'); ?></li>
         </ul>
         <div class="popularity">
 		<div class="popularity-number">
 			<div class="rating_status">
 			<div class="rating_progress_bar" title="Application popularity">
-			<b><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Popularity']) { ?><?php echo $opt_themes['exthemes_apk_info_Popularity']; ?><?php } ?> <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><b <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php echo RTL_Nums($popularity); ?></b><?php } else { ?><?php echo $popularity; ?><?php } ?>%</b>			 
+			<b><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Popularity']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Popularity'],CHILD_THEME) ; ?><?php } ?> <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><b <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php echo RTL_Nums($popularity); ?></b><?php } else { ?><?php echo $popularity; ?><?php } ?>%</b>
 			<span style="width: <?php echo $popularity; ?>%"><?php echo $popularity; ?>%</span>
 			</div>
 			</div>
 		</div> 
         </div>
-        <div class="ya-share2" title="<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Share_friends']) { ?><?php echo $opt_themes['exthemes_apk_info_Share_friends']; ?><?php } ?>" data-size="m" data-shape="round" data-services="telegram,vkontakte,facebook,odnoklassniki,twitter,viber,whatsapp"></div>
+        <div class="ya-share2" title="<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Share_friends']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Share_friends'],CHILD_THEME); ?><?php } ?>" data-size="m" data-shape="round" data-services="telegram,vkontakte,facebook,odnoklassniki,twitter,viber,whatsapp"></div>
 		<script src="https://yastatic.net/share2/share.js"></script>
     </div>
     
     <div class="btn-group">
         <a class="btn btn-lg btn-icon s-button anchor" href="#download-block"><svg width="24" height="24"><use xlink:href="#i__getapp"></use></svg><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo $opt_themes['exthemes_apk_info_Download']; ?><?php } ?></a>
 		<?php global $opt_themes; if($opt_themes['report_active']) { ?>		
-		<button class="btn btn-lg btn-border needreg-btn"><span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Request_update']) { ?><?php echo $opt_themes['exthemes_apk_info_Request_update']; ?><?php } ?></span></button>
+		<button class="btn btn-lg btn-border needreg-btn"><span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Request_update']) { ?><?php echo  _e($opt_themes['exthemes_apk_info_Request_update'],CHILD_THEME) ; ?><?php } ?></span></button>
 		<div id="needreg" title="Information" style="display:none;">Guests cannot request for updates!</div>
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
@@ -209,7 +209,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 		});
 		</script>
 		<?php } else { ?>
-		<a href="#" post-id="<?php echo $post->ID; ?>" class="report-post-link btn btn-lg btn-border "><span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Request_update']) { ?><?php echo $opt_themes['exthemes_apk_info_Request_update']; ?><?php } ?></span></a>
+		<a href="#" post-id="<?php echo $post->ID; ?>" class="report-post-link btn btn-lg btn-border "><span><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Request_update']) { ?><?php  echo  _e($opt_themes['exthemes_apk_info_Request_update'],CHILD_THEME) ; ?><?php } ?></span></a>
 		<?php } ?>
     </div>
 </div>

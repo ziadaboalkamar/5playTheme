@@ -3,7 +3,21 @@
 use Inc\Base\BaseController;
 
 require_once WP_PLUGIN_DIR . '/dt-apps-scrapper/inc/Base/BaseController.php';
+$child_domain = "dt-5play";
+define("CHILD_THEME",$child_domain);
+add_action('after_setup_theme', 'dt_setup');
+function dt_setup() {
+    // load_theme_textdomain('InstaplusChild', get_stylesheet_directory() . '/languages');
+    ////////////////////load_child_theme_textdomain('instaplus-child', get_stylesheet_directory() . '/languages');
+    $path = get_stylesheet_directory() . '/languages';
+    $result = load_child_theme_textdomain('dt-5play', $path);
 
+    if ( $result )
+        return;
+
+    $locale = apply_filters( 'theme_locale', get_locale(), '5play-child' );
+    echo ( "Could not find $path/$locale.mo." );
+}
 function get_key_option($post_id , $key){
     global $wpdb;
     $base= new \Inc\Base\BaseController();
@@ -190,6 +204,7 @@ function get_dt_title($post_id){
     }
     return $value;
 }
+
 function get_dt_get_settings($key){
     global $wpdb;
     $base= new \Inc\Base\BaseController();
