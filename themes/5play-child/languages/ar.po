@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dt-5play\n"
 "POT-Creation-Date: 2023-05-18 13:02+0300\n"
-"PO-Revision-Date: 2023-06-24 09:02+0300\n"
+"PO-Revision-Date: 2023-06-24 13:04+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 
@@ -19,3 +19,168 @@ msgstr "المطور"
 
 msgid "Version"
 msgstr "الاصدار"
+
+msgid "I want to find..."
+msgstr "أريد ان أجد..."
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Find"
+msgstr "جد"
+
+msgid "Add new post"
+msgstr "اضف مقال جديد"
+
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+msgid "Authorization"
+msgstr "ترخيص"
+
+msgid "Recommend"
+msgstr "يوصي"
+
+msgid "More"
+msgstr "المزيد"
+
+msgid "Last news"
+msgstr "آخر الأخبار"
+
+msgid "Read more"
+msgstr "اقرأ أكثر"
+
+msgid "Latest comments"
+msgstr "أحدث تعليقات"
+
+msgid "Take a comment"
+msgstr "خذ تعليقًا"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "E-Mail"
+msgstr "البريد الإلكتروني"
+
+msgid "Comment text"
+msgstr "نص التعليق"
+
+msgid "Send"
+msgstr "ارسل"
+
+msgid "Comments"
+msgstr "تعليقات"
+
+msgid "Comment on"
+msgstr "تعليق على"
+
+msgid "Updated"
+msgstr "محدث"
+
+msgid "Requirements"
+msgstr "المتطلبات"
+
+msgid "Android"
+msgstr "أندرويد"
+
+msgid "Genre"
+msgstr "النوع"
+
+msgid "Views"
+msgstr "المشاهدات"
+
+msgid "Google Play"
+msgstr "متجر جوجل بلاي"
+
+msgid "Votes:"
+msgstr "التصويات:"
+
+msgid "Comments:"
+msgstr "التعليقات:"
+
+msgid "Popularity"
+msgstr "الشعبية"
+
+msgid "Download"
+msgstr "تحميل"
+
+msgid "Request for update"
+msgstr "طلب التحديث"
+
+msgid "Share with friends"
+msgstr "شارك مع الاصدقاء"
+
+msgid "Description"
+msgstr "وصف"
+
+msgid "Whats News"
+msgstr "ما الجديد"
+
+msgid "Help"
+msgstr "مساعدة"
+
+msgid "Mod info:"
+msgstr "معلومات التطبيق المعدل:"
+
+msgid "Back to main"
+msgstr "العودة إلى الرئيسية"
+
+msgid "Scroll up"
+msgstr "انتقل إلى أعلى"
+
+msgid "Screenshots"
+msgstr "صور الشاشة"
+
+msgid "Enter your search here"
+msgstr "أدخل بحثك هنا"
+
+msgid "Login to"
+msgstr "تسجيل الدخول إلى"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Forgot your password?"
+msgstr "هل نسيت كلمة السر؟"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Registration Page"
+msgstr "صفحة التسجيل"
+
+msgid "Like"
+msgstr "اعجبني"
+
+msgid "Dislike"
+msgstr "لم يعجبنى"
+
+msgid "Latest Post"
+msgstr "آخر مقال"
+
+msgid "More by Developers"
+msgstr "المزيد من المطورين"
+
+msgid "Registration"
+msgstr "تسجيل"
+
+msgid "Thanks for Register"
+msgstr "شكرا للتسجيل"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Confirm password"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Mods"
+msgstr "تطبيقات معدلة"
+
+msgid "Home"
+msgstr "الرئيسية"
