@@ -17,7 +17,7 @@ class widget_comments_homes_ extends WP_Widget {
         ?>
 		<section class="wrp section section-comments">
 		<?php if ( $title ) { ?>
-		<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php echo $title; ?></h3>	 
+		<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php echo esc_html__($title, CHILD_THEME); ?></h3>
 		<?php } ?>
 		
 		<div class="scroll-entry-list">
