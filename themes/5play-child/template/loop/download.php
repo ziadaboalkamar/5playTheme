@@ -160,7 +160,7 @@ if ($title_dt && $title_dt != ""){
             </div>
             <span class="download-line-size">
 	<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?>
-        <?php echo $opt_themes['exthemes_apk_info_Download']; ?>
+        <?php echo esc_html__($opt_themes['exthemes_apk_info_Download'] , CHILD_THEME); ?>
     <?php } if ($size_dt && $size_dt != ""){?> - <?php echo $size_dt;}elseif (get_post_meta( $post->ID, 'wp_sizes', true )) { ?> - <?php echo $sizes; } ?>
 	</span>
         </a>

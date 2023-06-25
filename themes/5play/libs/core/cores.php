@@ -284,7 +284,7 @@ foreach ($files["files"] as $file){
         </div>
         <span class="download-line-size">
 	<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?>
-        <?php  echo $opt_themes['exthemes_apk_info_Download']; ?>
+        <?php  echo esc_html__($opt_themes['exthemes_apk_info_Download'] , CHILD_THEME); ?>
     <?php } ?> - <?php echo $file["size"];  ?>
 	</span>
     </a>
@@ -344,7 +344,7 @@ $arg_version = array(
             </div>
         <?php } ?>
         <div class="v_h_button button_down ">
-            <a class="down" href="<?php the_permalink() ?>"><span><?php echo $opt_themes['exthemes_apk_info_Download'] ?></span></a>
+            <a class="down" href="<?php the_permalink() ?>"><span><?php echo esc_html__($opt_themes['exthemes_apk_info_Download'] , CHILD_THEME) ;?></span></a>
         </div>
     </div>
     <?php endwhile; wp_reset_query(); ?>
