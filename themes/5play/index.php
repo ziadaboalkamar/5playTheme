@@ -9,7 +9,7 @@ if( !function_exists('dynamic_sidebar') || !dynamic_sidebar('recommend-homes') )
 if($latest_post_on) { ?>
 <section class="wrp section">
 		<div class="section-head">
-			<h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__apps"/></svg></i><?php if($latest_post_title) { ?><?php echo $latest_post_title; ?><?php } ?></h3>
+			<h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__apps"/></svg></i><?php if($latest_post_title) { ?><?php echo esc_html__($latest_post_title, CHILD_THEME) ; ?><?php } ?></h3>
 		</div>
 		<?php $postcounter = 1; if(have_posts()) : ?>
 		<div class="entry-list list-c6">
@@ -22,7 +22,7 @@ if($latest_post_on) { ?>
 		get_template_part('template/loop/loop.item.home'); 
 		endwhile;  
 		else : ?>
-		<p style="text-align:center;padding:10px;">Ready to publish your first post? <a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>">Get started here</a></p>
+		<p style="text-align:center;padding:10px;"><?php echo esc_html__("Ready to publish your first post?" , CHILD_THEME)?> <a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php echo esc_html__("Get started here", CHILD_THEME)?></a></p>
 		</div>
 		<?php endif; 
 		get_template_part('template/navy');

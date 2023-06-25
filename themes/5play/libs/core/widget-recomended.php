@@ -31,7 +31,7 @@ class recommend_widget extends WP_Widget {
 		echo $args['before_widget']; 
 		if( $title ){ ?>
 		
-		<h2 class="section-title"><i class="s-green c-icon"><svg width="24" height="24"><use xlink:href="#i__hot"></use></svg></i><?php echo $title; ?></h2>	
+		<h2 class="section-title"><i class="s-green c-icon"><svg width="24" height="24"><use xlink:href="#i__hot"></use></svg></i><?php echo esc_html__($title, CHILD_THEME); ?></h2>
 		
 		<?php }		 
 		$ppp			= count($array_ids);
