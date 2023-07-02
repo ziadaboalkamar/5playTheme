@@ -1,9 +1,9 @@
 <div class="cld-settings-section" data-settings-ref="basic">
     <div class="cld-field-wrap">
-        <label><?php _e('Status', CLD_TD); ?></label>
+        <label><?php _e('Enable', CLD_TD); ?></label>
         <div class="cld-field">
             <input type="checkbox" name="cld_settings[basic_settings][status]" class="cld-form-field" value="1" <?php checked($cld_settings['basic_settings']['status'], true); ?>/>
-            <p class="description"><?php _e('Please check to enable comments like and dislike in frontend', CLD_TD); ?></p>
+            <p class="description"><?php _e('Please enable to showing comments like and dislike', CLD_TD); ?></p>
         </div>
     </div>
     <div class="cld-field-wrap">

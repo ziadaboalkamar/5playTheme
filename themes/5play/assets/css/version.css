@@ -1,7 +1,4 @@
-
-/* VERSION */
-
-.version_history {  
+.version_history {
 	margin-bottom: 1.5rem;
 	padding-bottom: .5rem;
 }
@@ -40,9 +37,10 @@
 	user-select: none;
 }
 
-.rtl .version_history .list, .darktheme .version_history .list { 
-  background: var(--block-bg) !important; 
+.rtl .version_history .list, .darktheme .version_history .list {
+	background: var(--block-bg) !important;
 }
+
 .version_history .list:hover {
 	box-shadow: 0 0 6px 0 rgb(0 0 0 / 10%);
 }
@@ -136,7 +134,6 @@
 	padding-right: 8px;
 	z-index: 10;
 }
-
 
 .info_box .down-button,.version_history .list .v_h_button a,.version_history .list .v_h_button button {
 	display: inline-block;

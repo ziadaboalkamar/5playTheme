@@ -19,9 +19,9 @@ $siteurls				= get_option("siteurl");
 $blogemail				= get_option("admin_email");
 $blogdesc				= get_option("blogdescription");
 $sitelangs				= get_bloginfo("language");
-echo '<!-- Theme Designer -->'.PHP_EOL;
+echo PHP_EOL.'<!-- Theme Designer -->'.PHP_EOL;
 echo '<meta name="designer" content="'.EXTHEMES_AUTHOR.'" />'.PHP_EOL;
-echo '<meta name="themes" content="'.THEMES_NAMES.'" />'.PHP_EOL;
+echo '<meta name="themes" content="'.strtolower(EX_THEMES_NAMES_).'" />'.PHP_EOL;
 echo '<meta name="version" content="'.VERSION.'" />'.PHP_EOL; 
 ?>
 <!-- Chrome, Firefox OS and Opera -->
@@ -29,7 +29,7 @@ echo '<meta name="version" content="'.VERSION.'" />'.PHP_EOL;
 <!-- Windows Phone -->
 <meta content='<?php echo $opt_themes['color_svg'];?>' name='msapplication-navbutton-color'/>
 <meta content='<?php echo $opt_themes['color_svg'];?>' name='apple-mobile-web-app-status-bar-style' />
-<!-- Styles for <?php echo EX_THEMES_NAMES_; ?> v<?php echo EXTHEMES_VERSION; ?> by <?php echo EXTHEMES_AUTHOR; ?> -->
+<!-- Styles for <?php echo strtolower(EX_THEMES_NAMES_); ?> v<?php echo EXTHEMES_VERSION; ?> by <?php echo EXTHEMES_AUTHOR; ?> -->
 <?php get_template_part( '/assets/css/root.styles' ); ?>
 <?php get_template_part( '/assets/css/custom.styles' ); ?>
 <?php get_template_part( '/assets/css/main.style' ); ?> 
@@ -155,7 +155,7 @@ add_shortcode('ex_themes_footers_social_media_', 'ex_themes_footers_social_media
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_related_posts_() { 
 	global $opt_themes, $wpdb, $post, $wp_query;
-    $activate           =  $opt_themes['ex_themes_related_posts_active_'];
+    $activate           = $opt_themes['ex_themes_related_posts_active_'];
     $numbers            = $opt_themes['ex_themes_related_posts_numbers_'];
     $titles             = $opt_themes['ex_themes_related_posts_title_'];
 	$developer_terms    = get_the_terms( $post->ID , 'developer', 'string');
@@ -181,7 +181,7 @@ function ex_themes_related_posts_() {
 	if($developer_query->have_posts()){ ?>
 	<section class="wrp section section-related">
             <div class="section-head">
-                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php global $opt_themes; if($opt_themes['exthemes_more_by_developers']) { ?><?php echo _e($opt_themes['exthemes_more_by_developers'],CHILD_THEME) ; ?><?php } ?> </h3>
+                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php global $opt_themes; if($opt_themes['exthemes_more_by_developers']) { ?><?php echo  esc_html__($opt_themes['exthemes_more_by_developers'] , CHILD_THEME) ; ?><?php } ?> </h3>
 				<?php
                 global $post;
                 $developer = get_option('wp_developers_GP', 'developer');
@@ -218,10 +218,10 @@ function ex_themes_related_posts_() {
 	?>
         <section class="wrp section section-related">
             <div class="section-head">
-                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php echo _e($titles,CHILD_THEME) ; ?></h3>
+                <h3 class="section-title"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__explore"></use></svg></i><?php echo esc_html__($titles , CHILD_THEME) ; ?></h3>
 				<?php
                 $category = get_the_category();
-                echo '<a class="btn s-green btn-all" href="'.get_category_link($category[0]->cat_ID).'"><span>'.esc_html("All",CHILD_THEME).' ' .$category[0]->cat_name . '</span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>';
+                echo '<a class="btn s-green btn-all zzz" href="'.get_category_link($category[0]->cat_ID).'"><span>'.esc_html__("All",CHILD_THEME).' ' . $category[0]->cat_name . '</span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>';
 				?>
                  
             </div>
@@ -240,17 +240,12 @@ function ex_themes_related_posts_() {
 <?php } 
 add_shortcode('ex_themes_related_posts_', 'ex_themes_related_posts_');
 
-function ex_themes_version_() {
+function ex_themes_version_() {  
 global $opt_themes, $wpdb, $post, $wp_query;
 $latest_version_on			= $opt_themes['activated_latest_version'];  
 $search						= get_post_meta( $post->ID, 'wp_title_GP', true );
 $search						= preg_replace('/[^A-Za-z0-9\-]/', ' ', $search);
 $wp_gp_id					= get_post_meta( $post->ID, 'wp_GP_ID', true );
-$DT_package                 = get_package($post->ID);
-if ($DT_package && $DT_package!= ""){
-    $wp_gp_id = $DT_package;
-}
-
 //$search					= str_replace(array(':','-'), '', $search);
 $version_gp					= get_post_meta( $post->ID, 'wp_version_GP', true );
 $version_sc					= get_post_meta( get_the_ID(), 'wp_version', true );				
@@ -263,93 +258,69 @@ if ($latest_version_on) { if($wp_gp_id){
 <div class="block ">
 <div class="box_download box_shadow">  
 <div class="b-head">
-<h3 class="section-title fbold"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i>  <?php echo _e($opt_themes['title_latest_version'],CHILD_THEME); ?></h3>
+<h3 class="section-title fbold"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg></i> <?php echo  esc_html__($opt_themes['title_latest_version'] , CHILD_THEME) ; ?></h3>
 </div>
-<div class="version_history">
-<?php
-$files = get_old_version_file($post->ID);
-if(isset($files["files"]) && count($files["files"]) > 0){
-foreach ($files["files"] as $file){
-    if ($file["version"] != null){
-        $version = $file["version"];
-    }else{
-        $version ="";
-    }
-    $link = $files["api_url"].'/'.$file["file"];
-    ?>
-    <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $link ?>&names=<?php echo $file["file_name"];  ?> (<?php echo $version;?>)" class="download-line s-button" target="_blank">
-        <div class="download-line-title">
-            <i><svg width="24" height="24"><use xlink:href="#i__getapp"/></svg></i>
-            <span><?php echo $file["file_name"]; ?>(<?php echo $version;?>)</span>
-        </div>
-        <span class="download-line-size">
-	<?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?>
-        <?php  echo esc_html__($opt_themes['exthemes_apk_info_Download'] , CHILD_THEME); ?>
-    <?php } ?> - <?php echo $file["size"];  ?>
-	</span>
-    </a>
-<?php }}else{
-$arg_version = array(
-                        'post_type'			=> 'post',
-                        'posts_per_page'	=> -1,
-                        'meta_key'			=> 'wp_GP_ID',
-                        'meta_value'		=> $wp_gp_id,
-                        'orderby'			=> $version_gp,
-                        'order'				=> 'DESC',
-                    );
-                    $post_version = new WP_Query($arg_version);
-                    while($post_version->have_posts() ) : $post_version->the_post();
-                        ?>
-
-    <?php
-    $image_id_alt					= get_post_thumbnail_id($post->ID);
-    $image_idx						= get_post_thumbnail_id();
-    $fullx							= 'post_thumb_version';
-    $image_urlx						= wp_get_attachment_image_src($image_idx, $fullx, true);
-    $imagex							= $image_urlx[0];
-    $version_gp			    		= get_post_meta( $post->ID, 'wp_version_GP', true );
-    $version_sc		    			= get_post_meta( get_the_ID(), 'wp_version', true );
-    //if ( $version_gp === FALSE or $version_gp == '' ) $version_gp = $version_sc;
-    $mods							= get_post_meta( get_the_ID(), 'wp_mods', true );
-    $updates						= get_the_modified_time('F j, Y');
-    $search							= get_post_meta( $post->ID, 'wp_title_GP', true );
-    $sizes							= get_post_meta( $post->ID, 'wp_sizes', true );
-    $sizes_alt						= get_post_meta( $post->ID, 'wp_sizes_GP', true );
-    if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizes_alt;
-    $appname_on				    	= $opt_themes['title_app_name_active_'];
-    $title					    	= get_post_meta( $post->ID, 'wp_title_GP', true );
-    $title_alt				    	= get_the_title();
-    $poster_gp						= get_post_meta( $post->ID, 'wp_poster_GP', true );
-
-    ?>
-    <div class="list">
-        <div class="package_info open_info">
-            <img src="<?php if($poster_gp){ echo $poster_gp; } else { echo $imagex; } ?>" class="icon " alt="<?php if ($title) { if($opt_themes['title_app_name_active_']) { echo ucwords($title); } else { echo $title_alt; } } else { echo $title_alt; } ?>" width="50" height="50">
-            <div class="title">
-                <span class="name"><?php if ($title) { echo ucwords($title); } ?></span>
-                <span class="version"><?php echo $version_gp; ?></span>
-                <span class="<?php if($mods){ ?>mod<?php } else { ?>apk<?php } ?>"><?php if($mods){ ?><?php echo $opt_themes['title_version_mod']; ?><?php } else { ?><?php echo $opt_themes['title_version_apk']; ?><?php } ?></span>
-            </div>
-            <div class="text">
-                <span><?php echo the_modified_time('F j, Y '); ?></span>
-                <?php if($sizes){ ?><span><?php echo $sizes; ?></span><?php } ?>
-            </div>
-        </div>
-        <?php if($mods){ ?>
-            <div class="info-fix">
-                <div class="info_box">
-                    <p><strong><?php echo $opt_themes['exthemes_content_Mod_info']; ?></strong></p>
-                    <div class="whats_new"><?php echo $mods; ?></div>
+<div class="version_history"> 
+		<?php		 
+		$arg_version = array(		
+		'post_type'			=> 'post',
+		'posts_per_page'	=> -1, 
+		'meta_key'			=> 'wp_GP_ID', 
+		'meta_value'		=> $wp_gp_id,
+		'orderby'			=> $version_gp,
+		'order'				=> 'DESC',
+		);
+		$post_version = new WP_Query($arg_version); 
+		while($post_version->have_posts() ) : $post_version->the_post();
+        ?>
+        
+        <?php
+		$image_id_alt					= get_post_thumbnail_id($post->ID); 
+		$image_idx						= get_post_thumbnail_id(); 
+		$fullx							= 'post_thumb_version'; 
+		$image_urlx						= wp_get_attachment_image_src($image_idx, $fullx, true); 
+		$imagex							= $image_urlx[0];
+        $version_gp			    		= get_post_meta( $post->ID, 'wp_version_GP', true );
+        $version_sc		    			= get_post_meta( get_the_ID(), 'wp_version', true );	
+		//if ( $version_gp === FALSE or $version_gp == '' ) $version_gp = $version_sc;		
+		$mods							= get_post_meta( get_the_ID(), 'wp_mods', true );
+		$updates						= get_the_modified_time('F j, Y');
+		$search							= get_post_meta( $post->ID, 'wp_title_GP', true );
+		$sizes							= get_post_meta( $post->ID, 'wp_sizes', true ); 
+		$sizes_alt						= get_post_meta( $post->ID, 'wp_sizes_GP', true );
+		if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizes_alt;
+        $appname_on				    	= $opt_themes['title_app_name_active_'];
+        $title					    	= get_post_meta( $post->ID, 'wp_title_GP', true );
+        $title_alt				    	= get_the_title(); 
+		$poster_gp						= get_post_meta( $post->ID, 'wp_poster_GP', true );
+                
+		?>
+		<div class="list">
+            <div class="package_info open_info">
+                <img src="<?php if($poster_gp){ echo $poster_gp; } else { echo $imagex; } ?>" class="icon " alt="<?php if ($title) { if($opt_themes['title_app_name_active_']) { echo ucwords($title); } else { echo $title_alt; } } else { echo $title_alt; } ?>" width="50" height="50">
+                <div class="title">
+                    <span class="name"><?php if ($title) { echo ucwords($title); } ?></span>
+                    <span class="version"><?php echo $version_gp; ?></span>
+                    <span class="<?php if($mods){ ?>mod<?php } else { ?>apk<?php } ?>"><?php if($mods){ ?><?php echo $opt_themes['title_version_mod']; ?><?php } else { ?><?php echo $opt_themes['title_version_apk']; ?><?php } ?></span>
+                </div>
+                <div class="text">
+                    <span><?php echo the_modified_time('F j, Y '); ?></span>
+                    <?php if($sizes){ ?><span><?php echo $sizes; ?></span><?php } ?>
                 </div>
             </div>
-        <?php } ?>
-        <div class="v_h_button button_down ">
-            <a class="down" href="<?php the_permalink() ?>"><span><?php echo esc_html__($opt_themes['exthemes_apk_info_Download'] , CHILD_THEME) ;?></span></a>
-        </div>
-    </div>
-    <?php endwhile; wp_reset_query(); ?>
-<?php } ?>
-
+            <?php if($mods){ ?>
+            <div class="info-fix"> 
+                <div class="info_box">
+				<p><strong><?php echo $opt_themes['exthemes_content_Mod_info']; ?></strong></p>
+                <div class="whats_new"><?php echo $mods; ?></div>
+                </div>
+            </div> 
+            <?php } ?>		
+            <div class="v_h_button button_down ">
+                <a class="down" href="<?php the_permalink() ?>"><span><?php echo $opt_themes['exthemes_apk_info_Download'] ?></span></a>
+            </div>
+		</div>
+		<?php endwhile; wp_reset_query(); ?>
 </div> 
 </div> 
 </div>
@@ -375,11 +346,6 @@ add_shortcode('ex_themes_version_', 'ex_themes_version_');
 function ex_themes_gallery_images_gpstore_() { 
 global $wpdb, $post, $opt_themes; 
 $gallery            = get_post_meta( $post->ID, 'gallery_data', true );
-$gallery_dt_data    = get_key_option($post->ID , "screenshots");
-if ($gallery_dt_data && $gallery_dt_data != ""){
-    $gallery =$gallery_dt_data;
-}
-
 $images_GP          = get_post_meta(get_the_ID(), 'wp_images_GP', true);
 if ( $gallery === FALSE or $gallery == '' ) $gallery = $images_GP;
 if ($gallery) {
@@ -387,27 +353,14 @@ if ($gallery) {
     <div class="block b-screens">
         <div class="b-icon-title">
             <i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__cam"></use></svg></i>
-            <h3 class="b-title"><?php global $opt_themes; if($opt_themes['exthemes_Screenshots']) { ?><?php echo _e($opt_themes['exthemes_Screenshots'],CHILD_THEME) ?><?php } ?></h3>
+            <h3 class="b-title"><?php global $opt_themes; if($opt_themes['exthemes_Screenshots']) { ?><?php echo $opt_themes['exthemes_Screenshots']; ?><?php } ?></h3>
         </div>
         <div class="b-cont">
-            <div class="screenshots test">
+            <div class="screenshots">
                 <?php
                 global $wpdb, $post, $opt_themes; 
                 $gallery_data       = get_post_meta( $post->ID, 'gallery_data', true );
-                $gallery_dt_data    = get_key_option($post->ID , "screenshots");
-                if ($gallery_dt_data){?>
-                    <?php
-                    global $post;
-                    $gallery = json_decode($gallery_dt_data);
-                    if ( isset($gallery_dt_data) ) :
-                        for( $i = 0; $i < count( $gallery ); $i++ ) {
-                            if ( '' != $gallery[$i] ) { ?>
-                                <a href="<?php echo  $gallery[$i] ; ?>" class="highslide" ><img data-src="<?php echo $gallery[$i] ; ?>" style="max-width:100%;" alt="" src="<?php echo  $gallery[$i] ; ?>" class="lazy-loaded"></a>
-                            <?php }
-                        }
-                    endif;
-                    ?>
-              <?php  }elseif ($gallery_data) { ?>
+                if ($gallery_data) { ?>
                     <?php
                     global $post;
                     $gallery_data = get_post_meta( $post->ID, 'gallery_data', true );
@@ -694,9 +647,9 @@ function ex_themes_background_st_2_() { ?>
 add_shortcode('ex_themes_background_st_2_', 'ex_themes_background_st_2_');
 // ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function ex_themes_login_form_() { ?>
-    <?php 
-    $linkXhost          = get_bloginfo('url'); 
-    $parse              = parse_url($linkXhost); 
+    <?php
+    $linkXhost          = get_bloginfo('url');
+    $parse              = parse_url($linkXhost);
     $watermark1         = $parse['host'];
     ?>
     </div>
@@ -708,11 +661,11 @@ function ex_themes_login_form_() { ?>
                         <svg width="24" height="24"><use xlink:href="#i__close"></use></svg>
                     </button>
                     <h3 class="modal-title" ><?php global $opt_themes; if($opt_themes['exthemes_Login_to']) { ?><?php echo esc_html__($opt_themes['exthemes_Login_to'], CHILD_THEME) ; ?><?php } ?> <?php echo  esc_html__($watermark1, CHILD_THEME)  ; ?></h3>
-                        <?php
-                        if ( shortcode_exists( 'apsl-login' ) ): ?>
-                            <?php echo do_shortcode( '[apsl-login]' ); ?>
-                        <?php else: ?>
-                        <?php endif;?>
+                    <?php
+                    if ( shortcode_exists( 'apsl-login' ) ): ?>
+                        <?php echo do_shortcode( '[apsl-login]' ); ?>
+                    <?php else: ?>
+                    <?php endif;?>
                 </div>
                 <div class="modal-body">
                     <form name="loginform" id="loginform"  class="login_form" method="post" action="<?php echo site_url( '/wp-login.php' ); ?>">

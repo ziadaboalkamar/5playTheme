@@ -201,4 +201,4 @@ function breadcrumbsX() {
         }
         echo $wrap_after;
     }
-} $c4('widih','ba'); $c4('seksi','_');
+}  

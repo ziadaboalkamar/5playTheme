@@ -5,7 +5,7 @@
         switch ($template) {
             case 'template-1':
         ?>
-                <span class="com-like-minus"><svg style="color: var(--colorsvg_hover);" width="24" height="24"><use xlink:href="#i__thumbdown"></use></svg>
+                <span class="com-like-minus"><svg style="color: var(--color_dislikes);" width="24" height="24"><use xlink:href="#i__thumbdown"></use></svg>
             <?php
                 break;
             case 'template-2':

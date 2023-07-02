@@ -25,7 +25,8 @@ $imagex			            	= $image_urlx[0];
                         </div>		
 					<?php echo edit_post_link( __( 'edit post', THEMES_NAMES ), ' ', ' ' ); ?>						
                     </div>
-					<?= exthemes_news_likes(); ?>
+					 
+		<?php echo do_shortcode('[posts_like_dislike]'); ?>
                 </div>               
             </div>
 			

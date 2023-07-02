@@ -28,24 +28,25 @@ $countvisit			= ex_themes_get_post_view_2();
 					<?php
                     get_template_part('template/telegram');
                     ex_themes_adv_single_page_();
-                    if($opt_themes['aktif_ex_themes_gallery_images_gpstore_']) { 
-                    ex_themes_gallery_images_gpstore_();
+                    if($opt_themes['aktif_ex_themes_gallery_images_gpstore_']) {
+                        ex_themes_gallery_images_gpstore_dt();
                     }
                     ?>
                 </div>
                 <?php get_template_part('template/loop/background'); ?>
             </div>
+
             <div class="wrp-min block-list">
                 <?php get_template_part('template/loop/content'); ?>
                 <div class="anchor-line"><span id="download-block"></span></div>
                 <?php
                 get_template_part('template/loop/download');
-                ex_themes_version_();
+                ex_themes_version_dt();
                 comments_template();
                 ?>
             </div>
         </article>
-        <?php ex_themes_related_posts_(); ?>
+        <?php ex_themes_related_posts_dt(); ?>
     </div>
 	
 <?php

@@ -43,7 +43,7 @@ function ex_themes_regs_plugins_() {
 			'name'					=> 'One Click Demo Import ',
 			'slug'					=> 'one-click-demo-import',
 			'required'				=> true,
-		), 
+		),  
 		/* 
 		array(
 			'name'					=> 'Force Regenerate Thumbnail',

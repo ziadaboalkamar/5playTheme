@@ -26,7 +26,7 @@ get_template_part( '/assets/css.rtl/root.styles' ); ?>
 <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/css/cores.styles.css" as="style">
 <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css" as="style">
 <?php } else {  ?>        
-<link id="cores-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css/cores.styles.css" type="text/css" rel="stylesheet">
+<link id="cores-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/cores.styles.css" type="text/css" rel="stylesheet">
 <link id="style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css" type="text/css" rel="stylesheet">
 <link id="short-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css/short.styles.css" type="text/css" rel="stylesheet">
 <link id="fullstory-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css/fullstory.styles.css" type="text/css" rel="stylesheet">

@@ -29,6 +29,7 @@ $countvisit			= ex_themes_get_post_view_2();
                 </div>
                 <?php get_template_part('template/loop/background'); ?>
             </div>
+
             <div class="wrp-min block-list">
                 <?php get_template_part('template/loop/content'); ?>
                 <div class="anchor-line"><span id="download-block"></span></div>

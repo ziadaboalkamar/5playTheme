@@ -241,7 +241,7 @@ function print_scripts_so_144459041()
                 jQuery(parent)
                     .find("div.image_wrap")
                     .html('<img src="'+url+'" height="48" width="48" />');
-                // inputField.closest('p').prev('.awdMetaImage').html('<img height=120 width=120 src="'+url+'"/><p>URL: '+ url + '</p>'); 
+                // inputField.closest('p').prev('.awdMetaImage').html('<img height=120 width=120 src="'+url+'"/><p>URL: '+ url + '</p>');
                 tb_remove();
             };
             return false;

@@ -29,10 +29,19 @@ $requiresX2						= get_post_meta( $post->ID, 'wp_requires_GP', true );
 $requires						= str_replace('and up', '', $requiresX2);
 $requiresX1						= get_post_meta( $post->ID, 'wp_requires_GP', true );
 $requiresX						= '-';
-if ( $requires === FALSE or $requires == '' ) $requires = $requiresX;
-$likes							= exthemes_post_likes_count('likes');
-$dislikes						= exthemes_post_likes_count('dislikes');
-$allvotes						= $likes + $dislikes;		
+if ( $requires === FALSE or $requires == '' ) $requires = $requiresX; 
+
+$post_id 						= (!empty($atts['id'])) ? intval($atts['id']) : get_the_ID();
+
+$like_count 					= get_post_meta($post_id, 'pld_like_count', true);
+$dislike_count 					= get_post_meta($post_id, 'pld_dislike_count', true);
+if (empty($like_count)) {
+$like_count = 0;
+}
+if (empty($dislike_count)) {
+$dislike_count = 0;
+}
+$all_likes						= $like_count+$dislike_count;	 
 $viewview						= ex_themes_get_post_view_2();
 $numbers						= array( $viewview, 500 );
 $everything						= array_sum( $numbers ); 
@@ -46,7 +55,8 @@ $best							= get_option('kksr_stars');
 $score							= get_post_meta(get_the_ID(), '_kksr_ratings', true) ? ((int) get_post_meta(get_the_ID(), '_kksr_ratings', true)) : 0;
 $votes							= get_post_meta(get_the_ID(), '_kksr_casts', true) ? ((int) get_post_meta(get_the_ID(), '_kksr_casts', true)) : 0;
 $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0;
-?>
+
+?> 
 <div class="view-app-data">
     <div class="specs-list">
         <ul>
@@ -107,8 +117,13 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
         </ul>
     </div>
     <div class="view-app-rate">
-
-        <?= exthemes_post_likes(); ?>
+		<?php echo do_shortcode('[posts_like_dislike]'); ?>
+		<ul class="rate-nums muted">
+            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo $opt_themes['exthemes_apk_info_Votes']; ?><?php } ?> 
+			<span id="vote-num-id" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums($all_likes); ?><?php } else { ?><?php echo $all_likes; ?><?php } ?></span>
+			</li>
+            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Comments']) { ?><?php echo $opt_themes['exthemes_apk_info_Comments']; ?><?php } ?> <a href="#allcomments"><?php comments_number('0', '1', '%'); ?></a></li> 
+        </ul>
         
         <?php if (function_exists('kk_star_ratings')) { ?> 
 		<center><?php echo kk_star_ratings(); ?>
@@ -119,12 +134,7 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 		</span>
 		</center>
 		<?php } echo edit_post_link( __( 'edit post', THEMES_NAMES ), ' ', ' ' ); ?>
-        <ul class="rate-nums muted">
-            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo $opt_themes['exthemes_apk_info_Votes']; ?><?php } ?> 
-			<span id="vote-num-id" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums($allvotes); ?><?php } else { ?><?php echo $allvotes ?><?php } ?></span>
-			</li>
-            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Comments']) { ?><?php echo $opt_themes['exthemes_apk_info_Comments']; ?><?php } ?> <?php comments_number('0', '1', '%'); ?></li> 
-        </ul>
+        
         <div class="popularity">
 		<div class="popularity-number">
 			<div class="rating_status">

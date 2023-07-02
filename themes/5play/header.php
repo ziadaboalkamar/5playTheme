@@ -17,7 +17,6 @@
 /*	More Premium Themes Visit Now On https://exthem.es/
 /*
 /*-----------------------------------------------------------------------------------*/ 
-error_reporting(SALAH);
 global $opt_themes; 
 $rtl_on						= $opt_themes['ex_themes_rtl_activate_'];
 $rtl_lang					= $opt_themes['Languange_rtl'];
@@ -32,8 +31,9 @@ $text_auth					= $opt_themes['exthemes_Authorization'];
 $login_on					= $opt_themes['ex_themes_login_active_'];
 
 $author_id					= $post->post_author;
-$author_link				= get_author_posts_url( $author_id );
+$author_link_alt			= get_author_posts_url( $author_id );
 $author_avatar				= get_avatar_url( $author_id );
+error_reporting(SALAH);
 ?>
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" <?php if($rtl_on) { ?> class="rtl load" dir="rtl" lang="<?php echo $rtl_lang; ?>"<?php } else{ ?><?php language_attributes(); ?><?php } ?> id="h" class="load" style="margin-top: 0px !important;">
@@ -87,10 +87,13 @@ ex_themes_head_on_sections_();
                         <div class="dropdown-menu dropdown-form dropdown-menu-right" aria-labelledby="login_drop" style="display:none;">
                             <div class="login-pane__info">
                                 <a class="avatar fit-cover"><?php global $current_user; get_currentuserinfo(); ?><?php echo get_avatar( $current_user->ID, 50 ); ?></a>
-                                <div class="title"><a href="<?php echo $author_link; ?>"  > <?php  global $current_user; get_currentuserinfo(); echo $current_user->display_name ; ?></div>
+                                <div class="title"><a href="<?php get_author_link( true, get_current_user_id() ); ?>"> 
+                                <?php global $current_user; get_currentuserinfo(); echo $current_user->display_name; ?>
+                                </div>
                             </div>
                             <ul class="login-pane__menu">
 								<li><a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php if($text_new_post) { ?><?php echo $text_new_post; ?><?php } ?></li> 
+								<li><a href="<?php get_author_link( true, get_current_user_id() ); ?>"><?php _e('Edit Profile', THEMES_NAMES); ?></li> 
                                 <li><a href="<?php echo wp_logout_url(); ?>"><?php if($text_logout) { ?><?php echo $text_logout; ?><?php } ?></a></li>
                             </ul>
                         </div>

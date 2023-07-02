@@ -213,7 +213,7 @@ function ex_themes_apk_details_() {
     if ( $requires === FALSE or $requires == '' ) $requires = $requiresX;
     $updates					= get_post_meta( $post->ID, 'wp_updates_GP', true );
     $updatesX					= get_post_meta( $post->ID, 'wp_updateapgk', true );
-   $update_date_dt               = get_key_option($post->ID,"last_update");
+    $update_date_dt               = get_key_option($post->ID,"last_update");
     if ($update_date_dt && $update_date_dt != ""){
         $updates = $update_date_dt;
     }
@@ -453,35 +453,35 @@ function ex_themes_apk_details_() {
     <div id='metabox_mdr'>
         <noscript>
 	<span style="display:none">
-	
-	
-	
+
+
+
     <b style="text-transform:lowercase"><strong style="text-transform:lowercase;color: blue;">New</strong> or <strong style="text-transform:lowercase;color: blue;">Updates</strong> Or Anything You Wants</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content"> Example : type <strong style='color: red;'>New</strong> for New post or type <strong style='color: red;'>Updates</strong> for update post. leave empty if you dont want
 	</span>
-	</span>	  
+	</span>
     <p><input style="width:98%"  type="text" name="wp_newupdates" value="<?= $newupdates ?>" /></p>
-	
+
     <b style="text-transform:capitalize">Playstore ID</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
-	 Example : <strong style='color: red;'>com.roblox.client</strong>  
+	 Example : <strong style='color: red;'>com.roblox.client</strong>
 	</span>
-	</span>	  
-    <p><input style="width:98%"  type="text" name="wp_GP_ID" value="<?= $titleID ?>" /></p>	
-	
+	</span>
+    <p><input style="width:98%"  type="text" name="wp_GP_ID" value="<?= $titleID ?>" /></p>
+
     <b style="text-transform:capitalize">App Name </b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
 	Example : <strong style='color: red;'>Roblox</strong>
 	</span>
-	</span>	  
+	</span>
     <p><input style="width:98%"  type="text" name="wp_title_GP" value="<?= $judul ?>" /></p>
-	
+
     <b style="text-transform:capitalize;display:none">App Category </b>
     <p style="display:none"><input style="width:98%"  type="text" name="wp_category_app" value="<?= $wp_category_app ?>" /></p>
     <b style="text-transform:capitalize">apps Google Play</b>
@@ -490,10 +490,10 @@ function ex_themes_apk_details_() {
 	<span class="tooltip-content">
 	Example : <strong style='color: red;'>https://play.google.com/store/apps/details?id=com.roblox.client</strong>
 	</span>
-	</span>	 	
+	</span>
     <p>or copy this : <strong style='color: #2271b1;'>https://play.google.com/store/apps/details?id=<?= $titleID ?></strong>
     <p><input style="width:98%"  type="text" name="wp_GP_ID2" value="https://play.google.com/store/apps/details?id=<?= $titleID ?>" /></p>
-	
+
     <b style="text-transform:capitalize">apps Poster</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
@@ -502,28 +502,28 @@ function ex_themes_apk_details_() {
 	<br>
 	Or You Can Upload On Featured Image Box
 	</span>
-	</span>	 	 	 
-    <p><input style="width:98%"  type="text" name="wp_poster_GP" value="<?= $postergp ?>" /></p>	
-	
+	</span>
+    <p><input style="width:98%"  type="text" name="wp_poster_GP" value="<?= $postergp ?>" /></p>
+
     <b style="text-transform:capitalize">apps version playstore</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
-	Example : <strong style='color: red;'>2.522.280</strong> 
+	Example : <strong style='color: red;'>2.522.280</strong>
 	</span>
-	</span>	 	 	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_version_GP" value="<?= $version ?>" /></p>
-	
-    
+
+
     <b style="text-transform:capitalize">apps version mods</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
-	Example : <strong style='color: red;'>2.5</strong> 
+	Example : <strong style='color: red;'>2.5</strong>
 	</span>
-	</span>	 	 	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_version" value="<?= $version_web ?>" /></p>
-	
+
     <b style="text-transform:capitalize;display:none">apps developers</b>
     <p  style="display:none" ><input style="width:98%"  type="text" name="wp_developers_GP" value="<?= $developer ?>" /></p>
     <b style="text-transform:capitalize;display:none">apps installs</b>
@@ -532,42 +532,42 @@ function ex_themes_apk_details_() {
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
-	Example : <strong style='color: red;'>5.0</strong> 
+	Example : <strong style='color: red;'>5.0</strong>
 	</span>
-	</span>	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_requires_GP" value="<?= $requires ?>" /></p>
-	
+
     <b style="text-transform:capitalize">apps updates</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
-	Example : <strong style='color: red;'>April 14, 2022</strong> 
+	Example : <strong style='color: red;'>April 14, 2022</strong>
 	</span>
-	</span>	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_updates_GP" value="<?= $updates ?>" /></p>
-    
+
     <b style="text-transform:capitalize;">apps rated</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
 	Example : <strong style='color: red;'>4.5</strong>
 	</span>
-	</span>	 	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_rated_GP" value="<?= $rated ?>" /></p>
-	
+
 	<b style="text-transform:capitalize;">apps ratings</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
 	Example : <strong style='color: red;'>28.536.990</strong>
 	</span>
-	</span>	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_ratings_GP" value="<?= $ratings ?>" /></p>
     <b style="text-transform:capitalize;display:none">apps persen</b>
     <p style="display:none"><input style="width:98%"  type="text" name="wp_persen_GP" value="<?= $persenapgk ?>" /></p>
     <b style="text-transform:capitalize;display:none">apps content rated</b>
     <p style="display:none"><input style="width:98%"  type="text" name="wp_contentrated_GP" value="<?= $contentrated ?>" /></p>
-    <b style="text-transform:capitalize">apps youtube id</b> 
+    <b style="text-transform:capitalize">apps youtube id</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
@@ -575,18 +575,18 @@ function ex_themes_apk_details_() {
 	<br>
 	Not Format Like This <strong style='color: red;'>https://youtube.com/watch?v=03DXtNlUGGg</strong>
 	</span>
-	</span>	 	
+	</span>
     <p><input style="width:98%"  type="text" name="wp_youtube_GP" value="<?= $youtube ?>" /></p>
-	
+
     <b style="text-transform:capitalize">apps Size</b>
 	<span class="tooltip">
 	<span class="tooltip-point"><i class="mce-ico mce-i-wp_help">&nbsp;</i></span>
 	<span class="tooltip-content">
 	Example : <strong style='color: green;'>250 mb</strong> or <strong style='color: green;'>1 gb</strong>
 	<br>
-	Not Format Like This <strong style='color: red;'>250</strong> 
+	Not Format Like This <strong style='color: red;'>250</strong>
 	</span>
-	</span>	 
+	</span>
     <p><input style="width:98%"  type="text" name="wp_sizes" value="<?= $sizes ?>" /></p>
     <b style="text-transform:capitalize;display:none">Name download link</b>
     <p style="display:none"><input style="width:98%" type="text" name="wp_namedownloadlink" value="<?= $namedownloadlink ?>" /></p>
@@ -594,7 +594,7 @@ function ex_themes_apk_details_() {
     <p style="display:none"><input style="width:98%" type="text" name="wp_downloadlink" value="<?= $download ?>" /></p>
     <b style="text-transform:capitalize;display:none">sources</b>
     <p style="display:none"><input style="width:98%"  type="text" name="wp_source_url" value="<?= $sources ?>" /></p>
-   
+
 	</span>
         </noscript>
 
@@ -1274,12 +1274,12 @@ function wpwm_save_postdata( $post_id ) {
                 }else{
                     update_post_meta($post_ID, $meta_key, $_POST[$meta_key]);}
             }elseif ($meta_key == "wp_updates_GP" || $meta_key == "wp_updates"){
-            $has_key = get_key_option($post_ID,"last_update");
-            if ($has_key){
-                update_key_option($post_ID, "last_update", $_POST[$meta_key]);
+                $has_key = get_key_option($post_ID,"last_update");
+                if ($has_key){
+                    update_key_option($post_ID, "last_update", $_POST[$meta_key]);
 
-            }else{
-                update_post_meta($post_ID, $meta_key, $_POST[$meta_key]);}
+                }else{
+                    update_post_meta($post_ID, $meta_key, $_POST[$meta_key]);}
             }elseif ($meta_key == "wp_poster_GP"){
                 $has_key = get_key_option($post_ID,"author");
                 if ($has_key){

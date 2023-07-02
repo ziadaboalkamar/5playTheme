@@ -1,0 +1,34 @@
+
+---Downloaded files---
+The import files for: Default Demos were successfully downloaded!
+Initial max execution time = 300
+Files info:
+Site URL = http://localhost/wordpress
+Data file = C:\xampp\htdocs\wordpress/wp-content/uploads/2023/06/demo-content-import-file_2023-06-25__10-31-20.xml
+Widget file = C:\xampp\htdocs\wordpress/wp-content/uploads/2023/06/demo-widgets-import-file_2023-06-25__10-31-20.json
+Customizer file = C:\xampp\htdocs\wordpress/wp-content/uploads/2023/06/demo-customizer-import-file_2023-06-25__10-31-20.dat
+Redux files:
+opt_themes -> C:\xampp\htdocs\wordpress/wp-content/uploads/2023/06/demo-redux-import-file_0-2023-06-25__10-31-20.json 
+
+
+---Importing widgets---
+5Play child intros Home : 
+
+( 5play ) Intro Widget - Games and apps for Androids - Widget already exists
+
+5Play child Recommend Home : 
+
+(5Play) Featured Home - Recommend - Widget already exists
+
+5Play child Home Categories : 
+
+(5Play) Categorie Widget - Popular Games - Widget already exists
+(5Play) Categorie Widget - Popular Apps - Widget already exists
+
+
+
+---Importing Redux settings---
+Redux settings import for: opt_themes finished successfully!
+
+---Importing customizer settings---
+Error: The customizer import file is not suitable for current theme. You can only import customizer settings for the same theme or a child theme.

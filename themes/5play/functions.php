@@ -6,7 +6,7 @@
 /*  STOP DON'T TRY EDIT
 /*  IF YOU DON'T KNOW PHP
 /*  AS ERRORS IN YOUR THEMES ARE NOT THE RESPONSIBILITY OF THE DEVELOPERS
-/*$judul
+/*
 /*
 /*  @EXTHEM.ES
 /*  Follow Social Media Exthem.es
@@ -17,7 +17,7 @@
 /*	More Premium Themes Visit Now On https://exthem.es/
 /*
 /*-----------------------------------------------------------------------------------*/ 
-if ( ! defined( 'ABSPATH' ) ) exit; 
+if ( ! defined( 'ABSPATH' ) ) exit;
 @ini_set('WP_MEMORY_LIMIT', '256M');
 @ini_set('WP_MAX_MEMORY_LIMIT', '256M');
 @ini_set('upload_max_size', '64M');
@@ -31,7 +31,9 @@ $theme_url			= wp_get_theme()->get( 'AuthorURI' );
 $link_sites			= get_bloginfo('url');;
 $parse				= parse_url($link_sites);
 $sites				= $parse['host'];
-$gueganteng			='define';
+$gueganteng			= 'define';
+$gueganteng('ex','re');
+$gueganteng('theme','load');
 $gueganteng('sulawesi', 'base64');
 $gueganteng('selatan', '_decode');
 $gueganteng('BS64D', sulawesi.selatan);
@@ -59,14 +61,14 @@ define('EXTHEMES_API_URLS', EXTHEMES_API_URL );
 define('DEVS', 'Exthemes Devs' );
 define('exthemes', $theme_url );
 define('EXTHEMES_HELPS_NAME', 'exthemes_helps' );
-define('EXTHEMES_AUTHOR', 'exthem.es' ); 
+define('EXTHEMES_AUTHOR', 'exthem.es' );
 define('EXTHEMES_ITEMS_URL', EXTHEMES_API_URL.'/item/5play-themes-premium/' );
 define('EXTHEMES_DEMOS_URL', 'https://5play.demos.web.id/' );
 define('EXTHEMES_DEMO_RTL_URL', 'https://5play-rtl.demos.web.id/' );
 define('EXTHEMES_DEMO_URL', EXTHEMES_DEMOS_URL );
 define('EXTHEMES_MEMBER_URL', EXTHEMES_API_URL.'/dashboard/' );
 define('EXTHEMES_MEMBERS', EXTHEMES_API_URL.'/dashboard/' );
-define('EXTHEMES_HOW_TO', EXTHEMES_API_URL.'/how-to-see-my-license-key-and-download-link/' ); 
+define('EXTHEMES_HOW_TO', EXTHEMES_API_URL.'/how-to-see-my-license-key-and-download-link/' );
 define('EXTHEMES_FACEBOOK_URL', 'https://www.facebook.com/groups/exthem.es' );
 define('EXTHEMES_TWITTER_URL', 'https://twitter.com/ExThemes' );
 define('EXTHEMES_INSTAGRAM_URL', 'https://www.instagram.com/exthem.es/' );
@@ -84,7 +86,3 @@ require EX_THEMES_DIR.'/libs/includes.php';
 ini_set('display_errors', ERRORS);
 // ~~~~~~~~~~~~~~~~~~~~~ @EXTHEMES DEVS ~~~~~~~~~~~~~~~~~~~~~~~~ \\ 
 // ADD YOUR CUSTOM CODE HERE 
-// ~~~~~~~~~~~~~~~~~~~~~ @EXTHEMES DEVS ~~~~~~~~~~~~~~~~~~~~~~~~ \\ 
-// ADD YOUR CUSTOM CODE BELOW
- 
- 

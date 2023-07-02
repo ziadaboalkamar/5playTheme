@@ -17,12 +17,12 @@ class widget_comments_homes_ extends WP_Widget {
         ?>
 		<section class="wrp section section-comments">
 		<?php if ( $title ) { ?>
-		<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php echo _e($title,CHILD_THEME); ?></h3>
+		<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php echo esc_html__($title,CHILD_THEME); ?></h3>
 		<?php } ?>
 		
 		<div class="scroll-entry-list">
             <div class="entry-list list-c3">
-                <?php echo esc_html_e(bg_recent_comments(),CHILD_THEME); ?>
+                <?php echo esc_html__(bg_recent_comments(),CHILD_THEME); ?>
             </div>
         </div>
 		
@@ -63,7 +63,7 @@ class widget_comments_homes_ extends WP_Widget {
             <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', THEMES_NAMES ); ?></label>
         </p>
         <p>
-            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_html__($title,CHILD_THEME); ?>" />
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr($title,CHILD_THEME); ?>" />
         </p>
         <p>
             <label for="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>"><?php esc_html_e( 'Color Svg Icons:', THEMES_NAMES ); ?></label>

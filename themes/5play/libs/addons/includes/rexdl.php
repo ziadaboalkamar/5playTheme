@@ -1,6 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; 
 include_once 'dom.php';
+error_reporting(SALAH);
 
 function wp_rexdl_errors() {
 $sources        = 'rexdl.com';

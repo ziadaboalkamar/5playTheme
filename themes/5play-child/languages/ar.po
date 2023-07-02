@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dt-5play\n"
 "POT-Creation-Date: 2023-05-18 13:02+0300\n"
-"PO-Revision-Date: 2023-06-24 13:04+0300\n"
+"PO-Revision-Date: 2023-06-26 14:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -184,3 +184,78 @@ msgstr "تطبيقات معدلة"
 
 msgid "Home"
 msgstr "الرئيسية"
+
+msgid "All Version"
+msgstr "جميع الاصدارات"
+
+msgid "edit post"
+msgstr "تعديل المقال"
+
+msgid "No"
+msgstr "لا"
+
+msgid "Recommended for you"
+msgstr "مقترح لك"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "No comments."
+msgstr "لا يوجد تعليقات."
+
+msgid "Ready to publish your first post?"
+msgstr "جاهز لنشر أول منشوراتك؟"
+
+msgid "Get started here"
+msgstr "ابدأ هنا"
+
+msgid "Popular Games"
+msgstr "ألعاب مشهورة"
+
+msgid "Get More...."
+msgstr "احصل على المزيد...."
+
+msgid "All news"
+msgstr "كل الأخبار"
+
+msgid "Search results for:"
+msgstr "نتائج البحث عن:"
+
+msgid "Error 404 - Page Not Found"
+msgstr "خطأ 404 - لم يتم العثور على الصفحة"
+
+msgid "It seems that page you are looking for no longer exists. Try to search again or explore more Android Games and Apps below!"
+msgstr "يبدو أن الصفحة التي تبحث عنها لم تعد موجودة. حاول البحث مرة أخرى أو استكشف المزيد من ألعاب وتطبيقات الاندرويد أدناه!"
+
+msgid "Search for Apps & Games"
+msgstr "ابحث عن التطبيقات والألعاب"
+
+msgid "Games"
+msgstr "ألعاب"
+
+msgid "Apps"
+msgstr "تطبيقات"
+
+msgid "TOP 100"
+msgstr "أفضل 100"
+
+msgid "News"
+msgstr "أخبار"
+
+msgid "Feedback"
+msgstr "ملاحظات"
+
+msgid "Terms of use"
+msgstr "شروط الاستخدام"
+
+msgid "DMCA"
+msgstr "قانون الألفية للملكية الرقمية"
+
+msgid "Copyright Holders"
+msgstr "أصحاب حقوق النشر"
+
+msgid "Blog"
+msgstr "مدونة"
+
+msgid "Popular Apps"
+msgstr "تطبيقات مشهورة"

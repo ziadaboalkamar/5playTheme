@@ -36,21 +36,17 @@ if ( ! function_exists( 'play5_setup' ) ) :
         add_image_size( 'thumbnails-news-post', 945, 533, true ); 
         add_image_size( 'thumbnails-post', 240, 240, true );
         add_image_size( 'thumbnails-post-icon', 45, 45, true );
-        add_image_size( 'thumbnails-download', 208, 208, true );
-         	
+        add_image_size( 'thumbnails-download', 208, 208, true );         	
 }
 endif;
 add_action( 'after_setup_theme', 'play5_setup' );
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  @EXTHEM.ES  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
-
 function svg_file_and_ext( $mime, $file, $filename, $mimes ) {
-
     $wp_filetype = wp_check_filetype( $filename, $mimes );
     if ( in_array( $wp_filetype['ext'], [ 'svg' ] ) ) {
         $mime['ext']  = true;
         $mime['type'] = true;
     }
-
     return $mime;
 }
 add_filter( 'wp_check_filetype_and_ext', 'svg_file_and_ext', 10, 4 );
@@ -86,7 +82,7 @@ if ( function_exists('register_sidebar') )
         'after_widget'			=> '</section>',
         'before_title'			=> '<h3 class="section-title"><i class="s-green c-icon"><svg width="24" height="24"><use xlink:href="#i__hot"></use></svg></i>',
         'after_title'			=> '</h3>',
-));		$c4 = 'define'; 
+)); 
 if ( function_exists('register_sidebar') )
     register_sidebar(array(
         'id'					=> 'home-popular',
@@ -96,7 +92,7 @@ if ( function_exists('register_sidebar') )
         'after_widget'			=> '</section>',
         'before_title'			=> '<div class="section-head"><h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__gamepad"></use></svg></i>',
         'after_title'			=> '</h3></div>',
-));		$c4('ex', 'sta');
+));	 
 /* if ( function_exists('register_sidebar') )
     register_sidebar(array(
         'id' => 'home-news',
@@ -106,7 +102,7 @@ if ( function_exists('register_sidebar') )
         'after_widget' => '</section>',
         'before_title' => '<div class="section-head"><h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__gamepad"></use></svg></i>',
         'after_title' => '</h3></div>',
-));		 */$c4('theme', 'tus');
+));		 */ 
 /* if ( function_exists('register_sidebar') )
     register_sidebar(array(
         'id' => 'home-comments',
@@ -303,10 +299,10 @@ function ex_themes_duplicate_callback() {
     die();
 }
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  @EXTHEM.ES  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function doo_mobile() {
+/* function doo_mobile() {
     $mobile = ( wp_is_mobile() == true ) ? '1' : 'false';
     return $mobile;
-}
+} */
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  @EXTHEM.ES  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
 add_rewrite_endpoint( 'download', EP_PERMALINK | EP_PAGES );
 function ex_themes_download() {
@@ -414,21 +410,20 @@ function EnglishNum($number) {
     return $number;
 }
 function ex_themes_page_navy_($pages = '', $range = 5) {    
-global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']){
+global $opt_themes; 
+if($opt_themes['ex_themes_rtl_activate_']){
     $showitems = ($range * 2)+1;
     global $paged;
     if(empty($paged)) $paged = 1;
-    if($pages == '')
-    {
+    if($pages == '') {
         global $wp_query;
         $pages = $wp_query->max_num_pages;
         if(!$pages)
         {
             $pages = 1;
         }
-    }
-    if(1 != $pages)
-    {
+    } 
+    if(1 != $pages) {
         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>".RTL_Nums(1)."</a>";
         if($paged > 6 && $showitems < $pages) echo "<span class=\"nav_ext\">...</span>";
         for ($i=1; $i <= $pages; $i++)
@@ -682,104 +677,39 @@ function wps_remove_attachment_with_post($post_id)
     }
 }
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  @EXTHEM.ES  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
-function exthemes_post_likes() {
-    // Check if single post
-    if(is_singular('post')) {
-        ob_start();
-        ?>
-<div class="likes">
-	<a href="<?php echo add_query_arg('post_action', 'like'); ?>">
-		<span class="like-plus">
-			<svg width="24" height="24">
-				<use xlink:href="#i__thumbup"/>
-			</svg>+
-			<span  class="ignore-select" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?> <?php } ?>>
-				<?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums(exthemes_post_likes_count('likes')); ?><?php } else { ?><?php echo exthemes_post_likes_count('likes'); ?><?php } ?>
-			</span>
-		</span>
-		<span class="sr-only">
-			<?php global $opt_themes; if($opt_themes['exthemes_Like']) { ?>
-			<?php echo $opt_themes['exthemes_Like']; ?>
-			<?php } ?>
-		</span>
-	</a>
-	<a href="<?php echo add_query_arg('post_action', 'dislike'); ?>">
-		<span class="like-minus">
-			<svg width="24" height="24">
-				<use xlink:href="#i__thumbdown"/>
-			</svg>-
-			<span  class="ignore-select" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?> <?php } ?>>
-				<?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums(exthemes_post_likes_count('dislikes')); ?><?php } else { ?><?php echo exthemes_post_likes_count('dislikes'); ?><?php } ?>
-			</span>
-			<span class="sr-only">
-				<?php global $opt_themes; if($opt_themes['exthemes_Dislike']) { ?>
-				<?php echo $opt_themes['exthemes_Dislike']; ?>
-				<?php } ?>
-			</span>
-		</span>
-	</a>
-</div>
-	<?php
-        $output = ob_get_clean();
-        return $output;
+function get_the_user_ip() {
+    if (!empty( $_SERVER['HTTP_CLIENT_IP'] )) {
+        //check ip from share internet
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+        // to check ip is pass from proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     } else {
-        return $output;
+        $ip = $_SERVER['REMOTE_ADDR'];
     }
+    return apply_filters( 'get_the_user_ip', $ip );
 }
-add_filter('the_content1', 'exthemes_post_likes');
-//---- Get like or dislike count
-function exthemes_post_likes_count($type = 'likes') {
-    $current_count = get_post_meta(get_the_id(), $type, true);
-    return ($current_count ? $current_count : 0);
-}
-//---- Process like or dislike
-function ip_process_like() {
-    $processed_like = false;
-    $redirect       = false;
-    // Check if like or dislike
-    if(is_singular('post')) {
-        if(isset($_GET['post_action'])) {
-            if($_GET['post_action'] == 'like') {
-                // Like
-                $like_count = get_post_meta(get_the_id(), 'likes', true);
-                if($like_count) {
-                    $like_count = $like_count + 1;
-                }else {
-                    $like_count = 1;
-                }
-                $processed_like = update_post_meta(get_the_id(), 'likes', $like_count);
-            }elseif($_GET['post_action'] == 'dislike') {
-                // Dislike
-                $dislike_count = get_post_meta(get_the_id(), 'dislikes', true);
-                if($dislike_count) {
-                    $dislike_count = $dislike_count + 1;
-                }else {
-                    $dislike_count = 1;
-                }
-                $processed_like = update_post_meta(get_the_id(), 'dislikes', $dislike_count);
-            }
-            if($processed_like) {
-                $redirect = get_the_permalink();
-            }
-        }
-    }
-    // Redirect
-    if($redirect) {
-        wp_redirect($redirect);
-        die;
-    }
-}
-add_action('template_redirect', 'ip_process_like');
+ 
 function exthemes_posts_column_like( $columns ) {
     $columns['likes'] = 'Info';
     return $columns;
 }
 
 function exthemes_posts_custom_column_like( $column ) {
-    if ( $column === 'likes') {
-			 
-			$total_likes		= exthemes_post_likes_count('likes');
-			$total_dislikes		= exthemes_post_likes_count('dislikes');
+    if ( $column === 'likes') {			 
+            $post_id            = (!empty($atts['id'])) ? intval($atts['id']) : get_the_ID();
+            $like_count         = get_post_meta($post_id, 'pld_like_count', true);
+            $dislike_count      = get_post_meta($post_id, 'pld_dislike_count', true);
+            if($like_count){
+			$total_likes		= $like_count;
+            } else {
+			$total_likes		= 0;
+            }
+            if($dislike_count){
+			$total_dislikes		= $dislike_count;
+            } else {
+			$total_dislikes		= 0;
+            }
 			$total_view_post	= ex_themes_get_post_view_();
 			 
 			echo '<b style="display: block;height: 2em;background-color: #2271b1;border-radius: 5px;margin-bottom: 10px;" title="Total Likes : '.$total_likes.'"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;'.$total_likes.'</b>'; 

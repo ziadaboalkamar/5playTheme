@@ -28,7 +28,7 @@ class widget_categorie_homes_ extends WP_Widget {
             if ( $title ) {
                 if ( ! empty( $link_title ) ) { ?>
                     <div class="section-head">
-                        <h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i><?php echo esc_html__($title, CHILD_THEME) ; ?></h3>
+                        <h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i><?php  echo esc_html__($title, CHILD_THEME) ; ?></h3>
                         <a class="btn s-green btn-all" href="<?php echo $link_title; ?>" aria-label="<?php echo esc_html__($readmores, CHILD_THEME) ; ?>">
                             <span><?php echo esc_html__($readmores, CHILD_THEME) ; ?></span>
                             <svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg>

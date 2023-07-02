@@ -393,7 +393,7 @@ Redux::setSection( $opt_name, array(
             'type'				=> 'media',
             'title'				=> __( 'Header Logo', THEMES_NAMES ),
             'default'			=> array(
-					'url'		=> get_bloginfo('template_directory').'/assets/img/logos.png'					
+					'url'		=> get_bloginfo('template_directory').'/assets/img/logos.png'
 					),
 			'desc'				=> __( '<u class="cool-link f2">Upload Your Header Logo</u> ', THEMES_NAMES ), 
             'required'			=> array( 'ex_themes_logo_headers_active_', '=', true )
@@ -616,16 +616,16 @@ Redux::setSection( $opt_name, array(
             'id'				=>  'color_svg',
             'type'				=> 'color',
             'title'				=> __('SVG Icon', THEMES_NAMES),
-            'desc'				=> __('Pick SVG Icon Color for the theme (default: #008080).', THEMES_NAMES),
-            'default'			=> '#008080',
+            'desc'				=> __('Pick SVG Icon Color for the theme (default: #4ccb70).', THEMES_NAMES),
+            'default'			=> '#4ccb70',
             'validate'			=> 'color',
 			),
 			array(
             'id'				=>  'color_svg_hover',
             'type'				=> 'color',
             'title'				=> __('SVG Hover', THEMES_NAMES),
-            'desc'				=> __('Pick SVG Icon Hover Color for the theme (default: #008080).', THEMES_NAMES),
-            'default'			=> '#008080',
+            'desc'				=> __('Pick SVG Icon Hover Color for the theme (default: #f9563d).', THEMES_NAMES),
+            'default'			=> '#f9563d',
             'validate'			=> 'color',
 			),
 			array(
@@ -813,6 +813,38 @@ Redux::setSection( $opt_name, array(
 				"step"			=> 1,
 				"max"			=> 10,
 			'display_value'		=> 'text',
+			),
+			array(
+            'id'				=>  'color_nav',
+            'type'				=> 'color',
+            'title'				=> __('Nav Color', THEMES_NAMES),
+            'desc'				=> __('Pick Color Nav for the theme (default: #f9bd3b).', THEMES_NAMES),
+            'default'			=> '#f9bd3b',
+            'validate'			=> 'color',
+			),
+			array(
+            'id'				=>  'color_nav_link',
+            'type'				=> 'color',
+            'title'				=> __('Nav Link Color', THEMES_NAMES),
+            'desc'				=> __('Pick Color Nav Link for the theme (default: #172B3D).', THEMES_NAMES),
+            'default'			=> '#172B3D',
+            'validate'			=> 'color',
+			),
+			array(
+            'id'				=>  'color_likes',
+            'type'				=> 'color',
+            'title'				=> __('Like Color', THEMES_NAMES),
+            'desc'				=> __('Pick Color Like for the theme (default: #4ccb70).', THEMES_NAMES),
+            'default'			=> '#4ccb70',
+            'validate'			=> 'color',
+			),
+			array(
+            'id'				=>  'color_dislikes',
+            'type'				=> 'color',
+            'title'				=> __('Dislike Color', THEMES_NAMES),
+            'desc'				=> __('Pick Color Dislike for the theme (default: #f9563d).', THEMES_NAMES),
+            'default'			=> '#f9563d',
+            'validate'			=> 'color',
 			),
 		
     )
@@ -1444,8 +1476,8 @@ Redux::setSection( $opt_name, array(
 		array(
             'id'				=> 'disable_wpadmin',
             'type'				=> 'switch',
-            'title'				=> 'WPAdmin frontend',
-			'desc'				=> __( '<u class="cool-link f2">&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</u> to Remove WP Admin from frontend', THEMES_NAMES ),
+            'title'				=> 'WP Admin Bar',
+			'desc'				=> __( '<u class="cool-link f2">&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</u> to Hide WP Admin Bar from frontend', THEMES_NAMES ),
             'default'			=> false
         ),
 		array(
@@ -1461,6 +1493,21 @@ Redux::setSection( $opt_name, array(
             'title'				=> 'CDN Photon',
 			'desc'				=> __( '<u class="cool-link f2">&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</u> to Enable CDN Photon WP.com Server', THEMES_NAMES ),
             'default'			=> false
+        ),
+		array(
+            'id'				=> 'author_link_base_activate',
+            'type'				=> 'switch',
+            'title'				=> 'Author Link',
+			'desc'				=> __( '<u class="cool-link f2">&nbsp;&nbsp;ON&nbsp;&nbsp;&nbsp;</u> to Enable change author permalink ', THEMES_NAMES ),
+            'default'			=> false
+        ),
+        array(
+            'id'				=> 'author_link_base',
+            'type'				=> 'text',
+            'title'				=> __( 'Link Base', THEMES_NAMES ),
+            'default'			=> "user",
+			'desc'				=> __( '<u class="cool-link f2">EXAMPLE</u> : <b>'.$linksites.'/<u class="cool-link f2">author</u>/admin/</b><br><u class="cool-link f2">DEFAULT</u> : user <br> after you enable, please update your permalink <a href="/wp-admin/options-permalink.php" target="_blank">here</a> ', THEMES_NAMES ),
+            'required'			=> array( 'author_link_base_activate', '=', true )
         ),
     )
 ) );
@@ -1747,6 +1794,18 @@ Redux::setSection( $opt_name, array(
             'default'			=> 'Comment on',
 			),
 			array(
+            'id'				=>  'exthemes_comment_no_comments',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'No Comments', THEMES_NAMES ),
+            'default'			=> 'No Comments',
+			),
+			array(
+            'id'				=>  'text_no_comments',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'No Comments Infos', THEMES_NAMES ),
+            'default'			=> 'There are no comments yet, but you can be the one to add the very first comment!', 
+			),
+			array(
             'id'				=>  'exthemes_apk_info_Updated',
             'type'				=> 'text',
             'title'				=> esc_html__( 'Updated', THEMES_NAMES ),
@@ -1994,11 +2053,130 @@ Redux::setSection( $opt_name, array(
             'default'			=> 'Mods',
 			),
 			array(
-            'id'				=>  'text_home_bcm',
+            'id'				=> 'text_home_bcm',
             'type'				=> 'text',
             'title'				=> esc_html__( 'Home', THEMES_NAMES ),
             'default'			=> 'Home',
             'desc'				=> '<u class="cool-link f2">This For Breadcrumbs</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_settings_account',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Settings account', THEMES_NAMES ),
+            'default'			=> 'Settings account',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_username',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Username', THEMES_NAMES ),
+            'default'			=> 'Username',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_first_name',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'First Name', THEMES_NAMES ),
+            'default'			=> 'First Name',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_last_name',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Last Name', THEMES_NAMES ),
+            'default'			=> 'Last Name',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_display_nickname_publicly',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Display Nickname Publicly', THEMES_NAMES ),
+            'default'			=> 'Display Nickname Publicly',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_biographical_information',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Biographical Information', THEMES_NAMES ),
+            'default'			=> 'Biographical Information',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_email',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'E-Mail', THEMES_NAMES ),
+            'default'			=> 'E-Mail',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_new_password',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'New Password', THEMES_NAMES ),
+            'default'			=> 'New Password',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_repeat_new_password',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Repeat new password', THEMES_NAMES ),
+            'default'			=> 'Repeat new password',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_save',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Save', THEMES_NAMES ),
+            'default'			=> 'Save',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_cancel',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Cancel', THEMES_NAMES ),
+            'default'			=> 'Cancel',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_registered',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Registered', THEMES_NAMES ),
+            'default'			=> 'Registered',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_last_activity',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Last Activity', THEMES_NAMES ),
+            'default'			=> 'Last Activity',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_published_by',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Published by', THEMES_NAMES ),
+            'default'			=> 'Published by',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_comments',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'Comments', THEMES_NAMES ),
+            'default'			=> 'Comments',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_online',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'online', THEMES_NAMES ),
+            'default'			=> 'online',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
+			),
+			array(
+            'id'				=> 'text_profile_offline',
+            'type'				=> 'text',
+            'title'				=> esc_html__( 'offline', THEMES_NAMES ),
+            'default'			=> 'offline',
+            'desc'				=> '<u class="cool-link f2">This For Account Page</u>', 
 			),
     )
 ) ); 

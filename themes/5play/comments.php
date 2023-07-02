@@ -15,15 +15,15 @@ if ( post_password_required() ) { ?>
  * @see http://wordpress.stackexchange.com/a/170492/26350
  */
 add_filter( 'comment_form_defaults', function( $fields ) {
-    $fields['must_log_in'] = sprintf( 
+    $fields['must_log_in'] = sprintf(
         __( 'You must <a href="%s">Register</a> or <a href="%s">Login</a> to post a comment.'),
         wp_registration_url(),
-        wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )   
+        wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
     );
     return $fields;
-}); 
+});
 
-function next_comments_links( $label = '', $max_page = 0 ) { 
+function next_comments_links( $label = '', $max_page = 0 ) {
 if(get_next_comments_links()){
 echo get_next_comments_links( $label, $max_page ); } else { ?>
 <span class="page_prev" title="back">
@@ -60,7 +60,7 @@ function get_next_comments_links( $label = '', $max_page = 0 ) {
 	}
 	if ( empty( $label ) ) {
 		$label = __( '<svg width="24" height="24"><use xlink:href="#i__arrowright"></use></svg><span class="sr-only">next</span ' );
-	} 
+	}
 	$attr = apply_filters( 'next_comments_link_attributes', '' );
 	return sprintf(
 		'<span class="page_next" title="next"><a href="%1$s" %2$s>%3$s</a></span>',
@@ -80,7 +80,7 @@ function get_previous_comments_links( $label = '' ) {
 	$previous_page = (int) $page - 1;
 	if ( empty( $label ) ) {
 		$label = __( '<svg width="24" height="24"><use xlink:href="#i__arrowleft"></use></svg><span class="sr-only">back</span>' );
-	} 
+	}
 	$attr = apply_filters( 'previous_comments_link_attributes', '' );
 	return sprintf(
 		'<span class="page_prev" title="back"><a href="%1$s" %2$s>%3$s</a></span>',
@@ -90,14 +90,24 @@ function get_previous_comments_links( $label = '' ) {
 	);
 }
 
+function your_get_comment_author_link () {
+    global $comment;
 
-?>
- 
+    if ($comment->user_id == '0') {
+        if (!empty ($comment->comment_author_url)) {
+            $url = $comment->comment_author_url;
+        } else {
+            $url = '#';
+        }
+    } else {
+        $url = get_author_posts_url($comment->user_id);
+    }
 
-<?php
+    echo "<a href=\"".$url."\">".get_comment_author()."</a>";
+}
 
 function play5__comments($comment, $args, $depth) {
-// ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\  
+// ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 $GLOBALS['comment'] = $comment;
     extract($args, EXTR_SKIP);
     if ( 'div' == $args['style'] ) {
@@ -107,9 +117,9 @@ $GLOBALS['comment'] = $comment;
         $tag = 'li';
         $add_below = 'div-comment121 ';
     }
-global $comment, $current_user;  
+global $comment, $current_user;
 $user_id   = get_comment(get_comment_ID())->user_id;
-// ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\  
+// ~~~~~~~~~~~~~~~~~~~~~ EX_THEMES ~~~~~~~~~~~~~~~~~~~~~~~~ \\
 if( $comment->comment_parent ) { ?>
 <ol class="comments-tree-list">
 <li id="comments-tree-item-<?php comment_ID() ?>" class="comments-tree-item">
@@ -117,13 +127,13 @@ if( $comment->comment_parent ) { ?>
 <div class="comment <?php if ($user_id) { $user_info = get_userdata($user_id ); ?>pos-comm<?php } else { ?><?php } ?> guest-view-com">
 <div class="comment-head">
 <?php
-	$user = wp_get_current_user(); 
+	$user = wp_get_current_user();
 	if ( $user ) : ?>
 	<div class="avatar-status"><i class="avatar fit-cover"><img src="<?php echo get_avatar_url( $comment->comment_author_email, 25 ); ?>" alt="Guest Dark" loading="lazy"></i></div>
 	<?php endif; ?>
 
-	
-<span class="name truncate"><a ><?php echo strip_tags(get_comment_author()) ?></a></span>
+
+<span class="name truncate"><?php your_get_comment_author_link() ?></span>
 <div class="comment-meta">
 <span class="group-label <?php if ($user_id) { $user_info = get_userdata($user_id ); ?>g-adm<?php } else { ?>g-guest<?php } ?>"><?php if ($user_id) { $user_info = get_userdata($user_id ); echo implode(' ', $user_info->roles); } else { ?>Guests<?php  } ?></span>
 <time class="date c-muted" datetime="<?php printf(  __( '%1$sT%2$s', '5play' ), get_comment_date(), get_comment_time() ); ?>" style="color: #8a949d !important;"><?php printf(  __( '%1$s', '5play' ), get_comment_date(), get_comment_time() ); ?> <?php edit_comment_link(__('(Edit)'),'  ','') ?></time>
@@ -134,25 +144,25 @@ if( $comment->comment_parent ) { ?>
 </div>
 <div class="comment-foot">
 <ul class="comment-tools">
-<li class="com__reply"> <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth'] ))); ?>  </li> 
+<li class="com__reply"> <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth'] ))); ?>  </li>
 </ul>
-   
+
 </div>
 </div>
-</div> 
+</div>
 <?php } else { ?>
 <li id="comments-tree-item-<?php comment_ID() ?>" class="comments-tree-item">
 <div id="comment-id-<?php comment_ID() ?>">
 <div class="comment <?php if ($user_id) { $user_info = get_userdata($user_id ); ?>pos-comm<?php } else { ?><?php } ?> guest-view-com">
 <div class="comment-head">
 <?php
-$user = wp_get_current_user(); 
+$user = wp_get_current_user();
 if ( $user ) : ?>
 	<div class="avatar-status"><i class="avatar fit-cover"><img src="<?php echo get_avatar_url( $comment->comment_author_email, 25 ); ?>" alt="Guest Dark" loading="lazy"></i></div>
 <?php endif; ?>
 
-	
-<span class="name truncate"><a ><?php echo strip_tags(get_comment_author()) ?></a></span>
+
+<span class="name truncate"><?php your_get_comment_author_link() ?></span>
 <div class="comment-meta">
 <span class="group-label <?php if ($user_id) { $user_info = get_userdata($user_id ); ?>g-adm<?php } else { ?>g-guest<?php } ?>"><?php if ($user_id) { $user_info = get_userdata($user_id ); echo implode(' ', $user_info->roles); } else { ?>Guests<?php  } ?></span>
 <time class="date c-muted" datetime="<?php printf(  __( '%1$sT%2$s', '5play' ), get_comment_date(), get_comment_time() ); ?>" style="color: #8a949d !important;"><?php printf(  __( '%1$s', '5play' ), get_comment_date(), get_comment_time() ); ?> <?php edit_comment_link(__('(Edit)'),'  ','') ?></time>
@@ -165,39 +175,46 @@ if ( $user ) : ?>
 <ul class="comment-tools">
  <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth'] ))); ?>
 </ul>
- 
+
 </div>
 </div>
-</div> 
+</div>
 <?php }
 }
 
 ?>
- 
 
-<div class="block b-comments">
-		 
+
+<div class="block b-comments" id="allcomments">
+
 		<div class="b-head">
-        <h3 class="section-title"><i class="s-purple c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php if(get_comments_number( )) { ?><?php comments_number('0', '1', '%'); ?><?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?> <?php echo $opt_themes['exthemes_comment_Comments']; ?><?php } ?><?php } else { ?>No <?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?> <?php echo $opt_themes['exthemes_comment_Comments']; ?><?php } ?><?php } ?> </h3>
+        <h3 class="section-title"><i class="s-purple c-icon"><svg width="24" height="24"><use xlink:href="#i__coms"></use></svg></i><?php if(get_comments_number( )) { ?><?php comments_number('0', '1', '%'); ?><?php global $opt_themes; if($opt_themes['exthemes_comment_Comments']) { ?> <?php echo $opt_themes['exthemes_comment_Comments']; ?><?php } ?><?php } else { ?><?php global $opt_themes; if($opt_themes['exthemes_comment_no_comments']) { ?> <?php echo $opt_themes['exthemes_comment_no_comments']; ?><?php } ?><?php } ?> </h3>
         <a href="#addcom-block" class="btn s-green btn-all anchor"><span><?php global $opt_themes; if($opt_themes['exthemes_comment_Comment_on']) { ?><?php echo $opt_themes['exthemes_comment_Comment_on']; ?><?php } ?></span><svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg></a>
 		</div>
-	 
+
 		<div class="b-cont">
 		<div id="dle-ajax-comments"></div>
 		<div id="comment"></div>
+		<?php if(!get_comments_number( )) { ?>
+		<div class="info-line">
+		<i class="info-line-icon c-yellow"><svg width="24" height="24"><use xlink:href="#i__info"></use></svg></i>
+		<span><?php global $opt_themes; echo $opt_themes['text_no_comments']; ?></span>
+		</div>
+		<?php } ?>
 		<ol class="comments-tree-list">
+
 		<?php
 			wp_list_comments( array(
-				'short_ping'	=> true, 
+				'short_ping'	=> true,
 				'callback'		=> 'play5__comments'
 			) );
 		?>
-		
-		</ol> 
+
+		</ol>
 		<?php if( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
 		<div class="dle-comments-navigation">
-		<div class="navigation"> 
-		 
+		<div class="navigation">
+
 		<?php
 		echo previous_comments_links();
 		$pages = paginate_comments_links(['echo' => false, 'type' => 'array', 'prev_text' => '&laquo;', 'next_text' => '&raquo;']);
@@ -206,21 +223,21 @@ if ( $user ) : ?>
         $output = '';
         foreach ($pages as $page) {
 		$page = $page;
-		if (strpos($page, ' current') !== false) 
+		if (strpos($page, ' current') !== false)
 		$page = str_replace([' current', ''], ['', '<span>'], $page);
 		$output .= $page;
         }
-		 
+
         ?>
 		<div class="pages">
-        <nav class="pages-list">         
-		<?php echo $output; ?>         
+        <nav class="pages-list">
+		<?php echo $output; ?>
         </nav>
 		</div>
-		<?php } 
+		<?php }
 		echo next_comments_links();
 		?>
-		
+
 		</div>
 		</div>
 		<?php } ?>
@@ -229,7 +246,7 @@ if ( $user ) : ?>
 
 
 <?php if ( comments_open()) { ?>
-<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" name="dle-comments-form" id="dle-comments-form"> 
+<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" name="dle-comments-form" id="dle-comments-form">
 
 <div class="anchor-line"><span id="addcom-block"></span></div>
 <div id="addcomment" class="block b-add-comments ignore-select">
@@ -238,7 +255,7 @@ if ( $user ) : ?>
 </div>
 
 <div class="b-cont">
-<?php 
+<?php
 add_filter( 'comment_form_defaults', 'my_comment_form_defaults' );
 /**
  * Customize the text prior to the comment form fields.
@@ -271,10 +288,10 @@ $comment_args = array(
 	'submit_button'		=> '<div class="form-submit"><button name="submit" type="submit" id="submit" class="btn btn-block s-green"  >Send</button></div>',
 	//'submit_field'         => ' ',
     'comment_notes_after' => ' ',
-); 
-comment_form($comment_args); 
-//comment_form(); 
- 
+);
+comment_form($comment_args);
+//comment_form();
+
 ?>
 </div>
 

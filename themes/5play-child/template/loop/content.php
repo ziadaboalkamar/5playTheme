@@ -5,6 +5,14 @@
 		$youtube			= get_post_meta( $post->ID, 'wp_youtube_GP', true );
 		$modfeatures		= get_post_meta( $post->ID, 'wp_mods', true );  
 		$modfeatures2		= get_post_meta( $post->ID, 'wp_mods2', true );
+        $whatnews_dt		= get_key_option( $post->ID, 'whats_new');
+
+        if ($whatnews_dt && $whatnews_dt != ""){
+            $whatnews_GP = $whatnews_dt;
+
+
+
+        }
 		?>
 	<div class="block b-add-info">
     <div class="b-tabs" role="tablist">
@@ -26,7 +34,11 @@
     </div>
     <div class="b-cont tab-content">
         <div class="tab-pane text" id="app_description" style="display: block;">
-		<?php the_content(); ?>	
+            <div class="content_data_dt">
+                <?php the_content(); ?>
+            </div>
+            <a class="moreless-button shadow" >Read more</a>
+
         </div>
 		<?php if (get_post_meta( $post->ID, 'wp_whatnews_GP', true )) { ?>		
 		<div class="tab-pane text" id="whatnews" >
@@ -46,6 +58,7 @@
 			<details class="ac alt">
 				<summary><?php echo $opt_themes['exthemes_content_Mod_info']; ?></summary>
 				<div class="aC">
+
 				<p><?php echo $modfeatures2; ?></p>
 				</div>
 			</details>
@@ -57,7 +70,9 @@
 		<?php if($opt_themes['ex_themes_help_single_post_active_']) { ?>
         <div class="tab-pane" id="app_faq" >
         <?php echo $opt_themes['ex_themes_help_single_post_']; ?>
+
         </div>
+
 		<?php } ?>
     </div>
 </div>
@@ -82,4 +97,29 @@
         });
     });
 </script>
+        <script>
+            var contentContainer = $('.content_data_dt');
+            if (contentContainer.height() < 400){
+                $('.moreless-button').remove();
+            }
+            $('.moreless-button').click(function() {
+
+                 contentContainer = $('.content_data_dt');
+                if (contentContainer.height() > 200){
+                    if (contentContainer.css('max-height') === '400px') {
+                        contentContainer.css('max-height', 'fit-content');
+                        $(this).text("Read less");
+                        $(this).removeClass("shadow");
+                    } else {
+                        contentContainer.css('max-height', '400px');
+                        $(this).text("Read more");
+                        $(this).addClass("shadow");
+                    }
+                }
+
+            });
+
+
+        </script>
+
  

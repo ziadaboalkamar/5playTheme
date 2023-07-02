@@ -54,7 +54,7 @@ if (!class_exists('CLD_Admin')) {
         }
 
         function cld_admin_menu() {
-            add_comments_page(__('Comments Like Dislike', 'comments-like-dislike'), __('Comments Like Dislike', 'comments-like-dislike'), 'manage_options', 'comments-like-dislike', array($this, 'cld_settings'));
+            add_menu_page(__('Comments Like Dislike', 'comments-like-dislike'), __('Comments Like Dislike', 'comments-like-dislike'), 'manage_options', 'comments-like-dislike', array($this, 'cld_settings'), 'dashicons-thumbs-up');
         }
 
         function cld_settings() {

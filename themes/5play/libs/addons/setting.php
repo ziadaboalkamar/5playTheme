@@ -78,7 +78,7 @@ function wp_apk_admin_menu() {
     add_submenu_page( 'wp_apk_mod_menu', 'modder.me', 'MODDER ', 'manage_options', 'wp_apk_modder', 'wp_modder_errors' );
     add_submenu_page( 'wp_apk_mod_menu', 'techbigs.COM', 'TECHBIGS', 'manage_options', 'wp_apk_techbigs', 'wp_techbigs' );
     add_submenu_page( 'wp_apk_mod_menu', 'zmodapk.net', 'ZMODAPK ', 'manage_options', 'wp_apk_zmodapk', 'wp_zmodapk' );
-    add_submenu_page( 'wp_apk_mod_menu', 'rexdl.com', 'REXDL', 'manage_options', 'wp_apk_rexdl', 'wp_rexdl' );
+    add_submenu_page( 'wp_apk_mod_menu', 'rexdl.com', 'REXDL', 'manage_options', 'wp_apk_rexdl', 'wp_rexdl_errors' );
     
     /*
     <span class="awaiting-mod">new</span>

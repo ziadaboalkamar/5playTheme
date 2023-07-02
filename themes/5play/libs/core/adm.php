@@ -188,6 +188,26 @@ $rgb[2] = (isset($rgb[2]) ? hexdec($rgb[2]) : 0);
 return ($asString ? "rgba({$rgb[0]},{$rgb[1]},{$rgb[2]}, .7)" : $rgb);
 /* rgba(0,128,128, 0.1) */
 }
+function rgb3($hex, $asString = true) {
+// strip off any leading #
+if (0 === strpos($hex, '#')) {
+$hex = substr($hex, 1);
+} else if (0 === strpos($hex, '&H')) {
+$hex = substr($hex, 2);
+}      
+
+// break into hex 3-tuple
+$cutpoint = ceil(strlen($hex) / 2)-1;
+$rgb = explode(':', wordwrap($hex, $cutpoint, ':', $cutpoint), 3);
+
+// convert each tuple to decimal
+$rgb[0] = (isset($rgb[0]) ? hexdec($rgb[0]) : 0);
+$rgb[1] = (isset($rgb[1]) ? hexdec($rgb[1]) : 0);
+$rgb[2] = (isset($rgb[2]) ? hexdec($rgb[2]) : 0);
+
+return ($asString ? "rgba({$rgb[0]},{$rgb[1]},{$rgb[2]}, .3)" : $rgb);
+/* rgba(0,128,128, 0.1) */
+}
 /*-----------------------------------------------------------------------------------*/ 
 
 //add_action( 'wp_dashboard_setup', 'supports_cs_setup_function' );

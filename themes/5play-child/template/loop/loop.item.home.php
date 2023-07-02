@@ -10,7 +10,10 @@ $fullx_alt						= 'thumbnails-homes-alt';
 $image_urlx						= wp_get_attachment_image_src($image_idx, $fullx_alt, true); 
 $imagesx						= $image_urlx[0]; 
 $labels							= get_post_meta( $post->ID, 'wp_newupdates', true ); 
-$labelx							= strtolower(esc_html( get_post_meta( $post->ID, 'wp_newupdates', true ) )); 
+$labelx							= strtolower(esc_html( get_post_meta( $post->ID, 'wp_newupdates', true ) ));
+$version_dt					    = get_key_option( $post->ID, 'version');
+
+
 ?>
 <style>.label-<?php echo $labels; ?>{color: var(--colorsvg)}.label-<?php echo $labels; ?>::before{box-shadow:0 .25rem .5rem 0 var(--rgbacolor)}</style>
 
@@ -42,7 +45,7 @@ $labelx							= strtolower(esc_html( get_post_meta( $post->ID, 'wp_newupdates', 
 		<li><svg width="24" height="24"><use xlink:href="#i__android"></use></svg>
 		<span class="truncate"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php if ($requires) { ?><?php echo RTL_Nums($requires); ?><?php } else { ?><?php echo RTL_Nums(4.5); ?><?php } ?><?php } else { ?><?php if ($requires) { ?><?php echo $requires; ?><?php } else { ?>4.5<?php } ?><?php } ?></span></li>
 		<li><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg>
-		<span class="truncate"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php if (get_post_meta( $post->ID, 'wp_version', true )) { ?><?php echo RTL_Nums( get_post_meta( $post->ID, 'wp_version', true ) ); ?><?php } else { ?><?php echo RTL_Nums( get_post_meta( $post->ID, 'wp_version_GP', true ) ); ?><?php } ?><?php } else { ?><?php if (get_post_meta( $post->ID, 'wp_version', true )) { ?><?php echo esc_html( get_post_meta( $post->ID, 'wp_version', true ) ); ?><?php } else { ?><?php echo esc_html( get_post_meta( $post->ID, 'wp_version_GP', true ) ); ?><?php } ?><?php } ?></span></li>
+		<span class="truncate"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php if ($version_dt && $version_dt != ""){ echo $version_dt; }elseif (get_post_meta( $post->ID, 'wp_version', true )) { ?><?php echo RTL_Nums( get_post_meta( $post->ID, 'wp_version', true ) ); ?><?php } else { ?><?php echo RTL_Nums( get_post_meta( $post->ID, 'wp_version_GP', true ) ); ?><?php } ?><?php } else { ?><?php if ($version_dt && $version_dt != ""){ echo $version_dt;} elseif (get_post_meta( $post->ID, 'wp_version', true )) { ?><?php echo esc_html( get_post_meta( $post->ID, 'wp_version', true ) ); ?><?php } else { ?><?php echo esc_html( get_post_meta( $post->ID, 'wp_version_GP', true ) ); ?><?php } ?><?php } ?></span></li>
 		</ul>
 	</div>
 </div>

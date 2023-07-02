@@ -36,6 +36,8 @@ require EX_THEMES_DIR.'/libs/core/background.php';
 require EX_THEMES_DIR.'/libs/import-demo.php'; 
 require EX_THEMES_DIR.'/wp-report-post/wp-report-post.php';
 require EX_THEMES_DIR.'/like-dislike/like-dislike.php';
+require EX_THEMES_DIR.'/posts-like-dislike/posts-like-dislike.php'; 
+require EX_THEMES_DIR.'/libs/core/login.php';
 /* 
 if (!is_customize_preview()  && is_admin() ) {
 require_once (EX_THEMES_DIR. '/libs/merlin/vendor/autoload.php' );

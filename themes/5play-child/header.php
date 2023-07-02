@@ -16,9 +16,9 @@
 /*  Instagram : https://www.instagram.com/exthemescom/
 /*	More Premium Themes Visit Now On https://exthem.es/
 /*
-/*-----------------------------------------------------------------------------------*/ 
+/*-----------------------------------------------------------------------------------*/
 error_reporting(SALAH);
-global $opt_themes; 
+global $opt_themes;
 $rtl_on						= $opt_themes['ex_themes_rtl_activate_'];
 $rtl_lang					= $opt_themes['Languange_rtl'];
 $header_menu				= $opt_themes['ex_themes_menu_header_'];
@@ -46,13 +46,13 @@ if ( in_array( 'sitepress-multilingual-cms/sitepress.php', $active_plugins )) {
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" <?php if($rtl_on) { ?> class="rtl load" dir="rtl" lang="<?php echo $rtl_lang; ?>"<?php } else{ ?><?php language_attributes(); ?><?php } ?> id="h" class="load" style="margin-top: 0px !important;">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
-<meta content='yes' name='apple-mobile-web-app-capable' />
-<?php 
-wp_head();
-ex_themes_head_on_sections_();
-?>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
+    <meta content='yes' name='apple-mobile-web-app-capable' />
+    <?php
+    wp_head();
+    ex_themes_head_on_sections_();
+    ?>
 </head>
 <body>
 <header class="header">
@@ -98,7 +98,7 @@ ex_themes_head_on_sections_();
                                 <div class="title"><a href="<?php echo $author_link; ?>"  > <?php  global $current_user; get_currentuserinfo(); echo $current_user->display_name ; ?></div>
                             </div>
                             <ul class="login-pane__menu">
-								<li><a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php if($text_new_post) { ?><?php echo  esc_html__($text_new_post, CHILD_THEME)  ; ?><?php } ?></li>
+                                <li><a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>"><?php if($text_new_post) { ?><?php echo  esc_html__($text_new_post, CHILD_THEME)  ; ?><?php } ?></li>
                                 <li><a href="<?php echo wp_logout_url(); ?>"><?php if($text_logout) { ?><?php echo  esc_html__($text_logout, CHILD_THEME)  ; ?><?php } ?></a></li>
                             </ul>
                         </div>
@@ -121,22 +121,22 @@ ex_themes_head_on_sections_();
     </div>
 </header>
 <div class="toolbar">
-	<div class="sel-lang">
+    <div class="sel-lang">
         <?php
         $active_plugins             = get_option( 'active_plugins' );
         if ( in_array( 'sitepress-multilingual-cms/sitepress.php', $active_plugins )) {
             $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
-        if( !empty( $languages ) ){
-            foreach( $languages as $l ){
+            if( !empty( $languages ) ){
+                foreach( $languages as $l ){
 
-                ?>
-            <button class="sel-lang__en <?php if ($l['active']) echo 'active';?>" onclick="location.href='<?php echo $l['url']; ?>'"><i class="lang_icon"><img src="<?php echo $l['country_flag_url']; ?>" alt="Английский" title="Английский" width="24" height="24"></i></button>
-    <?php
-            }
+                    ?>
+                    <button class="sel-lang__en <?php if ($l['active']) echo 'active';?>" onclick="location.href='<?php echo $l['url']; ?>'"><i class="lang_icon"><img src="<?php echo $l['country_flag_url']; ?>" alt="Английский" title="Английский" width="24" height="24"></i></button>
+                    <?php
+                }
             }
         }
         ?>
-	</div>
+    </div>
     <button class="sel-dark-toggle" id="toggle-darkmod" aria-label="Dark Modes" ><svg class="i__moon" width="24" height="24"><use xlink:href="#i__moon"></use></svg><svg class="i__sun" width="24" height="24" style="display:none;"><use xlink:href="#i__sun"></use></svg></button>
 </div>
 <script>const g=e=>document.getElementById(e),classes=g("h").classList,cl="darktheme";localStorage.getItem("toggled-ttl")>Date.now()&&classes.toggle(cl,localStorage.getItem("toggled")),g("toggle-darkmod").addEventListener("click",function(e){e.preventDefault(),classes.contains(cl)?(localStorage.removeItem("toggled"),localStorage.removeItem("toggled-ttl"),classes.remove(cl)):(localStorage.setItem("toggled",1),localStorage.setItem("toggled-ttl",Date.now()+5184e6),classes.add(cl))});</script>
