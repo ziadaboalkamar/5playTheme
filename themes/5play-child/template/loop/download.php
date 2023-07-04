@@ -153,7 +153,7 @@ if ($title_dt && $title_dt != ""){
 	</noscript>
 	
 	<?php if ($download_DT){?>
-        <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $download_DT ?>&names=<?php echo get_the_title(); ?>" class="download-line s-button" target="_blank">
+        <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $download_DT ?>&names=<?php echo get_the_title(); ?>&id=<?php echo $post->ID; ?>" class="download-line s-button" target="_blank">
             <div class="download-line-title">
                 <i><svg width="24" height="24"><use xlink:href="#i__getapp"/></svg></i>
                 <span><?php echo $title; ?></span>

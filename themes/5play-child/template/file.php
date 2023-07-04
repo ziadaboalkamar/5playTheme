@@ -34,28 +34,29 @@ if( $action == 'e' ){
 }
 return $output;
 }
+$post_id = intval($_GET["id"]);
  
 $REQUEST_URI					= $_SERVER['REQUEST_URI'];
 $linkX							= get_bloginfo('url'); 
 $parse							= parse_url($linkX); 
 $watermark1						= $parse['host'];
-$sizes							= get_post_meta( $post->ID, 'wp_sizes', true );
-$sizesX1						= get_post_meta( $post->ID, 'wp_sizes_GP', true );
+$sizes							= get_post_meta( $post_id, 'wp_sizes', true );
+$sizesX1						= get_post_meta( $post_id, 'wp_sizes_GP', true );
 $sizesX							= 'Loading...';
 if ( $sizes === FALSE or $sizes == '' ) $sizes = $sizesX;
-$url1							= get_post_meta( $post->ID, 'wp_downloadlink', true ) ;
+$url1							= get_post_meta( $post_id, 'wp_downloadlink', true ) ;
 $postid							= $wp_query->post->ID;
 $dt_player						= get_post_meta($postid, 'repeatable_fields', true);
-$updates						= get_post_meta( $post->ID, 'wp_updates_GP', true );
-$updatesX1						= get_post_meta( $post->ID, 'wp_updates_GP', true );
+$updates						= get_post_meta( $post_id, 'wp_updates_GP', true );
+$updatesX1						= get_post_meta( $post_id, 'wp_updates_GP', true );
 $updatesX						= '-';
 if ( $updates === FALSE or $updates == '' ) $updates = $updatesX;
-$titleGPs						= get_post_meta( $post->ID, 'wp_title_GP', true );
-$titleGPsX1						= get_post_meta( $post->ID, 'wp_title_GP', true );
+$titleGPs						= get_post_meta( $post_id, 'wp_title_GP', true );
+$titleGPsX1						= get_post_meta( $post_id, 'wp_title_GP', true );
 $titleGPsX						= '-';
 if ( $titleGPs === FALSE or $titleGPs == '' ) $titleGPs = $titleGPsX;
-$idtitleGPs						= get_post_meta( $post->ID, 'wp_GP_ID', true );
-$idtitleGPsX1					= get_post_meta( $post->ID, 'wp_GP_ID', true );
+$idtitleGPs						= get_post_meta( $post_id, 'wp_GP_ID', true );
+$idtitleGPsX1					= get_post_meta( $post_id, 'wp_GP_ID', true );
 $idtitleGPsX					= '-';
 if ( $idtitleGPs === FALSE or $idtitleGPs == '' ) $idtitleGPs = $idtitleGPsX;
 
@@ -64,18 +65,18 @@ $full							= 'full';
 $icons							= '64';
 $image_url						= wp_get_attachment_image_src($image_id, $full, true); 
 $image_url_default				= $image_url[0];
-$thumbnails						= get_post_meta( $post->ID, 'wp_poster_GP', true ); 
+$thumbnails						= get_post_meta( $post_id, 'wp_poster_GP', true ); 
 if ( $thumbnails === FALSE or $thumbnails == '' ) $thumbnails = $image_url_default;
 
-$version						= get_post_meta( $post->ID, 'wp_version_GP', true );
-$versionX1						= get_post_meta( $post->ID, 'wp_version_GP', true );
+$version						= get_post_meta( $post_id, 'wp_version_GP', true );
+$versionX1						= get_post_meta( $post_id, 'wp_version_GP', true );
 $versionX						= '-';
 if ( $version === FALSE or $version == '' ) $version = $versionX;
-$requires						= get_post_meta( $post->ID, 'wp_requires_GP', true );
-$requiresX1						= get_post_meta( $post->ID, 'wp_requires_GP', true );
+$requires						= get_post_meta( $post_id, 'wp_requires_GP', true );
+$requiresX1						= get_post_meta( $post_id, 'wp_requires_GP', true );
 $requiresX						= '-';
 if ( $requires === FALSE or $requires == '' ) $requires = $requiresX;
-$requires						= get_post_meta($post->ID, "wp_requires_GP", true);
+$requires						= get_post_meta($post_id, "wp_requires_GP", true);
 $requiresX						= str_replace('and up', '', $requires);
 $file_path						= $_GET['urls'];
 $file_name						= $_GET['names'];
@@ -91,11 +92,11 @@ $link_encode					= mask_link($file_path, 'd');
 $names							= $_GET['names'];
 $size							= $_GET['sizes'];
 $url							= $_GET['urls'];
-$wp_mods						= get_post_meta( $post->ID, 'wp_mods1', true );
-$wp_mods1						= get_post_meta( $post->ID, 'wp_mods', true );
+$wp_mods						= get_post_meta( $post_id, 'wp_mods1', true );
+$wp_mods1						= get_post_meta( $post_id, 'wp_mods', true );
 if ( $wp_mods === FALSE or $wp_mods == '' ) $wp_mods = $wp_mods1;
-$image_id_alt					= get_post_thumbnail_id($post->ID); 
-$image_idx						= get_post_thumbnail_id(); 
+$image_id_alt					= get_post_thumbnail_id($post_id); 
+$image_idx						= get_post_thumbnail_id($post_id);
 $fullx							= 'thumbnails-homes'; 
 $fullx_alt						= 'thumbnails-homes-alt'; 
 $image_urlx						= wp_get_attachment_image_src($image_idx, $fullx, true); 
@@ -136,13 +137,13 @@ wp_head();
 <body>
 <div class="page-cdn">
 <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>
- <div class="page-cdn-back"><a href="<?php the_permalink() ?>"><?php global $opt_themes; if($opt_themes['exthemes_content_Back_main']) { ?><?php echo $opt_themes['exthemes_content_Back_main']; ?><?php } ?><i class="s-button c-icon"><svg width="24" height="24" style="stroke: currentColor!important;fill:currentColor!important;"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>
+ <div class="page-cdn-back"><a href=" <?php the_permalink() ?>"><?php global $opt_themes; if($opt_themes['exthemes_content_Back_main']) { ?><?php echo $opt_themes['exthemes_content_Back_main']; ?><?php } ?><i class="s-button c-icon"><svg width="24" height="24" style="stroke: currentColor!important;fill:currentColor!important;"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>
 <use xlink:href="#i__arrowright"></use>
 <?php } else { ?>
 <use xlink:href="#i__arrowleft"></use>
 <?php } ?></svg></i></a></div>
 <?php } else { ?>
-<div class="page-cdn-back"><a href="<?php the_permalink() ?>"><i class="s-button c-icon"><svg width="24" height="24"  style="stroke: currentColor!important;fill:currentColor!important;"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>
+<div class="page-cdn-back"><a href="<?php get_link_of_post($_SERVER['REQUEST_URI'] ); ?>"><i class="s-button c-icon"><svg width="24" height="24"  style="stroke: currentColor!important;fill:currentColor!important;"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>
 <use xlink:href="#i__arrowright"></use>
 <?php } else { ?>
 <use xlink:href="#i__arrowleft"></use>
@@ -166,9 +167,9 @@ wp_head();
 					</i>
 					</li>
                     <li class="cdn-meta"><svg width="24" height="24"><use xlink:href="#i__vers"></use></svg><span class="ww-break-word"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>
-					<?php if (get_post_meta( $post->ID, 'wp_rated_GP', true )) { ?><?php echo RTL_Nums( get_post_meta( $post->ID, 'wp_rated_GP', true ) ); ?><?php } else { ?><?php echo RTL_Nums(4.5); ?><?php } ?>
+					<?php if (get_post_meta( $post_id, 'wp_rated_GP', true )) { ?><?php echo RTL_Nums( get_post_meta( $post_id, 'wp_rated_GP', true ) ); ?><?php } else { ?><?php echo RTL_Nums(4.5); ?><?php } ?>
 					<?php } else { ?>
-					<?php if (get_post_meta( $post->ID, 'wp_rated_GP', true )) { ?><?php echo esc_html( get_post_meta( $post->ID, 'wp_rated_GP', true ) ); ?><?php } else { ?>4.5<?php } ?>
+					<?php if (get_post_meta( $post_id, 'wp_rated_GP', true )) { ?><?php echo esc_html( get_post_meta( $post_id, 'wp_rated_GP', true ) ); ?><?php } else { ?>4.5<?php } ?>
 					<?php } ?></span></li>
                 </ul>
                 <h1 class="title ww-break-word"><i style="display: none;"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Download']) { ?><?php echo $opt_themes['exthemes_apk_info_Download']; ?><?php } ?></i> <?php if ($namesapks) { ?><?php echo trim(strip_tags($namesapks)); ?><?php } else { ?><?php echo ucwords($title_gp); ?><?php } ?> </h1>

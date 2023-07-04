@@ -972,9 +972,34 @@ class Apps extends BaseController {
         $imageURLs = $matches[1];
 
 // Print the extracted image URLs
-     return $imageURLs ;
+        $data = self::get_offical_image_size($imageURLs);
+     return $data ;
 
 
+    }
+
+    public static function get_offical_image_size($values){
+        $redisign_value = [];
+        foreach ($values as $value){
+            if (str_contains($value, "https://play-lh.googleusercontent.com/")) {
+                $url_logo = explode("=",$value);
+                $url = $url_logo[0]."=w5120-h2880-rw";
+            }elseif (str_contains($value, "https://image.winudf.com/")){
+                $url_logo = explode("?",$value);
+                $url = $url_logo[0]."?fakeurl=1&type=.webp";
+            }elseif (str_contains($value, "https://lh3.googleusercontent.com/")) {
+                $url_logo = explode("=",$value);
+                $url = $url_logo[0];
+            }elseif (str_contains($value, "https://img.utdstc.com/")){
+                $url = $value.":800";
+            }else{
+                $url = $value;
+            }
+
+            array_push($redisign_value,$url);
+        }
+
+        return $redisign_value;
     }
 
 

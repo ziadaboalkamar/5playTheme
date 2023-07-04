@@ -404,7 +404,7 @@ function ex_themes_version_dt() {
                             }
                             $link = $files["api_url"].'/'.$file["file"];
                             ?>
-                            <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $link ?>&names=<?php echo $file["file_name"];  ?> (<?php echo $version;?>)" class="download-line s-button" target="_blank">
+                            <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $link ?>&names=<?php echo $file["file_name"];  ?> (<?php echo $version;?>)&id=<?php echo $post->ID; ?>" class="download-line s-button" target="_blank">
                                 <div class="download-line-title">
                                     <i><svg width="24" height="24"><use xlink:href="#i__getapp"/></svg></i>
                                     <span><?php echo $file["file_name"]; ?>(<?php echo $version;?>)</span>
@@ -655,6 +655,23 @@ function ex_themes_related_posts_dt() {
 <?php }
 add_shortcode('ex_themes_related_posts_', 'ex_themes_related_posts_');
 
+###### this code for apkdone, 5play and moddroid themes ######
+###### Open your apk themes –> functions.php and insert this code on end line ######
+function exthemes_no_home_noindex_nofollow() {
+    global $wp_query;
+    $noindex = "<meta name='robots' content='noindex,follow' />\n";
+    if ( ! isset( $wp_query->query_vars['download'] ) || ! is_singular() ) {
+        return;
+    }
+    echo $noindex;
+}
+add_action( 'wp_head', 'exthemes_no_home_noindex_nofollow',2);
 
+function get_link_of_post($link){
+
+    $explode_link = explode("/file/",$link);
+    echo $explode_link[0];
+
+}
 
 
