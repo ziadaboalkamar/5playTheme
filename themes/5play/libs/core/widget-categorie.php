@@ -14,6 +14,9 @@ class widget_categorie_homes_ extends WP_Widget {
     }
 
     public function widget( $args, $instance ) {
+        global $sitepress;
+        $current_url = $sitepress->language_url( $sitepress->get_current_language() );
+
         $widget_id				= $this->id_base . '-' . $this->number;
         $category_ids			= ( ! empty( $instance['category_ids'] ) ) ? array_map( 'absint', $instance['category_ids'] ) : array( 0 );
         $number_posts			= ( ! empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : absint( 5 );
@@ -23,13 +26,14 @@ class widget_categorie_homes_ extends WP_Widget {
         $readmores				= ( ! empty( $instance['readmores'] ) ) ?  $instance['readmores'] : '';
         $icons					= ( ! empty( $instance['icon'] ) ) ?  $instance['icon'] : '';
         ?>
+
         <section class="wrp section">
             <?php
             if ( $title ) {
                 if ( ! empty( $link_title ) ) { ?>
-                    <div class="section-head">
+                    <div class="section-head ">
                         <h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i><?php  echo esc_html__($title, CHILD_THEME) ; ?></h3>
-                        <a class="btn s-green btn-all" href="<?php echo $link_title; ?>" aria-label="<?php echo esc_html__($readmores, CHILD_THEME) ; ?>">
+                        <a class="btn s-green btn-all" href="<?php echo $current_url.$link_title; ?>" aria-label="<?php echo esc_html__($readmores, CHILD_THEME) ; ?>">
                             <span><?php echo esc_html__($readmores, CHILD_THEME) ; ?></span>
                             <svg width="24" height="24"><use xlink:href="#i__keyright"></use></svg>
                         </a>
@@ -284,7 +288,7 @@ class widget_categorie_homes_ extends WP_Widget {
             <label for="<?php echo esc_html( $this->get_field_id( 'link_title' ) ); ?>"><?php esc_html_e( 'Link Title:', THEMES_NAMES  ); ?></label>
         </p>
         <p>
-            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'link_title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'link_title' ) ); ?>" type="url" value="<?php echo esc_attr( $link_title ); ?>" />
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'link_title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'link_title' ) ); ?>" type="text" value="<?php echo esc_attr( $link_title ); ?>" />
         </p>
         <p>
             <small><?php esc_html_e( 'Target url for title (example: '.home_url( '/' ).' ) , leave blank if you want using title without link.', THEMES_NAMES  ); ?></small>

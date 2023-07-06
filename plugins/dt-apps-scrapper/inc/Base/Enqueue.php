@@ -19,7 +19,8 @@ class Enqueue extends BaseController {
         wp_enqueue_media();
    wp_enqueue_style( 'dtScrapperStyle', $this->assets_css . 'style.css' );
         wp_enqueue_style( 'dtHoverStyle', $this->assets_css . 'hover.css' );
-//
+//.
+
         wp_deregister_script('jquery');
         wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.7.0.min.js', array(), null, true);
 

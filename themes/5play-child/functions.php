@@ -59,7 +59,7 @@ function get_key_option($post_id , $key){
 
             $placeholders = implode(', ', array_fill(0, count($element_ids), '%d'));
             $query = $wpdb->prepare(
-                "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ($placeholders)",
+                "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ({$placeholders})",
                 $element_ids
             );
             $matching_posts = $wpdb->get_col($query);
@@ -123,7 +123,7 @@ function get_package($post_id){
 
              $placeholders = implode(', ', array_fill(0, count($element_ids), '%d'));
              $query = $wpdb->prepare(
-                 "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ($placeholders)",
+                 "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ({$placeholders})",
                  $element_ids
              );
              $matching_posts = $wpdb->get_col($query);
@@ -187,7 +187,7 @@ function get_dt_title($post_id){
 
             $placeholders = implode(', ', array_fill(0, count($element_ids), '%d'));
             $query = $wpdb->prepare(
-                "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ($placeholders)",
+                "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ({$placeholders})",
                 $element_ids
             );
             $matching_posts = $wpdb->get_col($query);
@@ -347,7 +347,7 @@ function update_key_option($post_id , $key,$value){
 
             $placeholders = implode(', ', array_fill(0, count($element_ids), '%d'));
             $query = $wpdb->prepare(
-                "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ($placeholders)",
+                "SELECT post_id FROM {$table_meta_app_post} WHERE post_id IN ({$placeholders})",
                 $element_ids
             );
             $matching_posts = $wpdb->get_col($query);
@@ -673,5 +673,6 @@ function get_link_of_post($link){
     echo $explode_link[0];
 
 }
+
 
 
