@@ -270,12 +270,17 @@ function update_post_gallery_so_144459041( $post_id, $post_object )
     if ( 'revision' == $post_object->post_type )
         return;
     // Verify authenticity
-    if ( !wp_verify_nonce( $_POST['noncename_so_14445904'], plugin_basename( __FILE__ ) ) )
-        return;
+//    if ( !wp_verify_nonce( $_POST['noncename_so_14445904'], plugin_basename( __FILE__ ) ) )
+//        return;
+    if (isset($_POST['noncename_so_14445904']) && !empty($_POST['noncename_so_14445904'])) {
+        if (!wp_verify_nonce($_POST['noncename_so_14445904'], plugin_basename(__FILE__))) {
+            return;
+        }
+    }
     // Correct post type
-    if ( 'post' != $_POST['post_type'] ) // here you can set post type name
+    if ( isset($_POST['post_type']) && 'post' != $_POST['post_type'] ) // here you can set post type name
         return;
-    if ( $_POST['gallery'] )
+    if (isset($_POST['gallery']) &&  $_POST['gallery'] )
     {
         // Build array for saving post meta
         $gallery_data = array();
