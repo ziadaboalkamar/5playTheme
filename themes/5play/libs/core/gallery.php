@@ -278,9 +278,9 @@ function update_post_gallery_so_144459041( $post_id, $post_object )
         }
     }
     // Correct post type
-    if ( 'post' != $_POST['post_type'] ) // here you can set post type name
+    if ( isset($_POST['post_type']) && 'post' != $_POST['post_type'] ) // here you can set post type name
         return;
-    if ( $_POST['gallery'] )
+    if (isset($_POST['gallery']) &&  $_POST['gallery'] )
     {
         // Build array for saving post meta
         $gallery_data = array();

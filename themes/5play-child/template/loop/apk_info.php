@@ -142,8 +142,8 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 				</span> 
             </li> 
 			<?php }?>
-			<?php $package_id = get_package($post->ID); if ($package_id && $package_id !=  "" && str_contains($package_id, '.com')){  ?>
-                <li class="specs-item">
+			<?php $package_id = get_package($post->ID);if ($package_id && $package_id != "" && str_contains($package_id,'com.')){  ?>
+                <li class="specs-item google">
                     <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__play"></use></svg></i>
                     <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Google_Play']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Google_Play'],CHILD_THEME) ; ?><?php } ?></span>
                     <div class="spec-cont fw-b" >
@@ -153,8 +153,8 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
                 </li>
 
             <?php }else { ?>
-            <?php  if(get_post_meta( $post->ID, 'wp_GP_ID', true )){ ?>
-            <li class="specs-item">
+            <?php  if(get_post_meta( $post->ID, 'wp_GP_ID', true ) && str_contains(get_post_meta( $post->ID, 'wp_GP_ID', true ),'com.')){ ?>
+            <li class="specs-item ">
                 <i class="spec-icon c-green"><svg width="24" height="24"><use xlink:href="#i__play"></use></svg></i>
                 <span class="spec-label"><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Google_Play']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Google_Play'],CHILD_THEME) ; ?><?php } ?></span>
                 <div class="spec-cont fw-b" >

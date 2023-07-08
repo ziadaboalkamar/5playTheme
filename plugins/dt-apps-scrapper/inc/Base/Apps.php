@@ -503,7 +503,7 @@ class Apps extends BaseController {
                                         }elseif (trim($key) == "screenshots"){
                                             try {
 
-                                                $screenshot = Apps::redesign_the_screenshot($value);
+                                                $screenshot = Apps::redesign_the_screenshot($value,$app["name"],$app_data_id);
                                                 if ($screenshot){
                                                     $wpdb->update($table_meta_app, array(
                                                         'value' => json_encode($screenshot)
@@ -593,7 +593,7 @@ class Apps extends BaseController {
                                         }elseif (trim($key) == "screenshots"){
                                             try {
 
-                                                $screenshot = Apps::redesign_the_screenshot($value);
+                                                $screenshot = Apps::redesign_the_screenshot($value,$app["name"],$app_data_id);
 
                                                 if ($screenshot){
                                                     $wpdb->insert($table_meta_app, array(
@@ -792,8 +792,9 @@ class Apps extends BaseController {
 
                 $imagetypeexplode = explode('/', getimagesize($logo_url)['mime']);
                 $imagetype = end($imagetypeexplode);
-                $filename = $app_name . '_logo.' . $imagetype;
-
+                $name = $app_name . '_logo.' . $imagetype;
+                $normalized_file_name = iconv('UTF-8', 'ASCII//TRANSLIT', $name);
+                $filename = preg_replace('/[^\w\-_.]/', '', $normalized_file_name);
                 $uploaddir = wp_upload_dir();
                 $uploadfile = $uploaddir['path'] . '/' . $filename;
 
@@ -958,7 +959,7 @@ class Apps extends BaseController {
         wp_update_post($post);
 
     }
-    public static function redesign_the_screenshot($value){
+    public static function redesign_the_screenshot($value,$name,$id){
 
         $htmlCode = $value; // Replace with the HTML code you want to extract the links from
 
@@ -973,7 +974,9 @@ class Apps extends BaseController {
 
 // Print the extracted image URLs
         $data = self::get_offical_image_size($imageURLs);
-     return $data ;
+        $save_screenshot = self::store_screen_shot_in_file($data,$name,$id);
+
+     return $save_screenshot ;
 
 
     }
@@ -1002,5 +1005,42 @@ class Apps extends BaseController {
         return $redisign_value;
     }
 
+    public static function store_screen_shot_in_file($data,$app_name,$id){
+        global $wpdb;
+        $base = new  BaseController();
+        $table_app_info = $base->table_dt_meta;
+        $app_data = $wpdb->get_row("SELECT * FROM  {$table_app_info} WHERE app_id = {$id} AND `key` = 'screenshots' ");
+//        if (isset($app_data->value)){
+        $old_screenshots = json_decode($app_data->value);
+        if ($old_screenshots != null  && count($old_screenshots) > 0 && $old_screenshots != ""){
+            foreach ($old_screenshots as $imageUrl) {
+                $filePath = parse_url($imageUrl, PHP_URL_PATH);
+            // Convert the URL-encoded characters in the path
+                $filePath = urldecode($filePath);
+            // Get the absolute path on the server
+                $absolutePath = $_SERVER['DOCUMENT_ROOT'] . $filePath;
+                if (file_exists($absolutePath)) {
 
+                    unlink($absolutePath); // Delete the image file
+                }
+            }
+        }
+//        }
+        $image_urls = array();
+        if ($data != "" && count($data)>0){
+             foreach ($data as $single_data){
+                 $response =file_get_contents($single_data);
+                 $destination_folder =  WP_PLUGIN_DIR  . '/dt-apps-scrapper/assets/screenshot/';
+                 $name = $app_name . '_' . time() . '.jpg';
+                 $normalized_file_name = iconv('UTF-8', 'ASCII//TRANSLIT', $name);
+                 $filename = preg_replace('/[^\w\-_.]/', '', $normalized_file_name);
+                 $destination_file = $destination_folder . $filename;
+                 file_put_contents($destination_file, $response);
+                 $image_url = site_url("/wp-content/plugins/dt-apps-scrapper/assets/screenshot/" . $filename);
+                 array_push($image_urls,$image_url);
+
+             }
+        }
+        return $image_urls;
+    }
 }

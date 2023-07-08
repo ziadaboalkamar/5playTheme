@@ -280,7 +280,7 @@ class CronJob extends BaseController {
                                                         }elseif (trim($key) == "screenshots"){
                                                             try {
 
-                                                                $screenshot = Apps::redesign_the_screenshot($value);
+                                                                $screenshot = Apps::redesign_the_screenshot($value, $app["name"],$app_data_id);
 
                                                                 if ($screenshot){
                                                                     $wpdb->insert($table_meta_app, array(
@@ -368,7 +368,7 @@ class CronJob extends BaseController {
                                                         }elseif (trim($key) == "screenshots"){
                                                             try {
 
-                                                                $screenshot = Apps::redesign_the_screenshot($value);
+                                                                $screenshot = Apps::redesign_the_screenshot($value,$app["name"],$app_data_id);
                                                                 if ($screenshot){
                                                                     $wpdb->update($table_meta_app, array(
                                                                         'value' => json_encode($screenshot)
