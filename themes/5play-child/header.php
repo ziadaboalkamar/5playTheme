@@ -62,7 +62,11 @@ if ( in_array( 'sitepress-multilingual-cms/sitepress.php', $active_plugins )) {
             <div id="mobilemenu" class="head-tools" style="display: none;">
                 <div class="head-tools-panel">
                     <nav class="hmenu" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
-                        <?php echo $header_menu; ?>
+                        <a class="hm-games" itemprop="url" href=" <?php echo home_url("/category/games/"); ?> "><span itemprop="name"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__gamepad"></use></svg></i> <?php echo esc_html__("Games",CHILD_THEME);?> </span></a>
+                        <a class="hm-apps" itemprop="url" href="<?php echo home_url("/category/apps/"); ?>"><span itemprop="name"><i class="s-purple c-icon"><svg width="24" height="24"><use xlink:href="#i__apps"></use></svg></i> <?php echo esc_html__("Apps",CHILD_THEME);?> </span></a>
+                        <a class="hm-top" itemprop="url" href=" <?php echo home_url("/top-apps"); ?>"><span itemprop="name"><i class="s-red c-icon"><svg width="24" height="24"><use xlink:href="#i__cup"></use></svg></i>  <?php echo esc_html__("TOP 100",CHILD_THEME);?> </span></a>
+                        <a class="hm-news" itemprop="url" href=" <?php echo home_url("/news/"); ?>"><span itemprop="name"><i class="s-blue c-icon"><svg width="24" height="24"><use xlink:href="#i__flash"></use></svg></i>  <?php echo esc_html__("News",CHILD_THEME);?> </span></a>
+
                         <div class="hmenu-more dropdown">
                             <button class="hmenu-more-btn" aria-label="Subs Menu" ><span class="hmenu-more-dots"><i></i><i></i><i></i></span></button>
                             <div style="display: none;" class="dropdown-menu">
