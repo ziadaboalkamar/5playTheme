@@ -2,8 +2,6 @@
 
 use Inc\Base\BaseController;
 require_once WP_PLUGIN_DIR . '/dt-apps-scrapper/inc/Base/BaseController.php';
-
-require_once WP_PLUGIN_DIR . '/dt-apps-scrapper/inc/Base/BaseController.php';
 $child_domain = "dt-5play";
 define("CHILD_THEME",$child_domain);
 add_action('after_setup_theme', 'dt_setup');
@@ -674,6 +672,58 @@ function get_link_of_post($link){
 
 }
 
+function core_themes_style_child() {
+    $css_dir		= get_stylesheet_directory_uri().'/assets/css';
+    $sites			= home_url( '/' );
+    wp_enqueue_style( 'custom.styles', $css_dir.'/custom.styles.css');
+    wp_enqueue_style( 'custom.styles', $css_dir.'/footer.style.css');
+    wp_enqueue_style( 'ionic.styles', $css_dir.'/ionicons.min.css');
+
+}
+add_action( 'wp_enqueue_scripts', 'core_themes_style_child', 1 );
+
+//this function gert the last 2 news in code
+function get_last_news(){
+    $args = array(
+        'post_type'      => 'news',
+        'posts_per_page' => 2,
+        'orderby'        => 'date',
+        'order'          => 'DESC'
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+
+            // Display the news information or perform desired operations
+            $postTitle = get_the_title();
+            $postContent = get_the_content();
+            $news_post_id = get_the_ID(); // Get the ID of the news post
+            $creation_date = get_the_date('F j, Y', $news_post_id); // Retrieve the creation date in a specific format
+            $featured_image_id = get_post_thumbnail_id($news_post_id); // Get the ID of the featured image
+            $featured_image_link = get_permalink($news_post_id); // Get the permalink of the news post
+            $featured_image_url = wp_get_attachment_image_src($featured_image_id, 'small'); // Retrieve the URL of the featured image
+            // Output the news information as per your requirements
+            echo '<div class="block-21 mb-4 d-flex">
+                    <a class="img mr-4 rounded" style="background-image: url('.$featured_image_url[0].'); background-size: cover;background-repeat: no-repeat;"></a>
+                    <div class="text">
+                        <h3 class="heading"><a href="'.$featured_image_link.'">'.$postTitle.'</a></h3>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-calendar"></span> '.$creation_date.'</a></div>
+                         
+                        </div>
+                    </div>
+                </div>
+';
+
+        }
+
+        wp_reset_postdata();
+    } else {
+        echo 'No news found.';
+    }
 
 function custom_footer_widget_areas() {
     register_sidebar( array(
@@ -710,4 +760,6 @@ add_action( 'widgets_init', 'custom_footer_widget_areas' );
 
 
 
+
+}
 
