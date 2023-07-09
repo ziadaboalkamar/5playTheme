@@ -724,6 +724,7 @@ function get_last_news(){
     } else {
         echo 'No news found.';
     }
+    }
 
 function custom_footer_widget_areas() {
     register_sidebar( array(
@@ -761,7 +762,7 @@ add_action( 'widgets_init', 'custom_footer_widget_areas' );
 
 
 
-}
+
 
 
 // register Dt_Widget widget
