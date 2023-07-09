@@ -724,6 +724,7 @@ function get_last_news(){
     } else {
         echo 'No news found.';
     }
+    }
 
 function custom_footer_widget_areas() {
     register_sidebar( array(
@@ -761,5 +762,232 @@ add_action( 'widgets_init', 'custom_footer_widget_areas' );
 
 
 
+
+
+
+// register Dt_Widget widget
+function register_dt_widget() {
+    register_widget( 'WP_Widget_DT_Recent_Posts' );
 }
+add_action( 'widgets_init', 'register_dt_widget' );
+
+
+
+class WP_Widget_DT_Recent_Posts extends WP_Widget {
+
+    /**
+     * Sets up a new Recent Posts widget instance.
+     *
+     * @since 2.8.0
+     */
+    public function __construct() {
+
+        parent::__construct(
+            'WP_Widget_DT_Recent_Posts', // Base ID
+            esc_html__( 'DT Recent Posts', 'text_domain' ), // Name
+            array( 'description' => esc_html__( 'Your recent Posts.', 'instaplus-child' ),) // Args
+        );
+
+    }
+
+    /**
+     * Outputs the content for the current Recent Posts widget instance.
+     *
+     * @since 2.8.0
+     *
+     * @param array $args     Display arguments including 'before_title', 'after_title',
+     *                        'before_widget', and 'after_widget'.
+     * @param array $instance Settings for the current Recent Posts widget instance.
+     */
+    public function widget( $args, $instance ) {
+        if ( ! isset( $args['widget_id'] ) ) {
+            $args['widget_id'] = $this->id;
+        }
+
+        $default_title =  __( "Recent Posts",'instaplus-child' );
+        $title         = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $default_title;
+
+        /** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+        $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+        $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
+        if ( ! $number ) {
+            $number = 5;
+        }
+        $show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+
+        $r = new WP_Query(
+        /**
+         * Filters the arguments for the Recent Posts widget.
+         *
+         * @since 3.4.0
+         * @since 4.9.0 Added the $instance parameter.
+         *
+         * @see WP_Query::get_posts()
+         *
+         * @param array $args     An array of arguments used to retrieve the recent posts.
+         * @param array $instance Array of settings for the current widget.
+         */
+            apply_filters(
+                'widget_posts_args',
+                array(
+                    'posts_per_page'      => $number,
+                    'no_found_rows'       => true,
+                    'post_status'         => 'publish',
+                    'ignore_sticky_posts' => true,
+                ),
+                $instance
+            )
+        );
+
+        if ( ! $r->have_posts() ) {
+            return;
+        }
+        ?>
+
+        <?php echo $args['before_widget']; ?>
+
+        <?php
+        if ( $title ) {
+            echo $args['before_title'] .'<span  style="font-weight: bold;" >' .$title .'</span>'. $args['after_title'];
+        }
+
+        $format = current_theme_supports( 'html5', 'navigation-widgets' ) ? 'html5' : 'xhtml';
+
+        /** This filter is documented in wp-includes/widgets/class-wp-nav-menu-widget.php */
+        $format = apply_filters( 'navigation_widgets_format', $format );
+
+        if ( 'html5' === $format ) {
+            // The title may be filtered: Strip out HTML and make sure the aria-label is never empty.
+            $title  = trim( strip_tags( $title ) );
+            $aria_label = $title ? $title : $default_title;
+            echo '<nav aria-label="' . esc_attr( $aria_label ) . '">';
+        }
+        ?>
+
+        <ul class="blg_list">
+            <?php foreach ( $r->posts as $recent_post ) : ?>
+                <?php
+                $size_icon = '<svg width="1.1em" height="1.1em" viewBox="0 0 24 24"><path d="M12 10c3.976 0 8-1.374 8-4s-4.024-4-8-4s-8 1.374-8 4s4.024 4 8 4z" fill="currentColor"></path><path d="M4 10c0 2.626 4.024 4 8 4s8-1.374 8-4V8c0 2.626-4.024 4-8 4s-8-1.374-8-4v2z" fill="currentColor"></path><path d="M4 14c0 2.626 4.024 4 8 4s8-1.374 8-4v-2c0 2.626-4.024 4-8 4s-8-1.374-8-4v2z" fill="currentColor"></path><path d="M4 18c0 2.626 4.024 4 8 4s8-1.374 8-4v-2c0 2.626-4.024 4-8 4s-8-1.374-8-4v2z" fill="currentColor"></path></svg>';
+
+
+                $version_icon='<svg viewBox="0 0 20 20" height="1.2em" width="1.2em"><path d="M10.2 3.28c3.53 0 6.43 2.61 6.92 6h2.08l-3.5 4l-3.5-4h2.32a4.439 4.439 0 0 0-4.32-3.45c-1.45 0-2.73.71-3.54 1.78L4.95 5.66a6.965 6.965 0 0 1 5.25-2.38zm-.4 13.44c-3.52 0-6.43-2.61-6.92-6H.8l3.5-4c1.17 1.33 2.33 2.67 3.5 4H5.48a4.439 4.439 0 0 0 4.32 3.45c1.45 0 2.73-.71 3.54-1.78l1.71 1.95a6.95 6.95 0 0 1-5.25 2.38z" fill="currentColor"></path></svg> ';
+
+                ?>
+                <?php
+                if (function_exists('icl_object_id')) {
+                    global $sitepress;
+                    $language = $sitepress->get_current_language(); // get current language
+                    if ($language = 'ar'){
+                        $post_title   =   $str = mb_substr( get_the_title( $recent_post->ID ) , 0, 35) . '..';
+                    }
+                    else{
+                        $post_title   =   $str = mb_substr( get_the_title( $recent_post->ID ) , 0, 50) . '..';
+                    }
+                }
+
+                //   $post_title   =   $str = mb_substr( get_the_title( $recent_post->ID ) , 0, 35) . '..';
+                $title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
+                $aria_current = '';
+
+
+
+
+                if ( get_queried_object_id() === $recent_post->ID ) {
+                    $aria_current = ' aria-current="page"';
+                }
+                ?>
+                <li class="recent">
+                    <div class="col-md-2  blg" >
+                        <?php if(has_post_thumbnail($recent_post->ID)): ?>
+                            <div class="blog__thumb" >
+                                <?php echo get_the_post_thumbnail( $recent_post->ID, 'thumbnail', array('class'=>'img-responsive','alt'=>__('blog image','instaplus-child')) ); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <a class="wp-block-latest-posts__post-title" href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a> <br>
+
+                    <?php if( get_field('size',$recent_post->ID) ): ?>
+
+                        <?php echo '<span class="size"> '.$size_icon." ".get_field('size',$recent_post->ID).' </span>'; ?>
+                    <?php endif; ?>
+
+                    <?php if( get_field('version',$recent_post->ID) ): ?>
+                        <?php echo '<span class="size"> '.$version_icon." ".get_field('version',$recent_post->ID).' </span>'; ?>
+                    <?php endif; ?>
+                    <?php if ($show_date): ?>
+                        <span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
+                    <?php endif; ?>    </li>
+
+            <?php endforeach; ?>
+        </ul>
+
+        <?php
+        if ( 'html5' === $format ) {
+            echo '</nav>';
+        }
+
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Handles updating the settings for the current Recent Posts widget instance.
+     *
+     * @since 2.8.0
+     *
+     * @param array $new_instance New settings for this instance as input by the user via
+     *                            WP_Widget::form().
+     * @param array $old_instance Old settings for this instance.
+     * @return
+
+
+     */
+    public function update( $new_instance, $old_instance ) {
+        $instance              = $old_instance;
+        $instance['title']     = sanitize_text_field( $new_instance['title'] );
+        $instance['number']    = (int) $new_instance['number'];
+        $instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
+        return $instance;
+    }
+
+    /**
+     * Outputs the settings form for the Recent Posts widget.
+     *
+     * @since 2.8.0
+     *
+     * @param array $instance Current settings.
+     */
+    public function form( $instance ) {
+        $title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+        $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
+        $show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+
+
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
+            <input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" />
+        </p>
+
+        <p>
+            <input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
+            <label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?>  </label>
+
+
+        </p>
+
+
+        <?php
+    }
+}
+
+
+
+?>
 
