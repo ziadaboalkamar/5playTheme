@@ -2741,3 +2741,19 @@ a#no-link {
     margin-top: 2rem;
   }
 }
+
+
+
+.footer-widgets {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-widget-column {
+  flex-basis: calc(33.33% - 20px); /* Adjust the width of the columns as needed */
+  margin-right: 20px; /* Adjust the spacing between the columns as needed */
+}
+
+.footer-widget-column:last-child {
+  margin-right: 0;
+}

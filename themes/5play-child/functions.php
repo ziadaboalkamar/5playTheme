@@ -675,4 +675,39 @@ function get_link_of_post($link){
 }
 
 
+function custom_footer_widget_areas() {
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget Area 1', 'CHILD_THEME' ),
+        'id'            => 'footer-widget-area-1',
+        'description'   => __( 'Add widgets here for the first column in the footer.', 'your-theme-textdomain' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget Area 2', 'CHILD_THEME' ),
+        'id'            => 'footer-widget-area-2',
+        'description'   => __( 'Add widgets here for the second column in the footer.', 'your-theme-textdomain' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget Area 3', 'CHILD_THEME' ),
+        'id'            => 'footer-widget-area-3',
+        'description'   => __( 'Add widgets here for the third column in the footer.', 'your-theme-textdomain' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'custom_footer_widget_areas' );
+
+
+
 
