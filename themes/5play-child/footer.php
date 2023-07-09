@@ -77,7 +77,7 @@ if (is_home() || is_front_page()) {?>
 ex_themes_footer_on_sections_();
   } elseif (is_single() || is_page() || is_search() || is_archive() || is_404() || is_tag()) {
 ?>
-
+<!--ttyt-->
 
     <?php
 ex_themes_footer_on_sections_();
