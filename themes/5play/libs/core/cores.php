@@ -128,7 +128,7 @@ global $opt_themes;
 if($opt_themes['ex_themes_footers_copyrights_active_']) { 
     echo $opt_themes['ex_themes_footers_copyrights_code_'];
 } else { ?>
-<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_option("blogname") ?></a> - <a href="<?php echo EXTHEMES_ITEMS_URL; ?>" title="Using Themes <?php echo THEMES_NAMES; ?>.v<?php echo VERSION; ?> Premium by <?php echo DEVS; ?>"><?php echo THEMES_NAMES; ?>.v<?php echo VERSION; ?></a> © <script type="text/javascript">var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> All rights reserved - Developer by <a href="<?php echo EXTHEMES_API_URL; ?>" title="Premium Wordpress Themes - <?php echo DEVS; ?>"><?php echo DEVS; ?></a>
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_option("blogname") ?></a> - <a href="<?php echo EXTHEMES_ITEMS_URL; ?>" title="Using Themes <?php echo THEMES_NAMES; ?>.v<?php echo VERSION; ?> Premium by <?php echo DEVS; ?>"><?php echo THEMES_NAMES; ?>.v<?php echo VERSION; ?></a> © <script type="text/javascript">var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <?php _e( "All rights reserved - Developer by",'CHILD_THEME' ); ?> <a href="<?php echo EXTHEMES_API_URL; ?>" title="Premium Wordpress Themes - <?php echo DEVS; ?>"><?php echo DEVS; ?></a>
 <?php }
 }
 add_shortcode('ex_themes_footer_on_sections_', 'ex_themes_footer_on_sections_');
