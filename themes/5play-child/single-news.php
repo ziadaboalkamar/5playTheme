@@ -53,7 +53,7 @@ $imagex			            	= $image_urlx[0];
 						<?php if(get_next_post()) if (strlen(get_next_post()->post_title) > 0) { ?>
 						<div class="read-next" title="Read next"><?php next_post_link('%link', '%title' ); ?></div>
 						<?php } ?>						
-                        <div class="ya-share2" title="Share with friends" data-size="m" data-shape="round" data-services="telegram,vkontakte,facebook,odnoklassniki,twitter,viber,whatsapp"></div>
+                        <div class="ya-share2" title="<?php echo esc_html__("Share with friends",CHILD_THEME) ?>" data-size="m" data-shape="round" data-services="telegram,vkontakte,facebook,odnoklassniki,twitter,viber,whatsapp"></div>
                     </div>
                 </div>
                 <?php comments_template(); ?>
