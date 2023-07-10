@@ -3101,6 +3101,9 @@ footer .list-unstyled li {
 .dt_icons{
 	padding-top: 0px;
 }
+.mb_dt{
+	margin-bottom: 18px;
+}
 /*end footer*/
 @media (min-width: 992px) {
 	.ui-dialog-titlebar-close .ui-icon {
