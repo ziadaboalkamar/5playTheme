@@ -247,7 +247,7 @@ function play5__comments($comment, $args, $depth) {
                  */
                 function my_comment_form_defaults( $defaults ) {
 
-                    $defaults['comment_notes_before'] = '<div class="form-group" id="comment-editor"><label class="c-muted" for="comments">'. __( 'Yours email address will not be published. Required fields are marked *', THEMES_NAMES ).'</label></div>';
+                    $defaults['comment_notes_before'] = '<div class="form-group" id="comment-editor"><label class="c-muted" for="comments">'. esc_html__( 'Yours email address will not be published. Required fields are marked *', THEMES_NAMES ).'</label></div>';
 
                     return $defaults;
 
@@ -258,16 +258,16 @@ function play5__comments($comment, $args, $depth) {
 
                     $consent   = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
 
-                    $fields['cookies'] = '<div class="form-group" id="comment-editor">' . '<label class="c-muted" for="comments"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"' . $consent . ' />&nbsp;&nbsp;'.__('Save my name, email, and website in this browser for the next time I comment.', THEMES_NAMES).'</label></div>';
+                    $fields['cookies'] = '<div class="form-group" id="comment-editor">' . '<label class="c-muted" for="comments"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"' . $consent . ' />&nbsp;&nbsp;'.esc_html__('Save my name, email, and website in this browser for the next time I comment.', THEMES_NAMES).'</label></div>';
                     return $fields;
                 }
                 $comment_args = array(
                     'title_reply'		=> '',
                     'fields'			=> apply_filters('comment_form_default_fields', array(
-                        'author'			=> '<div class="form-combo">'.($req ? ' ' : '').'<div class="form-group"><input  placeholder=" Your Name " class="form-control" id="author" name="author" type="text" value="'. esc_attr($commenter['comment_author']).'"  rows="5"  /></div>',
-                        'email'				=> ($req ? ' ' : '').'<div class="form-group"><input placeholder=" Your Email " class="form-control" id="email" name="email" type="text" value="'.esc_attr($commenter['comment_author_email']).'"  rows="5"  /></div></div>',
+                        'author'			=> '<div class="form-combo">'.($req ? ' ' : '').'<div class="form-group"><input  placeholder="'.esc_html__('Your Name','THEMES_NAMES').'" class="form-control" id="author" name="author" type="text" value="'. esc_attr($commenter['comment_author']).'"  rows="5"  /></div>',
+                        'email'				=> ($req ? ' ' : '').'<div class="form-group"><input placeholder="'.esc_html__('Your Email','THEMES_NAMES').' " class="form-control" id="email" name="email" type="text" value="'.esc_attr($commenter['comment_author_email']).'"  rows="5"  /></div></div>',
                         'url'				=> '')),
-                    'comment_field'		=> '<!--<label for="comment">'.__('Let us know what you have to say:') . '</label>-->'.'<div class="form-group" id="comment-editor"><div class="bb-editor"><textarea placeholder="Your Comment" name="comment" id="comment" class="apkmody materialize-textarea has-very-light-gray-background-color comment-form-input no-border" rows="5"></textarea></div></div>',
+                    'comment_field'		=> '<!--<label for="comment">'.__('Let us know what you have to say:') . '</label>-->'.'<div class="form-group" id="comment-editor"><div class="bb-editor"><textarea placeholder="'.esc_html__('Your Comment','THEMES_NAMES').'" name="comment" id="comment" class="apkmody materialize-textarea has-very-light-gray-background-color comment-form-input no-border" rows="5"></textarea></div></div>',
                     'submit_button'		=> '<div class="form-submit"><button name="submit" type="submit" id="submit" class="btn btn-block s-green"  >'. esc_html__('Send', CHILD_THEME) .'</button></div>',
                     //'submit_field'         => ' ',
                     'comment_notes_after' => ' ',
