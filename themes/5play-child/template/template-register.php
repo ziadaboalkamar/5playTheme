@@ -38,7 +38,23 @@ wp_head();
 </head>
 <body>
 <div class="toolbar">
-<button class="sel-dark-toggle" id="toggle-darkmod"><svg class="i__moon" width="24" height="24"><use xlink:href="#i__moon"></use></svg><svg class="i__sun" width="24" height="24" style="display:none;"><use xlink:href="#i__sun"></use></svg></button>
+    <div class="sel-lang">
+        <?php
+        $active_plugins             = get_option( 'active_plugins' );
+        if ( in_array( 'sitepress-multilingual-cms/sitepress.php', $active_plugins )) {
+            $languages = apply_filters( 'wpml_active_languages', NULL, 'skip_missing=0&orderby=code' );
+            if( !empty( $languages ) ){
+                foreach( $languages as $l ){
+
+                    ?>
+                    <button class="sel-lang__en <?php if ($l['active']) echo 'active';?>" onclick="location.href='<?php echo $l['url']; ?>'"><i class="lang_icon"><img src="<?php echo $l['country_flag_url']; ?>" alt="Английский" title="Английский" width="24" height="24"></i></button>
+                    <?php
+                }
+            }
+        }
+        ?>
+    </div>
+    <button class="sel-dark-toggle" id="toggle-darkmod" aria-label="Dark Modes" ><svg class="i__moon" width="24" height="24"><use xlink:href="#i__moon"></use></svg><svg class="i__sun" width="24" height="24" style="display:none;"><use xlink:href="#i__sun"></use></svg></button>
 </div>
 <script>
   const
@@ -106,6 +122,7 @@ wp_head();
 </div>
 <i class="page-form-bg"></i>
 </header>
+
 <div class="page-form-right">
 <div class="page-form-right-in">
 <div class="pag-form_head">
