@@ -169,10 +169,10 @@ $avg							= $score && $votes ? round((float)(($score/$votes)*($best/5)), 1) : 0
 
         <?php echo do_shortcode('[posts_like_dislike]'); ?>
         <ul class="rate-nums muted">
-            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo $opt_themes['exthemes_apk_info_Votes']; ?><?php } ?>
+            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Votes']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Votes'],CHILD_THEME) ; ?><?php } ?>
                 <span id="vote-num-id" <?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?>style="font-size: medium;"<?php } ?>><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><?php echo RTL_Nums($all_likes); ?><?php } else { ?><?php echo $all_likes; ?><?php } ?></span>
             </li>
-            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Comments']) { ?><?php echo $opt_themes['exthemes_apk_info_Comments']; ?><?php } ?> <a href="#allcomments"><?php comments_number('0', '1', '%'); ?></a></li>
+            <li><?php global $opt_themes; if($opt_themes['exthemes_apk_info_Comments']) { ?><?php echo _e($opt_themes['exthemes_apk_info_Comments'],CHILD_THEME) ; ?><?php } ?> <a href="#allcomments"><?php comments_number('0', '1', '%'); ?></a></li>
         </ul>
 
 

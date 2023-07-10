@@ -38,13 +38,13 @@ function breadcrumbsX() {
     $show_last_sep  = 1; // 1 - show last separator, when current page title is not displayed, 0 - don't show
     /* === END OF OPTIONS === */
     global $post;
-    $home_url       = home_url('/');
+    $home_url       = esc_attr(home_url('/'));
     $link           = '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
-    $link          .= '<a class="breadcrumbs__link" href="%1$s" itemprop="item"><span itemprop="name">%2$s</span></a>';
+    $link          .= '<a class="breadcrumbs__link" href="%1$s" itemprop="item"><span itemprop="'.esc_html__('name','THEMES_NAMES').'">%2$s</span></a>';
     $link          .= '<meta itemprop="position" content="%3$s" />';
     $link          .= '</span>';
     $parent_id      = ( $post ) ? $post->post_parent : '';
-    $home_link      = sprintf( $link, $home_url, $text['home'], 1 );
+    $home_link      = sprintf( $link, $home_url, esc_html__($text['home'],CHILD_THEME), 1 );
     if ( is_home() || is_front_page() ) {
         if ( $show_on_home ) echo $wrap_before . $home_link . $wrap_after;
     } else {
