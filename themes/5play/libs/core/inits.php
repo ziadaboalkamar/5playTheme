@@ -869,7 +869,7 @@ function bg_recent_comments($no_comments = 3, $comment_len = 100, $avatar_size =
         $comm .= '<i class="entry-coms-reply"><svg width="24" height="24"><use xlink:href="#i__reply"></use></svg></i>';
         $comm .= '</div></div>';
     endforeach; else :
-        $comm .= 'No comments.';
+        $comm .= esc_html__("No comments." , CHILD_THEME);
     endif;
     echo $comm;
 }
