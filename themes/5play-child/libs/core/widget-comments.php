@@ -22,7 +22,7 @@ class widget_comments_homes_ extends WP_Widget {
 		
 		<div class="scroll-entry-list">
             <div class="entry-list list-c3">
-                <?php echo esc_html__(bg_recent_comments(),CHILD_THEME); ?>
+                <?php echo esc_attr(bg_recent_comments(CHILD_THEME)); ?>
             </div>
         </div>
 		

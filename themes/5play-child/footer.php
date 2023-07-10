@@ -16,11 +16,11 @@ if (is_home() || is_front_page()) {?>
                             <?php endif; ?></p>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Latest News</h2>
+                        <h2 class="footer-heading"><?php echo esc_html__('Latest News', CHILD_THEME); ?></h2>
                      <?php get_last_news(); ?>
                     </div>
                     <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Quick Links</h2>
+                        <h2 class="footer-heading"><?php echo esc_html__('Quick Links', CHILD_THEME); ?></h2>
                         <ul class="list-unstyled">
                             <?php if ( is_active_sidebar( 'footer-widget-area-2' ) ) : ?>
                                 <?php dynamic_sidebar( 'footer-widget-area-2' ); ?>
@@ -28,7 +28,7 @@ if (is_home() || is_front_page()) {?>
                         </ul>
                     </div>
                     <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                        <h2 class="footer-heading">Have a Questions?</h2>
+                        <h2 class="footer-heading"><?php echo esc_html__('Find Us', CHILD_THEME); ?></h2>
                         <div class="block-23 mb-3">
                             <ul>
                                 <?php if ( is_active_sidebar( 'footer-widget-area-3' ) ) : ?>
