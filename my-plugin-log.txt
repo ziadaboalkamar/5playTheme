@@ -2515,3 +2515,519 @@
 [2023-07-10 11:59:58] 3.2- get last aun and last meta_app_post for app [90]
 [2023-07-10 11:59:58] 3.3- if aun status > 0 
 [2023-07-10 11:59:58] 3.9- Finish cron_job Function
+[2023-07-10 12:02:04] 1.1- Start cron_job Function
+[2023-07-10 12:02:04] 1.2-request Api_url $api_url
+[2023-07-10 12:02:05] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:02:05] 1.4- fetch data from Api
+[2023-07-10 12:02:05] 1.5- View data that returned from API
+[2023-07-10 12:02:05] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:02:05] 1.7- get data of each project to select 
+[2023-07-10 12:02:05] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:02:05] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:02:05] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:02:05] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:02:05] 3.9- Finish cron_job Function
+[2023-07-10 12:02:48] 1.1- Start cron_job Function
+[2023-07-10 12:02:48] 1.2-request Api_url $api_url
+[2023-07-10 12:02:49] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:02:49] 1.4- fetch data from Api
+[2023-07-10 12:02:49] 1.5- View data that returned from API
+[2023-07-10 12:02:49] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:02:49] 1.7- get data of each project to select 
+[2023-07-10 12:02:49] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:02:49] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:02:49] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:02:49] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:02:49] 3.9- Finish cron_job Function
+[2023-07-10 12:03:38] 1.1- Start cron_job Function
+[2023-07-10 12:03:38] 1.2-request Api_url $api_url
+[2023-07-10 12:03:39] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:03:39] 1.4- fetch data from Api
+[2023-07-10 12:03:39] 1.5- View data that returned from API
+[2023-07-10 12:03:39] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:03:39] 1.7- get data of each project to select 
+[2023-07-10 12:03:39] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:03:39] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:03:39] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:03:39] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:03:39] 2.2- check if project update number[pun > 0]
+[2023-07-10 12:03:39] 2.3- store data into history table
+[2023-07-10 12:03:39] 2.4- get all project name: 7 & all tag : 0 from table
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [92]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [93]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [91]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 2.7-changed the new pun 350 
+[2023-07-10 12:03:41] 2.8- register updated_app in event table
+[2023-07-10 12:03:41] 2.9- set status {'updated'}
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [1]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.rating.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.version.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '..' if not found 
+[2023-07-10 12:03:41] 3.6- Insert  all keys 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.app_name.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.logo.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.link.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.author.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.author_link.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.screenshots.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.votes.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.5 check  the app have key '.file.' if not found 
+[2023-07-10 12:03:41] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:41] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [2]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [3]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [4]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [5]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [6]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:41] 3.1- start_process
+[2023-07-10 12:03:41] 3.2- get last aun and last meta_app_post for app [7]
+[2023-07-10 12:03:41] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [8]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [9]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [10]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [11]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [12]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [13]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [14]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [15]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [16]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:42] 3.1- start_process
+[2023-07-10 12:03:42] 3.2- get last aun and last meta_app_post for app [17]
+[2023-07-10 12:03:42] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [18]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [19]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [20]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [21]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [22]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [23]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [24]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [25]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [26]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:44] 3.1- start_process
+[2023-07-10 12:03:44] 3.2- get last aun and last meta_app_post for app [27]
+[2023-07-10 12:03:44] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [28]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [29]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [30]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [31]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [32]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [33]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [34]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [35]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [36]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:45] 3.1- start_process
+[2023-07-10 12:03:45] 3.2- get last aun and last meta_app_post for app [37]
+[2023-07-10 12:03:45] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [38]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [39]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [40]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [41]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [42]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [43]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [44]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [45]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [46]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:46] 3.1- start_process
+[2023-07-10 12:03:46] 3.2- get last aun and last meta_app_post for app [47]
+[2023-07-10 12:03:46] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [48]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [49]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [50]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [51]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [52]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [53]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [54]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [55]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [56]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:47] 3.1- start_process
+[2023-07-10 12:03:47] 3.2- get last aun and last meta_app_post for app [57]
+[2023-07-10 12:03:47] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [58]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [59]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [60]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [61]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [62]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [63]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [64]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 2.7-changed the new pun 582 
+[2023-07-10 12:03:48] 2.8- register updated_app in event table
+[2023-07-10 12:03:48] 2.9- set status {'updated'}
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [65]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.rating.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.version.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '..' if not found 
+[2023-07-10 12:03:48] 3.6- Insert  all keys 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.app_name.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.logo.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.link.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.author.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.author_link.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.screenshots.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.votes.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.file.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 2.7-changed the new pun 444 
+[2023-07-10 12:03:48] 2.8- register updated_app in event table
+[2023-07-10 12:03:48] 2.9- set status {'updated'}
+[2023-07-10 12:03:48] 3.1- start_process
+[2023-07-10 12:03:48] 3.2- get last aun and last meta_app_post for app [66]
+[2023-07-10 12:03:48] 3.3- if aun status > 0 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.rating.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '.version.' if not found 
+[2023-07-10 12:03:48] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:48] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:48] 3.5 check  the app have key '..' if not found 
+[2023-07-10 12:03:49] 3.6- Insert  all keys 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.app_name.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.logo.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.link.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.author.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.author_link.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.screenshots.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.5 check  the app have key '.votes.' if not found 
+[2023-07-10 12:03:49] 3.7 check if the keys exists, update data
+[2023-07-10 12:03:49] 3.8- update all keys & logo & thumbnail 
+[2023-07-10 12:03:49] 3.1- start_process
+[2023-07-10 12:03:49] 3.2- get last aun and last meta_app_post for app [67]
+[2023-07-10 12:03:49] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [68]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [69]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [70]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [71]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [72]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [73]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [74]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [75]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [76]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:50] 3.1- start_process
+[2023-07-10 12:03:50] 3.2- get last aun and last meta_app_post for app [77]
+[2023-07-10 12:03:50] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [78]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [79]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [80]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [81]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [82]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [83]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [84]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [85]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [86]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:51] 3.1- start_process
+[2023-07-10 12:03:51] 3.2- get last aun and last meta_app_post for app [87]
+[2023-07-10 12:03:51] 3.3- if aun status > 0 
+[2023-07-10 12:03:52] 3.1- start_process
+[2023-07-10 12:03:52] 3.2- get last aun and last meta_app_post for app [88]
+[2023-07-10 12:03:52] 3.3- if aun status > 0 
+[2023-07-10 12:03:52] 3.1- start_process
+[2023-07-10 12:03:52] 3.2- get last aun and last meta_app_post for app [89]
+[2023-07-10 12:03:52] 3.3- if aun status > 0 
+[2023-07-10 12:03:52] 3.1- start_process
+[2023-07-10 12:03:52] 3.2- get last aun and last meta_app_post for app [90]
+[2023-07-10 12:03:52] 3.3- if aun status > 0 
+[2023-07-10 12:03:52] 3.9- Finish cron_job Function
+[2023-07-10 12:05:17] 1.1- Start cron_job Function
+[2023-07-10 12:05:17] 1.2-request Api_url $api_url
+[2023-07-10 12:05:18] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:05:18] 1.4- fetch data from Api
+[2023-07-10 12:05:18] 1.5- View data that returned from API
+[2023-07-10 12:05:18] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:05:18] 1.7- get data of each project to select 
+[2023-07-10 12:05:18] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:05:18] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:05:18] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:05:18] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:05:18] 3.9- Finish cron_job Function
+[2023-07-10 12:05:47] 1.1- Start cron_job Function
+[2023-07-10 12:05:47] 1.2-request Api_url $api_url
+[2023-07-10 12:05:48] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:05:48] 1.4- fetch data from Api
+[2023-07-10 12:05:48] 1.5- View data that returned from API
+[2023-07-10 12:05:48] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:05:48] 1.7- get data of each project to select 
+[2023-07-10 12:05:48] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:05:48] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:05:48] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:05:48] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:05:48] 3.9- Finish cron_job Function
+[2023-07-10 12:07:17] 1.1- Start cron_job Function
+[2023-07-10 12:07:17] 1.2-request Api_url $api_url
+[2023-07-10 12:07:18] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:07:18] 1.4- fetch data from Api
+[2023-07-10 12:07:18] 1.5- View data that returned from API
+[2023-07-10 12:07:18] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:07:18] 1.7- get data of each project to select 
+[2023-07-10 12:07:18] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:07:18] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:07:18] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:07:18] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:07:18] 3.9- Finish cron_job Function
+[2023-07-10 12:07:48] 1.1- Start cron_job Function
+[2023-07-10 12:07:48] 1.2-request Api_url $api_url
+[2023-07-10 12:07:49] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:07:49] 1.4- fetch data from Api
+[2023-07-10 12:07:49] 1.5- View data that returned from API
+[2023-07-10 12:07:49] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:07:49] 1.7- get data of each project to select 
+[2023-07-10 12:07:49] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:07:49] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:07:49] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:07:49] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:07:49] 3.9- Finish cron_job Function
+[2023-07-10 12:08:47] 1.1- Start cron_job Function
+[2023-07-10 12:08:47] 1.2-request Api_url $api_url
+[2023-07-10 12:08:47] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:08:47] 1.4- fetch data from Api
+[2023-07-10 12:08:47] 1.5- View data that returned from API
+[2023-07-10 12:08:47] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:08:47] 1.7- get data of each project to select 
+[2023-07-10 12:08:47] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:08:47] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:08:47] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:08:47] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:08:47] 3.9- Finish cron_job Function
+[2023-07-10 12:09:49] 1.1- Start cron_job Function
+[2023-07-10 12:09:49] 1.2-request Api_url $api_url
+[2023-07-10 12:09:50] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:09:50] 1.4- fetch data from Api
+[2023-07-10 12:09:50] 1.5- View data that returned from API
+[2023-07-10 12:09:50] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:09:50] 1.7- get data of each project to select 
+[2023-07-10 12:09:50] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:09:50] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:09:50] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:09:50] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:09:50] 3.9- Finish cron_job Function
+[2023-07-10 12:11:17] 1.1- Start cron_job Function
+[2023-07-10 12:11:17] 1.2-request Api_url $api_url
+[2023-07-10 12:11:18] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:11:18] 1.4- fetch data from Api
+[2023-07-10 12:11:18] 1.5- View data that returned from API
+[2023-07-10 12:11:18] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:11:18] 1.7- get data of each project to select 
+[2023-07-10 12:11:18] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:11:18] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:11:18] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:11:18] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:11:18] 3.9- Finish cron_job Function
+[2023-07-10 12:11:49] 1.1- Start cron_job Function
+[2023-07-10 12:11:49] 1.2-request Api_url $api_url
+[2023-07-10 12:11:50] 1.3-store events of the jop periodically during process 
+[2023-07-10 12:11:50] 1.4- fetch data from Api
+[2023-07-10 12:11:50] 1.5- View data that returned from API
+[2023-07-10 12:11:50] 1.6- get and View projects & tags that returned from  API
+[2023-07-10 12:11:50] 1.7- get data of each project to select 
+[2023-07-10 12:11:50] 1.8- The selected project Name:my android. id: 7
+[2023-07-10 12:11:50] 1.9- Update or insert this Project:my android in setting as necessary to deal with it 
+[2023-07-10 12:11:50] 1.10- check project update number [PUN]if not found
+[2023-07-10 12:11:50] 2.1- [update PUN] check if [PUN] changed :  to update it
+[2023-07-10 12:11:50] 3.9- Finish cron_job Function

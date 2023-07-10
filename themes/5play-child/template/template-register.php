@@ -109,7 +109,7 @@ wp_head();
 <div class="page-form-right">
 <div class="page-form-right-in">
 <div class="pag-form_head">
-<a class="back_to_main" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><svg width="24" height="24"><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"></path></svg><?php } else { ?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24"><path fill="currentColor" d="M20 11H6.83l2.88-2.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L3.71 11.3c-.39.39-.39 1.02 0 1.41L8.3 17.3c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L6.83 13H20c.55 0 1-.45 1-1s-.45-1-1-1z" /></svg><?php  }  '.esc_html__("Back to the main page", CHILD_THEME).'?></a>
+<a class="back_to_main" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php global $opt_themes; if($opt_themes['ex_themes_rtl_activate_']) { ?><svg width="24" height="24"><path fill="currentColor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"></path></svg><?php } else { ?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24"><path fill="currentColor" d="M20 11H6.83l2.88-2.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L3.71 11.3c-.39.39-.39 1.02 0 1.41L8.3 17.3c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L6.83 13H20c.55 0 1-.45 1-1s-.45-1-1-1z" /></svg><?php } echo esc_html__("Back to the main page",CHILD_THEME); ?> </a>
 </div>
 <main class="page-form-cont">
 					<?php 
@@ -119,7 +119,7 @@ wp_head();
 					<div class="alert_in">
 					<div class="alert-title">
 					<i class="i__info"><svg width="24" height="24"><use xlink:href="#i__info"></use></svg></i>
-					<?php global $opt_themes; if($opt_themes['exthemes_registration_1']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_1'],CHILD_THEME); ?><?php } ?>
+					<?php global $opt_themes; if($opt_themes['exthemes_registration_1']) { ?><?php echo $opt_themes['exthemes_registration_1']; ?><?php } ?>
 					</div>
 					<div class="alert-cont">
 					<?php echo $success ?>
@@ -134,13 +134,13 @@ wp_head();
 					 <div class="wrp-form-min">
 					<div id='dle-content'> 
 					<form method="post" >
-					<h2 class="heading"><?php global $opt_themes; if($opt_themes['exthemes_registration_']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_'],CHILD_THEME); ?><?php } ?></h2>
+					<h2 class="heading"><?php global $opt_themes; if($opt_themes['exthemes_registration_']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_'],CHILD_THEME) ; ?><?php } ?></h2>
 					<div class="form-group">
-					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_2']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_2'],CHILD_THEME); ?><?php } ?></label>
+					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_2']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_2'],CHILD_THEME) ; ?><?php } ?></label>
 					<input class="form-control" type="text" value="" name="first_name" id="first_name" >
 					</div>
 					<div class="form-group">
-					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_3']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_3'],CHILD_THEME); ?><?php } ?></label>
+					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_3']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_3'],CHILD_THEME) ; ?><?php } ?></label>
 					<input class="form-control" type="text" value="" name="last_name" id="last_name" >
 					</div>
 					<div class="form-group">
@@ -148,20 +148,20 @@ wp_head();
 					<input type="text" class="form-control" type="text" name="username" id="username" required>
 					</div>
 					<div class="form-group">
-					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_5']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_5'],CHILD_THEME); ?><?php } ?></label>
+					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_5']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_5'],CHILD_THEME) ; ?><?php } ?></label>
 					<input class="form-control" type="password" name="password1" id="password1" required>
 					</div>
 					<div class="form-group">
-					<label class="c-muted"  ><?php global $opt_themes; if($opt_themes['exthemes_registration_6']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_6'],CHILD_THEME); ?><?php } ?></label>
+					<label class="c-muted"  ><?php global $opt_themes; if($opt_themes['exthemes_registration_6']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_6'],CHILD_THEME) ; ?><?php } ?></label>
 					<input class="form-control" type="password" name="password2" id="password2" required>
 					</div>
 					<div class="form-group">
-					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_7']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_7'],CHILD_THEME); ?><?php } ?></label>
+					<label class="c-muted" ><?php global $opt_themes; if($opt_themes['exthemes_registration_7']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_7'],CHILD_THEME) ; ?><?php } ?></label>
 					<input class="form-control" type="email" name="email" id="email" required>
 					</div>
 					<div class="form-submit">
 					<p><?php if($success != "") { echo $success; } ?> <?php if($error!= "") { echo $error; } ?></p>
-					<button class="btn s-green btn-block" type="submit" ><?php global $opt_themes; if($opt_themes['exthemes_registration_8']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_8'],CHILD_THEME); ?><?php } ?></button>
+					<button class="btn s-green btn-block" type="submit" ><?php global $opt_themes; if($opt_themes['exthemes_registration_8']) { ?><?php echo esc_html__($opt_themes['exthemes_registration_8'],CHILD_THEME) ; ?><?php } ?></button>
 					</div>
 					<input type="hidden" name="task" value="register" />
 					</form>
