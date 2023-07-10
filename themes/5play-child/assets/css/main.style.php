@@ -12,7 +12,7 @@ if($opt_themes['ex_themes_rtl_activate_'] || $rtl_on) {
 
 get_template_part( '/assets/css.rtl/root.styles' ); ?>
 
-<link id="core-rtl-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css.rtl/core.css" type="text/css" rel="stylesheet">
+<link id="core-rtl-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css.rtl/core.css" type="text/css" rel="stylesheet">
 <link id="styles-rtl-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css.rtl/styles.css" type="text/css" rel="stylesheet">
 <link id="short-rtl-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css.rtl/short.css" type="text/css" rel="stylesheet">
 <link id="fullstory-rtl-style-<?php echo EX_THEMES_NAMES_; ?>-v.<?php echo EXTHEMES_VERSION; ?>" href="<?php echo get_template_directory_uri(); ?>/assets/css.rtl/fullstory.css" type="text/css" rel="stylesheet">
