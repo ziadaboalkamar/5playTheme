@@ -62,8 +62,8 @@ if (is_home() || is_front_page()) {?>
                     <div class="col-md-12 text-center">
 
                         <p class="copyright">
-
-                            <?php ex_themes_copyright_(); ?>
+                            <a href='https://demo-5play.test'>5play Themes Premium</a> - © <script type='text/javascript'>var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> <?php esc_html__("All rights reserved - Developer by",CHILD_THEME) ?> <a href='https://exthem.es' title='premium wordpress themes - Exthemes Devs'><strong style='text-transform: capitalize;'>Exthemes Devs</strong></a>
+<?php //ex_themes_copyright_(); ?>
 
                         </p>
                     </div>
