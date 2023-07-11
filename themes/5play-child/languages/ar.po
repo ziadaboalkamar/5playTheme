@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dt-5play\n"
 "POT-Creation-Date: 2023-05-18 13:02+0300\n"
-"PO-Revision-Date: 2023-06-26 14:45+0300\n"
+"PO-Revision-Date: 2023-07-11 10:30+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -259,3 +259,39 @@ msgstr "مدونة"
 
 msgid "Popular Apps"
 msgstr "تطبيقات مشهورة"
+
+msgid "Latest News"
+msgstr "أحدث الأخبار"
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "Find Us"
+msgstr "تجدنا"
+
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+msgid "All rights reserved - Developer by"
+msgstr "جميع الحقوق محفوظة - تم التطوير من قبل"
+
+msgid "Yours email address will not be published. Required fields are marked *"
+msgstr "لن يتم نشر عنوان بريدك الإلكتروني. الحقول المطلوبة محددة *"
+
+msgid "Save my name, email, and website in this browser for the next time I comment."
+msgstr "احفظ اسمي ، بريدي الإلكتروني ، والموقع الإلكتروني في هذا المتصفح لاستخدامها المرة المقبلة في تعليقي."
+
+msgid "Your Comment"
+msgstr "تعليقك"
+
+msgid "Your Email"
+msgstr "بريدك الالكتروني"
+
+msgid "Your Name"
+msgstr "اسمك"
+
+msgid "Rate this post"
+msgstr "قيم المقال"
+
+msgid "Back to the main page"
+msgstr "عد الى الصفحة الرئيسية"
