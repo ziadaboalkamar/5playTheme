@@ -80,7 +80,8 @@ if (is_home() || is_front_page()) {?>
 ex_themes_footer_on_sections_();
   } elseif (is_single() || is_page() || is_search() || is_archive() || is_404() || is_tag()) {
 ?>
-<!--ttyt-->
+    <a class="upper scrollup" href="#" title="<?php echo get_option("blogname") ?>"><span class="sr-only"><?php if($scroll_up) { ?><?php echo $scroll_up; ?><?php } ?></span><svg width="24" height="24"><use xlink:href="#i__scrollup"></use></svg></a>
+
     <footer class="footer-01">
         <div class="container">
             <div class="row">
@@ -91,11 +92,11 @@ ex_themes_footer_on_sections_();
                         <?php endif; ?></p>
                 </div>
                 <div class="col-md-6 col-lg-3 mb_dt mb-md-0">
-                    <h2 class="footer-heading">Latest News</h2>
+                    <h2 class="footer-heading"><?php echo esc_html__('Latest News', CHILD_THEME); ?></h2>
                     <?php get_last_news(); ?>
                 </div>
                 <div class="col-md-6 col-lg-3 pl-lg-5 mb_dt mb-md-0">
-                    <h2 class="footer-heading">Quick Links</h2>
+                    <h2 class="footer-heading"><?php echo esc_html__('Quick Links', CHILD_THEME); ?></h2>
                     <ul class="list-unstyled">
                         <?php if ( is_active_sidebar( 'footer-widget-area-2' ) ) : ?>
                             <?php dynamic_sidebar( 'footer-widget-area-2' ); ?>
@@ -103,7 +104,7 @@ ex_themes_footer_on_sections_();
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-3 mb_dt mb-md-0">
-                    <h2 class="footer-heading">Have a Questions?</h2>
+                    <h2 class="footer-heading"><?php echo esc_html__('Find Us', CHILD_THEME); ?></h2>
                     <div class="block-23 mb-3">
                         <ul>
                             <?php if ( is_active_sidebar( 'footer-widget-area-3' ) ) : ?>
@@ -124,6 +125,7 @@ ex_themes_footer_on_sections_();
                                                 </g>
                                                     </svg></i><span class="text">  <?php dynamic_sidebar( 'footer-widget-area-3' ); ?></span></a></li>
                             <?php endif; ?>
+
                             <?php echo ex_themes_footers_social_media_(); ?>
 
                         </ul>
@@ -136,11 +138,13 @@ ex_themes_footer_on_sections_();
                     <p class="copyright">
 
                         <?php ex_themes_copyright_(); ?>
+
                     </p>
                 </div>
             </div>
         </div>
     </footer>
+
     <?php
 ex_themes_footer_on_sections_();
 }

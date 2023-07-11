@@ -217,7 +217,7 @@ class CronJob extends BaseController {
                                                     ));
 
                                                     $app_data_key = $wpdb->get_row("SELECT * FROM {$table_meta_app} WHERE `key` = '$key' AND `app_id` = {$app_data_id}");
-                                                    my_plugin_log("3.5 check  the app have key '.$app_data_key->key.' if not found ");
+                                                    my_plugin_log("3.5 check  the app have key '.$key.' if not found ");
                                                     if (!$app_data_key) {
                                                         if (trim($key) == "logo") {
                                                             try {

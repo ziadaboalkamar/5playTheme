@@ -780,7 +780,7 @@ class Apps extends BaseController {
         $app_data = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_app_info} WHERE id = %d", $app_id));
 
         if ($post && $app_data) {
-            $app_name = $app_data->name;
+            $app_name = $app_data->package_name;
 
 
                 $current_thumbnail_id = get_post_thumbnail_id($post->post_id);
@@ -961,20 +961,61 @@ class Apps extends BaseController {
     }
     public static function redesign_the_screenshot($value,$name,$id){
 
-        $htmlCode = $value; // Replace with the HTML code you want to extract the links from
+        global $wpdb;
+        $base = new  BaseController();
+        $table_app_info = $base->table_dt_meta;
+        $screenshots = $wpdb->get_row("SELECT * FROM  {$table_app_info} WHERE app_id = {$id} AND `key` = 'screenshots' ");
+        $screenshots_html = $wpdb->get_row("SELECT * FROM  {$table_app_info} WHERE app_id = {$id} AND `key` = 'screenshots_html' ");
+        if (isset($screenshots_html)){
+            if ($value != $screenshots_html->value){
+                $wpdb->update($table_app_info, array(
+                    'value' => json_encode($value)
+                ), array(
+                    'app_id' => $id,
+                    'key' => 'screenshots_html'
+                ));
+                $htmlCode = $value; // Replace with the HTML code you want to extract the links from
 
 // Regular expression pattern to match the image URLs
-        $pattern = '/<img[^>]+src="([^">]+)"/';
+                $pattern = '/<img[^>]+src="([^">]+)"/';
 
 // Perform the regular expression match
-        preg_match_all($pattern, $htmlCode, $matches);
+                preg_match_all($pattern, $htmlCode, $matches);
 
 // Extract the matched URLs from the regex matches and store them in an array
-        $imageURLs = $matches[1];
+                $imageURLs = $matches[1];
 
 // Print the extracted image URLs
-        $data = self::get_offical_image_size($imageURLs);
-        $save_screenshot = self::store_screen_shot_in_file($data,$name,$id);
+                $data = self::get_offical_image_size($imageURLs);
+                $save_screenshot = self::store_screen_shot_in_file($data,$name,$id);
+
+            }else{
+                $save_screenshot = $screenshots->value;
+            }
+
+        }else{
+            $wpdb->insert($table_app_info, array(
+                'app_id' => $id,
+                'key' => 'screenshots_html',
+                'value' => json_encode($value)
+            ));
+            $htmlCode = $value; // Replace with the HTML code you want to extract the links from
+
+// Regular expression pattern to match the image URLs
+            $pattern = '/<img[^>]+src="([^">]+)"/';
+
+// Perform the regular expression match
+            preg_match_all($pattern, $htmlCode, $matches);
+
+// Extract the matched URLs from the regex matches and store them in an array
+            $imageURLs = $matches[1];
+
+// Print the extracted image URLs
+            $data = self::get_offical_image_size($imageURLs);
+            $save_screenshot = self::store_screen_shot_in_file($data,$name,$id);
+
+        }
+
 
      return $save_screenshot ;
 
@@ -1009,20 +1050,29 @@ class Apps extends BaseController {
         global $wpdb;
         $base = new  BaseController();
         $table_app_info = $base->table_dt_meta;
+        $table_app = $base->table_app_info;
         $app_data = $wpdb->get_row("SELECT * FROM  {$table_app_info} WHERE app_id = {$id} AND `key` = 'screenshots' ");
+
+        $app_data_info = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_app} WHERE id = %d", $id));
+        $app_name = $app_data_info->package_name;
+
+
 //        if (isset($app_data->value)){
         $old_screenshots = json_decode($app_data->value);
-        if ($old_screenshots != null  && count($old_screenshots) > 0 && $old_screenshots != ""){
-            foreach ($old_screenshots as $imageUrl) {
-                $filePath = parse_url($imageUrl, PHP_URL_PATH);
-            // Convert the URL-encoded characters in the path
-                $filePath = urldecode($filePath);
-            // Get the absolute path on the server
-                $absolutePath = $_SERVER['DOCUMENT_ROOT'] . $filePath;
-                if (file_exists($absolutePath)) {
+        if ($old_screenshots != null  && $old_screenshots != ""){
+            if (is_array($old_screenshots) && count($old_screenshots) > 0){
+                foreach ($old_screenshots as $imageUrl) {
+                    $filePath = parse_url($imageUrl, PHP_URL_PATH);
+                    // Convert the URL-encoded characters in the path
+                    $filePath = urldecode($filePath);
+                    // Get the absolute path on the server
+                    $absolutePath = $_SERVER['DOCUMENT_ROOT'] . $filePath;
+                    if (file_exists($absolutePath)) {
 
-                    unlink($absolutePath); // Delete the image file
+                        unlink($absolutePath); // Delete the image file
+                    }
                 }
+
             }
         }
 //        }
