@@ -79,6 +79,11 @@ if ( $requires === FALSE or $requires == '' ) $requires = $requiresX;
 $requires						= get_post_meta($post_id, "wp_requires_GP", true);
 $requiresX						= str_replace('and up', '', $requires);
 $file_path						= $_GET['urls'];
+$dt_file_url                    = get_key_option($post_id,"file");
+if ($dt_file_url && $dt_file_url != ""){
+    $file_path = $dt_file_url;
+}
+$dt_link                        =get_dt_get_settings("api_url");
 $file_name						= $_GET['names'];
 $host							= $_SERVER['HTTP_HOST'];
 $permalink						= get_the_permalink();
@@ -242,6 +247,7 @@ wp_head();
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' id='jquery-core-js'></script>
 <script>
 $(document).ready(function () {
+
 	setTimeout(function () {               
 		$('a[href]#no-link').each(function () {
 			var href = this.href;    
@@ -260,6 +266,19 @@ $(document).ready(function () {
 <?php 
 wp_footer(); 
 ?>
+<?php if (strpos($file_path, 'file') !== false || strpos($file_path, 'storage') !== false ){?>
+<script>
 
+    var url = "<?php echo $dt_link.'/'.$file_path ;?>";
+    var downloadBtn = document.querySelector('.download-btn #no-link');
+    downloadBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        // Redirect to the desired link
+        window.location.href = url;
+    });
+
+</script>
+<?php } ?>
 </body>
 </html>

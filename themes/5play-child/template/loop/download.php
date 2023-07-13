@@ -24,7 +24,12 @@ $namedownload3					= get_post_meta(get_the_ID(), 'wp_namedownloadlink2', true);
 $size3							= get_post_meta(get_the_ID(), 'wp_sizedownloadlink2', true);
 $tipe3							= get_post_meta(get_the_ID(), 'wp_tipedownloadlink2', true);
 $download3x1					= get_post_meta(get_the_ID(), 'wp_downloadlink2', true);
+$dt_file_url                    = get_key_option($post->ID,"file");
 
+if ($dt_file_url && $dt_file_url != ""){
+    $file_path = $dt_file_url;
+}
+$dt_link                        =get_dt_get_settings("api_url");
 $downloadlink_gma				= get_post_meta( $post->ID, 'downloadlink_gma', true );
 $downloadlink_gma_1				= get_post_meta( $post->ID, 'downloadlink_gma_1', true );
 $downloadlink_gma_2				= get_post_meta( $post->ID, 'downloadlink_gma_2', true );
@@ -55,7 +60,7 @@ $download_dt_link               =  get_key_option( $post->ID, 'link');
 $size_dt                        =  get_key_option( $post->ID, 'size');
 
 if ($download_dt_file && $download_dt_file!= ""){
-    $download_DT = $link_dt."/".$download_dt_file;
+    $download_DT = $download_dt_file;
 }else{
     $download_DT = $download_dt_link;
 
@@ -336,7 +341,9 @@ if ($title_dt && $title_dt != ""){
 <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' id='jquery-core-js'></script>
 <script>
 $(document).ready(function () {
-	setTimeout(function () {               
+    var url = <?php echo $dt_link.'/'.$file_path ;  ?>
+
+        setTimeout(function () {
 		$('a[href]#no-link').each(function () {
 			var href = this.href;    
 			$(this).removeAttr('href').css('cursor', 'pointer').click(function () {
@@ -350,3 +357,4 @@ $(document).ready(function () {
 });
 </script>
 <?php } ?>
+

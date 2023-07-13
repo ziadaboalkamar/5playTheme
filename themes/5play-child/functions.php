@@ -400,7 +400,7 @@ function ex_themes_version_dt() {
                             }else{
                                 $version ="";
                             }
-                            $link = $files["api_url"].'/'.$file["file"];
+                            $link = $file["file"];
                             ?>
                             <a id="no-link" href="<?php the_permalink() ?>/file/?urls=<?php echo $link ?>&names=<?php echo $file["file_name"];  ?> (<?php echo $version;?>)&id=<?php echo $post->ID; ?>" class="download-line s-button" target="_blank">
                                 <div class="download-line-title">
