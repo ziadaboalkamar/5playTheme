@@ -1093,4 +1093,57 @@ class Apps extends BaseController {
         }
         return $image_urls;
     }
+
+    public function create_post() {
+        global $wpdb;
+        $table_app_post = $this->table_app_post;
+        $table_app_info = $this->table_app_info;
+        $data = array();
+        $apps= $wpdb->get_results("SELECT * FROM {$table_app_info}");
+        foreach ($apps as $app){
+            $app_id = $app->id;
+            $app_data_post = $wpdb->get_results("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+
+            if (isset($app_data_post)) {
+                // If there are posts connected to the app, do nothing (not connect).
+                $data = array(
+                    "success" => false,
+                    "status" => 200,
+                    "msg" => "Posts already connected to app"
+                );
+            } else {
+                // If there are no posts connected to the app, create a new post and connect.
+                $add_posts = array(
+                    'post_title' => $app->name,
+                    'post_content' => 'Content of the new post',
+                    'post_status' => 'publish',
+                    'post_type' => 'post',
+                );
+                $post_id = wp_insert_post($add_posts);
+
+                // Now, connect the new post to the app.
+                if ($post_id) {
+                    $wpdb->insert($table_app_post, array(
+                        'app_id' => $app_id,
+                        'post_id' => $post_id,
+                    ));
+                    $data = array(
+                        "success" => true,
+                        "status" => 200,
+                        "msg" => "New post created and connected to app"
+                    );
+                } else {
+                    $data = array(
+                        "success" => false,
+                        "status" => 500,
+                        "msg" => "Error creating a new post"
+                    );
+                }
+            }
+
+        }
+
+        // Return the response data as JSON.
+        echo json_encode($data);
+    }
 }

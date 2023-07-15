@@ -169,7 +169,25 @@ $(document).ready(function () {
 
         });
     });
+    $("#create_Post").click(function(e) {
+        $.ajax({
+            type: "POST",
+            url: appsData6.post_new_url,
+            dataType: 'json',
+            success: function (res) {
+                if (res.success) {
+                    toastr.success("Post created and connected successfully");
+                } else {
+                    toastr.warning("Posts already connected to the app");
+                }
+            },
+            error: function (data) {
+                toastr.error("Error creating post");
+            }
+        });
 
+
+    });
     // Add a click event listener to the submit button
     $("#bulk_action").click(function(e) {
         // Display a confirmation message using SweetAlert
