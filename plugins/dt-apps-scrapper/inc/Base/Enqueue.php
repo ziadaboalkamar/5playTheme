@@ -17,7 +17,7 @@ class Enqueue extends BaseController {
         // enqueue all our scripts
         wp_enqueue_script( 'media-upload' );
         wp_enqueue_media();
-   wp_enqueue_style( 'dtScrapperStyle', $this->assets_css . 'style.css' );
+        wp_enqueue_style( 'dtScrapperStyle', $this->assets_css . 'style.css' );
         wp_enqueue_style( 'dtHoverStyle', $this->assets_css . 'hover.css' );
 //.
 
@@ -101,6 +101,9 @@ class Enqueue extends BaseController {
             wp_localize_script('dtScrapperScript', 'appsData5', array(
                 'bulk_disable_app' => admin_url('admin-ajax.php?action=bulk_disable_app'),
                 'bulk_disabled_id' => '#bulk_action',
+            ));
+            wp_localize_script('dtScrapperScript', 'appsData6', array(
+                'post_new_url' => admin_url('admin-ajax.php?action=post_new'),
             ));
 
         }elseif (isset($_GET['page']) && $_GET['page'] == "scrapper_website") {

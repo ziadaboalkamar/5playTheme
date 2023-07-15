@@ -151,6 +151,15 @@ function post_app_server_side_callback()
     $Apps = new Apps();
     $Apps = $Apps->connect_with_post();
 }
+
+add_action('wp_ajax_post_new', 'post_new_server_side_callback');
+add_action('wp_ajax_nopriv_post_new', 'post_new_server_side_callback');
+function post_new_server_side_callback()
+{
+    $Apps = new Apps();
+    $Apps = $Apps->create_post();
+}
+
 add_action('wp_ajax_chart_js', 'chart_js_server_side_callback');
 add_action('wp_ajax_nopriv_chart_js', 'chart_js_server_side_callback');
 function chart_js_server_side_callback()

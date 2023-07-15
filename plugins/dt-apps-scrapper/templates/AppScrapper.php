@@ -78,6 +78,9 @@
                                     <div class="col-auto">
                                         <button type="button" onclick="process_app()" id="process_data" class="btn btn-outline-success">Fetch Data</button>
                                     </div>
+                                    <div class="col-auto">
+                                        <button type="button" id="create_Post" class="btn btn-outline-success">Add All</button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-12">
