@@ -346,7 +346,7 @@ class Apps extends BaseController {
 
 
     }
-    public function store_process(){
+    public  function store_process(){
         global $wpdb;
         $table_settings = $this->table_settings;
         $table_app_info = $this->table_app_info;
@@ -1057,7 +1057,7 @@ class Apps extends BaseController {
         $app_name = $app_data_info->package_name;
 
 
-//        if (isset($app_data->value)){
+        if (isset($app_data->value)){
         $old_screenshots = json_decode($app_data->value);
         if ($old_screenshots != null  && $old_screenshots != ""){
             if (is_array($old_screenshots) && count($old_screenshots) > 0){
@@ -1075,7 +1075,7 @@ class Apps extends BaseController {
 
             }
         }
-//        }
+        }
         $image_urls = array();
         if ($data != "" && count($data)>0){
              foreach ($data as $single_data){
@@ -1098,11 +1098,14 @@ class Apps extends BaseController {
         global $wpdb;
         $table_app_post = $this->table_app_post;
         $table_app_info = $this->table_app_info;
+        $setting = $this->table_settings;
+
         $data = array();
         $apps= $wpdb->get_results("SELECT * FROM {$table_app_info}");
+
         foreach ($apps as $app){
             $app_id = $app->id;
-            $app_data_post = $wpdb->get_results("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
 
             if (isset($app_data_post)) {
                 // If there are posts connected to the app, do nothing (not connect).
@@ -1132,6 +1135,11 @@ class Apps extends BaseController {
                         "status" => 200,
                         "msg" => "New post created and connected to app"
                     );
+                    $wpdb->update($table_app_info, array(
+                        'app_update_number' => 0,
+                    ), array(
+                        'id' => $app->id,
+                    ));
                 } else {
                     $data = array(
                         "success" => false,
@@ -1142,8 +1150,17 @@ class Apps extends BaseController {
             }
 
         }
-
+        $data = array(
+            "success" => true,
+            "status" => 200,
+            "msg" => "Create all post successfully and scrapper run know "
+        );
+//        self::store_process();
         // Return the response data as JSON.
-        echo json_encode($data);
-    }
+        $wpdb->update($setting,array(
+            "value" => 0
+        ),array(
+            'key' => "project_update_number"
+        ));
+        wp_send_json($data);    }
 }

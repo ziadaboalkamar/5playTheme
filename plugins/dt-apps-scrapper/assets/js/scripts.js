@@ -170,18 +170,26 @@ $(document).ready(function () {
         });
     });
     $("#create_Post").click(function(e) {
+        $(".loader").css("display","block");
         $.ajax({
             type: "POST",
             url: appsData6.post_new_url,
             dataType: 'json',
             success: function (res) {
-                if (res.success) {
+                $(".loader").css("display","none");
+
+                if (res.success == true) {
                     toastr.success("Post created and connected successfully");
                 } else {
                     toastr.warning("Posts already connected to the app");
                 }
+                setTimeout(function() {
+                    location.reload();
+                }, 700);
             },
             error: function (data) {
+                $(".loader").css("display","none");
+
                 toastr.error("Error creating post");
             }
         });
