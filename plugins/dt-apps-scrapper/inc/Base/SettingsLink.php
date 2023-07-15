@@ -25,6 +25,7 @@ class SettingsLink extends BaseController {
         $dw_button= $wpdb->get_row("SELECT * FROM {$table_settings} WHERE `key` = 'dw_button'");
         $hover_line= $wpdb->get_row("SELECT * FROM {$table_settings} WHERE `key` = 'hover_line'");
         $content_place= $wpdb->get_row("SELECT * FROM {$table_settings} WHERE `key` = 'content_place'");
+        $redirect_url= $wpdb->get_row("SELECT * FROM {$table_settings} WHERE `key` = 'redirect_url'");
 
         if ($table_color){
             $wpdb->update($table_settings, array(
@@ -82,6 +83,21 @@ class SettingsLink extends BaseController {
             $wpdb->insert($table_settings, array(
                 'key' =>'content_place',
                 'value' => $content_array
+            ));
+        }
+
+        if ($redirect_url){
+
+            $wpdb->update($table_settings, array(
+                'key' =>'redirect_url',
+                'value' => $_GET['redirect_url']
+            ),array(
+                'id' => $redirect_url->id
+            ));
+        }else{
+            $wpdb->insert($table_settings, array(
+                'key' =>'redirect_url',
+                'value' => $_GET['redirect_url']
             ));
         }
         $data = array(

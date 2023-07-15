@@ -84,6 +84,14 @@ if ($dt_file_url && $dt_file_url != ""){
     $file_path = $dt_file_url;
 }
 $dt_link                        =get_dt_get_settings("api_url");
+$redirect_url                   =get_dt_get_settings("redirect_url");
+
+
+if ($redirect_url && $redirect_url!= ""){
+    $dt_link = $redirect_url;
+}
+
+
 $file_name						= $_GET['names'];
 $host							= $_SERVER['HTTP_HOST'];
 $permalink						= get_the_permalink();

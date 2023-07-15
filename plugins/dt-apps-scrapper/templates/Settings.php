@@ -85,6 +85,7 @@
             $use_tag_setting = $wpdb->get_row("SELECT * FROM $table_settings WHERE `key` = 'use_tag'");
             $content_place_setting = $wpdb->get_row("SELECT * FROM $table_settings WHERE `key` = 'content_place'");
             $array_content_place = json_decode($content_place_setting->value);
+            $redirect_url_setting = $wpdb->get_row("SELECT * FROM $table_settings WHERE `key` = 'redirect_url'");
 
             ?>
             <div class="alert alert-primary d-flex align-items-center" role="alert">
@@ -148,26 +149,30 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="exampleColorInput" class="form-label">Table Color</label>
                                     <input type="color" class="form-control form-control-color" id="exampleColorInput" name="table_color" value="<?php color_saved("table"); ?>" title="Choose your color">
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="exampleColorInput" class="form-label">Download Button Color</label>
                                     <input type="color" class="form-control form-control-color" id="DownloadColorInput" name="download_button_color" value="<?php color_saved("dw_button"); ?>" title="Choose your color">
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="exampleColorInput" class="form-label">Hover Line Color</label>
                                     <input type="color" class="form-control form-control-color" id="hoverColorInput" name="hover_color" value="<?php color_saved("hover_line"); ?>" title="Choose your card color">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="exampleColorInput"  class="form-label">Place Of Content</label><br>
-                                    <select class="js-example-basic-single" name="content_place[]" multiple id="content_place">
+                                    <select class="select2" name="content_place[]" multiple id="content_place">
                                         <option <?php if (in_array("in_top",$array_content_place)){ echo "selected" ;} ?> value="in_top">insert table of top content</option>
                                         <option <?php if (in_array("inside_content",$array_content_place)){ echo "selected" ;} ?>  value="inside_content">insert table in side the content content</option>
                                         <option <?php if (in_array("in_bottom",$array_content_place)){ echo "selected" ;} ?>  value="in_bottom">insert table of bottom of the  content</option>
 
                                     </select>
+                                </div>
+                                <div class="col-lg-3">
+                                        <label for="exampleColorInput"  class="form-label">SubDomain</label><br>
+                                    <input  class="form-control" type="text" placeholder="https://www.example.com/" name="redirect_url" id="redirect_url" value="<?php if ($redirect_url_setting) echo $redirect_url_setting->value;?>">
                                 </div>
                                 <div class="col-lg-12">
                                     <button type="submit" onclick="change_color()"  class="btn btn-primary mt-3">Save Settings</button>

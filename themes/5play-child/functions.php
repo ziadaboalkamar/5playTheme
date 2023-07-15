@@ -214,7 +214,7 @@ function get_dt_get_settings($key){
     $base= new \Inc\Base\BaseController();
     $value = "";
     $table_dt_setting = $base->table_settings;
-        $results = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table_dt_setting} WHERE `key` = %d",$key ) );
+        $results = $wpdb->get_row( "SELECT * FROM {$table_dt_setting} WHERE `key` = '{$key}'" );
         if ($results){
             $value = $results->value;
         }else{

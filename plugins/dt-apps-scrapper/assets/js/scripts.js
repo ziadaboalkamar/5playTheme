@@ -343,6 +343,7 @@ function change_color(){
     var dw_button =  $('#DownloadColorInput').val();
     var  hover_line=  $('#hoverColorInput').val();
     var content_place =  $('#content_place').val();
+    var redirect_url =  $('#redirect_url').val();
     $.ajax({
         type: type,
         url: appsData.ajax_url,
@@ -351,6 +352,7 @@ function change_color(){
             "dw_button": dw_button,
             "hover_line": hover_line,
             "content_place":content_place,
+            "redirect_url" : redirect_url
         },
         dataType: 'json',
         success: function (res) {
@@ -365,9 +367,9 @@ function change_color(){
 }
 function disable_app(id,status){
     if (status == 1){
-        status = "disabled"
+        status = "disabled";
     }else{
-        status="enabled"
+        status="enabled";
     }
 
     var type = "GET";
