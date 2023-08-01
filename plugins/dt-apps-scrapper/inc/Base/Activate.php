@@ -30,10 +30,10 @@ class Activate extends BaseController {
                             PRIMARY KEY  (id)
                         ) $charset_collate;";
 
+//        id int(11) NOT NULL AUTO_INCREMENT,
 
-
-        $sql_app_info = "CREATE TABLE IF NOT EXISTS $this->table_app_info (
-                            id int(11) NOT NULL AUTO_INCREMENT,
+        $sql_app_info = "CREATE TABLE IF NOT EXISTS $this->table_app_info (                        
+                            id int(11) NOT NULL,
                             `name` varchar(255) NOT NULL,
                             package_name varchar(255) NOT NULL,
                             api_app_id int(11) NOT NULL,

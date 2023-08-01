@@ -24,6 +24,7 @@ class CronJob extends BaseController {
             $table_meta_app = $this->table_dt_meta;
             $table_meta_app_post = $this->table_app_post;
             $table_event = $this->table_event;
+            $posts_table = $wpdb->prefix."posts";
             $cron_checker = $wpdb->get_row("SELECT * FROM {$table_settings} WHERE `key` = 'cron_checker'");
             $api_connected = $wpdb->get_row("SELECT * FROM {$table_settings} WHERE `key` = 'api_connected'");
             $cron_checker_value = intval($cron_checker->value);
@@ -105,9 +106,12 @@ class CronJob extends BaseController {
                                 $pun_status = 2;
                             }
                         }
+
+                        // Check if the app has a corresponding post in the WordPress database
+
                     }
-                    if ($pun_status > 0) {
-                        my_plugin_log('2.2- check if project update number[pun > 0]');
+//                    if ($pun_status > 0) {
+//                        my_plugin_log('2.2- check if project update number[pun > 0]');
                         my_plugin_log('2.3- store data into history table');
                         // Insert data into history table
                         $client = new \GuzzleHttp\Client();
@@ -144,6 +148,7 @@ class CronJob extends BaseController {
                                         }
                                         my_plugin_log("2.5-Inserting new app with ID : {$app['id']} & Name: {$app['name']} & package_name:{$package}");
                                         $app_table = $wpdb->insert($table_app_info, array(
+                                            "id" => $app["id"],
                                             'name' => $app["name"],
                                             'package_name' => $package,
                                             'app_update_number' => $app["aun"],
@@ -155,10 +160,16 @@ class CronJob extends BaseController {
                                         $app_data_new = $wpdb->get_row("SELECT * FROM {$table_app_info} WHERE api_app_id = {$app["id"]}");
                                         $app_data_id = $app_data_new->id;
                                         $aun_status = 1;
-                                    } else {
+                                    } elseif ($pun_status > 0)  {
+                                        my_plugin_log('2.2- check if project update number[pun > 0]');
                                         $app_data_id = $app_data->id;
+//                                        $app_data_id = $app_data->$app->api_app_id;
                                         $app_data_post = $wpdb->get_row("SELECT * FROM {$table_meta_app_post} WHERE app_id = {$app_data_id}");
+                                        $post_id = $app_data_post->post_id;
+//                                        $post = $wpdb->get_row("SELECT * FROM {$posts_table}  WHERE ID = {$post_id} AND post_status = 'publish'");
+                                        $post = $wpdb->get_row("SELECT * FROM {$posts_table}  WHERE ID = $post_id AND post_status = 'publish'");
 
+                                        if ($post) {
                                         if ($app["aun"] > $app_data->app_update_number && $app_data_post) {
                                             // Update the existing row
                                             my_plugin_log("2.7-changed the new pun {$app['aun']} ");
@@ -199,7 +210,16 @@ class CronJob extends BaseController {
                                                 $aun_status = 2;
                                             }
                                         }
-                                    }
+                                        }else{
+                                            my_plugin_log('111.1- post deleted');
+
+                                            $wpdb->delete(
+                                                    $table_meta_app_post,
+                                                    array('id' => $app_data_post->id)
+                                                );
+
+                                        }
+                                        }
                                     my_plugin_log('3.1- start_process');
                                     if (isset($app["process"]) && is_array($app["process"])) {
                                         my_plugin_log('3.2- get last aun and last meta_app_post for app [' . $app_data_id . ']');
@@ -350,15 +370,15 @@ class CronJob extends BaseController {
                                                         }elseif (trim($key) == "description"){
                                                             try {
 
-                                                                $post_name = Apps::edit_post_content($app_data_id,$value);
-                                                                if ($post_name){
+                                                               // $post_name = Apps::edit_post_content($app_data_id,$value);
+                                                               // if ($post_name){
                                                                     $wpdb->update($table_meta_app, array(
                                                                         'value' => $value
                                                                     ), array(
                                                                         'app_id' => $app_data_id,
                                                                         'key' => $key
                                                                     ));
-                                                                }
+                                                        //        }
 
 
 
@@ -401,7 +421,7 @@ class CronJob extends BaseController {
                                 }
                             }
                         }
-                    }
+
                 }
                 my_plugin_log('3.9- Finish cron_job Function');
             }
@@ -414,5 +434,6 @@ class CronJob extends BaseController {
 
 
     }
+
 
 }

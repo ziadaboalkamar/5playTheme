@@ -82,7 +82,17 @@ if ( function_exists('register_sidebar') )
         'after_widget'			=> '</section>',
         'before_title'			=> '<h3 class="section-title"><i class="s-green c-icon"><svg width="24" height="24"><use xlink:href="#i__hot"></use></svg></i>',
         'after_title'			=> '</h3>',
-)); 
+));
+if ( function_exists('register_sidebar') )
+    register_sidebar(array(
+        'id'					=> 'recommend-homes',
+        'name'					=> EX_THEMES_NAMES_.' Recommend Home',
+        'description'			=> __( 'Widgets in this area will be shown on Recommend Home', THEMES_NAMES ),
+        'before_widget'			=> '<section class="wrp section section-recom">',
+        'after_widget'			=> '</section>',
+        'before_title'			=> '<h3 class="section-title"><i class="s-green c-icon"><svg width="24" height="24"><use xlink:href="#i__hot"></use></svg></i>',
+        'after_title'			=> '</h3>',
+    ));
 if ( function_exists('register_sidebar') )
     register_sidebar(array(
         'id'					=> 'home-popular',
@@ -113,16 +123,16 @@ if ( function_exists('register_sidebar') )
         'before_title' => '<div class="section-head"><h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__gamepad"></use></svg></i>',
         'after_title' => '</h3></div>',
 ));  */
-if ( function_exists('register_sidebar') )
-    register_sidebar(array(
-        'id'					=> 'home-footers',
-        'name'					=> EX_THEMES_NAMES_.' Home Footers',
-		'description'			=> __( 'Widgets in this area will be shown only Home Footers', THEMES_NAMES ),
-        'before_widget'			=> '<section class="wrp section section-news">',
-        'after_widget'			=> '</section>',
-        'before_title'			=> '<div class="section-head"><h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__gamepad"></use></svg></i>',
-        'after_title'			=> '</h3></div>',
-)); 
+//if ( function_exists('register_sidebar') )
+//    register_sidebar(array(
+//        'id'					=> 'home-footers',
+//        'name'					=> EX_THEMES_NAMES_.' Home Footers',
+//		'description'			=> __( 'Widgets in this area will be shown only Home Footers', THEMES_NAMES ),
+//        'before_widget'			=> '<section class="wrp section section-news">',
+//        'after_widget'			=> '</section>',
+//        'before_title'			=> '<div class="section-head"><h3 class="section-title"><i class="s-yellow c-icon"><svg width="24" height="24"><use xlink:href="#i__gamepad"></use></svg></i>',
+//        'after_title'			=> '</h3></div>',
+//));
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  @EXTHEM.ES  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
 function remove_footer_admin () { 
 	$linkX = get_bloginfo('url'); $parse = parse_url($linkX); $sitex = $parse['host'];

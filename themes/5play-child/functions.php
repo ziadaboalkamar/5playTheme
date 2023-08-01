@@ -730,7 +730,7 @@ function custom_footer_widget_areas() {
     register_sidebar( array(
         'name'          => __( 'Footer Widget Area 1', 'CHILD_THEME' ),
         'id'            => 'footer-widget-area-1',
-        'description'   => __( 'Add widgets here for the first column in the footer.', 'your-theme-textdomain' ),
+        'description'   => __( 'Add widgets here for the first column in the footer.', 'THEMES_NAMES' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
@@ -740,7 +740,7 @@ function custom_footer_widget_areas() {
     register_sidebar( array(
         'name'          => __( 'Footer Widget Area 2', 'CHILD_THEME' ),
         'id'            => 'footer-widget-area-2',
-        'description'   => __( 'Add widgets here for the second column in the footer.', 'your-theme-textdomain' ),
+        'description'   => __( 'Add widgets here for the second column in the footer.', 'THEMES_NAMES' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
@@ -750,7 +750,17 @@ function custom_footer_widget_areas() {
     register_sidebar( array(
         'name'          => __( 'Footer Widget Area 3', 'CHILD_THEME' ),
         'id'            => 'footer-widget-area-3',
-        'description'   => __( 'Add widgets here for the third column in the footer.', 'your-theme-textdomain' ),
+        'description'   => __( 'Add widgets here for the third column in the footer.', 'THEMES_NAMES' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer Widget Area 4', 'CHILD_THEME' ),
+        'id'            => 'footer-widget-area-4',
+        'description'   => __( 'Add widgets here for the Four column in the footer.', 'THEMES_NAMES' ),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="widget-title">',
@@ -762,232 +772,667 @@ add_action( 'widgets_init', 'custom_footer_widget_areas' );
 
 
 
+class Latest_Updated_Apps_Widget extends WP_Widget {
 
-
-
-// register Dt_Widget widget
-function register_dt_widget() {
-    register_widget( 'WP_Widget_DT_Recent_Posts' );
-}
-add_action( 'widgets_init', 'register_dt_widget' );
-
-
-
-class WP_Widget_DT_Recent_Posts extends WP_Widget {
-
-    /**
-     * Sets up a new Recent Posts widget instance.
-     *
-     * @since 2.8.0
-     */
     public function __construct() {
-
-        parent::__construct(
-            'WP_Widget_DT_Recent_Posts', // Base ID
-            esc_html__( 'DT Recent Posts', 'text_domain' ), // Name
-            array( 'description' => esc_html__( 'Your recent Posts.', 'instaplus-child' ),) // Args
+        $widget_ops = array(
+            'classname'   => 'latest-updated-apps-widget',
+            'description' => __( 'Display the latest updated posts from the "Apps" category.', 'text_domain' ),
         );
-
+        parent::__construct( 'latest-updated-apps-widget', __( 'Latest Updated Apps Widget', 'text_domain' ), $widget_ops );
     }
 
-    /**
-     * Outputs the content for the current Recent Posts widget instance.
-     *
-     * @since 2.8.0
-     *
-     * @param array $args     Display arguments including 'before_title', 'after_title',
-     *                        'before_widget', and 'after_widget'.
-     * @param array $instance Settings for the current Recent Posts widget instance.
-     */
     public function widget( $args, $instance ) {
-        if ( ! isset( $args['widget_id'] ) ) {
-            $args['widget_id'] = $this->id;
-        }
+        global $sitepress;
+        $current_url = $sitepress->language_url( $sitepress->get_current_language() );
 
-        $default_title =  __( "Recent Posts",'instaplus-child' );
-        $title         = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $default_title;
+        $widget_id       = $this->id_base . '-' . $this->number;
+        $category_ids    = ( ! empty( $instance['category_ids'] ) ) ? array_map( 'absint', $instance['category_ids'] ) : array( 0 );
+        $number_posts    = ( ! empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : absint( 5 );
+        $link_title      = ( ! empty( $instance['link_title'] ) ) ? esc_url( $instance['link_title'] ) : '';
+        $colors_svg      = ( isset( $instance['color_svg'] ) ) ? esc_attr( $instance['color_svg'] ) : esc_attr( 's-blue' );
+        $title           = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+        $readmores       = ( ! empty( $instance['readmores'] ) ) ? $instance['readmores'] : '';
+        $icons           = ( ! empty( $instance['icon'] ) ) ? $instance['icon'] : '';
 
-        /** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-        $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-        $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
-        if ( ! $number ) {
-            $number = 5;
-        }
-        $show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
-
-        $r = new WP_Query(
-        /**
-         * Filters the arguments for the Recent Posts widget.
-         *
-         * @since 3.4.0
-         * @since 4.9.0 Added the $instance parameter.
-         *
-         * @see WP_Query::get_posts()
-         *
-         * @param array $args     An array of arguments used to retrieve the recent posts.
-         * @param array $instance Array of settings for the current widget.
-         */
-            apply_filters(
-                'widget_posts_args',
+        $args = array(
+            'posts_per_page'       => $number_posts,
+            'post_type'            => 'post',
+            'post_status'          => 'publish',
+            'orderby'              => 'modified',
+            'order'                => 'DESC',
+            'tax_query'            => array(
                 array(
-                    'posts_per_page'      => $number,
-                    'no_found_rows'       => true,
-                    'post_status'         => 'publish',
-                    'ignore_sticky_posts' => true,
+                    'taxonomy' => 'category',
+                    'field'    => 'slug',
+                    'terms'    => 'apps',
                 ),
-                $instance
+            ),
+        );
+
+        $rp = new WP_Query( apply_filters( 'latest_updated_apps_widget_posts_args', $args ) );
+        ?>
+        <section class="wrp section">
+            <?php
+            if ( $title ) {
+                echo '<div class="section-head">';
+                echo '<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i>' . esc_html( $title ) . '</h3>';
+                echo '</div>';
+            }
+            ?>
+            <div class="entry-list list-c6">
+                <?php
+                while ( $rp->have_posts() ) :
+                    $rp->the_post();
+                    get_template_part( 'template/loop/loop.item.home' );
+                endwhile;
+                wp_reset_postdata();
+                ?>
+            </div>
+        </section>
+        <?php
+    }
+
+
+    public function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+        $new_instance = wp_parse_args(
+            (array) $new_instance,
+            array(
+                'title'        => __( 'Latest Updated Apps', 'text_domain' ),
+                'number_posts' => 5,
             )
         );
 
-        if ( ! $r->have_posts() ) {
-            return;
-        }
+        $instance['title'] = sanitize_text_field( $new_instance['title'] );
+        $instance['number_posts'] = absint( $new_instance['number_posts'] );
+
+        return $instance;
+    }
+
+
+    public function form( $instance ) {
+        $instance = wp_parse_args(
+            (array) $instance,
+            array(
+                'title'        => __( 'Latest Updated Apps', 'text_domain' ),
+                'number_posts' => 5,
+                'icon'         => 'apps',
+                'color_svg'    => 's-blue',
+            )
+        );
+
+        $title = sanitize_text_field( $instance['title'] );
+        $number_posts = absint( $instance['number_posts'] );
+        $icon = sanitize_text_field( $instance['icon'] );
+        $color_svg = esc_attr( $instance['color_svg'] );
         ?>
-
-        <?php echo $args['before_widget']; ?>
-
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>"><?php esc_html_e( 'Number of posts to display:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'number_posts' ) ); ?>" type="number" value="<?php echo esc_attr( $number_posts ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'icon' ) ); ?>">
+                <option value="gamepad" <?php selected( $icon, 'gamepad' ); ?>><?php esc_html_e( 'Games', 'text_domain' ); ?></option>
+                <option value="apps" <?php selected( $icon, 'apps' ); ?>><?php esc_html_e( 'Apps', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Use "Games" for Categories Games Icons and "Apps" for Categories Apps Icons.', 'text_domain' ); ?></small>
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>"><?php esc_html_e( 'Color Svg Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'color_svg' ) ); ?>">
+                <option value="s-yellow" <?php selected( $color_svg, 's-yellow' ); ?>><?php esc_html_e( 'YELLOW', 'text_domain' ); ?></option>
+                <option value="s-green" <?php selected( $color_svg, 's-green' ); ?>><?php esc_html_e( 'GREEN', 'text_domain' ); ?></option>
+                <option value="s-purple" <?php selected( $color_svg, 's-purple' ); ?>><?php esc_html_e( 'PURPLE', 'text_domain' ); ?></option>
+                <option value="s-red" <?php selected( $color_svg, 's-red' ); ?>><?php esc_html_e( 'RED', 'text_domain' ); ?></option>
+                <option value="s-blue" <?php selected( $color_svg, 's-blue' ); ?>><?php esc_html_e( 'BLUE', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Select color svg icons.', 'text_domain' ); ?></small>
+        </p>
         <?php
-        if ( $title ) {
-            echo $args['before_title'] .'<span  style="font-weight: bold;" >' .$title .'</span>'. $args['after_title'];
-        }
+    }
+}
 
-        $format = current_theme_supports( 'html5', 'navigation-widgets' ) ? 'html5' : 'xhtml';
 
-        /** This filter is documented in wp-includes/widgets/class-wp-nav-menu-widget.php */
-        $format = apply_filters( 'navigation_widgets_format', $format );
+add_action( 'widgets_init', function() {
+    register_widget( 'Latest_Updated_Apps_Widget' );
+});
 
-        if ( 'html5' === $format ) {
-            // The title may be filtered: Strip out HTML and make sure the aria-label is never empty.
-            $title  = trim( strip_tags( $title ) );
-            $aria_label = $title ? $title : $default_title;
-            echo '<nav aria-label="' . esc_attr( $aria_label ) . '">';
-        }
+///////////// Latest_Updated_Games
+class Latest_Updated_Games_Widget extends WP_Widget {
+
+    public function __construct() {
+        $widget_ops = array(
+            'classname'   => 'latest-updated-games-widget',
+            'description' => __( 'Display the latest updated posts from the "Games" category.', 'text_domain' ),
+        );
+        parent::__construct( 'latest-updated-games-widget', __( 'Latest Updated Games Widget', 'text_domain' ), $widget_ops );
+    }
+
+    public function widget( $args, $instance ) {
+        global $sitepress;
+        $current_url = $sitepress->language_url( $sitepress->get_current_language() );
+
+        $widget_id       = $this->id_base . '-' . $this->number;
+        $category_ids    = ( ! empty( $instance['category_ids'] ) ) ? array_map( 'absint', $instance['category_ids'] ) : array( 0 );
+        $number_posts    = ( ! empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : absint( 5 );
+        $link_title      = ( ! empty( $instance['link_title'] ) ) ? esc_url( $instance['link_title'] ) : '';
+        $colors_svg      = ( isset( $instance['color_svg'] ) ) ? esc_attr( $instance['color_svg'] ) : esc_attr( 's-blue' );
+        $title           = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+        $readmores       = ( ! empty( $instance['readmores'] ) ) ? $instance['readmores'] : '';
+        $icons           = ( ! empty( $instance['icon'] ) ) ? $instance['icon'] : '';
+
+
+        $args = array(
+            'posts_per_page'       => $number_posts,
+            'post_type'            => 'post',
+            'post_status'          => 'publish',
+            'orderby'              => 'modified',
+            'order'                => 'DESC',
+            'tax_query'            => array(
+                array(
+                    'taxonomy' => 'category',
+                    'field'    => 'slug',
+                    'terms'    => 'games',
+                ),
+            ),
+        );
+
+        $rp = new WP_Query( apply_filters( 'latest_updated_apps_widget_posts_args', $args ) );
         ?>
-
-        <ul class="blg_list">
-            <?php foreach ( $r->posts as $recent_post ) : ?>
+        <section class="wrp section">
+            <?php
+            if ( $title ) {
+                echo '<div class="section-head">';
+                echo '<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i>' . esc_html( $title ) . '</h3>';
+                echo '</div>';
+            }
+            ?>
+            <div class="entry-list list-c6">
                 <?php
-                $size_icon = '<svg width="1.1em" height="1.1em" viewBox="0 0 24 24"><path d="M12 10c3.976 0 8-1.374 8-4s-4.024-4-8-4s-8 1.374-8 4s4.024 4 8 4z" fill="currentColor"></path><path d="M4 10c0 2.626 4.024 4 8 4s8-1.374 8-4V8c0 2.626-4.024 4-8 4s-8-1.374-8-4v2z" fill="currentColor"></path><path d="M4 14c0 2.626 4.024 4 8 4s8-1.374 8-4v-2c0 2.626-4.024 4-8 4s-8-1.374-8-4v2z" fill="currentColor"></path><path d="M4 18c0 2.626 4.024 4 8 4s8-1.374 8-4v-2c0 2.626-4.024 4-8 4s-8-1.374-8-4v2z" fill="currentColor"></path></svg>';
-
-
-                $version_icon='<svg viewBox="0 0 20 20" height="1.2em" width="1.2em"><path d="M10.2 3.28c3.53 0 6.43 2.61 6.92 6h2.08l-3.5 4l-3.5-4h2.32a4.439 4.439 0 0 0-4.32-3.45c-1.45 0-2.73.71-3.54 1.78L4.95 5.66a6.965 6.965 0 0 1 5.25-2.38zm-.4 13.44c-3.52 0-6.43-2.61-6.92-6H.8l3.5-4c1.17 1.33 2.33 2.67 3.5 4H5.48a4.439 4.439 0 0 0 4.32 3.45c1.45 0 2.73-.71 3.54-1.78l1.71 1.95a6.95 6.95 0 0 1-5.25 2.38z" fill="currentColor"></path></svg> ';
-
+                while ( $rp->have_posts() ) :
+                    $rp->the_post();
+                    get_template_part( 'template/loop/loop.item.home' );
+                endwhile;
+                wp_reset_postdata();
                 ?>
-                <?php
-                if (function_exists('icl_object_id')) {
-                    global $sitepress;
-                    $language = $sitepress->get_current_language(); // get current language
-                    if ($language = 'ar'){
-                        $post_title   =   $str = mb_substr( get_the_title( $recent_post->ID ) , 0, 35) . '..';
-                    }
-                    else{
-                        $post_title   =   $str = mb_substr( get_the_title( $recent_post->ID ) , 0, 50) . '..';
-                    }
-                }
-
-                //   $post_title   =   $str = mb_substr( get_the_title( $recent_post->ID ) , 0, 35) . '..';
-                $title        = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
-                $aria_current = '';
-
-
-
-
-                if ( get_queried_object_id() === $recent_post->ID ) {
-                    $aria_current = ' aria-current="page"';
-                }
-                ?>
-                <li class="recent">
-                    <div class="col-md-2  blg" >
-                        <?php if(has_post_thumbnail($recent_post->ID)): ?>
-                            <div class="blog__thumb" >
-                                <?php echo get_the_post_thumbnail( $recent_post->ID, 'thumbnail', array('class'=>'img-responsive','alt'=>__('blog image','instaplus-child')) ); ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-
-                    <a class="wp-block-latest-posts__post-title" href="<?php the_permalink( $recent_post->ID ); ?>"<?php echo $aria_current; ?>><?php echo $title; ?></a> <br>
-
-                    <?php if( get_field('size',$recent_post->ID) ): ?>
-
-                        <?php echo '<span class="size"> '.$size_icon." ".get_field('size',$recent_post->ID).' </span>'; ?>
-                    <?php endif; ?>
-
-                    <?php if( get_field('version',$recent_post->ID) ): ?>
-                        <?php echo '<span class="size"> '.$version_icon." ".get_field('version',$recent_post->ID).' </span>'; ?>
-                    <?php endif; ?>
-                    <?php if ($show_date): ?>
-                        <span class="post-date"><?php echo get_the_date( '', $recent_post->ID ); ?></span>
-                    <?php endif; ?>    </li>
-
-            <?php endforeach; ?>
-        </ul>
-
+            </div>
+        </section>
         <?php
-        if ( 'html5' === $format ) {
-            echo '</nav>';
+    }
+
+
+    public function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+        $new_instance = wp_parse_args(
+            (array) $new_instance,
+            array(
+                'title'        => __( 'Latest Updated Games', 'text_domain' ),
+                'number_posts' => 5,
+            )
+        );
+
+        $instance['title'] = sanitize_text_field( $new_instance['title'] );
+        $instance['number_posts'] = absint( $new_instance['number_posts'] );
+
+        return $instance;
+    }
+
+
+    public function form( $instance ) {
+        $instance = wp_parse_args(
+            (array) $instance,
+            array(
+                'title'        => __( 'Latest Updated Games', 'text_domain' ),
+                'number_posts' => 5,
+                'icon'         => 'Games',
+                'color_svg'    => 's-blue',
+            )
+        );
+
+        $title = sanitize_text_field( $instance['title'] );
+        $number_posts = absint( $instance['number_posts'] );
+        $icon = sanitize_text_field( $instance['icon'] );
+        $color_svg = esc_attr( $instance['color_svg'] );
+        ?>
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>"><?php esc_html_e( 'Number of posts to display:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'number_posts' ) ); ?>" type="number" value="<?php echo esc_attr( $number_posts ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'icon' ) ); ?>">
+                <option value="gamepad" <?php selected( $icon, 'gamepad' ); ?>><?php esc_html_e( 'Games', 'text_domain' ); ?></option>
+                <option value="apps" <?php selected( $icon, 'apps' ); ?>><?php esc_html_e( 'Apps', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Use "Games" for Categories Games Icons and "Apps" for Categories Apps Icons.', 'text_domain' ); ?></small>
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>"><?php esc_html_e( 'Color Svg Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'color_svg' ) ); ?>">
+                <option value="s-yellow" <?php selected( $color_svg, 's-yellow' ); ?>><?php esc_html_e( 'YELLOW', 'text_domain' ); ?></option>
+                <option value="s-green" <?php selected( $color_svg, 's-green' ); ?>><?php esc_html_e( 'GREEN', 'text_domain' ); ?></option>
+                <option value="s-purple" <?php selected( $color_svg, 's-purple' ); ?>><?php esc_html_e( 'PURPLE', 'text_domain' ); ?></option>
+                <option value="s-red" <?php selected( $color_svg, 's-red' ); ?>><?php esc_html_e( 'RED', 'text_domain' ); ?></option>
+                <option value="s-blue" <?php selected( $color_svg, 's-blue' ); ?>><?php esc_html_e( 'BLUE', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Select color svg icons.', 'text_domain' ); ?></small>
+        </p>
+        <?php
+    }
+}
+
+
+add_action( 'widgets_init', function() {
+    register_widget( 'Latest_Updated_Games_Widget' );
+});
+
+
+
+//////////////Recent_Apps
+class Latest_Apps_Widget extends WP_Widget {
+
+    public function __construct() {
+        $widget_ops = array(
+            'classname'   => 'recent-apps-widget',
+            'description' => __( 'Display the latest updated posts from the "Apps" category.', 'text_domain' ),
+        );
+        parent::__construct( 'Recent-apps-widget', __( 'Recent Apps Widget', 'text_domain' ), $widget_ops );
+    }
+
+    public function widget( $args, $instance ) {
+        global $sitepress;
+        $current_url = $sitepress->language_url( $sitepress->get_current_language() );
+
+        $widget_id       = $this->id_base . '-' . $this->number;
+        $category_ids    = ( ! empty( $instance['category_ids'] ) ) ? array_map( 'absint', $instance['category_ids'] ) : array( 0 );
+        $number_posts    = ( ! empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : absint( 5 );
+        $link_title      = ( ! empty( $instance['link_title'] ) ) ? esc_url( $instance['link_title'] ) : '';
+        $colors_svg      = ( isset( $instance['color_svg'] ) ) ? esc_attr( $instance['color_svg'] ) : esc_attr( 's-blue' );
+        $title           = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+        $readmores       = ( ! empty( $instance['readmores'] ) ) ? $instance['readmores'] : '';
+        $icons           = ( ! empty( $instance['icon'] ) ) ? $instance['icon'] : '';
+
+
+        $args = array(
+            'posts_per_page'       => $number_posts,
+            'post_type'            => 'post',
+            'post_status'          => 'publish',
+            'orderby'              => 'date',
+            'order'                => 'DESC',
+            'tax_query'            => array(
+                array(
+                    'taxonomy' => 'category',
+                    'field'    => 'slug',
+                    'terms'    => 'apps',
+                ),
+            ),
+        );
+
+        $rp = new WP_Query( apply_filters( 'latest_apps_widget_posts_args', $args ) );
+        ?>
+        <section class="wrp section">
+            <?php
+            if ( $title ) {
+                echo '<div class="section-head">';
+                echo '<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i>' . esc_html( $title ) . '</h3>';
+                echo '</div>';
+            }
+            ?>
+            <div class="entry-list list-c6">
+                <?php
+                while ( $rp->have_posts() ) :
+                    $rp->the_post();
+                    get_template_part( 'template/loop/loop.item.home' );
+                endwhile;
+                wp_reset_postdata();
+                ?>
+            </div>
+        </section>
+        <?php
+    }
+
+
+    public function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+        $new_instance = wp_parse_args(
+            (array) $new_instance,
+            array(
+                'title'        => __( 'Latest Apps', 'text_domain' ),
+                'number_posts' => 5,
+            )
+        );
+
+        $instance['title'] = sanitize_text_field( $new_instance['title'] );
+        $instance['number_posts'] = absint( $new_instance['number_posts'] );
+
+        return $instance;
+    }
+
+
+    public function form( $instance ) {
+        $instance = wp_parse_args(
+            (array) $instance,
+            array(
+                'title'        => __( 'Latest Updated Apps', 'text_domain' ),
+                'number_posts' => 5,
+                'icon'         => 'apps',
+                'color_svg'    => 's-blue',
+            )
+        );
+
+        $title = sanitize_text_field( $instance['title'] );
+        $number_posts = absint( $instance['number_posts'] );
+        $icon = sanitize_text_field( $instance['icon'] );
+        $color_svg = esc_attr( $instance['color_svg'] );
+        ?>
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>"><?php esc_html_e( 'Number of posts to display:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'number_posts' ) ); ?>" type="number" value="<?php echo esc_attr( $number_posts ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'icon' ) ); ?>">
+                <option value="gamepad" <?php selected( $icon, 'gamepad' ); ?>><?php esc_html_e( 'Games', 'text_domain' ); ?></option>
+                <option value="apps" <?php selected( $icon, 'apps' ); ?>><?php esc_html_e( 'Apps', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Use "Games" for Categories Games Icons and "Apps" for Categories Apps Icons.', 'text_domain' ); ?></small>
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>"><?php esc_html_e( 'Color Svg Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'color_svg' ) ); ?>">
+                <option value="s-yellow" <?php selected( $color_svg, 's-yellow' ); ?>><?php esc_html_e( 'YELLOW', 'text_domain' ); ?></option>
+                <option value="s-green" <?php selected( $color_svg, 's-green' ); ?>><?php esc_html_e( 'GREEN', 'text_domain' ); ?></option>
+                <option value="s-purple" <?php selected( $color_svg, 's-purple' ); ?>><?php esc_html_e( 'PURPLE', 'text_domain' ); ?></option>
+                <option value="s-red" <?php selected( $color_svg, 's-red' ); ?>><?php esc_html_e( 'RED', 'text_domain' ); ?></option>
+                <option value="s-blue" <?php selected( $color_svg, 's-blue' ); ?>><?php esc_html_e( 'BLUE', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Select color svg icons.', 'text_domain' ); ?></small>
+        </p>
+        <?php
+    }
+}
+
+add_action( 'widgets_init', function() {
+    register_widget( 'Latest_Apps_Widget' );
+});
+
+//////////////Recent_Games
+class Recent_Games_Widget extends WP_Widget {
+
+    public function __construct() {
+        $widget_ops = array(
+            'classname'   => 'recent-games-widget',
+            'description' => __( 'Display the latest updated posts from the "Games" category.', 'text_domain' ),
+        );
+        parent::__construct( 'Recent-games-widget', __( 'Recent Games Widget', 'text_domain' ), $widget_ops );
+    }
+
+    public function widget( $args, $instance ) {
+        global $sitepress;
+        $current_url = $sitepress->language_url( $sitepress->get_current_language() );
+
+        $widget_id       = $this->id_base . '-' . $this->number;
+        $category_ids    = ( ! empty( $instance['category_ids'] ) ) ? array_map( 'absint', $instance['category_ids'] ) : array( 0 );
+        $number_posts    = ( ! empty( $instance['number_posts'] ) ) ? absint( $instance['number_posts'] ) : absint( 5 );
+        $link_title      = ( ! empty( $instance['link_title'] ) ) ? esc_url( $instance['link_title'] ) : '';
+        $colors_svg      = ( isset( $instance['color_svg'] ) ) ? esc_attr( $instance['color_svg'] ) : esc_attr( 's-blue' );
+        $title           = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+        $readmores       = ( ! empty( $instance['readmores'] ) ) ? $instance['readmores'] : '';
+        $icons           = ( ! empty( $instance['icon'] ) ) ? $instance['icon'] : '';
+
+
+        $args = array(
+            'posts_per_page'       => $number_posts,
+            'post_type'            => 'post',
+            'post_status'          => 'publish',
+            'orderby'              => 'date',
+            'order'                => 'DESC',
+            'tax_query'            => array(
+                array(
+                    'taxonomy' => 'category',
+                    'field'    => 'slug',
+                    'terms'    => 'games',
+                ),
+            ),
+        );
+
+        $rp = new WP_Query( apply_filters( 'latest_games_widget_posts_args', $args ) );
+        ?>
+        <section class="wrp section">
+            <?php
+            if ( $title ) {
+                echo '<div class="section-head">';
+                echo '<h3 class="section-title"><i class="<?php echo $colors_svg; ?> c-icon"><svg width="24" height="24"><use xlink:href="#i__<?php echo $icons; ?>"></use></svg></i>' . esc_html( $title ) . '</h3>';
+                echo '</div>';
+            }
+            ?>
+            <div class="entry-list list-c6">
+                <?php
+                while ( $rp->have_posts() ) :
+                    $rp->the_post();
+                    get_template_part( 'template/loop/loop.item.home' );
+                endwhile;
+                wp_reset_postdata();
+                ?>
+            </div>
+        </section>
+        <?php
+    }
+
+
+    public function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+        $new_instance = wp_parse_args(
+            (array) $new_instance,
+            array(
+                'title'        => __( 'Latest Apps', 'text_domain' ),
+                'number_posts' => 5,
+            )
+        );
+
+        $instance['title'] = sanitize_text_field( $new_instance['title'] );
+        $instance['number_posts'] = absint( $new_instance['number_posts'] );
+
+        return $instance;
+    }
+
+
+    public function form( $instance ) {
+        $instance = wp_parse_args(
+            (array) $instance,
+            array(
+                'title'        => __( 'Latest Updated Games', 'text_domain' ),
+                'number_posts' => 5,
+                'icon'         => 'games',
+                'color_svg'    => 's-blue',
+            )
+        );
+
+        $title = sanitize_text_field( $instance['title'] );
+        $number_posts = absint( $instance['number_posts'] );
+        $icon = sanitize_text_field( $instance['icon'] );
+        $color_svg = esc_attr( $instance['color_svg'] );
+        ?>
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>"><?php esc_html_e( 'Number of posts to display:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'number_posts' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'number_posts' ) ); ?>" type="number" value="<?php echo esc_attr( $number_posts ); ?>" />
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'icon' ) ); ?>">
+                <option value="gamepad" <?php selected( $icon, 'gamepad' ); ?>><?php esc_html_e( 'Games', 'text_domain' ); ?></option>
+                <option value="apps" <?php selected( $icon, 'apps' ); ?>><?php esc_html_e( 'Apps', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Use "Games" for Categories Games Icons and "Apps" for Categories Apps Icons.', 'text_domain' ); ?></small>
+        </p>
+        <hr />
+        <p>
+            <label for="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>"><?php esc_html_e( 'Color Svg Icons:', 'text_domain' ); ?></label>
+        </p>
+        <p>
+            <select class="widefat" id="<?php echo esc_html( $this->get_field_id( 'color_svg' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'color_svg' ) ); ?>">
+                <option value="s-yellow" <?php selected( $color_svg, 's-yellow' ); ?>><?php esc_html_e( 'YELLOW', 'text_domain' ); ?></option>
+                <option value="s-green" <?php selected( $color_svg, 's-green' ); ?>><?php esc_html_e( 'GREEN', 'text_domain' ); ?></option>
+                <option value="s-purple" <?php selected( $color_svg, 's-purple' ); ?>><?php esc_html_e( 'PURPLE', 'text_domain' ); ?></option>
+                <option value="s-red" <?php selected( $color_svg, 's-red' ); ?>><?php esc_html_e( 'RED', 'text_domain' ); ?></option>
+                <option value="s-blue" <?php selected( $color_svg, 's-blue' ); ?>><?php esc_html_e( 'BLUE', 'text_domain' ); ?></option>
+            </select>
+            <small><?php esc_html_e( 'Select color svg icons.', 'text_domain' ); ?></small>
+        </p>
+        <?php
+    }
+}
+
+add_action( 'widgets_init', function() {
+    register_widget( 'Recent_Games_Widget' );
+});
+
+
+
+
+class Latest_Games_Widget extends WP_Widget {
+
+    // Widget setup
+    public function __construct() {
+        parent::__construct(
+            'latest_games_widget', // Widget ID
+            __('Latest Games', 'text_domain'), // Widget name/description
+            array( 'description' => __('Display the latest updated posts from the "Games" category.', 'text_domain') )
+        );
+    }
+
+    // Widget front-end
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+        echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+
+        $latest_games_posts = $this->get_latest_games_posts();
+        if ( $latest_games_posts ) {
+            echo '<ul>';
+            foreach ( $latest_games_posts as $post ) {
+                setup_postdata( $post );
+                echo '<li><a href="' . get_permalink( $post ) . '">' . get_the_title( $post ) . '</a></li>';
+            }
+            echo '</ul>';
+            wp_reset_postdata();
+        } else {
+            echo '<p>No posts found.</p>';
         }
 
         echo $args['after_widget'];
     }
 
-    /**
-     * Handles updating the settings for the current Recent Posts widget instance.
-     *
-     * @since 2.8.0
-     *
-     * @param array $new_instance New settings for this instance as input by the user via
-     *                            WP_Widget::form().
-     * @param array $old_instance Old settings for this instance.
-     * @return
-
-
-     */
-    public function update( $new_instance, $old_instance ) {
-        $instance              = $old_instance;
-        $instance['title']     = sanitize_text_field( $new_instance['title'] );
-        $instance['number']    = (int) $new_instance['number'];
-        $instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
-        return $instance;
-    }
-
-    /**
-     * Outputs the settings form for the Recent Posts widget.
-     *
-     * @since 2.8.0
-     *
-     * @param array $instance Current settings.
-     */
+    // Widget back-end settings
     public function form( $instance ) {
-        $title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-        $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-        $show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
-
-
+        $title = isset( $instance['title'] ) ? $instance['title'] : '';
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
-
-        <p>
-            <label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
-            <input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" />
-        </p>
-
-        <p>
-            <input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?>  </label>
-
-
-        </p>
-
-
         <?php
+    }
+
+    // Widget update
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+        return $instance;
+    }
+
+    // Function to get latest posts from "Games" category
+    private function get_latest_games_posts() {
+        $args = array(
+            'post_type'      => 'post',
+            'posts_per_page' => 5,
+            'category_name'  => 'games',
+            'orderby'        => 'modified',
+            'order'          => 'DESC',
+        );
+
+        $latest_games_query = new WP_Query( $args );
+
+        return $latest_games_query->get_posts();
     }
 }
 
 
 
-?>
+
+
+
+
+
+
+
+
+// Register the widget
+function register_latest_games_widget() {
+    register_widget( 'Latest_Games_Widget' );
+}
+add_action( 'widgets_init', 'register_latest_games_widget' );
+
+
+
+
 

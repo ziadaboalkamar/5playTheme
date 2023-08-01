@@ -98,7 +98,7 @@ class Enqueue extends BaseController {
             wp_localize_script('dtScrapperScript', 'appsData4', array(
                 'disable_app_url' => admin_url('admin-ajax.php?action=disable_app'),
             ));
-            wp_localize_script('dtScrapperScript', 'appsData5', array(
+            wp_localize_script('dtScrapperScript', 'bulk_disable_app', array(
                 'bulk_disable_app' => admin_url('admin-ajax.php?action=bulk_disable_app'),
                 'bulk_disabled_id' => '#bulk_action',
             ));

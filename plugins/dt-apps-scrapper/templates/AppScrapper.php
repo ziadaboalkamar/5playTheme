@@ -73,14 +73,42 @@
                             <div class="col-lg-12">
                                 <div class="row f-right">
                                     <div class="col-auto">
-                                        <button type="button"  id="bulk_action" class="btn btn-outline-danger mb-4">Bulk Disabled</button>
-                                    </div>
-                                    <div class="col-auto">
                                         <button type="button" onclick="process_app()" id="process_data" class="btn btn-outline-success">Fetch Data</button>
                                     </div>
-                                    <div class="col-auto">
-                                        <button type="button" id="create_Post" class="btn btn-outline-success">Add All</button>
-                                    </div>
+
+                                    <?php
+                                    global $wpdb;
+                                    $table_app_post = $this->table_app_post;
+                                    $table_app_info = $this->table_app_info;
+//                                    $posts_table = $wpdb->prefix."posts";
+//                                    $app_name = 'MX Player';
+//                                    $post_title = $wpdb->get_row("SELECT * FROM {$posts_table}  WHERE post_title = '{$app_name}' AND post_status = 'publish'");
+//                                    var_dump($post_title);
+//                                    echo "<br><br>".$post_title->post_title;
+//                                    die();
+
+                                    $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+
+                                    $atLeastOneAppNotLinked = false; // Flag to track if at least one app is not linked in a post
+
+                                    foreach ($apps as $app) {
+                                        $app_id = $app->id;
+                                        $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+
+                                        if (!$app_data_post || (int)$app_data_post->deleted === 1) {
+                                            $atLeastOneAppNotLinked = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if ($atLeastOneAppNotLinked) {
+                                        // Display the button since there is at least one app not linked in a post
+                                        echo '<div class="col-auto">';
+                                        echo '<button type="button" id="create_Post" class="btn btn-outline-success">Add All</button>';
+                                        echo '</div>';
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -105,14 +133,19 @@
 
                                     </thead>
                                 </table>
-                                <!--                             --><?php
-                                //                             if (isset($_GET['process']) && $_GET["process"] && $_GET["process"]==true){
-                                //                                 ?>
+                                <br> <br>
+                                <div class="col-auto">
+                                    <select id="bulk_action">
+                                        <option value="">Select Action</option>
+                                        <option value="disabled">Bulk Disable</option>
+                                        <option value="enabled">Bulk Enable</option>
+                                    </select>
+                                    <button type="button" id="execute_bulk_action" class="btn btn-outline-danger mb-4">Execute</button>
+                                </div>
+
                                 <input type="hidden" name="record_ids" id="record-ids" value="[]">
 
 
-
-                                <!--                             --><?php //} ?>
                             </div>
                         </div>
 

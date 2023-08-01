@@ -81,24 +81,20 @@ $(document).ready(function () {
             // Slider Status
             targets: 3,
             render: function (data, type, full, meta) {
-                var $status = full['status'];
+                var statusValue = full.status; // Using dot notation
 
                 return (
                     '<span class="' +
-                    status[$status].class +
-                    '" text-capitalized>' +
-                    status[$status].title +
+                    status[statusValue].class +
+                    ' status-capitalized">' + // Adding a class for text capitalization
+                    status[statusValue].title +
                     '</span>'
                 );
             }
         },{"defaultContent": "-","targets": "_all"}
-
-
-
         ],
 
     });
-
 
     jQuery('#categoryTable').DataTable({
         "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, "500"]],
@@ -127,13 +123,13 @@ $(document).ready(function () {
             // Slider Status
             targets: 2,
             render: function (data, type, full, meta) {
-                var $status = full['status'];
+                var statusValue = full.status; // Using dot notation
 
                 return (
                     '<span class="' +
-                    status[$status].class +
-                    '" text-capitalized>' +
-                    status[$status].title +
+                    status[statusValue].class +
+                    ' status-capitalized">' + // Adding a class for text capitalization
+                    status[statusValue].title +
                     '</span>'
                 );
             }
@@ -177,14 +173,18 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (res) {
                 $(".loader").css("display","none");
-
                 if (res.success == true) {
                     toastr.success("Post created and connected successfully");
                 } else {
                     toastr.warning("Posts already connected to the app");
                 }
                 setTimeout(function() {
-                    location.reload();
+                    var currentLocation = location;
+                    var variables = String(currentLocation).split('&');
+                    location.href = variables[0];
+                   console.log( variables[0]);
+                   //  window.location.href = variables[0];
+
                 }, 700);
             },
             error: function (data) {
@@ -197,49 +197,280 @@ $(document).ready(function () {
 
     });
     // Add a click event listener to the submit button
-    $("#bulk_action").click(function(e) {
+
+    // $("#create_Post").click(function(e) {
+    //     $(".loader").css("display","block");
+    //     $.ajax({
+    //         type: "POST",
+    //         url: appsData6.post_new_url,
+    //         dataType: 'json',
+    //         success: function (res) {
+    //         },
+    //         error: function (data) {
+    //             $(".loader").css("display","none");
+    //
+    //             toastr.error("Error creating post");
+    //         }
+    //     });
+    // });
+
+//     $("#bulk_action").click(function(e) {
+//             // Get the selected action from the drop-down
+//             var action = $("#bulk_action_select").val();
+//
+//             if (action === "") {
+//                 // No action selected, show an error message using SweetAlert
+//                 swal.fire("Error", "Please select a bulk action.", "error");
+//                 return;
+//             }
+//
+//             // Get the selected record IDs
+//             var ids = $('#record-ids').val();
+//
+//             if (!ids || ids.length === 0) {
+//                 // No records selected, show an error message using SweetAlert
+//                 swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+//                 return;
+//             }
+//             if (ids == "[]"){
+//                 swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+//                 return;
+//             }
+//         // Display a confirmation message using SweetAlert
+//         swal.fire({
+//             title: 'Are you sure?',
+//             text: 'You will disable all this Apps !',
+//             icon: 'question',
+//             showCancelButton: true,
+//             confirmButtonText: 'Yes, submit it!',
+//             cancelButtonText: 'No, cancel it'
+//         }).then(function (e) {
+//             if (e.isConfirmed) {
+//        var ids =$ ('#record-ids').val();
+//
+//                 var type = "post";
+//
+//                 $.ajax({
+//                     type: type,
+//                     url: bulk_disable_app.bulk_disable_app,
+//                     data: {
+//                         "record_ids": ids,
+//                         "test" :action
+//                     },
+//                     dataType: 'json',
+//                     success: function (res) {
+//                         if (res.success == false){
+//                             swal.fire("sorry!", res.msg, "error");
+//                         }else{
+//                             swal.fire("Done", res.msg, "success");
+// // Reload the page after 0.5 seconds
+// //                             setTimeout(function() {
+// //                                 location.reload();
+// //                             }, 700);
+//                         }
+//                     },
+//                     error: function (data) {
+//                         toastr.error("we have some error!");
+//                     }
+//                 });
+//             }
+//
+//
+//
+//         });
+//     });
+
+    // $("#execute_bulk_action").click(function(e) {
+    //     // Get the selected action from the drop-down
+    //     var action = $("#bulk_action").val();
+    //
+    //     if (action === "") {
+    //         // No action selected, show an error message using SweetAlert
+    //         swal.fire("Error", "Please select a bulk action.", "error");
+    //         return;
+    //     }
+    //
+    //     // Get the selected record IDs
+    //     var ids = $('#record-ids').val();
+    //
+    //     if (!ids || ids.length === 0) {
+    //         // No records selected, show an error message using SweetAlert
+    //         swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+    //         return;
+    //     }
+    //
+    //     // Display a confirmation message using SweetAlert
+    //     swal.fire({
+    //         title: 'Are you sure?',
+    //         text: 'You will ' + (action === 'disabled' ? 'disable' : 'enable') + ' all the selected Apps!',
+    //         icon: 'question',
+    //         showCancelButton: true,
+    //         confirmButtonText: 'Yes, submit it!',
+    //         cancelButtonText: 'No, cancel it'
+    //     }).then(function (result) {
+    //         if (result.isConfirmed) {
+    //             var type = "post";
+    //
+    //             $.ajax({
+    //                 type: type,
+    //                 url: appsData5.bulk_action_url,
+    //                 data: {
+    //                     "record_ids": JSON.stringify(ids),
+    //                     "action": action // Include the selected action in the request
+    //                 },
+    //                 dataType: 'json',
+    //                 success: function (res) {
+    //                     if (res.success == false){
+    //                         swal.fire("Sorry!", res.msg, "error");
+    //                     } else {
+    //                         swal.fire("Done", res.msg, "success");
+    //                         // Reload the page after 0.5 seconds
+    //                         setTimeout(function() {
+    //                             location.reload();
+    //                         }, 700);
+    //                     }
+    //                 },
+    //                 error: function (data) {
+    //                     toastr.error("We have some error!");
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+    //
+    // $("#execute_bulk_action").click(function(e) {
+    //     // Get the selected action from the drop-down
+    //     var action = $("#bulk_action").val();
+    //
+    //     if (action === "") {
+    //         // No action selected, show an error message using SweetAlert
+    //         swal.fire("Error", "Please select a bulk action.", "error");
+    //         return;
+    //     }
+    //
+    //     // Get the selected record IDs
+    //     var ids = $('#record-ids').val();
+    //
+    //     if (!ids || ids.length === 0) {
+    //         // No records selected, show an error message using SweetAlert
+    //         swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+    //         return;
+    //     }
+    //     if (ids == "[]"){
+    //         swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+    //         return;
+    //     }
+    //     // Display a confirmation message using SweetAlert
+    //     swal.fire({
+    //         title: 'Are you sure?',
+    //         text: 'You will ' + (action === 'disabled' ? 'disable' : 'enable') + ' all the selected Apps!',
+    //         icon: 'question',
+    //         showCancelButton: true,
+    //         confirmButtonText: 'Yes, submit it!',
+    //         cancelButtonText: 'No, cancel it'
+    //     }).then(function (result) {
+    //         if (result.isConfirmed) {
+    //             var type = "post";
+    //
+    //             $.ajax({
+    //                 type: type,
+    //                 url: bulk_disable_app.bulk_disable_app,
+    //                 data: {
+    //                     "record_ids": JSON.stringify(ids),
+    //                     "action_select": action // Include the selected action in the request
+    //                 },
+    //                 dataType: 'text',
+    //                 success: function (res) {
+    //                     if (res.success == false){
+    //                         swal.fire("Sorry!", res.msg, "error");
+    //                     } else {
+    //                         swal.fire("Done", res.msg, "success");
+    //                         // Reload the page after 0.5 seconds
+    //                         setTimeout(function() {
+    //                             location.reload();
+    //                         }, 700);
+    //                     }
+    //                 },
+    //                 // error: function(XMLHttpRequest, textStatus, errorThrown){
+    //                 //     toastr.error(errorThrown);
+    //                 //     // yourErrorHandler(XMLHttpRequest, textStatus, errorThrown);
+    //                 // }
+    //                 error: function (data) {
+    //                     toastr.error("We have some error!");
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+    $("#execute_bulk_action").click(function(e) {
+        // Get the selected action from the drop-down
+        var action = $("#bulk_action").val();
+
+        if (action === "") {
+            // No action selected, show an error message using SweetAlert
+            swal.fire("Error", "Please select a bulk action.", "error");
+            return;
+        }
+
+        // Get the selected record IDs
+        var ids = $('#record-ids').val();
+
+        if (!ids || ids.length === 0) {
+            // No records selected, show an error message using SweetAlert
+            swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+            return;
+        }
+        if (ids == "[]"){
+            swal.fire("Error", "Please select at least one record to perform the bulk action.", "error");
+            return;
+        }
         // Display a confirmation message using SweetAlert
         swal.fire({
             title: 'Are you sure?',
-            text: 'You will disable all this Apps !',
+            text: 'You will ' + (action === 'disabled' ? 'disable' : 'enable') + ' all the selected Apps!',
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Yes, submit it!',
             cancelButtonText: 'No, cancel it'
-        }).then(function (e) {
-            if (e.isConfirmed) {
-       var ids =$ ('#record-ids').val();
-
+        }).then(function (result) {
+            if (result.isConfirmed) {
                 var type = "post";
 
                 $.ajax({
                     type: type,
-                    url: appsData5.bulk_disable_app,
+                    url: bulk_disable_app.bulk_disable_app, // Corrected URL
                     data: {
                         "record_ids": ids,
+                        "action_select": action // Include the selected action in the request
                     },
-                    dataType: 'json',
+                    dataType: 'json', // Change to 'json' to handle the response as JSON data
                     success: function (res) {
                         if (res.success == false){
-                            swal.fire("sorry!", res.msg, "error");
-                        }else{
+                            swal.fire("Sorry!", res.msg, "error");
+                        } else {
                             swal.fire("Done", res.msg, "success");
-// Reload the page after 0.5 seconds
+                            // Reload the page after 0.5 seconds
                             setTimeout(function() {
                                 location.reload();
                             }, 700);
                         }
                     },
+                    // error: function(XMLHttpRequest, textStatus, errorThrown){
+                    //     toastr.error(textStatus);
+                    //     // yourErrorHandler(XMLHttpRequest, textStatus, errorThrown);
+                    // }
                     error: function (data) {
-                        toastr.error("we have some error!");
+                        console.log(data);
+                        toastr.error("We have some error!");
                     }
                 });
             }
-
-
-
         });
     });
+
+
+
+
     var postTable = $('#postTable').DataTable({
         "searching": false, // Disable searching
         "lengthChange": false
@@ -317,8 +548,6 @@ function connect_the_key(id,status){
     });
 }
 
-
-
 function connect_the_post(id){
     var post = $('#post_id_'+id+'').val();
     console.log(post);
@@ -335,7 +564,7 @@ function connect_the_post(id){
         success: function (res) {
 
             toastr.success(res.msg);
-            $('.status-'+id+'').text("Joined")
+            $('.status-'+id+'').text("Joined");
         },
         error: function (data) {
             toastr.error("we have some error!");
@@ -418,23 +647,23 @@ function disable_app(id,status){
                 toastr.success(res.msg);
                 $('.status-'+id+'').text("enabled");
             }else if(status == "disabled"){
-                console.log(status)
+                console.log(status);
 
                 var dis = 0;
                 $('#disabled_button_'+id+'').attr('onclick', 'disable_app('+id+','+dis+')');
                 $('#disabled_button_'+id+'').text("Enable");
                 toastr.success(res.msg);
-                $('.status-'+id+'').text("disabled")
+                $('.status-'+id+'').text("disabled");
             }
 
 
         },
         error: function (data) {
+            console.log(data)
             toastr.error("we have some error!");
         }
     });
 }
-
 function delete_post(id){
     var type = "GET";
     var row = $(this).closest('tr');
@@ -468,7 +697,6 @@ function delete_post(id){
         }
     });
 }
-
 //Select_all
 $(function(){
 //select all functionality
@@ -494,14 +722,13 @@ $(function(){
         $('#record-ids-proxy').val(JSON.stringify(recordIds));
         $('#record-ids-schedule_id').val(JSON.stringify(recordIds));
 
-        recordIds.length > 0
-            ? $('#bulk-delete').attr('disabled', false)
-            : $('#bulk-delete').attr('disabled', true);
+        recordIds.length > 0 ?
+            $('#bulk-delete').attr('disabled', false) :
+            $('#bulk-delete').attr('disabled', true);
 
-        recordIds.length > 0
-            ? $('#Bulk_collection').attr('disabled', false)
-            : $('#Bulk_collection').attr('disabled', true);
-
+        recordIds.length > 0 ?
+             $('#Bulk_collection').attr('disabled', false) :
+             $('#Bulk_collection').attr('disabled', true);
     }
 });
 

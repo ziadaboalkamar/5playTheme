@@ -40,25 +40,20 @@ use Inc\Base\BaseController;
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 }
-
 function dt_activate_plugin() {
     require_once plugin_dir_path(__FILE__) . 'inc/Base/Activate.php';
 
     new Inc\Base\Activate();
 }
-
 function dt_deActivate_plugin() {
     require_once plugin_dir_path(__FILE__) . 'inc/Base/DeActivate.php';
 
     new Inc\Base\DeActivate();
-
 }
 function dt_unInstall_plugin() {
     require_once plugin_dir_path(__FILE__) . 'inc/Base/UnInstall.php';
-
     new Inc\Base\Uninstall();
 }
-
 register_activation_hook(__FILE__,'dt_activate_plugin');
 register_deactivation_hook(__FILE__,'dt_deActivate_plugin');
 register_uninstall_hook(__FILE__, 'dt_unInstall_plugin');
@@ -69,8 +64,6 @@ register_uninstall_hook(__FILE__, 'dt_unInstall_plugin');
 require_once plugin_dir_path(__FILE__) . 'inc/init.php';
 
 if ( class_exists( 'Inc\Init' ) ) {
-
-
     Inc\Init::register_services();
 }
 try {
@@ -98,8 +91,6 @@ try {
         $Auth->storeIntoDB();
         $Auth->print_Error();
         $Auth->redirect();
-
-
     }
     if(isset($_POST['SubmitDisabled'])) {
         $disabled = $_POST['api_connected'];
@@ -114,34 +105,28 @@ add_action('wp_ajax_nopriv_websites_datatables', 'websites_datatables_server_sid
 function websites_datatables_server_side_callback()
  {
     $Websites = new Websites();
-    $Websites_data = $Websites->getData();
+    $Websites->getData();
 }
-
-
 add_action('wp_ajax_related_post_datatables', 'related_post_datatables_server_side_callback');
 add_action('wp_ajax_nopriv_related_post_datatables', 'related_post_datatables_server_side_callback');
 function related_post_datatables_server_side_callback()
 {
     $post = new RelatedPost();
-    $post_data = $post->getData();
+    $post->getData();
 }
-
-
-
 add_action('wp_ajax_delete_related_post_datatables', 'delete_related_post_datatables_server_side_callback');
 add_action('wp_ajax_nopriv_delete_related_post_datatables', 'delete_related_post_datatables_server_side_callback');
 function delete_related_post_datatables_server_side_callback()
 {
     $post = new RelatedPost();
-    $post_data = $post->delete_post();
+    $post->delete_post();
 }
-
 add_action('wp_ajax_apps_datatables', 'apps_datatables_server_side_callback');
 add_action('wp_ajax_nopriv_apps_datatables', 'apps_datatables_server_side_callback');
 function apps_datatables_server_side_callback()
  {
     $Apps = new Apps();
-    $Apps = $Apps->getData();
+    $Apps->getData();
 }
 
 add_action('wp_ajax_post_app', 'post_app_server_side_callback');
@@ -149,7 +134,7 @@ add_action('wp_ajax_nopriv_post_app', 'post_app_server_side_callback');
 function post_app_server_side_callback()
 {
     $Apps = new Apps();
-    $Apps = $Apps->connect_with_post();
+    $Apps->connect_with_post();
 }
 
 add_action('wp_ajax_post_new', 'post_new_server_side_callback');
@@ -157,22 +142,21 @@ add_action('wp_ajax_nopriv_post_new', 'post_new_server_side_callback');
 function post_new_server_side_callback()
 {
     $Apps = new Apps();
-    $Apps = $Apps->create_post();
+    $Apps->create_post();
 }
-
 add_action('wp_ajax_chart_js', 'chart_js_server_side_callback');
 add_action('wp_ajax_nopriv_chart_js', 'chart_js_server_side_callback');
 function chart_js_server_side_callback()
 {
     $dashboard = new Dashboard();
-    $dashboard = $dashboard->chartjs();
+    $dashboard->chartjs();
 }
 add_action('wp_ajax_categories_datatables', 'categories_datatables_server_side_callback');
 add_action('wp_ajax_nopriv_categories_datatables', 'categories_datatables_server_side_callback');
 function categories_datatables_server_side_callback()
 {
     $Category = new Category();
-    $Category = $Category->getData();
+    $Category->getData();
 }
 
 add_action('wp_ajax_process_app', 'process_app_server_side_callback');
@@ -180,9 +164,8 @@ add_action('wp_ajax_nopriv_process_app', 'process_app_server_side_callback');
 function process_app_server_side_callback()
 {
     $Apps = new Apps();
-    $Apps = $Apps->store_process();
+    $Apps->store_process();
 }
-
  //See http://codex.wordpress.org/Plugin_API/Filter_Reference/cron_schedules
 add_filter( 'cron_schedules', 'isa_add_every_minutes' );
 function isa_add_every_minutes( $schedules ) {
@@ -192,7 +175,6 @@ function isa_add_every_minutes( $schedules ) {
     );
     return $schedules;
 }
-
 if ( ! wp_next_scheduled( 'my_cron_hook' ) ) {
     wp_schedule_event( time(), 'my_interval', 'my_cron_hook' );
 }
@@ -204,41 +186,38 @@ function every_minutes_event_func() {
     $cronjob = new CronJob();
     $cronjob->my_cron_job();
 }
-
 add_action('wp_ajax_key_selected', 'key_selected_server_side_callback');
 add_action('wp_ajax_nopriv_key_selected', 'key_selected_server_side_callback');
 function key_selected_server_side_callback()
 {
     $Apps = new Apps();
-    $Apps = $Apps->change_status_of_key();
+    $Apps->change_status_of_key();
 }
 add_action('wp_ajax_change_color', 'change_color_server_side_callback');
 add_action('wp_ajax_nopriv_change_color', 'change_color_server_side_callback');
 function change_color_server_side_callback()
 {
     $settings = new SettingsLink();
-    $settings = $settings->change_color();
+    $settings->change_color();
 }
 add_action('wp_ajax_disable_app', 'disable_app_server_side_callback');
 add_action('wp_ajax_nopriv_disable_app', 'disable_app_server_side_callback');
 function disable_app_server_side_callback()
 {
     $Apps = new Apps();
-    $Apps = $Apps->disable_app();
+    $Apps->disable_app();
 }
 add_action('wp_ajax_bulk_disable_app', 'bulk_disable_app_server_side_callback');
 add_action('wp_ajax_nopriv_bulk_disable_app', 'bulk_disable_app_server_side_callback');
 function bulk_disable_app_server_side_callback()
 {
     $Apps = new Apps();
-    $Apps = $Apps->bulk_action();
+    $Apps->bulk_disable();
 }
-
 function add_custom_metabox() {
     add_meta_box( 'custom_metabox', 'DT Custom Data', 'display_custom_metabox', 'post', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'add_custom_metabox' );
-
 function display_custom_metabox( $post ) {
     global $wpdb;
     $base= new BaseController();
@@ -358,7 +337,6 @@ function wp_first_paragraph_excerpt( $id=null ) {
         $content = get_post_field( 'post_content', $id );
 
     }
-
     // Remove all tags, except paragraphs
     $excerpt = strip_tags( $content, '<p></p>' );
     // Remove empty paragraph tags
@@ -395,7 +373,6 @@ function get_key($app_id , $key){
     return $value;
 
 }
-
 function color_saved($key){
     global $wpdb;
     $base= new BaseController();
@@ -460,13 +437,11 @@ function get_content($post_id){
 
     echo "<p>".$excerpt."</p><span class = 'read_paragraph'>... <a class='read-more' href='<?php echo $link;?>'> ".esc_html__('Read More...','dt-apps-scrapper')." </a></span>";
 }
-
 function my_plugin_log( $message ) {
     $log_file = WP_CONTENT_DIR . '/my-plugin-log.txt';
     $timestamp = date( 'Y-m-d H:i:s' );
     error_log( "[{$timestamp}] {$message}\n", 3, $log_file );
 }
-
 function get_key_changes_by_time( $key ) {
     global $wpdb;
     $base= new BaseController();
@@ -494,7 +469,6 @@ function get_key_changes_by_time( $key ) {
 
     return $changes;
 }
-
 // Load the plugin text domain
 add_action( 'plugins_loaded', 'dt_apps_scrapper_load_textdomain' );
 function dt_apps_scrapper_load_textdomain() {
@@ -562,11 +536,9 @@ function add_logo_feature_image($logo_url="", $app_id=0){
                 set_post_thumbnail( $post->id, $attach_id );
             }
         }
-
         return false; // Unable to find the app data or app data post
     }
 }
-
 add_action('init','add_logo_feature_image');
 //// add content before the content
 //function dt_scrapper_application_info_before_content($content) {

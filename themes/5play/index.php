@@ -23,7 +23,9 @@ if($latest_post_on) { ?>
 		endwhile;
 		else : ?>
 		<p style="text-align:center;padding:10px;">Ready to publish your first post? <a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>">Get started here</a></p>
-		</div>
+		</div>Fortnite
+            Posted on
+            المثبت الرسمي للعبة Fortnite على أجهزة Android
 		<?php endif;
 		get_template_part('template/navy');
 		?>

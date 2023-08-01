@@ -1,0 +1,1062 @@
+
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//            // Check if the post title is equal to the app name
+//            if ($app_data_post && $app_data_post->post_title === $app->name) {
+//                // Post title is equal to app name
+//
+//                // Check if the post is linked to another app
+//                if ($app_data_post->app_id !== $app_id) {
+//                    // Post is linked to another app, so create a new post and connect it to the app.
+//                    $add_posts = array(
+//                        'post_title' => $app->name,
+//                        'post_content' => 'Content of the new post',
+//                        'post_status' => 'publish',
+//                        'post_type' => 'post',
+//                    );
+//
+//                    $post_id = wp_insert_post($add_posts);
+//
+//                    // Now, connect the new post to the app.
+//                    if ($post_id) {
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "New post created and connected to app."
+//                        );
+//                        $wpdb->update($table_app_info, array(
+//                            'app_update_number' => 0,
+//                        ), array(
+//                            'id' => $app->id,
+//                        ));
+//                    } else {
+//                        $data = array(
+//                            "success" => false,
+//                            "status" => 500,
+//                            "msg" => "Error creating a new post."
+//                        );
+//                    }
+//                } else {
+//                    // Post is already connected to the app, do nothing.
+//                    $data = array(
+//                        "success" => false,
+//                        "status" => 200,
+//                        "msg" => "Post title is equal to app name and already connected to app."
+//                    );
+//                }
+//            } else {
+//                // Post title is not equal to app name, create a new post and connect it to the app.
+//                $add_posts = array(
+//                    'post_title' => $app->name,
+//                    'post_content' => 'Content of the new post',
+//                    'post_status' => 'publish',
+//                    'post_type' => 'post',
+//                );
+//
+//                $post_id = wp_insert_post($add_posts);
+//
+//                // Now, connect the new post to the app.
+//                if ($post_id) {
+//                    $wpdb->insert($table_app_post, array(
+//                        'app_id' => $app_id,
+//                        'post_id' => $post_id,
+//                    ));
+//                    $data = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "New post created and connected to app."
+//                    );
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app->id,
+//                    ));
+//                } else {
+//                    $data = array(
+//                        "success" => false,
+//                        "status" => 500,
+//                        "msg" => "Error creating a new post."
+//                    );
+//                }
+//            }
+//        }
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//        wp_send_json($data);
+//    }
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//
+//            // Check if the post is linked to the app in the $table_app_post table
+//            $post_linked_to_app = false;
+//            if ($app_data_post) {
+//                foreach ($app_data_post as $post) {
+//                    if ($post->post_title === $app->name) {
+//                        $post_linked_to_app = true;
+//                        break;
+//                    }
+//                }
+//            }
+//            if ($post_linked_to_app) {
+//                // Post is linked to the app in the $table_app_post table, do nothing.
+//                $data = array(
+//                    "success" => false,
+//                    "status" => 200,
+//                    "msg" => "Post is already linked to the app."
+//                );
+//            } else {
+//                $client2 = new \GuzzleHttp\Client();
+//                $api_url="";
+//                $token="";
+//                $use_tag_setting="";
+//                $response = $client2->request('GET', "{$api_url->value}/api/project/getAppName?id={$app->name}",[
+//                    'headers' => [
+//                        'Authorization' => 'Bearer ' . $token->value,
+//                        'Accept'        => 'application/json',
+//                    ],
+//                ]);
+//                $data = json_decode($response->getBody(), true);
+//                if (isset($data["app"]) && is_array($data["app"])) {
+//                    // Post is not linked to the app in the $table_app_post table, create a new post and connect it to the app.
+//                    $add_posts = array(
+//                        'post_title' => $app->name,
+//                        'post_content' => 'Content of the new post',
+//                        'post_status' => 'publish',
+//                        'post_type' => 'post',
+//                    );
+//                    $post_id = wp_insert_post($add_posts);
+//
+//                    // Now, connect the new post to the app.
+//                    if ($post_id) {
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "New post created and connected to app."
+//                        );
+//                        $wpdb->update($table_app_info, array(
+//                            'app_update_number' => 0,
+//                        ), array(
+//                            'id' => $app->id,
+//                        ));
+//                    } else {
+//                        $data = array(
+//                            "success" => false,
+//                            "status" => 500,
+//                            "msg" => "Error creating a new post."
+//                        );
+//                    }
+//                }
+//            }
+//        }
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//        wp_send_json($data);
+//    }
+
+
+//    public function create_post($app_name)
+//    {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        // Check if the post title is equal to the app name
+//        $post_linked_to_app = false;
+//        $existing_post = get_page_by_title($app_name, OBJECT, 'post');
+//
+//        if ($existing_post) {
+//            // Post with the same title exists, check if it is linked to another app
+//            $app_data_post = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_app_post} WHERE post_id = %d", $existing_post->ID));
+//            if ($app_data_post) {
+//                // Post is linked to another app, create a new post and connect it to the app.
+//                $add_posts = array(
+//                    'post_title' => $app_name,
+//                    'post_content' => 'Content of the new post',
+//                    'post_status' => 'publish',
+//                    'post_type' => 'post',
+//                );
+//
+//                $post_id = wp_insert_post($add_posts);
+//
+//                // Now, connect the new post to the app.
+//                if ($post_id) {
+//                    $wpdb->insert($table_app_post, array(
+//                        'app_id' => $app_data_post->app_id,
+//                        'post_id' => $post_id,
+//                    ));
+//                    $data = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "New post created and connected to app."
+//                    );
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app_data_post->app_id,
+//                    ));
+//                } else {
+//                    $data = array(
+//                        "success" => false,
+//                        "status" => 500,
+//                        "msg" => "Error creating a new post."
+//                    );
+//                }
+//            } else {
+//                // Post is not linked to any app, connect the post to the app.
+//                $wpdb->insert($table_app_post, array(
+//                    'app_id' => $app_data_post->app_id,
+//                    'post_id' => $existing_post->ID,
+//                ));
+//                $data = array(
+//                    "success" => true,
+//                    "status" => 200,
+//                    "msg" => "Post connected to app."
+//                );
+//                $wpdb->update($table_app_info, array(
+//                    'app_update_number' => 0,
+//                ), array(
+//                    'id' => $app_data_post->app_id,
+//                ));
+//            }
+//        } else {
+//            // Post with the same title does not exist, create a new post and connect it to the app.
+//            $add_posts = array(
+//                'post_title' => $app_name,
+//                'post_content' => 'Content of the new post',
+//                'post_status' => 'publish',
+//                'post_type' => 'post',
+//            );
+//
+//            $post_id = wp_insert_post($add_posts);
+//
+//            // Now, connect the new post to the app.
+//            if ($post_id) {
+//                $wpdb->insert($table_app_post, array(
+//                    'app_id' => $app_id,
+//                    'post_id' => $post_id,
+//                ));
+//                $data = array(
+//                    "success" => true,
+//                    "status" => 200,
+//                    "msg" => "New post created and connected to app."
+//                );
+//                $wpdb->update($table_app_info, array(
+//                    'app_update_number' => 0,
+//                ), array(
+//                    'id' => $app_id,
+//                ));
+//            } else {
+//                $data = array(
+//                    "success" => false,
+//                    "status" => 500,
+//                    "msg" => "Error creating a new post."
+//                );
+//            }
+//        }
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//        wp_send_json($data);
+//    }
+
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//
+//            $client2 = new \GuzzleHttp\Client();
+//            $token = $wpdb->get_row("SELECT * FROM {$setting} WHERE `key` = 'api_token'");
+//            $api_url = $wpdb->get_row("SELECT * FROM {$setting} WHERE `key` = 'api_url'");
+//
+//            // Get the app name from the API
+//            $response = $client2->request('GET', "{$api_url}/api/project/getAppName?id={$app->name}", [
+//                'headers' => [
+//                    'Authorization' => 'Bearer ' . $token,
+//                    'Accept' => 'application/json',
+//                ],
+//            ]);
+//            $app_data = json_decode($response->getBody(), true);
+//
+//            if (isset($app_data["app"]) && is_array($app_data["app"])) {
+//                $app_name = $app_data["app"]["name"];
+//                $post_title = $app->name;
+//
+//                // Check if the app name is not equal to the post title
+//                if ($app_name !== $post_title) {
+//                    // Create a new post and connect it to the app.
+//                    $add_posts = array(
+//                        'post_title' => $app_name,
+//                        'post_content' => 'Content of the new post',
+//                        'post_status' => 'publish',
+//                        'post_type' => 'post',
+//                    );
+//                    $post_id = wp_insert_post($add_posts);
+//
+//                    if ($post_id) {
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data[] = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "New post created and connected to app.",
+//                        );
+//                        $wpdb->update($table_app_info, array(
+//                            'app_update_number' => 0,
+//                        ), array(
+//                            'id' => $app->id,
+//                        ));
+//                    } else {
+//                        $data[] = array(
+//                            "success" => false,
+//                            "status" => 500,
+//                            "msg" => "Error creating a new post.",
+//                        );
+//                    }
+//                } else {
+//                    // Check if the post is linked to any app in the $table_app_post table
+//                    $post_linked_to_app = false;
+//                    if ($app_data_post) {
+//                        foreach ($app_data_post as $post) {
+//                            if ($post->post_title === $post_title) {
+//                                $post_linked_to_app = true;
+//                                break;
+//                            }
+//                        }
+//                    }
+//
+//                    if (!$post_linked_to_app) {
+//                        // Post is not linked to any app in the $table_app_post table, connect it to the current app.
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data[] = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "Post linked to the app.",
+//                        );
+//                    } else {
+//                        // Post is linked to another app, create a new post and connect it to the current app.
+//                        $add_posts = array(
+//                            'post_title' => $app_name,
+//                            'post_content' => 'Content of the new post',
+//                            'post_status' => 'publish',
+//                            'post_type' => 'post',
+//                        );
+//                        $post_id = wp_insert_post($add_posts);
+//
+//                        if ($post_id) {
+//                            $wpdb->insert($table_app_post, array(
+//                                'app_id' => $app_id,
+//                                'post_id' => $post_id,
+//                            ));
+//                            $data[] = array(
+//                                "success" => true,
+//                                "status" => 200,
+//                                "msg" => "New post created and connected to app.",
+//                            );
+//                            $wpdb->update($table_app_info, array(
+//                                'app_update_number' => 0,
+//                            ), array(
+//                                'id' => $app->id,
+//                            ));
+//                        } else {
+//                            $data[] = array(
+//                                "success" => false,
+//                                "status" => 500,
+//                                "msg" => "Error creating a new post.",
+//                            );
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//        wp_send_json($data);
+//    }
+
+
+
+
+
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//
+//            // Get the app name from the API
+//            $client2 = new \GuzzleHttp\Client();
+//            $api_url = $wpdb->get_row("SELECT * FROM {$setting} WHERE `key` = 'api_url'");
+//            $token = $wpdb->get_row("SELECT * FROM {$setting} WHERE `key` = 'api_token'");
+//            $response = $client2->request('GET', "{$api_url}/api/project/getAppName?id={$app->name}", [
+//                'headers' => [
+//                    'Authorization' => 'Bearer ' . $token,
+//                    'Accept' => 'application/json',
+//                ],
+//            ]);
+//            $app_data = json_decode($response->getBody(), true);
+//
+//            if (isset($app_data["app"]) && is_array($app_data["app"])) {
+//                $app_name = $app_data["app"]["name"];
+//                $post_title = $app->name;
+//
+//                if ($app_name !== $post_title) {
+//                    // Case 1: If the app name is not equal to the post title, create a new post and connect it to the app.
+//                    $add_posts = array(
+//                        'post_title' => $app_name,
+//                        'post_content' => 'Content of the new post',
+//                        'post_status' => 'publish',
+//                        'post_type' => 'post',
+//                    );
+//                    $post_id = wp_insert_post($add_posts);
+//
+//                    if ($post_id) {
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data[] = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "New post created and connected to app.",
+//                        );
+//                        $wpdb->update($table_app_info, array(
+//                            'app_update_number' => 0,
+//                        ), array(
+//                            'id' => $app->id,
+//                        ));
+//                    } else {
+//                        $data[] = array(
+//                            "success" => false,
+//                            "status" => 500,
+//                            "msg" => "Error creating a new post.",
+//                        );
+//                    }
+//                } else {
+//                    if ($app_data_post) {
+//                        // Case 2: If there are posts connected to the app, do nothing (not connect).
+//                        $data[] = array(
+//                            "success" => false,
+//                            "status" => 200,
+//                            "msg" => "Posts already connected to app",
+//                        );
+//                    } else {
+//                        // Case 3: If there are no posts connected to the app, create a new post and connect.
+//                        $add_posts = array(
+//                            'post_title' => $app_name,
+//                            'post_content' => 'Content of the new post',
+//                            'post_status' => 'publish',
+//                            'post_type' => 'post',
+//                        );
+//
+//                        $post_id = wp_insert_post($add_posts);
+//
+//                        if ($post_id) {
+//                            $wpdb->insert($table_app_post, array(
+//                                'app_id' => $app_id,
+//                                'post_id' => $post_id,
+//                            ));
+//                            $data[] = array(
+//                                "success" => true,
+//                                "status" => 200,
+//                                "msg" => "New post created and connected to app.",
+//                            );
+//                            $wpdb->update($table_app_info, array(
+//                                'app_update_number' => 0,
+//                            ), array(
+//                                'id' => $app->id,
+//                            ));
+//                        } else {
+//                            $data[] = array(
+//                                "success" => false,
+//                                "status" => 500,
+//                                "msg" => "Error creating a new post.",
+//                            );
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//        $data[] = array(
+//            "success" => true,
+//            "status" => 200,
+//            "msg" => "Create all posts successfully, and scrapper run now.",
+//        );
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//
+//        wp_send_json($data);
+//    }
+
+
+
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//
+//            // Check if there is an entry for this app_id in $table_app_post
+//            $app_data_post = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_app_post} WHERE app_id = %d", $app_id));
+//
+////            // Get the post title and content
+////            $post_title = $app->name;
+////            $post_content = 'Content of the new post';
+//
+//            if ($app_data_post) {
+//                // If there is an entry, modify the existing post.
+//                $post_id = $app_data_post->post_id;
+//
+//                $update_posts = array(
+//                    'ID' => $post_id,
+//                    'post_title' => $post_title,
+//                    'post_content' => $post_content,
+//                    'post_status' => 'publish',
+//                    'post_type' => 'post',
+//                );
+//
+//                $post_updated = wp_update_post($update_posts);
+//
+//                if ($post_updated !== 0) {
+//                    $data[] = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "Existing post (ID: {$post_id}) modified for app with ID {$app_id}"
+//                    );
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app->id,
+//                    ));
+//                } else {
+//                    $data[] = array(
+//                        "success" => false,
+//                        "status" => 500,
+//                        "msg" => "Error updating existing post (ID: {$post_id}) for app with ID {$app_id}"
+//                    );
+//                }
+//            } else {
+//                // If there are no posts connected to the app, check if a post with the same title and content exists in wp_posts.
+//                $existing_post = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->posts} WHERE post_title = %s AND post_content = %s", $post_title, $post_content));
+//
+//                if ($existing_post) {
+//                    // If a post with the same title and content exists, update the post_id in $table_app_post.
+//                    $post_id = $existing_post->ID;
+//                    $wpdb->insert($table_app_post, array(
+//                        'app_id' => $app_id,
+//                        'post_id' => $post_id,
+//                    ));
+//
+//                    $data[] = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "Existing post (ID: {$post_id}) connected to app with ID {$app_id}"
+//                    );
+//
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app->id,
+//                    ));
+//                } else {
+//                    // If there are no posts with the same title and content, create a new post and connect it.
+//                    $add_posts = array(
+//                        'post_title' => $post_title,
+//                        'post_content' => $post_content,
+//                        'post_status' => 'publish',
+//                        'post_type' => 'post',
+//                    );
+//
+//                    $post_id = wp_insert_post($add_posts);
+//
+//                    if ($post_id) {
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data[] = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "New post created (ID: {$post_id}) and connected to app with ID {$app_id}"
+//                        );
+//                        $wpdb->update($table_app_info, array(
+//                            'app_update_number' => 0,
+//                        ), array(
+//                            'id' => $app->id,
+//                        ));
+//                    } else {
+//                        $data[] = array(
+//                            "success" => false,
+//                            "status" => 500,
+//                            "msg" => "Error creating a new post for app with ID {$app_id}"
+//                        );
+//                    }
+//                }
+//            }
+//        }
+//
+//        // Return the response data as JSON.
+//        $data = array(
+//            "success" => true,
+//            "status" => 200,
+//            "msg" => "Create all post successfully and scrapper run now",
+//            "data" => $data // Include the individual app status in the response.
+//        );
+//
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//
+//        wp_send_json($data);
+//    }
+
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//
+//            // Check if there is an existing post connected to the app
+//            if ($app_data_post) {
+//                // If there are posts connected to the app, do nothing (not connect).
+//                $data[] = array(
+//                    "success" => false,
+//                    "status" => 200,
+//                    "msg" => "Posts already connected to app with ID: {$app_id}"
+//                );
+//            } else {
+//                // Check if a post with the same title and content already exists
+//                $existing_post = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->posts} WHERE post_title = %s AND post_content = %s", $app->name, 'Content of the new post'));
+//
+//                if ($existing_post) {
+//                    // If a post with the same title and content exists, connect it to the app.
+//                    $wpdb->insert($table_app_post, array(
+//                        'app_id' => $app_id,
+//                        'post_id' => $existing_post->ID,
+//                    ));
+//                    $data[] = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "Existing post connected to app with ID: {$app_id}"
+//                    );
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app->id,
+//                    ));
+//                } else {
+//                    // If no post with the same title and content exists, create a new post and connect.
+//                    $add_posts = array(
+//                        'post_title' => $app->name,
+//                        'post_content' => 'Content of the new post',
+//                        'post_status' => 'publish',
+//                        'post_type' => 'post',
+//                    );
+//
+//                    $post_id = wp_insert_post($add_posts);
+//
+//                    // Now, connect the new post to the app.
+//                    if ($post_id) {
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                        $data[] = array(
+//                            "success" => true,
+//                            "status" => 200,
+//                            "msg" => "New post created and connected to app with ID: {$app_id}"
+//                        );
+//                        $wpdb->update($table_app_info, array(
+//                            'app_update_number' => 0,
+//                        ), array(
+//                            'id' => $app->id,
+//                        ));
+//                    } else {
+//                        $data[] = array(
+//                            "success" => false,
+//                            "status" => 500,
+//                            "msg" => "Error creating a new post for app with ID: {$app_id}"
+//                        );
+//                    }
+//                }
+//            }
+//        }
+//
+//        // Return the response data as JSON.
+//        $response_data = array(
+//            "success" => true,
+//            "status" => 200,
+//            "data" => $data,
+//            "msg" => "Posts checked and created successfully, scrapper run now."
+//        );
+//
+//        // Update the setting value and send JSON response.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//
+//        wp_send_json($response_data);
+//    }
+
+
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//
+//        // Check if there are any posts in wp_posts table
+//        $existing_posts = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type = 'post'");
+//
+//        if ($existing_posts > 0) {
+//            // Fetch new data and edit existing posts
+//            $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//            foreach ($apps as $app) {
+//                $app_id = $app->id;
+//                $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//
+//                if (isset($app_data_post)) {
+//                    // If there are posts connected to the app, edit the post.
+//                    $post_id = $app_data_post->post_id;
+//                    $updated_content = 'Updated content for the post';
+//
+//                    $updated_post = array(
+//                        'ID' => $post_id,
+//                        'post_title' => $app->name,
+//                        'post_content' => $updated_content,
+//                    );
+//
+//                    wp_update_post($updated_post);
+//
+//                    $data = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "Post updated and connected to app"
+//                    );
+//
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app->id,
+//                    ));
+//                } else {
+//                    // If there are no posts connected to the app, create a new post and connect.
+//                    // Check for duplicate post before creating
+//                    $existing_post = $wpdb->get_row(
+//                        $wpdb->prepare(
+//                            "SELECT * FROM {$wpdb->posts} WHERE post_type = 'post' AND post_title = %s AND post_content = %s",
+//                            $app->name,
+//                            'Content of the new post'
+//                        )
+//                    );
+//
+//                    if ($existing_post) {
+//                        // If a post with the same title and content already exists, connect it to the app.
+//                        $post_id = $existing_post->ID;
+//                        $wpdb->insert($table_app_post, array(
+//                            'app_id' => $app_id,
+//                            'post_id' => $post_id,
+//                        ));
+//                    } else {
+//                        // If no duplicate post exists, create a new post and connect it to the app.
+//                        $add_posts = array(
+//                            'post_title' => $app->name,
+//                            'post_content' => 'Content of the new post',
+//                            'post_status' => 'publish',
+//                            'post_type' => 'post',
+//                        );
+//
+//                        $post_id = wp_insert_post($add_posts);
+//
+//                        if ($post_id) {
+//                            $wpdb->insert($table_app_post, array(
+//                                'app_id' => $app_id,
+//                                'post_id' => $post_id,
+//                            ));
+//                        } else {
+//                            $data = array(
+//                                "success" => false,
+//                                "status" => 500,
+//                                "msg" => "Error creating a new post"
+//                            );
+//                        }
+//                    }
+//
+//                    $data = array(
+//                        "success" => true,
+//                        "status" => 200,
+//                        "msg" => "New post created and connected to app"
+//                    );
+//
+//                    $wpdb->update($table_app_info, array(
+//                        'app_update_number' => 0,
+//                    ), array(
+//                        'id' => $app->id,
+//                    ));
+//                }
+//            }
+//
+//            $data = array(
+//                "success" => true,
+//                "status" => 200,
+//                "msg" => "Fetch new data and edit existing posts successfully"
+//            );
+//        }
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//
+//        wp_send_json($data);
+//    }
+
+
+////////////////////////////////////////////////////
+//    public function create_post() {
+//        global $wpdb;
+//        $table_app_post = $this->table_app_post;
+//        $table_app_info = $this->table_app_info;
+//        $setting = $this->table_settings;
+//        $posts_table = $wpdb->prefix."posts";
+//
+//        $data = array();
+//        $apps = $wpdb->get_results("SELECT * FROM {$table_app_info}");
+//
+//        foreach ($apps as $app) {
+//            $app_id = $app->id;
+//            $app_data_post = $wpdb->get_row("SELECT * FROM {$table_app_post} WHERE app_id = {$app_id}");
+//
+//            // Get the app name from the API
+//            $client2 = new \GuzzleHttp\Client();
+//            $api_url_row = $wpdb->get_row("SELECT * FROM {$setting} WHERE `key` = 'api_url'");
+//            $token_row = $wpdb->get_row("SELECT * FROM {$setting} WHERE `key` = 'api_token'");
+//
+//            if ($api_url_row && $token_row) {
+//                $api_url = $api_url_row->value;
+//                $token = $token_row->value;
+//
+//                try {
+//                    $response = $client2->request('GET', "{$api_url}/api/project/getAppName?id={$app->api_app_id}", [
+//                        'headers' => [
+//                            'Authorization' => 'Bearer ' . $token,
+//                            'Accept' => 'application/json',
+//                        ],
+//                    ]);
+//                    $app_data = json_decode($response->getBody(), true);
+//
+//                    if (isset($app_data["name"])) {
+//                        $app_name = $app_data["name"];
+//                        $post_title = $wpdb->get_row("SELECT * FROM {$posts_table}  WHERE post_title = '{$app_name}' AND post_status = 'publish'");
+//
+//                        if ($app_name != $post_title->post_title) {
+//                            // Case 1: If the app name is not equal to the post title, create a new post and connect it to the app.
+//                            $add_posts = array(
+//                                'post_title' => $app_name,
+//                                'post_content' => 'Content of the new post',
+//                                'post_status' => 'publish',
+//                                'post_type' => 'post',
+//                            );
+//                            $post_id = wp_insert_post($add_posts);
+//
+//                            if ($post_id) {
+//                                $wpdb->insert($table_app_post, array(
+//                                    'app_id' => $app_id,
+//                                    'post_id' => $post_id,
+//                                ));
+//                                $data[] = array(
+//                                    "success" => true,
+//                                    "status" => 200,
+//                                    "msg" => "New post created and connected to app.",
+//                                );
+//                                $wpdb->update($table_app_info, array(
+//                                    'app_update_number' => 0,
+//                                ), array(
+//                                    'id' => $app->id,
+//                                ));
+//                            } else {
+//                                $data[] = array(
+//                                    "success" => false,
+//                                    "status" => 500,
+//                                    "msg" => "Error creating a new post.",
+//                                );
+//                            }
+//                        } else {
+//                            $check_post = $wpdb->get_row("SELECT * FROM {$table_app_post}  WHERE post_id = {$post_title->ID}");
+//
+//                            if (!$check_post) {
+//                                        $wpdb->insert($table_app_post, array(
+//                                            'app_id' => $app_id,
+//                                            'post_id' => $post_title->ID,
+//                                        ));
+//                                        $data[] = array(
+//                                            "success" => true,
+//                                            "status" => 200,
+//                                            "msg" => "New post created and connected to app.",
+//                                        );
+//                                        $wpdb->update($table_app_info, array(
+//                                            'app_update_number' => 0,
+//                                        ), array(
+//                                            'id' => $app->id,
+//                                        ));
+//
+//
+//                            }else{
+//                                if ($check_post->app_id != $app->id ){
+////                                    $add_posts = array(
+////                                        'post_title' => $app_name,
+////                                        'post_content' => 'Content of the new post',
+////                                        'post_status' => 'publish',
+////                                        'post_type' => 'post',
+////                                    );
+////
+//////                                    $post_id = wp_insert_post($add_posts);
+//
+//                                    if ($post_id) {
+//                                        $wpdb->insert($table_app_post, array(
+//                                            'app_id' => $app_id,
+//                                            'post_id' => $post_id,
+//                                        ));
+//                                        $data[] = array(
+//                                            "success" => true,
+//                                            "status" => 200,
+//                                            "msg" => "New post created and connected to app.",
+//                                        );
+//                                        $wpdb->update($table_app_info, array(
+//                                            'app_update_number' => 0,
+//                                        ), array(
+//                                            'id' => $app->id,
+//                                        ));
+//                                    } else {
+//                                        $data[] = array(
+//                                            "success" => false,
+//                                            "status" => 500,
+//                                            "msg" => "Error creating a new post.",
+//                                        );
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                } catch (\Exception $e) {
+//                    // Log the error for debugging purposes.
+//                    error_log('Error while making API call: ' . $e->getMessage());
+//                    $data[] = array(
+//                        "success" => false,
+//                        "status" => 500,
+//                        "msg" => "Error connecting to the API.",
+//                    );
+//                }
+//            } else {
+//                $data[] = array(
+//                    "success" => false,
+//                    "status" => 500,
+//                    "msg" => "API URL or token not found in settings.",
+//                );
+//            }
+//        }
+//
+//
+//
+//        // Return the response data as JSON.
+//        $wpdb->update($setting, array(
+//            "value" => 0
+//        ), array(
+//            'key' => "project_update_number"
+//        ));
+//
+//        wp_send_json($data);
+//    }
